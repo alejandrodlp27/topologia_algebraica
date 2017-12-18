@@ -1,0 +1,86 @@
+%%% PREGUNTA
+
+\begin{ejercicio}\label{ejercicio:4}
+Sean $\alpha_1,\ldots,\alpha_n:I\ra X$ trayectorias tales que $\alpha_r(0)=\alpha_{r-1}(1)$. Si $f_r:I\ra I$
+est\'a definida como en \ref{eq:fr}, entonces:
+\[
+	(\alpha_1*\cdots*\alpha_n)\circ f_r=(\alpha_1*\cdots*\alpha_r)*(\alpha_{r+1}*\cdots*\alpha_n).
+\]
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}% Primero enumero unas propiedades b\'asicas que cumple la funci\'on $f_r$:
+\[
+	0\leq s \leq\tfrac{1}{2} \quad\then\quad 2s=\frac{n}{r}f_r(s) \quad,\quad
+	\frac{1}{2}\leq s \leq 1 \quad\then\quad 2s-1=f_r(s)-\frac{2r}{n}(1-s)
+\]
+Tambi\'en escribo expl\'icitamente la definici\'on de $\alpha_{r+1}*\cdots*\alpha_n$:
+\[%
+	(\alpha_r*\cdots *\alpha_{n})(s):=%
+		\begin{cases}%
+			\alpha_r((n-r)s) & \text{si}\;\; 0\leq s\leq\frac{1}{n-r} \\
+			\alpha_{r+1}((n-r)s-1) & \text{si}\;\;\frac{1}{n-r}\leq s\leq \frac{2}{n-r} \\
+			\vdots & \vdots \\
+			\alpha_{r+k'}((n-r)s-(k'-1)) & \text{si}\;\;\frac{k'-1}{n-r}\leq s \leq \frac{k'}{n-r} \\
+			\vdots & \vdots \\
+			\alpha_n((n-r)ns-((n-r)-1)) & \text{si}\;\;\frac{(n-r)-1}{n-r} \leq s \leq 1
+		\end{cases}%
+\]%
+donde $r\in\{1,\ldots,n-1\}$ y $k\in\{1,\ldots,n-r\}$
+
+Para probar el ejercicio, eval\'uo ambos lados en $s\in[0,1]$. Para facilitar la cuenta, divido en dos casos:
+
+Primero supongo que $0\leq s\leq \frac{1}{2}$. Entonces el lado izquierdo se vuelve:
+\[
+	\big((\alpha_1*\cdots*\alpha_n)\circ f_r\big)(s)=(\alpha_1*\cdots*\alpha_n)\paren{\frac{2rs}{n}}=
+	\alpha_k\paren{n\frac{2rs}{n}-(k-1)}=\alpha_k(2rs-k+1)
+\]
+donde $k\in\{1,\ldots,n\}$ es un elemento tal que
+\begin{equation}\label{eq:k_perfecta}
+	\frac{k-1}{n}\leq \frac{2rs}{n} \leq \frac{k}{n}  \quad\iff\quad  \frac{k-1}{r}\leq 2s \leq \frac{k}{r}
+\end{equation}
+
+Ahora, como $s\leq 1/2$, tengo:
+\[
+\big((\alpha_1*\cdots*\alpha_r)*(\alpha_{r+1}*\cdots*\alpha_n)\big)(s)=(\alpha_1*\cdots*\alpha_r)(2s).
+\]
+Como $2s$ cumple (\ref{eq:k_perfecta}), puedo calcular expl\'icitamente la funci\'on anterior:
+\[
+	(\alpha_1*\cdots *\alpha_r)(2s)=\alpha_k(r(2s)-(k-1))=\alpha_k(2rs-k+1)
+\]
+y coincide con $\big((\alpha_1*\cdots*\alpha_n)\circ f_r\big)(s)$.
+
+En el segundo caso, supongo que $1/2<s\leq 1$ y hago el mismo proceso:
+\begin{align}%
+	\big((\alpha_1*\cdots*\alpha_n)\circ f_r\big)(s) & = \nonumber%
+	(\alpha_1*\cdots*\alpha_n)\paren{2s-1+\frac{2r}{n}(1-s)}\nonumber\\ &=%
+	\alpha_k\paren{n\paren{2s-1+\frac{2r}{n}(1-s)}-(k-1)}\nonumber\\ & =%
+	\alpha_k\paren{2ns-n+2r(1-s)-k+1} \label{eq:unlado}%
+\end{align}%
+donde $k\in\{1,\ldots,n\}$ es el \'unico tal que
+\[
+	 \frac{k-1}{n}\leq 2s-1+\frac{2r}{n}(1-s) < \frac{k}{n}.
+\]
+Si le restas $(2r/n)(1-s)$ a la desigualdad, separas $2r=r+r$ y factorizas $n-r$, llegas a que:
+\begin{equation}\label{eq:k_perfecta2}
+	\frac{k-1}{n}\leq 2s-1+\frac{2r}{n}(1-s) \leq \frac{k}{n}  \quad\iff\quad 
+	\frac{k-r-1}{n-r} \leq 2s-1 \leq \frac{k-r}{n-r}
+\end{equation}
+
+Si haces $k'=k-r$ (o equivalentemente $k'+r=k$), entonces $(\alpha_{r+1}*\cdots*\alpha_n)(2s-1)$ se
+eval\'ua en la trayectoria $\alpha_{r+k'}$. Por lo tanto:
+\begin{align*}
+	\Big((\alpha_1*\cdots*\alpha_r)*(\alpha_{r+1}*\cdots*\alpha_n)\Big)(s) & =
+	(\alpha_{r+1}*\cdots*\alpha_n)(2s-1)\\ & =
+	\alpha_{r+k'}\Big((n-r)(2s-1)-(k'-1)\Big)\\ & =
+	\alpha_k\Big( 2ns -n -2rs +2r-(k-r-1) \Big) \\ & =
+	\alpha_k\paren{2ns-n+2r(1-s)-k+1}
+\end{align*}
+Esto coincide con (\ref{eq:unlado}) y termino.
+
+
+
+
+
+
+\end{proof}%
+

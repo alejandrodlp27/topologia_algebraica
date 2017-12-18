@@ -1,0 +1,29 @@
+\begin{ejercicio}\label{ej:}
+  La relaci\'on
+  \[
+    x\sim y \quad\iff\quad \exists g\in G \;\;\text{tal que}\;\; gx=y \quad\iff\quad y\in \Oo(x)
+  \]
+  definida sobre $X$ es una relaci\'on de equivalencia.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Pruebo algo equivalente: $\{\Oo(x)\}_{x\in X}$ es una partici\'on de $X$. Si $x\in X$, entonces
+  $1x=x$ y as\'i $x\in\Oo(x)$. Por lo tanto
+  \begin{equation}\label{eq:particion_orbitas}
+    X=\bigcup_{x\in X}\Oo(x).
+  \end{equation}
+  Ahora sean $x,y\in X$ tales que $\Oo(x)\cap\Oo(y)\neq\emptyset$; sea $z\in X$ un elemento en
+  esta intersecci\'on. Esto implica que existen $g,h\in G$ tal que $gz=x$ y $hz=y$. Por lo tanto
+  \[
+    (h g^{-1})x=(hg^{-1})(gz)=(hg^{-1}g)z=(h 1)z=h(1z)=hz=y
+  \]
+  y as\'i $y\in\Oo(x)$. Con esto tengo que $g'y\in\Oo(x)$ implica $g'y=(g'hs^{-1})x$ y
+  $g'y\in\Oo(x)$ entonces $\Oo(y)\subseteq\Oo(x)$. De manera an\'aloga tengo que
+  $\Oo(x)\subseteq\Oo(y)$.
+
+  Por lo tanto si $\Oo(x)\cap\Oo(y)$ se intersectan, entonces son iguales. Por lo tanto la
+  uni\'on en la ecuaci\'on (\ref{eq:particion_orbitas}) es disjunta y as\'i $\{\Oo(x)\}_{x\in X}$
+  es una partici\'on en $X$. Esto significa que la relaci\'on inducida
+  $x\sim y \;\;\iff\;\; y\in\Oo(x)$ es una relaci\'on de equivalencia.
+\end{proof}%
+

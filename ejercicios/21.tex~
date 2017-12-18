@@ -1,0 +1,14 @@
+\begin{ejercicio}\label{ej:2}
+  Las variedades suaves $\RR_{\iota}:=(\RR,\iota)$ y $\RR_{\Theta}:=(\RR,\Theta)$ son difeomorfos.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%  
+  Primero observo que $g:\RR_{\iota}\ra\RR_{\Theta}$ definido por $g(x)=x$ es claramente continua
+  y adem\'as:
+  \[
+    f\circ g\circ\Id^{-1}(x)=f\circ g (x)= f(x)=x^3
+  \]
+  es una funci\'on suave en $\RR$. Ahora defino $h:\RR_{\Theta}\ra\RR_{\iota}$ como $h(x)=x$
+\end{proof}%
+

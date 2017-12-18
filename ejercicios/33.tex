@@ -1,0 +1,21 @@
+\begin{ejercicio}\label{ej:33}
+  Sea $p:E\ra X$ un cubriente. Si $E$ es conectable por trayectorias entonces la acci\'on
+  $E_x\times\pi(X)\ra E_x$ es transitiva.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Sean $e,e'\in E_x$. Como $E$ es conectable por trayectorias, existe un $\tau:I\ra E$ tal que
+  $\tau(0)=e$ y $\tau(1)=e'$. Entonces $\sigma:=p\circ\tau$ es un lazo en $X$ porque
+  \[
+    \sigma(0)=p(\tau(0))=p(e)=x=p(e')=p(\tau(1))=\sigma(1).
+  \]
+  Por lo tanto si elijo $e\in E$, el lazo $\sigma$ se levanta a una \'unica trayectoria
+  $\what{\sigma}_e$ tal que $\what{\sigma}_e(0)=e$ y $p\circ\what{\sigma}_e=\sigma$. Pero
+  $\tau$ tambi\'en cumple estas propiedades ($\sigma=p\circ\tau$ por definici\'on y $\tau(0)=e$).
+  Por la unicidad del levantamiento tengo que $\what{\sigma}_e=\tau$, por lo tanto:
+  \[
+    e[p\circ\tau]=e[\sigma]=\what{\sigma}_e(1)=\tau(1)=e'
+  \]
+  y la acci\'on es transitiva.   
+\end{proof}%
+

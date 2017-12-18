@@ -1,0 +1,53 @@
+%%% PREGUNTA
+
+\begin{ejercicio}\label{ej:ocho}
+Sean $(X,x_0)$ y $(Y,y_0)$ espacios basados, entonces:
+\[
+\begin{tikzcd}
+	\text{Map}_*\Big((\Ss X,\star),(Y,y_0)\Big) \arrow[r,"\Phi"] &
+	\text{Map}_*\Big((X,x_0),(\Omega(Y,y_0),e)\Big) \\
+	\Big( \Ss X \morf{f} Y \Big) \arrow[r,mapsto] &
+	\Big( X \morf{\Phi_f} \Omega(Y,y_0) \Big)
+\end{tikzcd}
+\]
+definido por $\Phi_f(x)(t)=f[x,t]$ es una biyecci\'on. Aqu\'i $[x,t]$ es una clase de equivalencia
+en $\Ss X$. 
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}% 
+
+La prueba es muy similar al ejercicio \ref{ej:siete}; hay unos detalles adicionales que hay
+que verificar. Para probar que $\Phi$ es biyectiva, exhibo un inverso.
+
+Sea $g\in\text{Map}_*((X,x_0),(\Omega(Y,y_0),e))=\text{Map}_*(X,\Omega)$. Entonces $g(x):I\ra Y$
+es un lazo (ie. $g(x)(0)=y_0=g(x)(1)$ para toda $x\in X$) y $g(x_0)=e_{y_0}$ es el lazo constante.
+Defino la siguiente funci\'on:
+\[
+	\Psi(g):\Ss X \lra Y \quad\text{con}\quad \Psi(g)[x,t]=g(x)(t).
+\]
+
+Observa que est\'a bien definido porque:
+\[
+	\Psi(g)[x,0]=g(x)(0)=y_0=g(x)(1)=\Psi(g)[x,1] \quad\forall x\in X
+\]
+y
+\[
+	\Psi(g)[x_0,t]=e_{y_0}(t)=y_0 \quad\forall t\in I.
+\]
+Estas \'ultimas dos igualdades implican que $\Psi(g)$ est\'a bien definido sobre $\Ss X$.
+
+Ahora verifico que $\Psi=\Phi^{-1}$. Para $f\in\text{Map}_*(\Ss X,Y)$ calculo:
+\[
+	\Psi(\Phi(f))[x,t]=\Psi(\Phi_f)[x,t]=\Phi_f(x)(t)=f[x,t] \quad\then\quad
+	\Psi(\Phi(f))=f.
+\]
+Por otro lado si $g\in\text{Map}_*(X,\Omega)$ entonces:
+\[
+	\Phi(\Psi(g))(x)(t)=\Phi_{\Psi(g)}(x)(t)=\Psi(g)[x,t]=g(x)(t) \quad\then\quad
+	\Phi(\Psi(g))=g.
+\]
+Por lo tanto $\Psi=\Phi^{-1}$ y $\Phi$ es una biyecci\'on.
+
+\end{proof}%
+

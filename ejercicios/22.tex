@@ -1,0 +1,26 @@
+\begin{ejercicio}\label{ej:22}
+  Sea $M$ una variedad suave de dimensi\'on $m$ con atlas
+  $\mathfrak{A}=\{(U_{\la},\varphi_{\la})\}_{\la\in\Lambda}$. Todo subconjunto abierto $U$ de $M$
+  tambi\'en es una variedad suave con el atlas
+  $\fA_{U}=\{(U_{\la}\cap U,(\varphi_{\la})|_{U})\}_{\la\in\Lambda}$.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%  
+  Como cada $\varphi_{\la}:U_{\la}\ra \RR^n$ es un homeomorfismo sobre su imagen, entonces la
+  restricci\'on $(\varphi_{\la})|_{U}: U_{\la}\cap U \ra \varphi_{\la}[U_{\la}\cap U]$ es un
+  homeomorfismo. Como la familia $\{U_{\la}\}$ es una cubierta abierta de $M$, la familia
+  $\{U_{\la}\cap U\}$ de abiertos cubren a $U$. Por lo tanto $\fA_U$ es un atlas.
+
+  Ahora considera un cambio de coordenadas arbitrario
+  \[
+    f=(\varphi_{\la})|_{U}\circ (\varphi_{\mu})|_{U}^{-1}:
+    (\varphi_{\mu})|_{U}[U_{\la}\cap U_{\mu}\cap U]   \lra
+    (\varphi_{\la})|_{U}[U_{\la}\cap U_{\mu}\cap U]
+  \]
+  y observa que es igual a la funci\'on $(\varphi_{\la}\circ\varphi_{\mu}^{-1})|_{U}$ que es la
+  restricci\'on de un cambio de coordenadas del atlas $fA$. Como \'este es suave, el cambio de
+  coordenada $f$ del atlas $\fA_U$ tambi\'en es suave. Por lo tanto $\fA_U$ es un atlas diferenciable
+  sobre $U$.  
+\end{proof}%
+

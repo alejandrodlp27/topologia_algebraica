@@ -1,0 +1,75 @@
+%%% PREGUNTA
+
+\begin{ejercicio}\label{ejercicio:3}
+$\RR^n$ es un espacio vectorial top\'ogico: la suma $+:\RR^n\times\RR^n\ra \RR^n$ y el producto por escalares
+$\cdot:\RR\times\RR^n\ra\RR$ son continuas.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%
+Como $\RR^n$ es un espacio m\'etrico y su topolog\'ia usual es la inducida por la m\'etrica euclideana,
+la base son las bolas abiertas:
+\[
+	B_{\eps}(x):=\{y\in\RR^n : \abs{x-y}<\eps\}.
+\]
+Para probar que la suma es continua, voy a probar que la imagen inversa $X:=(+)^{-1}[B_{\eps}(x)]$ es abierta
+para toda $\eps>0$ y para toda $x\in\RR^n$.
+
+Sea $\eps>0$ y $x\in\RR^n$. Tomo $y=(y_1,y_2)\in X$, es decir que
+\[
+	y_1+y_2\in B_{\eps}(x) \quad\iff\quad \abs{x-y_1-y_2}=\eps-\delta<\eps
+\]
+para alguna $\delta>0$
+
+Propongo al abierto $V:=B_{\delta/2}(y_1)\times B_{\delta/2}(y_2)\subseteq \RR^n\times\RR^n$ como
+vecindad de $(y_1,y_2)$ contenida en $X$. Si efectivamente $V\subseteq X$, entonces $X$ es abierto y acabo.
+Para probar que $V\subseteq X$ calculo: si $(z_1,z_2)\in V$ entonces $\abs{y_i-z_i}<\delta/2$ y as\'i:
+\begin{align*}
+	\abs{x-z_1-z_2} & = \abs{x-y_1+y_1-z_1+y_2-y_2-z_2} \leq \abs{x-y_1-y_2} + \abs{y_1-z_1} + \abs{y_2-z_2} \\
+	\therefore \;\; \abs{x-z_1-z_2}& <\eps-\delta+\frac{\delta}{2}+\frac{\delta}{2} = \eps.
+\end{align*}
+Concluyo que la suma $+:\RR^n\times\RR^n\ra \RR^n$ es continua.
+
+Ahora aplicar\'e exactamente el mismo m\'etodo para probar que el producto por escalares es continua:
+sea $x\in\RR^n$, $\eps>0$ y fijo $(t_0,y_0)\in Y:=(\cdot)^{-1}[B_{\eps}(x)]\subseteq \RR\times\RR^n$. Entonces
+tengo que
+\[
+	t_0 y_0\in B_{\eps}(x) \quad\iff\quad \abs{x-t_0y_0}=\eps-\delta <\eps
+\]
+para una $\delta>0$ fija.
+
+Ahora propongo al abierto $W:=B_{\delta_1}(t_0)\times B_{\delta_2}(y_0)$ donde:
+\[
+	\delta_1:=\frac{\delta}{\abs{y_0}+1} \quad\text{y}\quad
+	\delta_2:=\frac{\delta}{\delta+\abs{t_0}+\abs{t_0}\abs{y_0}}.
+\]
+Observa que ambos denominadores son estrictamente positivos por ser suma de un n\'umero positivo y otro
+no-negativo; el numerador de ambos es positivos. Esto quiere decir que $0<\delta_1,\delta_2$ son radios
+posibles de una bola abierta. De aqu\'i s\'olo debo probar que $W$ est\'a contenido en $Y$:
+
+Sea $(t,y)\in W$. Por definici\'on tengo $\abs{t_0-t}<\delta_1$ y $\abs{y_0-y}<\delta_2$. Observa que
+$\abs{t}=\abs{t_0-t-t_0}\leq\abs{t_0-t}+\abs{t_0}<\delta_1+\abs{t_0}$
+
+Por lo tanto:
+\begin{align*}%
+	\abs{x-ty} & =      \abs{x-t_0y_0+t_0y_0-ty_0+ty_0-ty} \\%
+		     & \leq \abs{x-t_0y_0} + \abs{t_0y_0-ty_0} + \abs{ty_0-ty} \\%
+		     & \leq \abs{x-t_0y_0} + \abs{t_0-t}\abs{y_0} + \abs{t}\abs{y_0-y} \\%
+		     & <    \eps-\delta+\delta_1\abs{y_0} +\delta_2\delta_1+\delta_2\abs{t_0}%
+\end{align*}%
+Sustituyo las expresiones para $\delta_1$ y $\delta_2$:
+\begin{align*}%
+	\abs{x-ty} & < \eps - \delta +\frac{\delta\abs{y_0}}{\abs{y_0}+1}+%
+	\frac{\delta}{\abs{y_0}+1}\cdot\frac{\delta}{\delta+\abs{t_0}+\abs{t_0}\abs{y_0}}+%
+	\frac{\delta\abs{t_0}}{\delta+\abs{t_0}+\abs{t_0}\abs{y_0}}\\%
+	 & < \eps-\delta+\delta\frac{\abs{y_0}(\delta+\abs{t_0}+\abs{t_0}\abs{y_0})+\delta+\abs{t_0}(\abs{y_0}+1)}%
+	 {(\abs{y_0}+1)(\delta+\abs{t_0}+\abs{t_0}\abs{y_0})}.%
+\end{align*}%
+Como todo el cociente se hace 1, obtengo:
+\[
+	\abs{x-ty} <\eps \quad\then\quad ty\in B_{\eps}(x) \quad\then\quad (t,y)\in Y
+\]
+y as\'i $W\subset Y$.
+
+Por lo tanto el producto por escalares es continua.
+\end{proof}%
+

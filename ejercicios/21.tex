@@ -1,0 +1,30 @@
+\begin{ejercicio}\label{ej:2}
+  Las variedades suaves $\RR_{\iota}:=(\RR,\iota)$ y $\RR_{\Theta}:=(\RR,\Theta)$ son difeomorfos.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%  
+  Defino $f:\RR\ra\RR$ y $g:\RR\ra\RR$ como $f(x)=x^{1/3}$ y $g(x)=x^3$. Observa que $(\RR,g)$ es la
+  \'unica carta de $\Theta$, entonces denotar\'e por $g_{\Theta}$ como la carta y $g$ como la funci\'on
+  $g:\RR\ra\RR$ apesar de que sean la misma funci\'on. Claramente $f\circ g = \Id_{\RR}=g\circ f$ y
+  el diagrama
+  \[
+    \begin{tikzcd}
+      \RR_{\iota} \arrow[rr,"f"] \arrow[d,"\Id"] &&
+      \RR_{\Theta} \arrow[rr,"g"] \arrow[d,"g_{\Theta}"] &&
+      \RR_{\iota} \arrow[d,"\Id"] \arrow[rr,"f"]&&
+      \RR_{\Theta} \arrow[d,"g_{\Theta}"]\\
+      \RR \arrow[rr,"g_{\Theta}\circ f\circ \Id^{-1}"'] &&
+      \RR \arrow[rr,"\Id\circ g \circ g_{\Theta}^{-1}"'] &&
+      \RR \arrow[rr,"g_{\Theta}\circ f\circ \Id^{-1}"'] &&
+      \RR
+    \end{tikzcd}
+  \]
+  es conmutativo. Los dos cambios de coordenadas son claramente suaves porque
+  \[
+    g\circ f \circ \Id^{-1}=\Id=\Id \circ g\circ g_{\Theta}^{-1}
+  \]
+  Por lo tanto $f$ y $g$ son funciones suaves tales que $f\circ g =\Id = g\circ f$ entonces
+  $R_{\iota}$ y $\RR_{\Theta}$ son difeomorfos.  
+\end{proof}%
+

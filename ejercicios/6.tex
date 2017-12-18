@@ -1,0 +1,50 @@
+%%% PREGUNTA
+
+\begin{ejercicio}\label{ej:6}
+Sea $\{(X_j,x_j)\}_{j\in J}$ una familia de espacios basados y sean $\la_i:(X_i,x_i)\ra\prod(X_j,x_j)$
+las inclusiones naturales definidas por
+\[
+	\la_i(x)=\{z_j\}_{j\in J} \quad\text{con}\quad z_j=
+	\begin{cases}
+		x & \text{si}\;\; j=i\\
+		x_j & \text{si}\;\; j\neq i
+	\end{cases}.
+\]
+Entonces el morfismo inducido
+\[
+\vee\la_j : \bigvee_{j\in J}(X_j,x_j) \lra \prod_{j\in J}X_j
+\]
+es inyectivo.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}% 
+Como en el lema \ref{lem:cuna_coproducto}, sean $\{\mu_j:(X_j,x_j)\ra\vee(X_j,x_j)\}_{j\in J}$ los
+morfismo can\'onicos que hacen que $\vee(X_j,x_j)$ sea el coproducto en de $\{(X_j,x_j)\}$ en $\mathbf{Top}_*$.
+Adem\'as, sean $\pi_i:\prod(X_j,x_j)\ra (X_i,x_i)$ las proyecciones can\'onicas definidas por
+\[
+	\pi_i\big(\{y_j\}_{j\in J}\big)=y_i\in (X_i,x_i).
+\]
+
+Sean $[x],[x']\in\vee(X_j,x_j)$ elementos distintos con $x\in(X_i,x_i)$ y $x'\in(X_l,x_l)$. Como las
+clases de $x$ y $x'$ son distintas, al menos una de ellos (sin p\'erdida de generalidad supongo que $x$)
+no es un punto base, ie. $x\neq x_i$.
+
+Ahora si $i\neq l$ entonces:
+\[
+	\vee\la_j \big( [x] \big)=\la_i(x)=\{z_j\}\neq \{z'_j\}=\la_l(x')=\vee\la_j\big( [x'] \big)
+\]
+porque por definici\'on los elementos $\{z_j\}$ y $\{z'_j\}$ difieren en la $i$-\'esima entrada
+donde valen $x$ y $x_i$ respectivamente.
+
+Si $i=l$, entonces:
+\[
+	\vee\la_j \big( [x] \big)=\la_i(x)=\{z_j\}\neq \{z'_j\}=\la_i(x')=\vee\la_j\big( [x'] \big)
+\]
+porque los elementos $\{z_j\}$ y $\{z'_j\}$ difieren nada m\'as en la $i$-\'esima entrada donde valen
+$x$ y $x'$ respectivamente que por hip\'otesis son distintos porque $[x]\neq[x']$ y $x,x'\in X_i$.
+
+Por lo tanto si $[x]\neq[x']$ tengo que $\vee\la_j([x])\neq\vee\la_j([x'])$ y $\vee\la_j$ es inyectiva.
+
+\end{proof}%
+

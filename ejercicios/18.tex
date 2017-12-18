@@ -1,0 +1,83 @@
+\begin{ejercicio}\label{ej:18}
+  Los atlas $\Phi$ y $\Hh$ de $\Sn^n$ son compatibles.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%  
+  Debo probar que los cambios de coordenadas $\varphi_{\pm}\circ(h_i^{\pm})^{-1}$ y
+  $h_i^{\pm}\circ\varphi_{\pm}^{-1}$ son suaves; s\'olo me enfocar\'e en los casos cuando el signo de las
+  cartas $h_i^{\pm}$ es $+$, la prueba con el otro signo es an\'aloga porque las reglas de
+  correspondencia de $h_i^+$ y $h_i^-$ son exactamente iguales.  
+
+  Ahora si $i\neq n+1$, entonces
+  para toda $x\in V_i^+$ tengo que $\pm x_i>0$ y as\'i $\pm x_{n+1}\neq 1$ porque si se da la
+  igualdad tendr\'e $\|x\|^2\geq x_i^2+x_{n+1}^2>1$ lo cual es una contradicci\'on. Por lo tanto
+  $x\in U_{\pm}$ y as\'i $V_i^+\subset U_+,U_-$ para toda $i=1,\ldots,n$. Si $i=n+1$ entonces
+  los polos $N^+\in V_{n+1}^+$ y $N^-\not\in V_{n+1}^+$. Por lo tanto:
+  \[
+    U_{*}\cap V_i^+=
+    \begin{cases}
+      V_i^+  &\text{si}\;\; i=1,\ldots,n \\
+      V_{n+1}^+ &\text{si}\;\; *=-,\;\; i=n+1 \\
+      V_{n+1}^+-\{N^+\} &\text{si}\;\; *=+,\;\; i=n+1 
+    \end{cases}
+  \]
+
+  Observa que el dominio de $\varphi_{\pm}\circ(h_i^+)^{-1}$, para $i\neq n+1$, es
+  $h_i^+[V_i^+]=\overset{\circ}{\DD}$, entonces para $x=(x_1,\ldots,x_n)$ en el interior del
+  disco unitario tengo (escribo $r=(1-\sum x_k)^{1/2}$ para simplificar la notaci\'on)
+  \[
+    \varphi_{\pm}\circ(h_i^+)^{-1}(x) =
+    \varphi_{\pm}\circ\rho_i^+(x)=
+    \varphi_{\pm} \paren{x_1,\ldots,x_{i-1},r,x_{i},\ldots,x_n} =
+    \paren{\frac{x_1}{1\mp x_n},\ldots,\frac{r}{1\mp x_n},\ldots,\frac{x_{n-1}}{1\mp x_n}}
+  \]
+  que es claramente suave porque $1>\|x\|\leq \mp x_n$.
+
+  Si $i=n+1$ tengo dos casos, el dominio de $\varphi_-\circ(h_i^+)^{-1}$ sigue siendo el disco abierto
+  unitario, entonces:
+  \[
+    \varphi_-\circ(h_{n+1}^+)^{-1}(x)=
+    \varphi_-(x_1,\ldots,x_n,r)=
+    \paren{\frac{x_1}{1+r},\ldots,\frac{x_n}{1+r}},
+  \]
+  pero siempre tengo que $r>0$ porque $x$ est\'a en el interior del disco unitario. Por lo tanto
+  $\varphi_-\circ(h_{n+1}^+)^{-1}$ es suave.
+
+  Por otro lado el dominio de $\varphi_+\circ(h_{n+1}^+)^{-1}$ es
+  \[
+    h_{n+1}^+\big[V_{n+1}^+-\{N^+\}\big]=
+    \overset{\circ}{\DD}-\{h_{n+1}^+(N^+)\}=
+    \overset{\circ}{\DD}-\{(0,\ldots,0,\widehat{1})\}=
+    \overset{\circ}{\DD}-\{0\},
+  \]
+  entonces si $x\neq0$ tengo que $r\neq 1$ y as\'i
+  \[
+    \varphi_+\circ(h_{n+1}^+)^{-1}(x)=
+    \varphi_+(x_1,\ldots,x_n,r)=
+    \paren{\frac{x_1}{1-r},\ldots,\frac{x_n}{1-r}},
+  \]
+  es suave porque los denominadores nunca se anulan. Con esto concluyo que todos los cambios de
+  coordenadas $\varphi_{\pm}\circ(h_i^+)^{-1}$ son suaves.
+
+  Para ver la diferenciabilidad de los cambios de coordenadas $h_i^+\circ\varphi_{\pm}^{-1}$
+  ver\'e que estas funciones son restricciones de funciones suaves definidos sobre todo $\RR^n$.
+
+  Sea $x\in \RR^n$. Como $\varphi_{\pm}^{-1}=\psi_{\pm}$ es una funci\'on suave, y proyectar sobre
+  un subespacio $\RR^n\subset \RR^{n+1}$ (ie. olvidar la $i$-\'esima coordenada) es suave, la
+  composici\'on:
+  \[
+    x \mapsto
+    \paren{\frac{2x_1}{\|x\|^2+1},\ldots,\frac{2x_n}{\|x\|^2+1},\pm\frac{\|x\|^2-1}{\|x\|^2+1}}\mapsto
+    \paren{\frac{2x_1}{\|x\|^2+1},\ldots,\widehat{\frac{2x_1}{\|x\|^2+1}},\ldots,%
+      \frac{2x_n}{\|x\|^2+1},\pm\frac{\|x\|^2-1}{\|x\|^2+1}}
+  \]
+  es suave (observa que no hay problema si $i=n+1$ como en el caso anterior). Por lo tanto,
+  si restrinjo esta composici\'on a $\varphi_{\pm}[U_{\pm}\cap V_i^+]\subset\RR^n$ obtengo el cambio
+  de coordenadas $h_i^+\circ\varphi_{\pm}^{-1}=h_i^+\circ\psi_{\pm}$ que, por lo tanto, es suave.
+
+  Con todo esto concluyo que todos los posibles cambios de coordenadas entre los atlas $\Phi$
+  y $\Hh$ son suaves. Por lo tanto ambos atlas generan el mismo atlas maximal y as\'i la misma
+  estructura diferenciable de $\Sn^n$, es decir $\Phi$ y $\Hh$ son compatibles.  
+\end{proof}%
+

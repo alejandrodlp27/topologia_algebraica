@@ -1,0 +1,53 @@
+%%% PREGUNTA
+
+\begin{ejercicio}
+La relaci\'on $\alpha\simeq\beta$ en $\text{Map}(X,Y)$ es una relaci\'on de equivalencia.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%
+
+Debemos probar tres cosas:
+\begin{itemize}
+	\item(Simetr\'ia) Afirmamos que para toda $f\in\text{Map}(X,Y)$, tenemos que $f\simeq f$
+	mediante la homotop\'ia $H(x,t)=f(x)$. Claramente $H$ es continua porque es independiente
+	del par\'ametro $t$ y $f$ es continua. Adem\'as $H_0=f=H_1$, por lo tanto $H$ es una
+	homotop\'ia.
+	
+	\item(Reflexividad) Supongamos que $f \simeq g$ para $f,g\in\text{Map}(X,Y)$
+	mediante la homotop\'ia $H$. Si definimos $\bar{H}(x,t):=H(x,1-t)$, entonces claramente
+	$\bar{H}$ es continua porque es la composici\'on de la funci\'on continua $t\mapsto 1-t$
+	y $H$, que por hip\'otesis es continua. Adem\'as, para toda $t$, $\bar{H}_t(x)=H_{1-t}(x)$,
+	y as\'i $\bar{H}_t$ es continua. Por \'ultimo, $\bar{H}_0=H_1=g$ y $\bar{H}_1=H_0=f$. Por
+	lo tanto $\bar{H}$ es una homotop\'ia entre $f$ y $g$.
+	
+	\item(Transitividad) Sean $f,g,h\in\text{Map}(X,Y)$ tales que $f\simeq g$
+	y $g\simeq h$ mediante las homotop\'ias $H$ y $G$ respectivamente. Definimos una nueva
+	homotop\'ia:
+	\[
+		F(x,t):=
+		\begin{cases}
+			H(x,2t) & \text{si}\; 0\leq t\leq \frac{1}{2} \\
+			G(x,2t-1) & \text{si}\; \frac{1}{2} \leq t \leq 1
+		\end{cases}
+	\]
+	Primero observemos que al dominio de definici\'on de $F$ (el espacio $X\times I$) lo
+	estamos partiendo en dos cerrados $X\times[0,\tfrac{1}{2}]$ y $X\times[\tfrac{1}{2},1]$,
+	de tal manera que sobre la intersecci\'on de esos cerrados (ie. $X\times\{\frac{1}{2}\}$),
+	las homotop\'ias $H$ y $G$ coinciden:
+	\[
+		F\paren{x,\frac{1}{2}}=H(x,1)=g(x)=G(x,0)=F\paren{x,\frac{1}{2}}.
+	\]
+	Como $H$ y $G$ son continuas, tenemos que $F$ est\'a bien definida y es continua sobre
+	$X\times I$.
+	
+	Por otro lado, para cada $t\in I$ fija tenemos que $F_t$ es una funci\'on continua porque
+	es igual a $H_t$ o $G_t$ que por hip\'otesis son continuas (la opci\'on depende de que
+	$t\leq\tfrac{1}{2}$ o que $t\geq\tfrac{1}{2}$). Por \'ultimo verificamos que:
+	\[
+		F_0(x)=H(x,0)=H_0(x)=f(x) \quad\text{y}\quad F_1(x)=G(x,1)=G_1(x)=h(x).
+	\]
+	Concluimos que $f\simeq h$ mediante la homotop\'ia $F$.
+\end{itemize}
+
+\end{proof}%
+

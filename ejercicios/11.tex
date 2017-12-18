@@ -1,0 +1,96 @@
+%%% PREGUNTA
+
+\begin{ejercicio}\label{ej:11}
+Sean $(X,x_0)$ y $(Y,y_0)$ espacios basados, entonces la funci\'on inducida por $\Phi$
+del ejercicio \ref{ej:ocho}:
+\[
+\begin{tikzcd}
+	\Big[(\Ss X,\star),(Y,y_0)\Big] \arrow[r,leftrightarrow] &
+	\Big[(X,x_0),(\Omega(Y,y_0),e)\Big]
+\end{tikzcd}
+\]
+es una biyecci\'on.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}% 
+
+Usar\'e la misma notaci\'on que el ejercicio \ref{ej:ocho} y todos los espacios son basados.
+
+Sean $f,f'\in\text{Map}_*(\Ss X,Y)$ y $g,g'\in\text{Map}_*(X,\Omega Y)$. Si pruebo que
+\[
+	f\simeq f' \quad\then\quad \Phi(f)\simeq\Phi(f') \quad , \quad 
+	g\simeq g' \quad\then\quad \Psi(g)\simeq\Psi(g')
+\]
+entonces $\Phi$ y $\Psi$ se factorizan naturalmente a trav\'es de los espacios cocientes,
+es decir que existen \'unicos:
+\begin{equation}\label{cd:pasar_a_cocientes}
+\begin{tikzcd}
+	\text{Map}_*(\Ss X, Y) \arrow[r,"\Phi"] \arrow[d,twoheadrightarrow,"\pi_1"'] & \text{Map}_*(X,\Omega Y) & &
+	\text{Map}_*(X, \Omega Y) \arrow[r,"\Psi"] \arrow[d,twoheadrightarrow,"\pi_2"'] & \text{Map}_*(\Ss X,Y) \\
+	\big[\Ss X, Y\big] \arrow[ur,dashed,"\bar{\Phi}"'] & & &
+	\big[ X,\Omega Y \big] \arrow[ur,dashed,"\bar{\Psi}"'] &
+\end{tikzcd}
+\end{equation}
+que hacen conmutar los diagramas, es decir que $\Phi=\bar{\Phi}\circ\pi_1$ y $\Psi=\bar{\Psi}\circ\pi_2$.
+He denotado por $\pi_i$ la funci\'on cociente. Observa que por definici\'on $\bar{\Phi}([f])=\Phi(f)$.
+
+Supongo que $f\simeq f'$ mediante la homotop\'ia $F:\Ss X\times I \ra Y$. Para un par\'ametro fijo $t\in I$
+tengo que $F_t\in\text{Map}_*(\Ss X,Y)$ entonces $\Phi(F_t)\in\text{Map}_*(X,\Omega Y)$ tiene sentido y
+es una funci\'on continua. Con esto defino $F':X\times I \ra \Omega Y$ con:
+\[
+	F'(x,t):=\Phi(F_t)(x)
+\]
+que es continua porque cada $\Phi(F_t)$ lo es. Observa que $F'(x,0)=\Phi(F_0)(x)=\Phi(f)(x)$ y
+$F'(x,1)=\Phi(F_1)(x)=\Phi(f')(x)$ entonces $F'$ es una homotop\'ia entre $\Phi(f)$ y $\Phi(f')$, es decir
+$\Phi(f)\simeq\Phi(f')$.
+
+Por otro lado supongo que $g\simeq_G g'$ con $G:X\times I\ra \Omega Y$ una homotop\'ia. Observa que para
+todo par\'ametro $G_t\in\text{Map}_*(X,\Omega Y)$ y as\'i $\Psi(G_t)\in\text{Map}_*(\Ss X,Y)$ y es continua.
+Similarmente defino:
+\[
+	G'([x,s],t):=\Psi(G_t)[x,s]
+\]
+donde $[x,s]\in\Ss X$. Observa que como cada $\Psi(G_t)$ es continua entonces $G'$ tambi\'en lo es. Adem\'as
+$G'([x,s],0)=\Psi(G_0)[x,s]=\Psi(g)[x,s]$ y $G'([x,s],1)=\Psi(G_1)[x,s]=\Psi(g')[x,s]$. Por lo tanto
+$\Psi(g)\simeq_{G'}\Psi(g')$.
+
+Como $\Id=\Psi\circ\Phi$, entonces:
+\[
+	\Phi(f)\simeq\Phi(f') \quad\then\quad \Psi(\Phi(f))=f\simeq f' =\Psi(\Phi(f'))
+\]
+y as\'i:
+\[
+	f\simeq f' \quad\iff\quad \Phi(f)\simeq\Phi(f')
+\]
+o equivalentement:
+\[
+	[f]=[f'] \quad\iff\quad \big[\Phi(f)\big]=\big[\Phi(f')\big].
+\]
+
+Si uso la notaci\'on de los diagramas conmutativos en (\ref{cd:pasar_a_cocientes}), la equivalencia
+anterior quiere decir que la funci\'on
+\[
+	(\pi_2\circ\bar{\Phi}):[\Ss X,Y] \lra [X,\Omega Y]
+%	\quad\text{y}\quad (\pi_1\circ\bar{\Psi}):[X,\Omega Y] \lra [\Ss X,Y].
+\]
+es inyectiva porque
+\[
+	(\pi_2\circ\bar{\Phi})\big( [f] \big)=
+	\pi_2 \Big( \bar{\Phi} \big ( [f] \big) \Big)=
+	\pi_2\big( \Phi(f) \big)=
+	\big[\Phi(f)\big].
+\]	
+Adme\'as, si $[g]\in[X,\Omega Y]$ entonces:
+\[
+	(\pi_2\circ\bar{\Phi})\big( [\Psi(g)] \big)=
+	\pi_2 \Big( \bar{\Phi}\big( \Psi(g) \big) \Big)=
+	\pi_2 \Big( \Phi\big( \Psi(g)\big) \Big)
+	\big[ \Phi(\Psi(g)) \big]=[g]
+\]
+y as\'i $\pi_2\circ\bar{\Phi}$ es sobreyectiva. Por lo tanto \'esta es la biyecci\'on
+\[
+	\big[\Ss X,Y\big] \longleftrightarrow	\big[X,\Omega Y\big].
+\]
+\end{proof}%
+

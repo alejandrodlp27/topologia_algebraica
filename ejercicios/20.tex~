@@ -1,0 +1,13 @@
+\begin{ejercicio}\label{ej:20}
+  A la esfera $\Sn^n$ le defino la relaci\'on de equivalencia $x\sim -x$ donde relaciono cada punto
+  con su ant\'ipoda. En este caso se cumple que:
+  \[
+    \RR P^n\approx \Sn^n/_{\sim}
+  \]
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%  
+ 
+\end{proof}%
+

@@ -1,0 +1,23 @@
+\begin{ejercicio}\label{ej:36}
+  El cono de cualquier espacio $X$ es contraible.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Demostrar\'e que $\Id_{CX}\simeq \text{cte}_*$ donde $*=[x,1]\in CX$. Defino la homotop\'ia
+  $H:(X\times I)\times I\ra CX$ con
+  \[
+    H((x,s),t)=[x,t+(1-t)s].
+  \]
+  Claramente $H_0=\Id$ y $H_1=\text{cte}_*$. Adem\'as $H((x,1),t)=[x,1]$ para toda $x$. Por lo tanto
+  $H$ se factoriza a trav\'es de $X\times\{1\}$:
+  \[
+    \begin{tikzcd}
+      (X\times I)\times I \arrow[r,"H"] \arrow[d,two heads,"\nu"'] & CX \\
+      CX\times I \arrow[ur,dashed,"\bar{H}"'] &
+    \end{tikzcd}
+  \]
+
+  Tambi\'en $\bar{H}_0=\Id_{CX}$ y $\bar{H}_1=\text{cte}_*$. $\bar{H}$ es continua porque $H$ es
+  continua. Por lo tanto $\bar{H}$ es una homotop\'ia y $\Id_{CX}\simeq\text{cte}_*$.
+\end{proof}%
+

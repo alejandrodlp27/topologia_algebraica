@@ -1,0 +1,48 @@
+\begin{ejercicio}\label{ej:41}
+  La funci\'on $\Phi:\eta_0\ra\ZZ_2$ definido por $[M]\mapsto \# M\mod 2$ es un isomorfismo.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Primero observa que para todo elemento $[M]\in\eta_0$, $M$ es compacto, entonces $M$ es un conjunto
+  finito de puntos. As\'i tiene sentido definir $\Phi$.
+
+  Para probar que $\Phi$ est\'a bien definido, supongo que $[M]=[N]$ para variedades cerradas
+  $M=\{x_1,\ldots,x_m\}$ y $N=\{y_1,\ldots,y_n\}$. Esto quiere decir que hay una 1-variedad $W$
+  tal que $\partial W= M \sqcup N$. Como $W$ es una 1-variedad, entonces necesariamente es la
+  uni\'on disjunta de intervalos (ie. trayectorias) y de c\'irculos. Como $\partial\Sn^1=\emptyset$,
+  puedo asumir que $W$ es simplemente la uni\'on disjunta de trayectorias.
+
+  La frontera de una trayectoria es la uni\'on disjunta de su punto inicial y su punto final
+  (ya que por suposici\'on esta trayectoria no puede ser un lazo). Por lo tanto por cada pareja
+  de puntos en $M\sqcup N$ hay una trayectoria (que es una componente de $W$) que las une.
+  Adem\'as esta trayectoria es \'unica ya que si hay dos trayectorias que tienen el mismo punto
+  inicial (o final), este punto deja de ser parte de la frontera.
+
+  Con esto puedo concluir que las componentes de $W$ inducen un apareamiento entre los elementos
+  de $M\sqcup N$ sin dejar un punto libre (ya que de lo contrario $W$ no ser\'ia de dimensi\'on 1).
+  Por lo tanto $M\sqcup N$, que tiene $n+m$ elementos, tiene una cantidad par de puntos.
+  Por lo tanto $n$ y $m$ necesariamente tienen la misma paridad, o en otras palabras
+  $m\equiv n\mod 2$. Con esto conluyo que $\Phi[M]=\Phi[N]$ y $\Phi$ est\'a bien definido.
+
+  Observa que
+  \[
+    \Phi\big( [M]+[N]  \big)=\Phi[M\sqcup N]=\#(M\sqcup N)=\# M + \# N=\Phi[M]+\Phi[N]
+  \]
+  entonces al reducir m\'odulo 2 obtengo que $\Phi$ es un homomorfismo de grupos.
+
+  Claramente es sobre porque
+  \begin{eqnarray*}
+    \Phi[\{x_0\}]  =  \#\{x_0\}&\equiv& 1 \mod 2 \\
+    \Phi[\{x_0,x_1\}] =\#\{x_0,x_1\}= 2&\equiv& 0 \mod 2.
+  \end{eqnarray*}
+  Por \'ultimo, si $\Phi[M]=0$ entonces $\# M$ es par, es decir $M$ es un conjunto par de puntos,
+  digamos $2n$. Si $W=I\sqcup\cdots\sqcup I$ es la uni\'on disjunta de $n$ intervalos entonces
+  $M$ es difeomorfo a
+  \[
+    \partial W = \bigsqcup_{j=1}^n\partial I=\bigsqcup_{j=1}^n\{0,1\}
+  \]
+  y as\'i $M$ es la frontera de una $1$-variedad. Por lo tanto $[M]=0$ y $\ker\Phi=0$.
+
+  Con esto he probado que $\Phi$ es un isomorfismo y que $\eta_0\cong\ZZ_2$.
+\end{proof}%
+

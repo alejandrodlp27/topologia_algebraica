@@ -1,0 +1,32 @@
+\begin{ejercicio}\label{ej:37}
+  Si $f:(X,x)\ra(Y,y)$ es basado, entonces $f\simeq\cte_y$ si y s\'olo si $f$ se extiende a un
+  $\hat{f}:C(X,x)\ra(Y,y)$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+\begin{enumerate}
+  \item[($\then$)]
+    Supongo que $f\simeq\cte_y$ mediante la homotop\'ia basada $H:(X,x)\times I\ra (Y,y)$. Como
+    $H_1(x')=H(x',1)=\cte_y(x')=y$ y $H_1(x,t)=y$ para toda $x'\in X$ y $t\in I$,
+    $H$ se factoriza a trav\'es de $(X\times\{1\})\cup(\{x\}\times I)$:
+    \[
+      \begin{tikzcd}
+        (X,x)\times I \arrow[r,"H"] \arrow[d,two heads,"\nu"'] & (Y,y) \\
+        C(X,x) \arrow[ur,dashed,"\bar{H}"'] &
+      \end{tikzcd}
+    \]
+    Aqu\'i $\bar{H}$ es continua porque $H$ es continua y $\nu$ es una identificaci\'on.
+  
+    Como $H_0=f$, entonces $\bar{H}$ restringido a $X\times\{0\}$ es $f$, o equivalentemente
+    $\bar{H}\circ\imath=f$. Por lo tanto $\bar{H}$ es la extensi\'on de $f$ buscada.
+  \item[($\onlyif$)] Sea $\hat{f}:C(X,x)\ra (Y,y)$ una extensi\'on de $f$ y defino $H=\hat{f}\circ\nu$.
+    Observa que
+    \begin{eqnarray*}
+      H(x',0)&=&\hat{f}[x',0]=\hat{f}(\imath(x'))=f(x') \quad\forall x'\in X \\
+      H(x',1)&=&\hat{f}(*)=y_0 \quad\forall x'\in X\\
+      H(x,t)&=& y \quad\forall t\in I
+    \end{eqnarray*}
+    donde $*=[x',1]\in CX$. Por lo tanto $H$ es una homotop\'ia basada, es decir $f\simeq \cte_y$.
+\end{enumerate}
+\end{proof}%
+

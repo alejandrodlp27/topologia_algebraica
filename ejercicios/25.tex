@@ -1,0 +1,34 @@
+\begin{ejercicio}\label{ej:25}
+  El espacio de clases $\fB/_{\sim}$ tiene dos elementos.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Uso la misma notaci\'on que el ejercicio pasado. Debo probar que s\'olo hay dos \'orbitas,
+  es decir que toda matriz de $G$ est\'a relacionada con $\Id$ o con $\Id^-$ que defino como
+  \[
+    \Id^-:=\begin{pmatrix}
+      -1 & 0 & \cdots & 0 \\
+      0 & 1 & \cdots & 0 \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0 & \cdots & \cdots & 1
+    \end{pmatrix}
+  \]
+  
+  Sea $\beta=(v_{ij})\in\fB$  una base arbitraria con $\Delta=\det(v_{ij})$ y sea $A=(v_{ij})^{-1}$.
+  Entonces $A(v_{ij})=\Id$ y similarmente si multiplico $\Id^-$ por la derecha a ambos lados,
+  obtengo $A'(v_{ij})=\Id^-$ donde $A':=\Id^-A$ y $\det A'=\det(\Id^-)\Delta=-\Delta$.
+
+  Estas dos igualdades quieren decir que $A$ es la matriz de cambio de base de $(v_{ij})$ a $\Id$,
+  y $A'$ es la matriz de cambio de base de $(v_{ij})$ a $\Id^-$. Por lo tanto si $\Delta>0$ entonces
+  aplica la primera frase y $(v_{ij})\sim\Id$; si $\Delta<0$, entonces $\det A'>0$ y
+  $(v_{ij})\sim\Id^-$. En s\'imbolos: para toda $\beta\in\fB$
+  \[
+      [\beta]=
+      \begin{cases}
+        [\Id] &\text{si}\;\; \Delta>0 \\
+        [\Id^-] & \text{si}\;\; \Delta<0
+      \end{cases}
+  \]
+  y as\'i concluyo que $\fB/_{\sim}=\{[\Id],[\Id^-]\}$.
+\end{proof}%
+

@@ -1,0 +1,108 @@
+\begin{ejercicio}\label{ej:17}
+  El atlas $\Phi=\{(U_+,\varphi_+),(U_-,\varphi_-)\}$ de $\Sn^n$ genera una estructura diferenciable.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%
+  Escribo $N_{\pm}=\{0,\ldots,0,\pm 1\}$ para los polos de $\Sn^n$. Primero verifico que $\varphi_+$
+  y $\varphi_-$ son homeomorfismos. Escribo $\Pp_{\pm}$ como los planos en $\RR^{n+1}$ definidos por
+  $x_{n+1}=\pm 1$; estos planos son cerrados entonces $V_{\pm}:=\RR^{n+1}-\Pp_{\pm}$ son abiertos tales
+  que $V_{\pm}\cap\Sn^n=U_{\pm}$.
+
+  Ahora, las funciones $\varphi_{\pm}$ son funciones racionales
+  (cocientes de polinomios) donde el denominador se anula en $\Pp_{\pm}$ asi que $\varphi_{\pm}$ es
+  continua (y suave) sobre $V_{\pm}$. Por lo tanto $\varphi_{\pm}$ es continua sobre $U_{\pm}$.
+
+  Por otro lado, escribo $\|x\|^2=x_1^2+\cdots+x_n^2$ y defino $\psi_{\pm}:\RR^n\ra U_{\pm}$ como
+  \[
+    \psi_{\pm}(x_1,\ldots,x_n)=
+    \paren{\frac{2x_1}{\|x\|^2+1},\ldots,\frac{2x_n}{\|x\|^2+1},\pm\frac{\|x\|^2-1}{\|x\|^2+1}}=
+    \frac{1}{\|x\|^2+1}(2x_1,\ldots,2x_n,\pm(\|x\|^2-1)).
+  \]
+  Primero observa que $x\mapsto\|x\|^2$ es una funci\'on polinomial entonces es continua. Esto
+  implica que cada coordenada de $\psi_{\pm}$ es una funci\'on racional donde cada denominador
+  nunca se anula porque $\|x\|^2+1>0$. Entonces $\psi_{\pm}$ es una funci\'on continua; de hecho
+  por la misma raz\'on es una funci\'on suave sobre todo $\RR^n$.
+
+  Ahora verifico que el contradominio de $\psi$ es efectivamente $U_{\pm}$: observa que
+  $\|x\|^2-1<\|x\|^2+1$ entonces el cociente $(\|x\|^2-1)/(\|x\|^2+1)$ nunca puede ser 1.
+  El cociente s\'olo puede ser $-1$ si $\|x\|^2=0$, es decir $x=0$. En este caso:
+  $\psi_+(0)=N_-$ y $\psi_-(0)=N_+$ entonces puedo concluir que la \'ultima coordenada de $\psi_{\pm}$
+  nunca es $\pm 1$ y as\'i el contradominio de $\psi_{\pm}$ es un subconjunto de $V_{\pm}$.
+
+  Para ver que la imagen de $\psi_{\pm}$ es $U_{\pm}$ basta calcular la norma de $\psi_{\pm}(x)$.
+  Escribo $t=(\|x\|^2+1)^{-1}$ para simplificar las cuentas:
+  \begin{align*}
+    \|\psi_{\pm}(x)\|^2& =
+    \lVert (2tx_1,\ldots,2tx_n,t(\|x\|^2-1))  \rVert^2 \\ & =
+    t^2(\|x\|^2-1)^2+4t^2\sum_{i=1}^nx_i^2\\ & =
+    t^2(\|x\|^4-2\|x\|^2+1+4\|x\|^2)\\ & =
+    t^2(\|x\|^2+1)^2\\ & =
+    1.
+  \end{align*}
+  Por lo tanto $\varphi_{\pm}(x)\in U_{\pm}$ para toda $x\in\RR^n$, y concluyo que
+  $\psi_{\pm}:\RR^n\ra U_{\pm}$ es una funci\'on continua.
+
+  Ahora verifico que $\psi_{\pm}$ es el inverso de $\varphi_{\pm}$. Denoto $s=(1\mp x_{n+1})^{-1}$
+  para simplificar la notaci\'on y calculo:
+  \begin{align}
+    \psi_{\pm}(\varphi_{\pm}(x_1,\ldots,x_{n+1})) & =
+    \psi_{\pm}\paren{(s x_1,\ldots,s x_n)}=\psi_{\pm}(sx) \nonumber \\ & =
+    \frac{1}{\|sx\|^2+1}(2sx_1,\ldots,2sx_n,\pm(\|sx\|^2-1)) \label{eq:inverso_proyeccion_estereografica}
+  \end{align}
+  donde
+  \begin{align}
+    \frac{2s x_i}{\|s x\|^2+1} & =
+    \frac{2s x_i}{s^2\|x\|^2+1} =
+    \frac{2x_i}{s\|x\|^2+s^{-1}} =
+    \frac{2x_i}{s(1-x_{n+1}^2)+s^{-1}} \nonumber \\ & =
+    \frac{2x_i}{s(1-x_{n+1})(1+x_{n+1})+(1\mp x_{n+1})} =
+    \frac{2x_i}{(1\pm x_{n+1})+(1\mp x_{n+1})} =
+    \frac{2x_i}{2} \nonumber\\ & =
+    x_i \quad \forall i=1,\ldots,n \label{eq:ipe_1}
+  \end{align}
+  porque $(x_1,\ldots,x_{n+1})\in\Sn^n$ implica que $\|(x_1,\ldots,x_n)\|^2=1-x_{n+1}^2$. Adem\'as:
+  \begin{align}
+    \frac{\|sx\|^2-1}{\pm(\|sx\|^2+1)} &=
+    \frac{ s^2\|x^2\|- 1}{\pm s^2\|x\|^2 \pm 1}=
+    \frac{\|x\|^2 - s^{-2}}{\pm \|x\|^2\pm s^{-2}}=
+    \frac{(1-x_{n+1}^2) - (1\mp x_{n+1})^2}{\pm(1-x_{n+1}^2)\pm (1\mp x_{n+1})^2} \nonumber\\ & =
+    \frac{1-x_{n+1}^2-1\pm 2x_{n+1}- x_{n+1}^2}{\pm1\mp x_{n+1}^2\pm 1-2x_{n+1}\pm x_{n+1}^2}=
+    \frac{\pm 2x_{n+1}(1\mp x_{n+1})}{\pm 2(1\mp x_{n+1})}\nonumber\\ & =
+    x_{n+1}. \label{eq:ipe_2}
+  \end{align}
+  Por lo tanto si sustituyo (\ref{eq:ipe_1}) y (\ref{eq:ipe_2}) en
+  (\ref{eq:inverso_proyeccion_estereografica}) obtengo:
+  \[
+    \psi_{\pm}(\varphi_{\pm}(x_1,\ldots,x_{n+1}))=(x_1,\ldots,x_{n+1}) \quad\then\quad
+    \psi_{\pm}\circ\varphi_{\pm}=\Id_{\RR^{n+1}}
+  \]
+
+  Por otro lado si retomo la notaci\'on $t=(\|x\|^2+1)^{-1}$ para $x=(x_1,\ldots,x_n)$ tengo:
+  \begin{align*}
+    \varphi_{\pm}(\psi_{\pm}(x))& =
+    \varphi_{\pm}(2tx_1,\ldots,2tx_n,\pm t(\|x\|^2-1))=
+    \paren{\frac{2tx_i}{1\mp (\pm t\|x\|^2\mp t)}}_{i=1}^n\\ & =
+    \paren{\frac{2tx_i}{1-t\|x\|^2+t}}_{i=1}^n=
+    \paren{\frac{2x_i}{t^{-1}-\|x\|^2+1}}_{i=1}^n \\ &=
+    \paren{\frac{2x_i}{\|x\|^2+1-\|x\|^2+1}}_{i=1}^n=
+    \paren{\frac{2x_i}{2}}_{i=1}^n \\ & =
+    x \\
+    \therefore \varphi_{\pm}\circ\psi_{\pm} &=\Id_{\RR^n}
+  \end{align*}
+
+  Resumo lo que he hecho: $\varphi_{\pm}:U_{\pm}\ra\RR^n$ y $\psi_{\pm}:\RR^n\ra U_{\pm}$ son funciones
+  continuas y suaves (por ser racionales en cada coordenada) e inversos entre s\'i, es decir
+  $\varphi_{\pm}^{-1}=\psi_{\pm}$.
+
+  Adem\'as, esto prueba que los cambios de coordenadas
+  $\varphi_+\circ\varphi_-^{-1}=\varphi_+\circ\psi_-$ y
+  $\varphi_-\circ\varphi_+^{-1}=\varphi_-\circ\psi_+$ son suaves porque son composici\'on de
+  funciones suaves. Observa que t\'acitamente estoy restringiendo las $\psi_{\pm}$ a $\RR^n-\{0\}$
+  para que los cambios de coordenadas est\'en bien definidos; esto no afecta la diferenciablididad
+  de \'estas.
+
+  Con esto termino de probar que $\Phi$ es un atlas suave y as\'i genera un atlas maximal que
+  es una estructura diferenciable de $\Sn^n$.
+\end{proof}%
+

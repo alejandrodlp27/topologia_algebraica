@@ -1,0 +1,71 @@
+\begin{ejercicio}\label{ej:49}
+  Sea $L=\{v_0,\ldots,v_n\}\in K$, la funci\'on
+  \[
+    \varphi:\abs{L}_d\ra\Delta^n\subset\RR^{n+1} \quad\text{definida por}\quad
+    \sigma \mapsto (\sigma(v_0),\ldots,\sigma(v_n))
+  \]
+  es una isometr\'ia. En particular $\abs{L}_d\approx\Delta^n$ es un homeomorfismo.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%
+  Primero verifico que $\Delta^n\approx\abs{\Delta^n}_d$ (donde la topolog\'ia usual de $\Delta^n$
+  es la de subespacio de $\RR^n$).
+  
+  Como $L$ es finito cada $\varphi$ est\'a bien definida. Para ver que $\varphi$ preserva
+  la m\'etrica, tomo $\sigma,\tau\in\abs{L}$ arbitrarios y calculo:
+  \[
+    d_{\Delta^n}(\varphi(\sigma),\varphi(\tau))=
+    d_{\RR^{n+1}}\big(\sigma(v_0),\ldots,\sigma(v_n)),(\tau(v_0),\ldots,\tau(v_n))\big)=
+    \sqrt{\sum_{i=0}^n \big(\sigma(v_i)-\tau(v_i)\big)^2}
+  \]
+  Observa que $V_L=L$ entonces la suma dentro del radical es la suma de $(\sigma(v)-\tau(v))^2$
+  sobre $v\in V_L$. Por lo tanto
+  \[
+    d_{\Delta^n}(\varphi(\sigma),\varphi(\tau))=
+    \sqrt{\sum_{v\in V_L}\big(\sigma(v)-\tau(v)\big)^2}=
+    d_{\abs{L}}(\sigma,\tau)
+  \]
+  y $\varphi$ preserva la m\'etrica. En particular es continua e inyectiva.
+
+  Ahora considera la funci\'on
+  \[
+    \psi:\Delta^n\ra\abs{K}_d \quad\text{definida por}\quad
+    (\la_0,\ldots,\la_n) \mapsto \psi(\la_0,\ldots,\la_n)(v)=
+    \begin{cases}
+      \la_i &\text{si}\;\; v=v_i\in L \\
+      0 &\text{si}\;\; v\not\in L
+    \end{cases}
+  \]
+  Est\'a bien definida porque los elementos $\la=(\la_0,\ldots,\la_n)\in\Delta^n$ cumplen
+  $\sum\la_i=1$ y $\la_i\geq 0$, adem\'as de que $\psi(\la)=\psi(\la_0,\ldots,\la_n)\in\abs{K}$
+  es cero fuera de $L$, ie. $\psi(\sigma)|_{V_K-L}=0$ o equivalentemente
+  $\text{Sop}(\varphi(\la))\subseteq L$. En particular $\text{Im}(\psi)\subseteq\abs{L}$, entonces
+  puedo suponer que $\psi$ tiene como contradominio a $\abs{L}_d$, es decir $\psi:\Delta^n\ra\abs{L}_d$.
+
+  Por definici\'on:
+  \begin{eqnarray*}
+    d_{\abs{K}}(\varphi(\la),\varphi(\mu)) & = &
+    \sqrt{\sum_{v\in V_K}\big(\varphi(\la)(v)-\varphi(\mu)(v) \big)^2}=
+    \sqrt{\sum_{v\in L}\big(\varphi(\la)(v)-\varphi(\mu)(v) \big)^2} \\ & = &
+    \sqrt{\sum_{i=0}^n\big(\varphi(\la)(v_i)-\varphi(\mu)(v_i) \big)^2}=
+    \sqrt{\sum_{i=0}^n\big(\la_i-\mu_i \big)^2} \\ &=&
+    d_{\RR^{n+1}}\big((\la_0,\ldots,\la_n),(\mu_0,\ldots,\mu_n) \big) \\ &=&
+    d_{\Delta^n}(\la,\mu).
+  \end{eqnarray*}
+  Por lo tanto $\psi$ preserva la m\'etrica. En particular es continua e inyectiva.
+ 
+  Por \'ultimo observa que:
+  \[
+    \psi(\varphi(\sigma))(v_i)=\psi(\sigma(v_0),\ldots,\sigma(v_n))(v_i)=\sigma(v_i) \quad\then\quad
+    \psi(\varphi(\sigma))=\sigma
+  \]
+  \[
+    \varphi(\psi(\la))=(\psi(\la)(v_0),\ldots,\psi(\la)(v_n))=(\la_0,\ldots,\la_n)\la.
+  \]
+  Por lo tanto $\varphi\circ\psi=\Id_{\Delta^n}$ y $\psi\circ\varphi=\Id_{\abs{L}_d}$.
+
+  Para terminar resumo lo que tengo: hay dos funciones $\varphi:\abs{L}_d\ra\Delta^n$ y
+  $\psi:\Delta^n\ra\abs{L}_d$ que son inversas entre s\'i. Adem\'as cada una preserva la
+  m\'etrica. Por lo tanto ambas son isometr\'ias.  
+\end{proof}%
+

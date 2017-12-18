@@ -1,0 +1,16 @@
+\begin{ejercicio}\label{ej:40}
+  Para toda $n$, se tiene que $X\simeq Y \then \eta_n(X)\cong\eta_n(Y)$, es decir que $\eta_n$ es
+  un invariante homot\'opico.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Por hip\'otesis existen $f:X\ra Y$ y $g:Y\ra X$ continuas tales que $f\circ g\simeq \Id_Y$ y
+  $g\circ f\simeq\Id_X$. La proposici\'on pasada y el ejercicio \ref{ej:39} garantizan que:
+  \[
+    \Id_{\eta_n(Y)}=(\Id_Y)_*=(f\circ g)_*=f_*\circ g_*  \quad\text{y}\quad
+    \Id_{\eta_n(X)}=(\Id_X)_*=(g\circ f)_*=g_*\circ f_*
+  \]
+  lo cual implica que $f_*:\eta_n(X)\ra\eta_n(Y)$ y $g_*:\eta_n(Y)\ra\eta_n(X)$ son isomorfismos.
+  Por lo tanto $\eta_n(X)\cong\eta_n(Y)$.
+\end{proof}%
+

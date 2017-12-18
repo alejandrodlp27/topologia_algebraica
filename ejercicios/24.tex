@@ -1,0 +1,27 @@
+\begin{ejercicio}\label{ej:24}
+  La relaci\'on $\sim$ definido sobre $\fB$ es de equivalencia.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%
+  Primero comento que $\fB$ est\'a en biyecci\'on con las matrices invertibles: si
+  $\beta=\{v_1,\ldots,v_n\}\in\fB$ con $v_j=(v_{1j},\ldots,v_{nj})\in V$, denoto por $(v_{ij})$ a
+  la matriz que obtengo de tomar a $v_j$ como columnas. Por lo tanto:
+  \[
+    \Phi:\fB \lra \text{GL}(n,\RR)  \quad\text{con}\quad f(\beta)=(v_{ij})
+  \]
+  es una biyecci\'on. Por lo tanto identificar\'e $\fB$ con $G=\text{GL}(n,\RR)$ (de hecho existe
+  una estructura de grupo sobre $\fB$ que hace que $\Phi$ sea un isomorfismo de grupos).
+  
+  Observa que $H=\text{GL}^+(n,\RR)=\{A\in G\mid \det{A}>0\}$ es un subgrupo de $G$
+  entonces la funci\'on $(A,\beta)\mapsto A\beta=A(v_{ij})$ es una acci\'on de grupo.
+  En efecto: $\Id\beta=\Id(v_{ij})=(v_{ij})=\beta$ y $(AB)\beta=(AB)(v_{ij})=A(B(v_{ij}))=A(B\beta)$.
+
+  Adem\'as $\sim$ es la relaci\'on de equivalencia que define esta acci\'on: sean $\beta=(v_{ij})$ y
+  $\gamma=(w_{ij})$ dos bases y $Q$ su matriz de cambio de base, ie. $Q\beta=\gamma$. Entonces:
+  \[
+    \beta\sim\gamma \quad\iff\quad \det Q>0 \quad\iff\quad Q\in H \quad\iff\quad \gamma\in\Oo(\beta)
+  \]
+  donde $\Oo(\beta)$ denota la \'orbita de $\beta$. Por lo tanto $\sim$ es una relaci\'on de
+  equivalencia ya que est\'a inducida por una acci\'on de grupo.  
+\end{proof}%
+

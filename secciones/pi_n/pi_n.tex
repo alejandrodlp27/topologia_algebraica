@@ -1,0 +1,199 @@
+\documentclass[../../topologia_algebraica]{subfiles}
+\begin{document}
+\section{Generalizaci\'on del grupo fundamental a otras dimensiones}
+
+Para poder generalizar el grupo fundamental a otras dimensiones, necesito encontrar otra definici\'on
+equivalente de la cual resulte obvio generalizar a otras dimensions.
+Para este fin, considera el siguiente argumento:
+
+Un lazo $\alpha\in\Omega(X,x_0)$ es una funci\'on continua $\alpha:I\ra X$ tal que
+$\alpha(0)=x_0=\alpha(1)$. Esto significa que $\alpha$ se factoriza a trav\'es
+de $I/\partial I$. M\'as precisamente:
+
+La funci\'on $\nu I\ra \Sn^1$ definido por $\nu(t)=e^{2\pi i t}$ es continua y sobre. Adem\'as,
+para toda $U\subseteq\Sn^1$ se tiene
+\[
+  U\;\;\text{es abierto} \quad\iff\quad \nu^{-1}[U]\;\; \text{es abierto}.
+\]
+Por lo tanto $\nu$ es una proyecci\'on de espacios topol\'ogicos.
+
+Esto quiere decir que $\Sn^1$ tiene la topolog\'ia cociente: sobre $I$ definimos la siguiente
+relaci\'on de equivalencia:
+\[
+  s\sim t \quad\iff\quad \nu(s)=\nu(t).
+\]
+Esta relaci\'on parte el conjunto en todos los singuletes $\{s\}_{s\neq0,1}$ y en $\partial I=\{0,1\}$.
+Por lo tanto el espacio de clases cumple
+\[
+  \frac{I}{\partial I}\approx \Sn^1.
+\]
+
+Adem\'as, cualquier funci\'on continua $\alpha:I \ra X$ tal que $\alpha(0)=\alpha(1)$, ie. un lazo
+se factoriza a trav\'es de $\nu$:
+\[
+  \begin{tikzcd}
+   I \arrow[r,"\alpha"] \arrow[d,twoheadrightarrow,"\nu"'] & X \\
+   \frac{I}{\partial I} \arrow[ur,dotted,"\tilde{\alpha}"'] & 
+ \end{tikzcd}
+ \quad\text{con}\quad \alpha=\tilde{\alpha}\circ\nu
+\]
+Por lo tanto hay una biyecci\'on natural
+
+\[
+  \begin{tikzcd}
+    \Big[(\Sn^1,1),(X,x_0)\Big] \arrow[r,"\Phi"] & \pi_1(X,x_0) & \text{con}
+    & \text{[}\beta\text{]} \arrow[r,mapsto] & \text{[}\beta\circ\nu\text{]}
+  \end{tikzcd}
+\]
+
+con inverso $[\alpha]\mapsto[\tilde{\alpha}]$. Est\'a bien definido por la proposici\'on
+\ref{prop:homotopia_composicion}: $\alpha\simeq\beta\;\;\then\;\; \alpha\circ\nu \simeq \beta\circ\nu$.
+
+Adem\'as, esta biyecci\'on es un homeomorfismo...................................................
+
+\begin{prop}
+  Si $\Omega(X,x_0)$ y $\text{Map}_*((\Sn^1,1),(X,x_0))$ tienen la topolog\'ia compacto-abierta;
+  si $\pi_1(X,x_0)$ y $[(\Sn^1,1),(X,x_0)]$ tienen sus correspondientes topolog\'ias cociente, entonces
+  \[
+    \Big[(\Sn^1,1),(X,x_0)\Big] \approx \pi_1(X,x_0)
+  \]
+\end{prop}
+\begin{proof}
+  Primero pruebo que $\Phi$ es continuo. Sea $U\subseteq\pi_1(X,x_0)$, entonces su preimagen $\bar{U}$
+  en
+  \[
+    \Omega(X,x_0)=\{I\morf{\alpha} X \mid \alpha \;\text{es continua y}\; \alpha(0)=\alpha(1)\},
+  \]
+  con la topolog\'ia de subespacio de $C^0(I,Y)$, es abierto, es decir es una uni\'on arbitraria
+  de intersecciones finitas de los abiertos $B_K(U)$:
+  \[
+    \bar{U}=\bigcup_{j\in J}B_{K_j}(U_j)
+  \]
+  con $K_j\subseteq I$ compacto y $U_j\subseteq Y$ abierto. Quiero probar que la preimagen bajo
+  $\Phi$ de $\bar{U}$ es un abierto. Como $\Phi$ es biyectiva, basta probar esto para $\bar{U}=B_K(U)$
+  (esto es porque la)..
+  
+\end{proof}
+
+\begin{nota}
+  Puedo intercambiar $(\Sn^1,1)$ por $(I/\partial I,\star)$ donde $\star\in I/\partial I$ es la clase
+  de equivalencia $[\partial I]$ ya que son homeomorfos como espacios basados.
+\end{nota}
+
+Este resultado motiva la siguiente definici\'on:
+\begin{defin}\label{def:grupo_fundamental_dimension_n}
+  El grupo fundamental de dimensi\'on $n$ de un espacio basado $(X,x_0)$ se define como
+  \[
+    \pi_n(X,x_0):=\Big[(\Sn^n,1),(X,x_0)\Big].
+  \]
+\end{defin}
+
+Primero analizamos qu\'e sucede cuando $n=0$ ya que este caso es distinto a los dem\'as.
+
+Recuerda que $\Sn^0=\{x\in\RR: \abs{x}=1\}=\{-1,1\}$. Llamar\'e a estos puntos de otra manera
+para que las cuentas sean m\'as n\'itidas: sean $1=\star$ y $-1=\bullet$. Con esta notaci\'on
+puedo escribir:
+\[
+  M:=\text{Map}_*\Big( (\Sn^0,\star),(X,x_0) \Big)=
+  \{\Sn^0\morf{f} X \mid f\;\text{es continua y}\; f(\star)=x_0\}.
+\]
+Entonces la \'unica informaci\'on que nos falta saber para determinar a $f$ es el valor
+$f(\bullet)\in X$. Esto nos induce la funci\'on:
+\[
+  \begin{tikzcd}
+    M\arrow[r,"\Psi"] & X & \text{con}
+    & f \arrow[r,mapsto] & f(\bullet).
+  \end{tikzcd}
+\]
+Observa que si $f,g\in M$ son homot\'opicos, existe una funci\'on continua
+$H:\{\star,\bullet\}\times I\ra X$ donde $H_o=f$ y $H_1=g$. Esto significa que
+la funci\'on $F_{\bullet}:I\ra X$ definida por $F_{\bullet}(t)=H(\bullet,t)$, es continua.
+Adem\'as $F_{\bullet}(0)=H_0(\bullet)=f(\bullet)=\Psi(f)$ y $F_{\bullet}(1)=H_1(\bullet)=g(\bullet)=\Psi(g)$.
+Es decir $F_{\bullet}$ es una trayectoria de $\Psi(f)$ a $\Psi(g)$ en $X$. Decimos
+que $\Psi(f)$ y $\Psi(g)$ son \emph{conectables por trayectorias}.
+
+Con esto podemos definir una relaci\'on de equivalencia natural en $X$: para todas $x,y\in X$
+\begin{align*}%
+  x\sim y & \quad\iff\quad x \;\text{y} y \;\text{son conectables por trayectorias}\\ &%
+  \quad\iff\quad%
+  \exists\;\; \sigma:I\ra X \;\text{continua tal que}\; \sigma(0)=x \;\text{y}\; \sigma(1)=y.%
+\end{align*}%
+Por lo tanto, el argumento del p\'arrafo anterior nos dice que:
+\[
+  f\simeq g \quad\then\quad \Psi(f)\sim \Psi(g)
+\]
+y as\'i, puedo definir $\Psi$ para clases de equivalencia:
+\[
+  \Psi\big( [f]_{\simeq} \big)= [\Psi(f)]_{\sim} \quad\text{est\'a bien definida}.
+\]
+Deber\'ia de cambiar de notaci\'on a algo como $\hat{\Psi}$, pero no creo que cause problemas.
+Observa que $[f]_{\simeq}\in M/_{\simeq}$ que es precisamente $\pi_0(X,x_0)$. Por lo tanto
+$\Psi:\pi_0(X,x_0)\ra X/_{\sim}$.
+
+Pruebo que $\Psi$ es biyectiva:
+
+Para toda $[x]_{\sim}\in X/_{\sim}$, toma $f_x\in M$ definida por $f(\bullet)=x$. Claramente
+\[
+  \Psi([f_x]_{\simeq})=[\Psi(f)]_{\sim}=[f(\bullet)]=[x]_{\sim},
+\]
+y as\'i $\Psi$ es sobreyectiva.
+
+Sean $[\alpha],[\beta]\in\pi_0(X,x_0)$ tales que  que $\Psi([\alpha])=Psi([\alpha])$, es decir que
+$\alpha(\bullet)$ y $\beta(\bullet)$ son conectables por trayectorias; supongamos que es mediante
+la trayectoria $\sigma:I\ra X$. Defino la siguiente homotop\'ia entre $\alpha$ y $\beta$:
+\[
+  H(s,t):=
+  \begin{cases}
+    x_0 & \text{si}\;\; s=\star \\
+    \sigma(t) & \text{si}\;\; s=\bullet
+  \end{cases}
+\]
+Esta es una homotop\'ia porque es la uni\'on disjunta de funciones continuas y es una calca de
+la homotop\'ia $F$ que constru\'i para definir la relaci\'on de equivalencia en $X$. Por lo
+tanto $\alpha\simeq\beta$, entonces $[\alpha]=[\beta]$ y concluyo que $\Psi$ es inyectiva.
+
+Por \'ultimo observa que $X/_{\sim}$ se puede ver como el espacio de componentes conexas
+del espacio $X$ ya que al hacer cociente reducimos toda una componente conexa (arco-conexa)
+a un punto sobre ella.
+
+Con todo esto he probado que
+\begin{prop}\label{pi_cero_componentes}
+  \[
+  \begin{tikzcd}
+    \pi_0(X,x_0) \arrow[r,"\Psi"] &
+    \Big\{  \begin{smallmatrix}\text{componentes}\\ \text{conexas de}\; X\end{smallmatrix}  \Big\}&
+    \text{es biyectiva.}
+  \end{tikzcd}
+\]
+\end{prop}
+
+
+Los dem\'as grupos fundamentales son muy parecidos a $\pi_1(X,x_0)$. La \'unica diferencia es que
+los lazos ahora est\'an definidos sobre $I^n/\partial I^n$ en lugar de sobre $I/\partial I$.
+Si defino la operaci\'on como:
+\[
+  (\alpha*\beta)(s_1,\ldots,s_n):=
+  \begin{cases}
+    \alpha(2s_1,s_2,\ldots,s_n) & \text{si}\;\; 0\leq s_1\leq\frac{1}{2} \\
+    \alpha(2s_1-1,s_2,\ldots,s_n) & \text{si}\;\; \frac{1}{2}\leq s_1 \leq 1
+  \end{cases}
+\]
+donde $\alpha,\beta:I^n\ra X$, entonces todas las propiedades de grupo de $\pi_n(X,x_0)$
+son id\'enticas a las propiedades de $\pi_1(X,x_0)$. Las enumero para tenerlas a la mano:
+\begin{align*}%
+  \big(\pi_n(X,x_0),*\big ) &  \quad\text{es un grupo} \\ %
+  [e]=[e_{x_0}]\quad & \text{es el neutro} \\  %
+  \forall\;\; [\alpha],\quad &  [\alpha]^{-1}=[\bar{\alpha}]
+\end{align*}%
+
+Tambi\'en observa que 
+  \[
+    \begin{tikzcd}
+      (X,x_0) \arrow[r,mapsto,"\Ff"] & \pi_n(X,x_0) &
+      \Big\{ (X,x_0)\morf{f}(Y,y_0) \Big\} \arrow[r,mapsto] &
+      \Big\{ \pi_n(X,x_0)\morf{f_{\#}}\pi_n(Y,y_0) \Big\}
+    \end{tikzcd}
+  \]
+  es un funtor (covariante) de la categor\'ia $\mathbf{Top}_*$ a la categor\'ia de grupos. La
+  prueba de esto es la misma que en el Teorema \ref{thm:grupo_fundamental_funtor}.
+\end{document}

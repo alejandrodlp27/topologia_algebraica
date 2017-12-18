@@ -1,0 +1,17 @@
+\begin{ejercicio}\label{ej:31}
+  $\bar{\a}_x:(G/G_x)\ra\Oo(x)$ es inyectiva. Por lo tanto es una funci\'on continua y
+  biyectiva.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Como $\bar{\a}_x(gG_x)=\a_x(g)=gx$, entonces
+  \[
+    \bar{\a}_x(gG_x)=\bar{\a}_x(hG_x)\iff\a_x(g)=\a_x(h)\iff gx=hx \iff (gh^{-1})x=x \iff gh^{-1}\in G_x
+  \]
+  dice que $\a_x$ est\'a bien definida y es inyectiva. Adem\'as es sobreyectiva porque $\Oo(x)$
+  se define como la imagen de $\a_x$. Por lo tanto $\a_x$ es biyectiva.
+
+  Por \'ultimo, $\a_x=\bar{\a}_x\circ\nu$ donde $\nu:G_x\epi G/G_x$ es la identificaci\'on inducida
+  por $\a_x$, entonces, como $\a_x$ es continua, $\bar{\a}_p$ es continua.
+\end{proof}%
+

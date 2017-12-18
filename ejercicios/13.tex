@@ -1,0 +1,53 @@
+%%% PREGUNTA
+
+\begin{ejercicio}\label{ej:13}
+	Sea $(Y,y_0)$ un espacio basado y $\Sn^0=\{-1,1\}$, entonces la biyecci\'on can\'onica:
+	\[\begin{tikzcd}
+		\text{Map}_*(\Sn^0,Y)\arrow[r,"\psi"] &  Y & \text{con} & \psi(f)=f(-1) 
+        \end{tikzcd}\]
+        es un homeomorfismo, ie. $\text{Map}_*(\Sn^0,Y)\approx Y.$
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%
+  A cada $y\in Y$ le asocio la funci\'on $f_y:\Sn^0\ra Y$ con valores $f_y(1)=y_0$ y $f_y(-1)=y$.
+  A la funci\'on $y\mapsto f_y$ la denoto por $\varphi$. Demotrar\'e que $\varphi$ es la inversa
+  de $\psi$ y que ambas son continuas.
+  
+  La primera propiedad es clara porque
+  \[
+    \varphi(\psi(f))(-1)=\varphi(f(-1))=f_{f(-1)}(-1)=f(-1) \quad\text{y}\quad
+    \psi(\varphi(y))=\psi(f_y)=f_y(-1)=y.
+  \]
+  Ahora observa que para $U\subseteq Y$ abierto,
+  \[
+    \psi^{-1}[U]:=\{f:\Sn^0\ra Y\mid f(-1)\in U\}=
+    \{f:\Sn^0\ra Y\mid f[\{-1\}] \subseteq K\}=
+    B(K,U)\subset\text{Map}_*(\Sn^0,Y)
+  \]
+  donde $K=\{-1\}$ es un subconjunto compacto de $\Sn^0$. Es decir que $\psi^{-1}[U]$ es un abierto
+  sub\'asico de la topolog\'ia compacto-abierta. Por lo tanto $\psi$ es continua.
+
+  Adem\'as, si $B(K,U)\subseteq\text{Map}_*(\Sn^0,Y)$ es un sub\'asico. Aqu\'i $K\subseteq\Sn^0$
+  es compacto, en particular es uno de los cuatro conjuntos $\emptyset$,$\{1\}$,$\{-1\},\Sn^0$.
+  Tambi\'en $U\subseteq Y$ es abierto. Por definici\'on:
+  \[
+    \varphi^{-1}[B(K,U)]=\{y\in Y\mid f_y[K]\subseteq U\}.
+  \]
+  Calculo este conjunto por casos:
+  
+  Para $y_0\in U$, tengo
+  \[
+    \varphi^{-1}[B(\emptyset,U)] = Y = \varphi^{-1}[B(\{1\},U)] \quad,\quad
+    \varphi^{-1}[B(\{-1\},U)] = U = \varphi^{-1}[B(\Sn^0,U)],
+  \]
+  y para $y_0\not\in U$, tengo
+  \[
+    \varphi^{-1}[B(\emptyset,U)] = Y \quad,\quad
+    \varphi^{-1}[B(\{-1\},U)] = U \quad,\quad
+    \varphi^{-1}[B(\{1\},U)] = \emptyset = \varphi^{-1}[B(\Sn^0,U)].
+  \]
+  Todos los casos dan conjuntos abiertos. Por lo tanto $\varphi^{-1}[B(K,U)]$ es abierto para
+  toda $K$ y $U$, y as\'i $\varphi$ es continua. Esto termina la prueba.
+\end{proof}%
+

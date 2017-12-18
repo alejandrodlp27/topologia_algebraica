@@ -1,0 +1,28 @@
+\begin{ejercicio}\label{ej:47}
+  Todo complejo simplicial geom\'etrico determina un complejo simplicial abstracto.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Sea $K=\{\sigma_1,\ldots,\sigma_n\}$ un complejo simplicial geom\'etrico con
+  $\sigma_i=\gen{a_0^i,\ldots,a_{n_i}^i}$; los veo encajados en alg\'un $\RR^N$, ie. $a_j^i\in\RR^N$
+  para toda $i\in\{1,\ldots,n\}$ y para toda $j\in\{0,\ldots,n_i\}$. Para cada simplejo
+  $\sigma_i\in K$ defino el conjunto de sus v\'ertices como $\sigma_i'=\{a_0^i,\ldots,a_{n_i}^i\}$.
+
+  En general escribo el conjunto de v\'ertices como
+  \[
+    V:=\bigcup_{i=1}^n\sigma_i'=\{a_j^i\}_{i,j}\subset\RR^N
+  \]
+  y defino $K'=\{\sigma_i'\}_{i=1}^n$.
+
+  Ahora pruebo que $K'$ cumple las dos propiedades de ser un complejo simplicial abstracto.
+  Primero observa que para un v\'ertice arbitrario $a_j^i\in V$, el simplejo $\gen{a_j^i}$ es
+  una $0$-cara del simplejo geom\'etrico $\sigma_i=\gen{a_0^i,\ldots,a_{n_i}^i}$ entonces por
+  definici\'on el 0-simplejo geom\'etrico $\gen{a_j^i}$ es un elemento de $K$, ie. $\gen{a_j^i}=\sigma_l$
+  para alguna $l\in\{1,\ldots,n\}$. Por lo tanto $\sigma_l'=\{a_j^i\}\in K'$.
+
+  Para probar la segunda propiedad sea $L=\sigma_i'=\{a_0^i,\ldots,a_{n_i}^i\}\in K'$ y sea
+  $L'\subseteq L$. Entonces $L'$ genera una cara del simplejo geom\'etrico $\sigma_i$. Por definici\'on,
+  el simplejo generado por $L'$ es un elemento de $K$, ie. $L$ genera a alg\'un $\sigma_k\in K$.
+  Por lo tanto $L'=\sigma_k'\in K'$ y termino.
+\end{proof}%
+

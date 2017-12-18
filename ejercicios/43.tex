@@ -1,0 +1,55 @@
+\begin{ejercicio}\label{ej:43}
+  Para cada 0-variedad orientada $(M,\fO_M)$ donde $M=\{x_1,\ldots,x_n\}$ y
+  $\fO_M=\{\fo_1,\ldots,\fo_n\}$ (con cada $\fo_j\in\{-1,1\}$), defino la funci\'on $\Phi:\Omega_0\ra\ZZ$
+  como
+  \[
+    \Phi[M,\fO_M]=\sum_{j=1}^n \fo_j.
+  \]
+  Prueba que $\Phi$ es un isomorfismo, y en particular $\Omega_0\cong\ZZ$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Primero pruebo que $\Phi$ est\'a bien definido. Sean $[M,\fO_M]=[N,\fO_N]$, entonces $M\sqcup N$
+  es la frontera de una 1-variedad orientada $(W,\fO_W)$. Como en la discusi\'on anterior, escribo
+  $M\sqcup N=\{x_1,\ldots,x_s,x_{s+1},\ldots,x_{s+s'}\}$ donde la orientaci\'on de $x_j$ es positiva
+  para $j\in\{1,\ldots,s\}$ y negativa para el resto. Por la proposici\'on
+  \ref{prop:cantidad_orientaciones}, s\'e que $s=s'$.
+
+  Por otro lado supongo que $M$ tiene $m$ puntos orientados positivamente y $m'$ puntos orientados
+  negativamente, en particular $\Phi[M,\fO_M]=m-m'$. Similarmente tambi\'en supongo que
+  $\Phi[N,\fO_N]=n-n'$ (con la misma notaci\'on, es decir $N$ tiene $n$ puntos positivos y
+  $n'$ puntos negativos). Claramente la cantidad de puntos en $M\sqcup N$ orientados positivamente
+  es $s=m+n$. Similarmente $s'=m'+n'$. Por lo tanto si sustituyo esto en la f\'ormula garantizada por
+  la proposici\'on \ref{prop:cantidad_orientaciones}, obtengo que
+  \[
+    s=s' \quad\then\quad
+    m+n=m'+n' \quad\then\quad
+    m-m'=n-n' \quad\then\quad
+    \Phi[M,\fO_M]=\Phi[N,\fO_N]
+  \]
+  y concluyo que $\Phi$ est\'a bien definida.
+
+  Ahora supongo que $\Phi[M,\fO_M]=m-m'=n-n'=\Phi[N,\fO_N]$, entonces $m+n=m'+n'$ y as\'i
+  $M\sqcup N$ tiene la misma cantidad de puntos orientados positivamente que de puntos
+  orientados negativamente. Entonces existe una biyecci\'on
+  \[
+    \{x\in M\sqcup N\mid \fo_x=+1\} \longleftrightarrow \{x\in M\sqcup N\mid \fo_x=-1\}.
+  \]
+  Por lo tanto con esta asociaci\'on puedo contruir trayectorias que inicia en un punto orientado
+  negativamente y terminan en el punto orientado positivamente que est\'a asociado al punto inicial.
+  De esta manera la uni\'on disjunta de estas trayectorias est\'a orientada y la orientaci\'on
+  que induce sobre su frontera, ie. $M\sqcup N$, es exactamente la orientaci\'on de $M\sqcup N$.
+
+  Por lo tanto $M\sqcup N$ es la frontera de una 1-variedad compacta orientada y as\'i
+  $[M,\fO_M]=[N,\fO_N]$ y $\Phi$ es inyectiva.
+
+  $\Phi$ es claramente sobreyectiva porque
+  \begin{eqnarray*}
+    \Phi[\{(x_1,+1),\ldots,(x_1,+1)\}]=1+\cdots+1&=&n \\
+    \Phi[\{(x_1,-1),\ldots,(x_1,-1)\}]=-1-\cdots-1&=&-n \\
+    \Phi[\{(x_1,+1),(x_2,-1)\}]=1-1&=&0.
+  \end{eqnarray*}
+  
+  
+\end{proof}%
+

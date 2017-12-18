@@ -1,0 +1,31 @@
+\begin{ejercicio}\label{ej:20}
+  A la esfera $\Sn^n$ le defino la relaci\'on de equivalencia $x\sim -x$ donde relaciono cada punto
+  con su ant\'ipoda. En este caso se cumple que:
+  \[
+    \RR P^n\approx \Sn^n/_{\sim}
+  \]
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%  
+  Considera la restricci\'on $\hat{\nu}:=\nu|_{\Sn^n}:\Sn^n\ra \RR P^n$ de la proyecci\'on can\'onica
+  $\nu:\RR^{n+1}-\{0\}\epi \RR P^n$. Claramente es una funci\'on sobre porque
+  $[x]=[\|x\|^{-1}x]\in\RR P^n$, adem\'as
+  \[
+    \hat{\nu}(x)=\hat{\nu}(y) \quad\iff\quad
+    \exists\la\neq 0 \quad\text{tal que}\quad
+    \la x= y \quad\iff\quad x\sim y
+  \]
+  donde la \'ultima equivalencia se cumple porque $x,y\in\Sn^n$ y necesariamente $\la=\pm 1$.
+  Por lo tanto $\hat{\nu}$ se factoriza a trav\'es de la proyecci\'on $q:\Sn^n\ra \Sn^n/_{\sim}$,
+  es decir existe una \'unica funci\'on continua biyectiva $\varphi$ tal que hace conmutar el
+  siguiente diagrama:
+  \[
+    \begin{tikzcd}
+      \Sn^n \arrow[r,"\hat{\nu}"] \arrow[d,"q"'] & \RR P^n \\
+      \Sn^n/_{\sim} \arrow[ur,dashed,"\varphi"'] & 
+    \end{tikzcd}
+  \]
+  Como $\Sn^n$ es compacto y $\RR P^n$ es Hausdorff, $\varphi$ es un homeomorfismo.   
+\end{proof}%
+

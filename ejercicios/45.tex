@@ -1,0 +1,41 @@
+\begin{ejercicio}\label{ej:45}
+  Todo $n$-simplejo geom\'etrico $\sigma=\gen{a_0,\ldots,a_n}$ es cerrado, convexo y compacto
+  como subespacio de $\RR^N$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Como $\sigma=\text{Conv}(a_0,\ldots,a_n)$ (por la proposici\'on \ref{prop:nsimplejo_geometrico_convexo}),
+  entonces $\sigma$ es convexo.
+
+  Para probar compacidad, basta probar que los $n$-simplejos geom\'etricos est\'andares son compactos
+  ya que todo $n$-simplejo geom\'etrico es homeomorfos a $\Delta^n$ (cf. ejercicio \ref{ej:46}).
+
+  Sea $\Pp\subset\RR^n$ el plano definido por $x_1+\cdots+x_n=1$ y $C\subset\RR^n$ el primer cuadrante,
+  ie. $C=\{(x_1,\ldots,x_n)\in\RR^n\mid x_i\geq 0\}$. Observa que ambos conjuntos son cerrados. Ahora
+  pruebo que:
+  \[
+    \Delta^n=\gen{0,e_1,\ldots,e_n}=\Pp\cap C
+  \]
+  y as\'i $\Delta^n$ es cerrado.
+  \begin{enumerate}
+  \item[($\subseteq$)] Sea $x=\sum\la_ie_i$ donde $0+\la_1+\cdots+\la_n=1$ y $\la_i\geq 0$. Como
+    $\{e_1,\ldots,e_n\}$ es la base est\'andar, entonces $x=(\la_1,\ldots,\la_n)$ y claramente se
+    cumple que $x\in\Pp\cap C$.
+  \item[($\supseteq$)] Sea $x=(x_1,\ldots,x_n)\in\Pp\cap C$, entonces $x_1+\cdots+x_n=1$ y $x_i\geq 0$.
+    Si tomo $\la_i=x_i$ entonces $x=(\la_1\ldots,\la_n)=\sum\la_ie_i\in\Delta^n$.
+  \end{enumerate}
+
+  Por \'ultimo observa que si $x=\sum\la_ie_i\in\Delta^n$ entonces:
+  \[
+    \|x\|=
+    \left\|\sum_{i=1}^n\la_ie_i\right\|\leq
+    \sum_{i=1}^n\|\la_ie_i\|=
+    \sum_{i=1}^n\abs{\la_i}=
+    \sum_{i=1}^n\la_i=1
+  \]
+  ya que $0\leq \la_i$. Por lo tanto $\Delta^n$ es un conjunto cerrado
+  y acotado en $\RR^n$, entonces $\Delta^n$ es compacto.
+  
+  
+\end{proof}%
+

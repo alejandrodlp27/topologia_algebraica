@@ -1,0 +1,62 @@
+\begin{ejercicio}\label{ej:26}
+  Para toda $x\in\Sn^1$, existe una vecindad abierta $U\subseteq\Sn^1$ de $x$ tal que
+  $\epsilon^{-1}[U]=\bigcup U_n$ con $U_n\cap U_m=\emptyset$ donde $\epsilon_n:=\epsilon|_{U_n}:U_n\ra U$
+  es un homeomorfismo.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Veo a $\Sn^1$ encajado en el plano complejo y sea $e^{\theta}\in\Sn^1$. Sin p\'erdida de generalidad
+  puedo asumir que $e^{\theta}\neq -1$ porque de otra manera nada m\'as encajo $\Sn^1$ como
+  $-\Sn^1\subset\CC$.
+
+  Observa que $e^{\theta}\in\CC-\{x\in\RR \mid x<0\}$ entonces la rama principal del argumento est\'a
+  bien definida y $\arg(e^{\theta})=\vartheta\in(-\pi,\pi)$ donde $\theta=\vartheta+2\pi n$ para alguna
+  $n\in\ZZ$ (aqu\'i $\arg$ es una funci\'on continua).
+
+  De esta manera para cada $z\in\Sn^1-\{-1\}$ hay un \'unico $\vartheta\in(-\pi,\pi)$ tal que
+  $z=e^{\vartheta}$, ie. $\arg(z)=\vartheta$. Con esto puedo definir una funci\'on continua
+  $\delta:\Sn^1-\{-1\}\ra (-\tfrac{1}{2},\tfrac{1}{2})$ como
+  \[
+    \delta(z)=\delta(e^{\vartheta})=\frac{\vartheta}{2\pi}.
+  \]
+  Claramente es continua y adem\'as es el inverso de la restricci\'on
+  $\bar{\epsilon}:=\epsilon|_{(-\tfrac{1}{2},\tfrac{1}{2})}$ porque si
+  $t\in(-\tfrac{1}{2},\tfrac{1}{2})$,
+  o equivalentemente $2\pi t\in(-\pi,\pi)$, y si $z=e^{\vartheta}\in\Sn^1-\{-1\}$ entonces:
+  \[
+    \delta(\bar{\epsilon}(t))=
+    \delta(e^{2\pi t})=
+    \frac{2\pi t}{2\pi}=
+    t \quad\text{y}\quad
+    \bar{\epsilon}(\delta(e^{\vartheta}))=
+    \bar{\epsilon}\paren{\tfrac{\vartheta}{2\pi}}=
+    e^{2\pi\tfrac{\vartheta}{2\pi}}=
+    e^{\vartheta}.
+  \]
+  Por lo tanto $\Sn^1-\{-1\}\approx(-\tfrac{1}{2},\tfrac{1}{2})$ mediante la restricci\'on de $\epsilon$.
+
+  Ahora escribo $U=\Sn^1-\{-1\}$ como la vecindad abierta de alg\'un elemento $z\neq -1$ arbitrario de
+  $\Sn^1$. Observa que
+  \[
+    \epsilon^{-1}[U]=
+    \{t\in\RR \mid e^{2\pi t}\neq -1\}=
+    \{t\in\RR \mid t\not\in\paren{\tfrac{1}{2}+\ZZ}\}=
+    \bigcup_{n\in\ZZ}\paren{n-\tfrac{1}{2},n+\tfrac{1}{2}}
+  \]
+  donde $\tfrac{1}{2}+\ZZ=\{\tfrac{1}{2}+n\in\RR\mid n\in\ZZ\}$; escribo
+  $U_n:=\paren{-\tfrac{1}{2}+n,\tfrac{1}{2}+n}$. Claramente las $U_n$'s son disjuntas porque cada
+  una pertenece a un elemento distinto de la partici\'on
+  $\{ [n-\tfrac{1}{2},n+\tfrac{1}{2})\}_{n\in\ZZ}$ de $\RR$.
+
+  Adem\'as sea
+  $\varphi_{-n}:U_n\ra(-\tfrac{1}{2},\tfrac{1}{2})$ la traslaci\'on $\varphi_{-n}(t)=t-n$. Claramente
+  es un homeomorfismo porque es la restricci\'on de un homeomorfismo con el codominio igual a su imagen.
+  Por lo tanto
+  \[
+    \epsilon_n:=\epsilon|_{U_n}=\bar{\epsilon}\circ\varphi_{-n} \quad\text{porque}\quad
+    \bar{\epsilon}(\varphi_{-n}(t))=\bar{\epsilon}(t-n)=e^{2\pi(t-n)}=e^{2\pi t}=\epsilon_n(t).
+  \]
+  Esto quiere decir que $\epsilon_n:U_n\ra U$ es un homeomorfismo por ser la composici\'on de
+  homeomorfismos.  
+\end{proof}%
+

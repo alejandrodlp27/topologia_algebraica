@@ -1,0 +1,43 @@
+\begin{ejercicio}\label{ej:48}
+  $d$ es una m\'etrica sobre $\abs{K}$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Sean $\sigma,\sigma'\in\abs{K}$.
+  Pruebo que $d$ cumple las tres propiedades de ser una m\'etrica.
+  \begin{enumerate}
+  \item Si $d(\sigma,\sigma')=0$ entonces $\sum(\sigma(v)-\sigma'(v))^2=0$ y como cada sumando es
+    no-negativo, necesariamente se tiene que $\sigma(v)-\sigma'(v)=0$ para toda $v\in V_K$. Por
+    lo tanto $\sigma=\sigma'$ como funciones. Para la otra direcci\'on, $\sigma=\sigma'$ implica que
+    $(\sigma(v)-\sigma'(v))^2=0$ para toda $v\in V_K$ y as\'i $d(\sigma,\sigma')=\sum 0=0$.
+  \item Como $(\sigma(v)-\sigma'(v))^2=(\sigma'(v)-\sigma(v))^2$ para toda $v$, puedo sumar sobre
+    $V_K$ y obtengo que $d(\sigma,sigma')=d(\sigma',\sigma)$.
+  \item La desigualdad del tri\'angulo se cumple por la misma raz\'on que se cumple con la m\'etrica
+    euclideana: sean $\sigma,\sigma',\sigma''\in\abs{K}$ y
+    $L:=\sigma^{-1}(0,1]\cup(\sigma')^{-1}(0,1]\cup(\sigma'')^{-1}(0,1]$ que es finito porque es la
+    uni\'on finita de elements de $K$; sea $N=\#(L)$ y $L=\{v_1\ldots,v_N\}$ una enumeraci\'on. Por
+    lo tanto:
+    \begin{eqnarray*}
+      d(\sigma,\sigma'')&=&
+      \sqrt{\sum_{i=1}^N(\sigma(v_i)-\sigma''(v_i))^2}\\ &=&
+      \|(\sigma(v_1)-\sigma''(v_1),\ldots,\sigma(v_N)-\sigma''(v_N))\|\\ &=&
+      \|(\sigma(v_1),\ldots,\sigma(v_N))-(\sigma''(v_1),\ldots,\sigma''(v_N))\|
+    \end{eqnarray*}
+    donde la \'ultima expresi\'on es la distancia usual euclideana entre los puntos
+    $(\sigma(v_1),\ldots,\sigma(v_N))$ y $(\sigma''(v_1),\ldots,\sigma''(v_N))$ de $\RR^N$.
+    Aqu\'i se vale la desigualdad del tri\'angulo entonces:
+    \begin{eqnarray*}
+      d(\sigma,\sigma'')&\leq&
+      \|(\sigma(v_1),\ldots,\sigma(v_N))-(\sigma'(v_1),\ldots,\sigma'(v_N))\|+\\ &&
+      \|(\sigma'(v_1),\ldots,\sigma'(v_N))-(\sigma''(v_1),\ldots,\sigma''(v_N))\|\\ &\leq&
+      \|(\sigma(v_1)-\sigma'(v_1),\ldots,\sigma(v_N)-\sigma'(v_N))\|+
+      \|(\sigma'(v_1)-\sigma''(v_1),\ldots,\sigma(v_N)-\sigma''(v_N))\| \\ &\leq &
+      \sqrt{\sum_{i=1}^N(\sigma(v_i)-\sigma'(v_i))^2}+
+      \sqrt{\sum_{i=1}^N(\sigma'(v_i)-\sigma''(v_i))^2}\\ &\leq&
+      d(\sigma,\sigma')+d(\sigma',\sigma'').
+    \end{eqnarray*}
+    
+    
+  \end{enumerate}
+\end{proof}%
+

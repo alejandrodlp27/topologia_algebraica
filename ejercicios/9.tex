@@ -1,0 +1,56 @@
+%%% PREGUNTA
+
+\begin{ejercicio}\label{ej:9}
+Para cualquier espacio basado $(X,x_0)$ se tiene que
+\[
+	\Ss X \approx X\wedge\Sn^1
+\]
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}% 
+
+Usar\'e $I/\partial I$ en lugar de $\Sn^1$, pero resumo la notaci\'on a $J:=I/\partial I$.
+Denoto $\nu:I\ra J$ como la funci\'on identificaci\'on; tambi\'en tomo a $[0]=[1]\in J$
+como el punto base. Considero la funci\'on:
+\[
+	\iota:X\times I \lra X\wedge J \quad\text{con}\quad \iota(x,t)=[x,[t]]
+\]
+donde $[t]\in J$ y $[x,[t]]$ es la clase del punto $(x,[t])\in X\times J$. Claramente es
+continua porque es la composici\'on de las siguientes funciones continuas
+\[
+\begin{tikzcd}
+	X\times I \arrow[rr,"\Id_X\times \nu"] & & X\times J \arrow[r,twoheadrightarrow,"\pi"] & X \wedge J \\
+	(x,t) \arrow[rr,mapsto] & & (x,[t]) \arrow[r,mapsto] & \text{[}x,\text{[}t\text{]}\text{]}
+\end{tikzcd}
+\]
+donde $\pi:X\times J \ra X\wedge J$ es la proyecci\'on natural. Observa tambi\'en, que como $\nu$
+y $\pi$ son sobreyectivas, $\iota$ es sobreyectiva.
+
+Si denoto por $\star$ al punto base can\'onico de $X\wedge J$, claramente se cumple que
+\[
+	\iota(x,0)=[x,[0]]=\star=[x,[1]]=\iota(x,1)
+\]
+para toda $x\in X$ porque $(x,[0]),(x,[1])\in X\vee J = (X\times\{\star\})\cup(\{x_0\}\times J)\subset X\times J$
+que es el conjunto que se identifica a un punto al contruir $X\wedge J$. Adem\'as tengo que
+\[
+	(x_0,[t])\in X\vee J \quad\then\quad \iota(x_0,t)=[x_0,[t]]=\star \quad\forall t\in I.
+\]
+
+Todo esto junto implica que $\iota$ es constante sobre el conjunto
+$(X\times\{0\})\cup(X\times\{1\})\cup(\{x_0\}\times I)$ y as\'i se factoriza a trav\'es de la 
+suspensi\'on reducida:
+\[
+\begin{tikzcd}
+	X\times I \arrow[d,twoheadrightarrow,"\nu"'] \arrow[r,"\iota"] & X\wedge J \\
+	\Ss X \arrow[ur,dashed,"\bar{\iota}"'] &
+\end{tikzcd}
+\]
+Si pruebo que $\iota$ es una identificaci\'on, entonces podr\'e concluir que $\bar{\iota}$ es un homeomorfismo.
+Como $\iota$ es sobreyectiva, basta probar que es una funci\'on abierta:
+
+Sea $U\subseteq X\times I$ abierto. Entonces existen abiertos $V_1\subseteq X$ y $V_2\subseteq I$ tales que
+$U=V_1\times V_2$.
+
+\end{proof}%
+

@@ -1,0 +1,8 @@
+\begin{ejercicio}\label{ej:49}
+  Sea $L=\{v_0,\ldots,v_n\}\in K$, entonces $\abs{L}\approx\Delta^n\subset\RR^{n+1}$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+
+\end{proof}%
+

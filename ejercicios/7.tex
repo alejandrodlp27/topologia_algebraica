@@ -1,0 +1,36 @@
+%%% PREGUNTA
+
+\begin{ejercicio}\label{ej:siete}
+Sean $X,Y$ y $Z$ conjuntos, entonces:
+\[
+\begin{tikzcd}
+	\Hom{X\times Z,Y} \arrow[r,"\Phi"] & \Hom{X,\Hom{Z,Y}} \\
+	\Big( X\times Z \morf{f} Y \Big) \arrow[r,mapsto] & \Big( X \morf{\Phi_f} \Hom{Z,Y} \Big)
+\end{tikzcd}
+\]
+definido por $\Phi_f(x):Z\ra Y$ con $\Phi_f(x)(z)=f(x,z)$ es una biyecci\'on.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}% 
+
+Doy un inverso de $\Phi$: sea $g\in\Hom{X,\Hom{Z,Y}}$ con $g(x):Z\ra Y$ y defino
+\[
+	\Psi(g):X\times Z \lra Y \quad\text{con}\quad \Psi(g)(x,z)=g(x)(z).
+\]
+
+Para $f\in\Hom{X\times Z,Y}$ calculo:
+\[
+	\Psi(\Phi(f))(x,z)=\Psi(\Phi_f)(x,z)=\Phi_f(x)(z)=f(x,z) \quad\then\quad
+	\Psi(\Phi(f))=f.
+\]
+Por otro lado si $g\in\Hom{X,\Hom{Z,Y}}$ entonces:
+\[
+	\Phi(\Psi(g))(x)(z)=\Phi_{\Psi(g)}(x)(z)=\Psi(g)(x,z)=g(x)(z) \quad\then\quad
+	\Phi(\Psi(g))=g.
+\]
+
+Por lo tanto $\Psi=\Phi^{-1}$ y $\Phi$ es una biyecci\'on.
+
+\end{proof}%
+

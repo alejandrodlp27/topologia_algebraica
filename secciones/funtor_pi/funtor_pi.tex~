@@ -1,0 +1,205 @@
+\documentclass[../topologia_algebraica]{subfiles}
+\begin{document}
+\section{El funtor $(X,x_0) \mapsto \pi_1(X,x_0)$}
+
+Como $\pi_1(X,x_0)$ es un grupo, pertenece como objeto a la categor\'ia $\mathbf{Grupos}$ cuyos
+objetos son grupos y cuyos morfismos son los homomorfismos de grupo. Sea antoja que
+\[
+  \Ff:\mathbf{Top}_* \lra \mathbf{Grupos} \quad\text{con}\quad \Ff(X,x_0)=\pi_1(X,x_0)
+\]
+sea un funtor. Para esto debemos definir un homomorfismo de grupos $\Ff(f)$ para cada morfismo
+de espacios basados $f$.
+
+Sea $f\in\Hom{(X,x_0),(Y,y_0)}$, es decir $f:X\ra Y$ es continua y $f(x_0)=y_0$. Entonces si
+$\alpha\in\Omega(X,x_0)$ es un lazo, tendremos que $f\circ\alpha$ es un lazo en $(Y,y_0)$. En
+efecto, $f\circ\alpha$ es continua y
+$(f\circ\alpha)(0)=f(\alpha(0))=f(x_0)=f(\alpha(1))(f\circ\alpha)(1)$. Por lo tanto
+$a\mapsto f\circ\alpha$ es una funci\'on bien definida entre $\Omega(X,x_0)$ y $\Omega(Y,y_0)$.
+
+Para ver que esa funci\'on induce una funci\'on entre los grupos fundamentales, hay que
+probar que la funci\'on respeta homotop\'ias, es decir
+\[
+  \alpha\simeq\beta \quad\then\quad (f\circ\alpha)\simeq(f\circ\beta).
+\]
+Esto es consecuencia directa de la proposici\'on \ref{prop:homotopia_composicion}. Por lo tanto
+\[
+  f_{\#}:\pi_1(X,x_0) \lra \pi_1(Y,y_0) \quad\text{con}\quad f_{\#}\big([\alpha]\big)=[f\circ\alpha]
+\]
+es una funci\'on bien definida. Observa que:
+\[
+  f_{\#}\big([\alpha][\beta]\big)=f_{\#}\big( [\alpha*\beta] \big)=\big[ f\circ(\alpha*\beta) \big]=
+  \big[(f\circ\alpha)*(f\circ\beta)\big]=[f\circ\alpha][f\circ\beta]=
+  f_{\#}\big([\alpha]\big)f_{\#}\big([\beta]\big)
+\]
+donde la tercera igualdad se da porque los lazos son iguales:
+\begin{align*}
+  \big(f\circ(\alpha*\beta) \big)(s) & =
+  \begin{cases}
+    f(\alpha)(2s)=f_{\#}(\alpha)(2s) & \text{si}\;\; 0\leq s\leq \frac{1}{2}\\
+    f(\beta)(2s-1)=f_{\#}(\beta)(2s-1) & \text{si}\;\; \frac{1}{2}\leq s\leq 1
+  \end{cases} \\ & =
+  \Big(f_{\#}(\alpha)*f_{\#}(\beta)\Big)(s)=\Big((f\circ\alpha)*(f\circ\beta)\Big).
+\end{align*}
+Adem\'as $f_{\#}([e_{x_0}])=[f\circ e_{x_0}]=[e_{y_0}]$ porque $f(x_0)=y_0$.
+
+Por lo tanto $f_{\#}$ es un homomorfismo de grupos y as\'i $\Ff$ est\'a bien definido
+para ser funtor, s\'olo hacen falta dos propiedades.
+
+Claramente
+\[
+  (\Id_X)_{\#}\big( [\alpha] \big)=[\Id_X\circ\alpha]=[\alpha],
+\]
+entonces $(\Id_X)_{\#}$ es la funci\'on identidad en $\pi_1(X,x_0)$. Por \'ultimo, si
+$f:(X,x_0)\ra (Y,y_0)$ y $g:(Y,y_0)\ra(Z,z_0)$ son morfismos de espacios basados, entonces 
+\[
+  (g\circ f)_{\#}\big( [\alpha] \big)= \big[ (g\circ f) \circ\alpha \big]=
+  \big[ g\circ (f \circ\alpha) \big]=g_{\#}\Big( [f\circ\alpha] \Big)=
+  g_{\#}\Big( f_{\#}\big([\alpha]\big) \Big)=(g_{\#}\circ f_{\#})\big( [\alpha] \big)
+\]
+y as\'i concluyo que
+\[
+  (g\circ f)_{\#}=g_{\#}\circ f_{\#}
+\]
+
+Todo esto prueba:
+\begin{thm}\label{thm:grupo_fundamental_funtor}
+  La asignaci\'on $\Ff:\mathbf{Top}_*\ra \mathbf{Grupos}$ definido por
+  \[
+    \begin{tikzcd}
+      (X,x_0) \arrow[r,mapsto,"\Ff"] & \pi_1(X,x_0) &
+      \Big\{ (X,x_0)\morf{f}(Y,y_0) \Big\} \arrow[r,mapsto] &
+      \Big\{ \pi_1(X,x_0)\morf{f_{\#}}\pi_1(Y,y_0) \Big\}
+    \end{tikzcd}
+  \]
+  es un funtor (covariante).
+\end{thm}
+
+La importancia de este teorema es que ahora tenemos una forma de estudiar los grupos fundamentales.
+El teorema introduce un concepto importante para clasificar espacios:
+
+\begin{cor}
+  El grupo fundamental de un espacio basado es un \emph{invariante topol\'ogico}, es decir, si
+  $(X,x_0)$ y $(Y,y_0)$ son espacios basados, entonces:
+  \[
+    (X,x_0)\approx(Y,y_0) \quad\then\quad \pi_1(X,x_0)\cong \pi_1(Y,y_0) 
+  \]
+\end{cor}
+\begin{proof}
+  Los isomorfismos de una categor\'ia se preservan bajo funtores, m\'as precisamente si
+  $f:(X,x_0)\ra(Y,y_0)$ es un isomorfismo en $\mathbf{Top}_*$ (ie. $f:X\ra Y$ es un homeomorfismo
+  y $f(x_0)=y_0$), entonces $\Ff(f)=f_{\#}:\pi_1(X,x_0)\ra\pi_1(Y,y_0)$ es un ismorfismo.
+\end{proof}
+
+\begin{nota}
+  Este corolario nos da un criterio \'util para saber cuando dos espacios basados no son homeomorfos:
+  simplemente niega la implicaci\'on del corolario para escribir
+  \[
+    \pi_1(X,x_0)\not\cong \pi_1(Y,y_0) \quad\then\quad (X,x_0)\not\approx(Y,y_0).
+  \]
+\end{nota}
+
+Observa que el funtor del grupo fundamental toma como objetos espacio basados, no s\'olo espacios
+topol\'ogicos. Esto nos restringe un poco la informaci\'on que podemos deducir al calcular un
+grupo fundamental de un espacio. Esto se nota especialemtente en el caso $(X,x_0)\neq(X,x_1)$ ya que
+los espacios topol\'ogicos pueden ser el mismo. Por suerte hay un (pseudo) remedio para esto:
+
+\import{\directory}{ejercicios/5} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 5
+
+El funtor $\mathfrak{F}$ preserva productos:
+
+\begin{prop}
+  Sea $\{(X_j,x_j)\}_{j\in J}$ una familia de espacios basados, entonces las proyecciones
+  $p_i:\Pi (X_j,x_j) \ra (X_i,x_i)$ inducen un isomorfismo natural
+  \[
+    \pi_n\Big(\prod_{j\in J}(X_j,x_j),\star\Big) \cong \prod_{j\in J}\pi_n(X_j,x_j)
+  \]
+  donde $\star=\{x_j\}_{j\in J}$ es el punto base can\'onico de $\Pi (X_j,x_j)$.
+\end{prop}
+\begin{proof}
+  Aplico el funtor $\mathfrak{F}$ a la familia $\{p_i:\Pi (X_j,x_j)\ra (X_i,x_i\}_{i\in J}$ para obtener
+  una familia de homomorfismos de grupos
+  \[
+    \Big\{ (p_i)_{\#}: \pi_n \Big(\prod (X_j,x_j) ,\star  \Big) \lra \pi_n(X_i,x_i) \Big\}_{i\in J}.
+  \]
+  Por la propiedad universal del producto en $\cat{Grupos}$ existe un \'unico homomorfismo
+  $\Phi:\pi_n(\Pi (X_j,x_j)\ra(X_i,x_i))\ra\Pi\pi_n(X_i,x_i)$ a trav\'es del cual se factorizan todas
+  las proyecciones $(p_i)_{\#}$:
+  \[
+    \begin{tikzcd}
+      \big(\prod (X_j,x_j),\star\big) \arrow[d,"p_i"'] \arrow[r,"\pi_n"] &
+      \pi_n\big(\prod (X_j,x_j),\star\big) \arrow[d,"(p_i)_{\#}"'] \arrow[r,dashed,"\Phi"] &
+      \prod \pi_n(X_j,x_j) \arrow[ld,"q_i"] \\
+      (X_i,x_i) \arrow[r,"\pi_n"] &
+      \pi_n(X_i,x_i) & 
+    \end{tikzcd} \quad q_i\circ\Phi =(p_i)_{\#}
+  \]
+  donde las $q_i$'s son las proyecciones naturales del producto en $\cat{Grupos}$. El homomorfismo
+  $\Phi$ es un isomorfismo:
+  \begin{enumerate}
+  \item[($\Phi$ es sobre)] Sea $\alpha=\{[\alpha_j]\}_{j\in J}\in \Pi \pi_n(X_j,x_j)$ un elemento
+    arbitrario. Claramente induce una familia de funciones continuas $\{\alpha_j:\Sn^n\ra X_j\}$.
+    En $\cat{Top}$, el producto cartesiano es el producto, entonces existe un \'unico morfismo
+    $\widetilde{\alpha}:\Sn^n \ra \Pi X_j$ que hace conmutar el siguiente diagrama:
+    \[
+      \begin{tikzcd}
+        \Sn^n \arrow[rr,dashed,"\widetilde{\alpha}"] \arrow[dr,"\alpha_i"'] &&
+        \prod X_j \arrow[dl,"p_i"] \\
+        & X_i  &
+      \end{tikzcd}
+    \]
+
+    Observa que $[\widetilde{\alpha}]\in\pi_n(\Pi X_j,\star)$, entonces:
+    \[
+      \Phi[\widetilde{\alpha}]=
+      \big\{(q_i\circ\Phi)[\widetilde{\alpha}] \big\}_{i\in J}=
+      \big\{(p_i)_{\#}[\widetilde{\alpha}]\big\}_{i\in J}=
+      \big\{[p_i\circ \widetilde{\alpha}]\big\}_{i\in J}=
+      \big\{[\alpha_i]\big\}_{i\in J}=\alpha
+    \]
+    Por lo tanto $[\widetilde{\alpha}]$ est\'a en la preimagen de $\alpha$ y as\'i $\Phi$ es
+    sobre.
+  \item[($\Phi$ es inyectiva)] Sea $[\beta]\in \pi_n(\Pi\,X_j,\star)$ tal que $\Phi[\beta]=1$,
+    es decir, cada coordenada de $\Phi[\beta]$ es la clase del lazo constante $e_i:\Sn^n\ra X_i$.
+    Entonces:
+    \[
+      \big\{[e_i]\}_{i\in J}=
+      \Phi[\beta]=
+      \big\{ [p_i\circ\beta] \big\}_{i\in J}
+    \]
+    o equivalentemente $e_i\simeq p_i\circ\beta$ para toda $i\in J$.
+
+    Esto quiere decir que existe una familia de homotop\'ias $H_i:\Sn^n\times I \ra X_i$ tales que
+    $H_i(s,0)=(p_i\circ\beta)(s)$ y $H_i(s,1)=e_i(s)=x_i$. Adem\'as, como cada $p_i\circ\beta$ es
+    basada en el punto $\bullet=(1,0,\ldots,1)\in\Sn^n$, entonces cada homotop\'ia es basada:
+    $H_i(\bullet,t)=x_i$ para toda $t\in I$.
+
+    Por lo tanto $\{H_i\}_{i\in J}$ es una familia de morfismos en $\cat{Top}_*$. Por la propiedad
+    universal del producto, existe un \'unico morfismo $H:\Sn^n\times I\ra \Pi X_j$ tal que hace
+    conmutar el siguiente diagrama:
+    \[
+      \begin{tikzcd}
+        \Sn^n\times I \arrow[rr,dashed,"H"] \arrow[dr,"H_i"'] &&
+        \prod X_j \arrow[dl,"p_i"] \\
+        & X_i  &
+      \end{tikzcd}
+    \]
+
+    Observa que
+    \begin{align*}
+      H_0(s)&=
+      \big\{ p_i(H(s,0)) \big\}_{i\in J}=
+      \big\{ H_i(s,0) \big\}_{i\in J}=
+      \big\{ (p_i\circ \beta )(s) \big\}_{i\in J}=
+      \beta(s)\\
+      H_1(s)&=
+      \big\{ p_i(H(s,1)) \big\}_{i\in J}=
+      \big\{ H_i(s,1) \big\}_{i\in J}=
+      \big\{ e_i(s) \big\}_{i\in J}=
+      e_{\star}(s)
+    \end{align*}
+    donde $e_{\star}:\Sn^n\ra\Pi\, X_j$ es el lazo constante. Entonces $H$ es una homotop\'ia
+    entre las funciones $\beta$ y $e_{\star}$. Por lo tanto $[\beta]=[e_{\star}]=1\in\pi_n(\Pi\, X_j)$
+    y $\Phi$ es inyectiva.
+  \end{enumerate}
+\end{proof}
+\end{document}

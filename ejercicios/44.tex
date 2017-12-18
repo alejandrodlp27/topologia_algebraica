@@ -1,0 +1,34 @@
+\begin{ejercicio}\label{ej:44}
+  Prueba que $\{a_0,\ldots,a_n\}\subset\RR^n$ es AI si y s\'olo si para todas $\la_i$'s tales que
+  $\la_0+\cdots+\la_n=0$ se cumple que $\sum\la_ia_i=0\then\la_i=0$ para toda $i\in\{0,\ldots,n\}$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof} Sea $\{a_0,\ldots,a_n\}\subset\RR^n$%  
+  \begin{enumerate}
+  \item[($\then$)] Sean $\la_1,\ldots,\la_n\in\RR$ tales que $\sum\la_i=0$ y supongo
+    que $\sum \la_ia_i=0$. Entonces
+    \[
+      \sum_{i=1}^n\la_i(a_i-a_0)=
+      -a_0\sum_{i=1}^n\la_i+\sum_{i=1}^n\la_ia_i=
+      -a_0(-\la_0)-\la_0a_0=
+      0.
+    \]
+    Como $\{a_0,\ldots,a_n\}$ es AI, $\{a_1-a_0,\ldots,a_n-a_0\}$ es linealmente independiente y
+    as\'i concluyo que $\la_1=\cdots=\la_n=0$. Por \'ultimo, sustituyo esto en $\sum\la_i=0$
+    para concluir que tambi\'en $\la_0=0$.
+  \item[($\onlyif$)] Sea $\sum\mu_i(a_i-a_0)=0$ una combinaci\'on lineal. Entonces
+    \begin{equation}\label{eq:combinaciones_lineales}
+      \sum_{i=1}^n\mu_i a_i=a_0\sum_{i=1}^n\mu_i.
+    \end{equation}
+    Ahora defino $\la_i:=\mu_i$ para $i\in\{1,\ldots,n\}$ y defino $\la_0=-\mu_1-\cdots-\mu_n$.
+    Observa que $\la_0+\cdots+\la_n=0$ por definici\'on. Adem\'as la ecuaci\'on
+    (\ref{eq:combinaciones_lineales}) se convierte en:
+    \[
+      \sum_{i=1}^n\la_ia_i=a_0(-\la_0) \quad\then\quad \sum_{i=0}^n\la_ia_i=0.
+    \]
+    Por hip\'otesis esto implica que $\la_i=0$ para toda $i\in\{0,\ldots,n\}$. En particular
+    $\mu_1=\cdots=\mu_n=0$ y $\{a_1-a_0,\ldots,a_n-a_0\}$ es linealmente independiente. Por lo
+    tanto $\{a_0,\ldots,a_n\}$ es AI.
+  \end{enumerate}
+\end{proof}%
+

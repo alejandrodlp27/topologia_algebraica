@@ -1,0 +1,206 @@
+\documentclass[../../topologia_algebraica]{subfiles}
+\begin{document}
+\section{$\pi_1(X,x_0)$ es un grupo.}
+En esta parte demuestro el Teorema \ref{thm:pi_es_grupo}. Sea $(X,x_0)$ un espacio basado,
+abrevio $\Omega=\Omega(X,x_0)$ $\pi=\pi_1(X,x_0)$ y sea $[e]\in\pi$ la clase del lazo constante
+$e\in\Omega$. Defino la operaci\'on $[\alpha]\cdot[\beta]:=[\alpha *\beta]$. Para probar
+que la pareja $(\pi,\cdot)$ es un grupo, hay que probar que cumple las siguientes tres propiedades:
+\begin{enumerate}
+\item La operaci\'on $*$ es asociativa.
+\item El elemento $[e]$ cumple que $[\alpha][e]=[\alpha]=[e][\alpha]$ para toda $[\alpha]\in\pi$.
+\item Para todo elemento $[\alpha]\in\pi$ existe un $[\alpha]^{-1}\in\pi$ tal que
+  $[\alpha][\alpha]^{-1}=[e]=[\alpha]^{-1}[\alpha]$.
+\end{enumerate}
+
+Para la primera propiedad, voy a demostrar asociatividad generalizada:
+\begin{equation}
+  \label{eq:asociatividad}
+  [\alpha_1]\cdots[\alpha_n] =
+  \Big([\alpha_1]\cdots[\alpha_r]\Big)\cdot\Big([\alpha_{r+1}]\cdots[\alpha_n]\Big)
+  \quad \forall [\alpha_i]\in\pi\; , \; \forall r\in\{1,\ldots,n-1\}.
+\end{equation}
+
+Llevado al espacio de lazos, la asociatividad se escribe como:
+\begin{equation}
+  \label{eq:asociatividadc}
+  \alpha_1*\cdots*\alpha_n \simeq (\alpha_1*\cdots*\alpha_r)*(\alpha_{r+1}*\cdots*\alpha_n)
+  \quad \forall \alpha_i\in\Omega\; , \; \forall r\in\{1,\ldots,n-1\}.
+\end{equation}
+  
+Para probar esto primero necesito definir la concatenaci\'on para m\'as de dos lazos:
+
+\begin{defin}
+  Sean $\alpha_1,\ldots,\alpha_n:I\ra X$ funciones continuas (ie. \emph{trayectorias}) tales
+  que $\alpha_i(0)=\alpha_{i-1}(1)$, es decir que el punto final de una trayectoria es el punto
+  inicial de la que sigue. Defino:
+  \[%
+    (\alpha_1*\cdots *\alpha_n)(s):=%
+    \begin{cases}%
+      \alpha_1(ns) & \text{si}\;\; 0\leq s\leq\frac{1}{n} \\
+      \alpha_2(ns-1) & \text{si}\;\;\frac{1}{n}\leq s\leq \frac{2}{n} \\
+      \vdots & \vdots \\
+      \alpha_r(ns-(r-1)) & \text{si}\;\;\frac{r-1}{n}\leq s \leq \frac{r}{n} \\
+      \vdots & \vdots \\
+      \alpha_n(ns-(n-1)) & \text{si}\;\;\frac{n-1}{n} \leq s \leq 1
+    \end{cases}%
+  \]%
+\end{defin}
+
+Observa que la condici\'on $(r-1)/n\leq s \leq r/n$ es equivalente a $0\leq sn-(r-1) \leq 1$,
+entonces cada $\alpha_r(ns-(r-1))$ est\'a bien definida. Adem\'as, en cada intersecci\'on de
+los intervalos $[(r-1)/n,rn]$, ie. en los puntos $s=r/n$, ambas funciones $\alpha_{r+1}$ y
+$\alpha_r$ coinciden:
+\[
+  \alpha_{r+1}\paren{\frac{r}{n}}=\alpha_{r+1}\paren{n\frac{r}{n}-r}=\alpha_{r+1}(0)=
+  \alpha_{r}(1)=\alpha_{r}\paren{n\frac{r}{n}-(r-1)}=\alpha_{r}\paren{\frac{r}{n}}.
+\]
+Por lo tanto $\alpha_1*\cdots\alpha_n$ es continua.
+
+Para probar (\ref{eq:asociatividadc}), voy a ``reparametrizar'' la curva $\alpha_1*\cdots*\alpha_n$
+para que la igualdad se sigue inmediatamente de la nueva f\'ormula.
+
+Considera la siguiente funci\'on $f:I\ra I$:
+\begin{equation}\label{eq:fr}
+  f_r(s):=
+  \begin{cases}
+    \frac{2rs}{n} & \text{si}\;\; 0\leq s\leq \frac{1}{2} \\
+    2s-1+\frac{2r}{n}(1-s) & \text{si}\;\; \frac{1}{2}\leq s \leq 1
+  \end{cases}
+\end{equation}
+Est\'a definida mediante funciones lineals que coinciden en la intersecci\'on de sus dominios:
+\[
+  \frac{2r(1/2)}{n}=\frac{r}{n}=2\frac{1}{2}-1+\frac{2r}{n}\paren{1-\frac{1}{2}}.
+\]
+Por lo tanto $f_r$ es continua para $r\in\{1,\ldots,r-1\}$.
+
+Ahora, como $I\subset \RR$ es convexo,
+el Teorema \ref{thm:homotopia_convexo} me garantiza que $f_r$ es homot\'opica a cualquier funci\'on
+continua $f\:I\ra I$, en particular la identidad $\Id_I$. Por lo tanto $f_r\simeq \Id_I$. Adem\'as,
+como $f_r(0)=0$ y $f_r(1)=1$ son los \'unicos dos puntos donde coinciden $f_r$ y $\Id_I$ (la
+intersecci\'on de sus gr\'aficas es $A=\{0,1\}$), entonces la homotop\'ia entre $f_r$ y $\Id_I$ es
+relativo a $A$.
+
+Por el momento asume que $(\alpha_1*\cdots*\alpha_n)\circ f_r=
+(\alpha_1*\cdots*\alpha_r)*(\alpha_{r+1}*\cdots*\alpha_n)$ (esto lo probar\'e en el ejercicio 4).
+Como $f\simeq\Id_I$, la proposici\'on \ref{prop:homotopia_composicion} garantiza que:
+\[
+  (\alpha_1*\cdots*\alpha_n) \circ \Id_I \simeq (\alpha_1*\cdots*\alpha_n)\circ f =
+  (\alpha_1*\cdots*\alpha_r)*(\alpha_{r+1}*\cdots*\alpha_n).
+\]
+Esta expresi\'on es justo la f\'ormula (\ref{eq:asociatividadc}) de la cual concluyo la
+asociatividad de $(\pi,\cdot)$. Pruebo lo que me falta:
+
+\import{\directory}{ejercicios/4}  %%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 4
+
+Para probar que $(\pi,\cdot)$ cumple las otras dos propiedades, usar\'e un m\'etodo similar
+al que acabo de usar:
+
+Sea $e=e_{x_0}$ el lazo constante $e(s)=x_o\in X$ y sea $\alpha\in\Omega$ arbitrario. Quiero
+probar que:
+\begin{equation}
+  \label{eq:existencia_neutro}
+  [\alpha][e]=[\alpha]=[e][\alpha] \quad\iff\quad \alpha*e\simeq \alpha \simeq e*\alpha.
+\end{equation}
+
+Defino la funci\'on $f_e:I\ra I$ como
+\[
+  f_e(s):=
+  \begin{cases}
+    0 & \text{si}\;\; 0\leq s\leq\frac{1}{2}\\
+    2s-1 & \text{si}\;\; \frac{1}{2}\leq s\leq 1
+  \end{cases}.
+\]
+Observa que $0=2(1/2)-1$ entonces $f_e$ est\'a definido por dos funciones lineales que
+coinciden en $s=1/2$. Por lo tanto $f_e$ es continua y por el Teorema \ref{thm:homotopia_convexo}
+tengo que $f_e\simeq \Id_I$. Uso la proposici\'on \ref{prop:homotopia_composicion} para deducir
+\[
+  \alpha\circ f_e \simeq \alpha\circ\Id_I=\alpha.
+\]
+
+Por \'ultimo, calculo
+\[
+  (\alpha\circ f_e)(s)=
+    \begin{cases}
+      \alpha(0)=x_0 & \text{si}\;\; 0\leq s\leq \frac{1}{2} \\
+      \alpha(2s-1) & \text{si}\;\; \frac{1}{2}\leq s\leq 1
+    \end{cases}
+  =
+  (e*\alpha)(s)
+\]
+para concluir que $e*\alpha\simeq \alpha$ y as\'i $[e][\alpha]=[\alpha]$. Para probar la
+igualdad en el otro orden, has una calca de esta prueba pero usando:
+\[
+  {}_ef(s):=
+  \begin{cases}
+    2s & \text{si}\;\; 0\leq s\leq\frac{1}{2}\\
+    1 & \text{si}\;\; \frac{1}{2}\leq s\leq 1
+  \end{cases}.  
+\]
+
+\begin{nota}
+  Si $\alpha:I\ra X$ es una trayectoria que empieza en $\alpha(0)=x_0$ y termina en $\alpha(1)=x_1$,
+  entonces
+  \[
+    e_{x_0}*\alpha \simeq \alpha \simeq \alpha*e_{x_1}.
+  \]
+  Observa que $\alpha*e_{x_0}$ y $e_{x_1}*\alpha$ no est\'an bien definidas en $s=1/2$ y por lo tanto
+  no representan funciones al menos de que $x_0=x_1$, o en palabras: $\alpha$ es un lazo.
+\end{nota}
+
+Lo \'ultimo que debo probar es la existencia de inversos en $\pi$. Si $\alpha$ es un lazo, el candidato
+natural a ser su inverso bajo la concatenaci\'on, es simplemente el lazo en sentido contrario: para
+toda $\alpha\in\Omega$, defino:
+\[
+  \bar{\alpha}(s)=\alpha(1-s).
+\]
+Claramente $\bar{\alpha}$ es un lazo y adem\'as si $\alpha\simeq\beta$ mediante una homotop\'ia
+$H$, entonces $\bar{\alpha}\simeq\bar{\beta}$
+mediante la homotop\'ia $\bar{H}(s,t):=H(1-s,t)$. Como $t$ se mantiene igual para $H$ y
+$\bar{H}$, si $H$ es relativo a $A\subseteq I$, entonces tambi\'en lo ser\'a $\bar{H}$.
+
+Ahora sigo la misma ruta que antes. Defino
+\[
+  \bar{f}(s):=
+  \begin{cases}
+    2s & \text{si}\;\; 0\leq s\leq\frac{1}{2}\\
+    2(1-s) & \text{si}\;\; \frac{1}{2}\leq s\leq 1
+  \end{cases}.  
+\]
+Claramente en $s=1/2$ coinciden ambas funciones lineales. Por lo tanto $\bar{f}$ es continua
+y cumple que $\bar{f}\simeq 0$ donde $0:I\ra I$ es la funci\'on constante $0$ porque
+$\bar{f}(0)=0=\bar{f}(1)$. Por lo tanto $\alpha\circ\bar{f}\simeq \alpha\circ 0=e$ ya que
+$(\alpha\circ0)(s)=\alpha(0)=x_0$.
+
+Por \'ultimo calculo
+\[
+  (\alpha\circ \bar{f})(s)=
+    \begin{cases}
+      \alpha(2s) & \text{si}\;\; 0\leq s\leq \frac{1}{2} \\
+      \alpha(2(1-s))=\bar{\alpha}(2s-1) & \text{si}\;\; \frac{1}{2}\leq s\leq 1
+    \end{cases}
+  =(\alpha*\bar{\alpha})(s).
+\]
+Con esto concluyo que $\alpha*\bar{\alpha}\simeq e$ y as\'i $[\alpha][\bar{\alpha}]=[e]$.
+Para la igualdad en el otro orden, s\'olo observa que:
+\[
+  (\bar{\alpha}\circ \bar{f})(s)=
+    \begin{cases}
+      \bar{\alpha}(2s) & \text{si}\;\; 0\leq s\leq \frac{1}{2} \\
+      \bar{\alpha}(2(1-s))=\alpha(2s-1) & \text{si}\;\; \frac{1}{2}\leq s\leq 1
+    \end{cases}
+  =(\bar{\alpha}*\alpha)(s).
+\]
+
+Por lo tanto si defino $[\alpha]^{-1}:=[\bar{\alpha}]$ obtengo la existencia de inversos en $\pi$:
+\begin{equation}
+  \label{eq:existencia_inversos}
+  \forall [\alpha]\in\pi \quad \exists[\alpha]^{-1}=[\bar{\alpha}]\in\pi \quad\text{tal que}\quad
+  [\alpha][\alpha]^{-1}=[\alpha][\bar{\alpha}]=[e]=[\bar{\alpha}][\alpha]=[\alpha]^{-1}[\alpha].
+\end{equation}
+
+Con esto termino la prueba del Teorema \ref{thm:pi_es_grupo}:
+\[
+  \big(\pi_1(X,x_0),\cdot\big) \quad\text{con}\quad [\alpha]\cdot[\beta]:=[\alpha*\beta]
+  \quad\text{es un grupo}.
+\]
+\end{document}

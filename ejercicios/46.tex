@@ -1,0 +1,50 @@
+\begin{ejercicio}\label{ej:46}
+  La funci\'on $f:\sigma\ra\tau$ definida por $f(\sum\la_ia_i)=\sum\la_ib_i$ es un homeomorfismo.%
+  \footnote{En clase probamos esto usando el hecho que los $n$-simplejos geom\'etricos son compactos
+    (cf. ejercicio \ref{ej:45}), pero modifiqu\'e esta prueba para no usar la compacidad para poder
+    demostrar el ejercicio \ref{ej:45} con este ejercicio y as\'i evitar un c\'irculo l\'ogico.}
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%
+  Primero observa que si $x=\sum\la_ia_i\in\sigma$, entonces $\la_0=1-\la_1-\cdots-\la_n$ y as\'i:
+  \begin{eqnarray*}
+    x&=&
+    \la_0a_0+\sum_{i=1}^n\la_ia_i=
+      a_0(1+\sum_{i=1}^n(-\la_i))+\sum_{i=1}^n\la_ia_i=
+      a_0+\sum_{i=1}^n\la_i(a_i-a_0)\\
+    \therefore x-a_0 &=& \sum_{i=1}^n\la_i(a_i-a_0)
+  \end{eqnarray*}
+  
+  Ahora defino $T_{a_0}:\RR^{n}\ra\RR^{n}$ como la traslaci\'on $x\mapsto x-a_0$. Por lo tanto
+  $T_{a_0}[\sigma]=\gen{0,a_1-a_0,\ldots,a_n-a_0}$ donde $A=\{a_1-a_0,\ldots,a_n-a_0\}$ es una base.
+  Despu\'es defino $F:\RR^n\ra\RR^n$ como la transformaci\'on lineal que cambia la base $A$ en la
+  base $B=\{b_1-b_0,\ldots,b_n-b_0\}$, en particular $F(a_i-a_0)=b_i-b_0$. Por \'ultimo sea
+  $T_{-b_0}:\RR^n\ra\RR^n$ la traslaci\'on $x\mapsto x+b_0$. Claramente cada una de estas tres funciones
+  son homeomorfismos entonces su composici\'on es un homeomorfismo de $\RR^{n}$ en $\RR^n$.
+
+  Para $x=\sum\la_ia_i\in\sigma$ calculo:
+  \begin{eqnarray*}
+    (T_{-b_0}\circ F\circ T_{a_0})(x)&=&
+    (T_{-b_0}\circ F)(x-a_0)=
+    (T_{-b_0}\circ F)\paren{\sum_{i=1}^n\la_i(a_i-a_0)}\\ &=&
+    T_{-b_0}\paren{\sum_{i=1}^n\la_i(b_i-b_0)}=
+    b_0+\sum_{i=1}^n\la_i(b_i-b_0)=
+    \sum_{i=0}^n\la_ib_i=f(x)\\
+    \therefore (T_{-b_0}\circ F\circ T_{a_0})|_{\sigma}&=&f
+  \end{eqnarray*}
+  y as\'i $f$ es casi un homeomorfismo, lo \'unico que hace falta calcular es la imagen de
+  $f$. Pero esto es sencillo:
+  \[
+    \text{Im}(f)=
+    \{f(\sum\la_ia_i)\mid \sum\la_ia_i\in\sigma\}=
+    \{\sum \la_ib_i\mid \la_i\geq 0,\;\; \sum\la_i=1\}=
+    \tau.
+  \]
+  Por lo tanto:
+  \[
+    (T_{-b_0}\circ F\circ T_{a_0})|_{\sigma}=f:\sigma\ra\tau
+  \]
+  es un homeomorfismo por ser restricci\'on del homeomorfismo $T_{-b_0}\circ F\circ T_{a_0}$
+  (co-restringido a su imagen).
+\end{proof}%
+

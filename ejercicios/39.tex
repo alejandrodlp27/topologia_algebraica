@@ -1,0 +1,21 @@
+\begin{ejercicio}\label{ej:39}
+  La asignaci\'on $X\mapsto \eta_n(X)$ es funtorial, es decir $\Id_*=\Id$ y
+  $(\varphi\circ \psi)_*=\varphi_*\circ \psi_*$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Sean $[M,f]\in\eta_n(X)$ y $\varphi:X\ra Y$, $\psi:Y\ra Z$ funciones continuas.
+  \[
+    (\Id_X)_*[M,f]=[M,\Id_X\circ f]=[M,f] \quad\then\quad (\Id_X)_*=\Id_{\eta_n(X)}.
+  \]
+  Adem\'as:
+  \[
+    (\varphi\circ\psi)_*[M,f]=
+    [M,(\varphi\circ\psi)\circ f]=
+    [M,\varphi\circ(\psi\circ f)]=
+    \varphi_*[M,\psi\circ f]=
+    \varphi_*\big( \psi_*[M,f]  \big)
+  \]
+  Por lo tanto $(\varphi\circ \psi)_*=\varphi_*\circ \psi_*$ y acabo.
+\end{proof}%
+

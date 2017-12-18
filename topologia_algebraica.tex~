@@ -1,0 +1,57 @@
+\documentclass[10pt]{report}
+\usepackage{template_spanish,algebra,import,subfiles,verbatim,math_letters}
+\usepackage{tikz-cd}
+\usetikzlibrary{decorations.pathmorphing}
+
+
+%%%Figures and Graphics
+\usepackage{graphicx}
+\graphicspath{{/home/pi/math/maestria/topologia_algebraica/figuras/}}
+\newcommand{\directory}{/home/pi/math/maestria/topologia_algebraica/}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Grupo Fundamental}
+
+\subfile{secciones/lazos/lazos}
+
+\subfile{secciones/homotopia/homotopia}
+
+\subfile{secciones/pi_es_grupo/pi_es_grupo}
+
+\subfile{secciones/funtor_pi/funtor_pi}
+
+\subfile{secciones/pi_n/pi_n}
+
+\subfile{secciones/producto_cuna/producto_cuna}
+
+\subfile{secciones/suspension_reducida/suspension_reducida}
+
+\subfile{secciones/producto_smash/producto_smash}
+
+\subfile{secciones/h_grupos/h_grupos}
+
+\subfile{secciones/variedades/variedades}
+
+\subfile{secciones/cubrientes/cubrientes}
+
+\subfile{secciones/cobordismo/cobordismo}
+
+\subfile{secciones/complejos_simpliciales/complejos_simpliciales}
+
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+% \subfile{secciones/}
+
+
+\end{document}

@@ -1,0 +1,54 @@
+%%% PREGUNTA
+
+\begin{ejercicio}
+La relaci\'on $\alpha\simeq\beta$ en $\Omega(X,x_0)$ es una relaci\'on de equivalencia.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%
+
+Debemos probar tres cosas:
+\begin{itemize}
+	\item(Simetr\'ia) Afirmamos que para todo lazo $\alpha$, tenemos que $\alpha\simeq\alpha$
+	mediante la homotop\'ia $H(s,t)=\alpha(s)$. Claramente $H$ es continua porque es independiente
+	del par\'ametro $t$ y $\alpha$ es una funci\'on continua sobre la variable $s$. Adem\'as, para
+	toda $t$, $H(s,t)=\alpha_t(s)=\alpha(s)$ es un lazo. Por lo tanto $H$ es una homotop\'ia
+	
+	\item(Reflexividad) Supongamos que $\alpha\simeq\beta$ para dos lazos en $\Omega(X,x_0)$
+	mediante la homotop\'ia $H$. Si definimos $\bar{H}(s,t):=H(s,1-t)$, entonces claramente
+	$\bar{H}$ es continua porque es la composici\'on de la funci\'on continua $t\mapsto 1-t$
+	y $H$, que por hip\'otesis es continua. Adem\'as, para toda $t$, $\bar{H}(s,t)$ es un lazo,
+	en particular es el lazo $H(s,1-t)$. Por \'ultimo, $\bar{H}(s,0)=H(s,1)=\beta(s)$ y
+	$\bar{H}(s,1)=H(s,0)=\alpha(s)$. Por lo tanto $\bar{H}$ es una homotop\'ia entre $\beta$ y
+	$\alpha$.
+	
+	\item(Transitividad) Sean $\alpha,\beta,\gamma\in\Omega(X,x_0)$ tales que $\alpha\simeq\beta$
+	y $\beta\simeq\gamma$ mediante las homotop\'ias $H$ y $G$ respectivamente. Definimos una nueva
+	homotop\'ia:
+	\[
+		F(s,t):=
+		\begin{cases}
+			H(s,2t) & \text{si}\; 0\leq t\leq \frac{1}{2} \\
+			G(s,2t-1) & \text{si}\; \frac{1}{2} \leq t \leq 1
+		\end{cases}
+	\]
+	Primero observemos que al dominio de definici\'on de $F$ (el cuadrado $[0,1]\times[0,1]$) lo
+	estamos partiendo en dos cerrados $[0,1]\times[0,\tfrac{1}{2}]$ y $[0,1]\times[\tfrac{1}{2},1]$,
+	de tal manera que sobre la intersecci\'on de esos cerrados (ie. $[0,1]\times\{\frac{1}{2}\}$),
+	las homotop\'ias $H$ y $G$ coinciden:
+	\[
+		F\paren{s,\frac{1}{2}}=H(s,1)=\beta(s)=G(s,0)=F\paren{s,\frac{1}{2}}.
+	\]
+	Como $H$ y $G$ son continuas, tenemos que $F$ est\'a bien definida y es continua sobre el cuadrado
+	$[0,1]\times[0,1]$.
+	
+	Por otro lado, para cada $t_0\in[0,1]$ fija tenemos que $F(s,t_0)$ es un lazo en $\Omega(X,x_0)$
+	porque $H(s,t_0)$ o $G(s,t_0)$ es un lazo (la opci\'on depende de si $t\leq\tfrac{1}{2}$ o si
+	$t\geq\tfrac{1}{2}$). Por \'ultimo verificamos que $F$ deforma $\alpha$ en $\gamma$:
+	\[
+		F(s,0)=H(s,0)=\alpha(0) \quad\text{y}\quad F(s,1)=G(s,1)=\gamma(s).
+	\]
+	Concluimos que $\alpha\simeq\gamma$ mediante la homotop\'ia $F$.
+\end{itemize}
+
+\end{proof}%
+

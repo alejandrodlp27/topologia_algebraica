@@ -1,0 +1,61 @@
+%%% PREGUNTA
+
+\begin{ejercicio}
+Sea $X$ un espacio topol\'ogico y $x_0,x_1\in X$ tales que existe una trayectoria $\sigma:I\ra X$
+tal que $\sigma(0)=x_0$ y $\sigma(1)=x_1$. Entonces:
+\[
+	\pi_1(X,x_0) \cong \pi_1(X,x_1)
+\]
+mediante el ismorfismo $\hat{\sigma}\big([\alpha]\big)=[\bar{\sigma}*\alpha*\sigma]$
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}% 
+
+Primero verifico que $\hat{\sigma}$ est\'a bien definida. Observemos que, como $\sigma$ es continua, 
+entonces $\bar{\sigma}*\alpha*\sigma$ tambi\'en lo es. Observa que
+\[
+	(\bar{\sigma}*\alpha*\sigma)(0)=\bar{\sigma}(0)=x_1=\sigma(1)=(\bar{\sigma}*\alpha*\sigma)(1).
+\]
+Por lo tanto $\hat{\sigma}([\alpha])\in\pi_1(X,x_1)$. Adem\'as, como $\hat{\sigma}$ est\'a definida
+para clases de equivalencia hay que probar que respeta homotop\'ias:
+
+Sean $\alpha\simeq \beta$ lazos en $(X,x_0)$. Entonces $\alpha*\sigma\simeq \beta*\sigma$. Esto se
+parece mucho al resultado que us\'e para probar que la operaci\'on $[\alpha][\beta]=[\alpha*\beta]$
+est\'a bien definida; la diferencia es que $\sigma$ es una trayectoria en lugar de un lazo. Sin
+embargo la homotop\'ia es la misma:
+
+Si $\alpha\simeq_H\beta$ (relativo a $A=\{0,1\}$) entonces $\alpha*\sigma\simeq_F\beta*\sigma$ donde
+\[
+	F(s,t):=
+	\begin{cases}
+		H(2s,t) & \text{si}\;\; 0\leq s\leq \frac{1}{2} \\
+		\sigma(2s-1) & \text{si}\;\; \frac{1}{2}\leq s\leq 1
+	\end{cases}.
+\]
+
+Volvemos a aplicar este resultado a $(\alpha*\sigma)$ y concluimos que
+$\bar{\sigma}*\alpha*\sigma\simeq \bar{\sigma}*\beta*\sigma$. Por lo tanto
+\[
+	\hat{\sigma}\big([\alpha]\big)=[\bar{\sigma}*\alpha*\sigma]=\bar{\sigma}*\beta*\sigma=
+	\hat{\sigma}\big([\beta]\big)
+\]
+cuando $\alpha\simeq\beta$ y as\'i $\tilde{\sigma}$ est\'a bien definido.
+
+Para probar que es un homomorfismo de grupos, hay que probar la siguiente igualdad:
+\[
+	\hat{\sigma}\big( [\alpha][\beta] \big)=\hat{\sigma}\big( [\alpha]\big)\hat{\sigma}\big([\beta]\big).  
+\]
+Aplico la asociatividad del grupo fundamental y la existencia de neutros para concluir que:
+\begin{align*}%
+	\hat{\sigma}\big( [\alpha][\beta] \big)=\hat{\sigma}\big( [\alpha*\beta] \big) & =%
+	[\bar{\sigma}*\alpha*\beta*\sigma]=[\bar{\sigma}][\alpha][\beta][\sigma]=%
+	[\bar{\sigma}][\alpha]\Big([\sigma][\sigma]^{-1} \Big)[\beta][\sigma]\\ & =%
+	[\bar{\sigma}][\alpha]\Big([\sigma][\bar{\sigma}] \Big)[\beta][\sigma]=%
+	\Big( [\bar{\sigma}][\alpha][\sigma] \Big) \Big( [\bar{\sigma}][\beta][\sigma] \Big) \\ & =%
+	\hat{\sigma}\big( [\alpha]\big)\hat{\sigma}\big([\beta]\big).%
+\end{align*}%
+
+
+\end{proof}%
+

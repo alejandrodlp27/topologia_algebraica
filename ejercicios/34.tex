@@ -1,0 +1,37 @@
+\begin{ejercicio}\label{ej:34}
+  Sean $p:E\ra X$ un cubriente y $p_{\#}:\pi_1(E,e)\ra\pi_1(X,x)$ el homomorfismo inducido donde
+  $x\in X$ es fija y $e\in E_x$. Si denoto $G=\pi_1(X,x)$, el grupo de isotrop\'ia de $e$ bajo la
+  acci\'on inducida por el cubriente es:
+  \[
+    G_e=p_{\#}\big[\pi_1(E,e)\big].
+  \]  
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}$\;$\\ 
+\begin{enumerate}
+\item[($\subseteq$)] Sea $[\sigma]\in G_e$ con $\sigma:I\ra X$ un lazo y $\what{\sigma}_e:I\ra E$
+  su levantamiento, en particular $\what{\sigma}_e(0)=e$. Como $[\sigma]\in G_e$, entonces:
+  \[
+    e[\sigma]=\what{\sigma}_e(1)=e
+  \]
+  y as\'i $\what{\sigma}_e$ es un lazo en $E$, ie. $[\what{\sigma}_e]\in\pi_1(E)$. por \'ultimo,
+  como $\what{\sigma}_e$ es el levantamiento de $\sigma$, entonces $p\circ\what{\sigma}_e=\sigma$
+  y as\'i:
+  \[
+    p_{\#}[\what{\sigma}_e]=[p\circ\what{\sigma}_e]=[\sigma].
+  \]
+  Por lo tanto $[\sigma]\in p_{\#}[\pi_1(E)]$.
+  
+\item[($\supseteq$)] Sea $p_{\#}[\sigma]=[p\circ\sigma]\in p_{\#}[\pi_1(E)]$ donde
+  $[\sigma]\in\pi_1(E,e)$, ie. $\sigma(0)=e=\sigma(1)$. Si escribo $\tau:=p\circ\sigma$ para
+  el lazo en $X$, su levantamiento es $\what{\tau}_e$ donde $p\circ\what{\tau}_e=\tau$ y
+  $\what{\tau}_e(0)=e$. Observa que $\sigma$ tambi\'en cumple estas dos propiedades entonces
+  la unicidad del levantamiento dice que $\what{\tau}_e=\sigma$. Por lo tanto:
+  \[
+    e[p\circ\sigma]=e[\tau]=\what{\tau}_e(1)=\sigma(1)=e \quad\then\quad
+    [p\circ\sigma]\in G_e.
+  \]
+  
+\end{enumerate}
+\end{proof}%
+

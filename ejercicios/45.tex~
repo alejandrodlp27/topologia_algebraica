@@ -1,0 +1,17 @@
+\begin{ejercicio}\label{ej:45}
+  Todo $n$-simplejo geom\'etrico $\sigma=\gen{a_0,\ldots,a_n}$ es cerrado, convexo y compacto
+  como subespacio de $\RR^N$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Como $\sigma=\text{Conv}(a_0,\ldots,a_n)$ (por la proposici\'on \ref{prop:nsimplejo_geometrico_convexo}),
+  entonces $\sigma$ es convexo.
+
+  Por otro lado, si traslado $\sigma$ mediante la traslaci\'on $x\mapsto x-a_0$ entonces me queda
+  el conjunto
+  \[
+    \sigma
+  \]
+  
+\end{proof}%
+

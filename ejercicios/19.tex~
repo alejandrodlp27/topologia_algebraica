@@ -1,0 +1,49 @@
+\begin{ejercicio}\label{ej:19}
+  Los atlas $\iota$ y $\Theta$ de $\RR$ no son compatibles, es decir alg\'un cambio de coordenadas
+  no es una funci\'on suave.
+\end{ejercicio}
+
+%%% RESPUESTA
+\begin{proof}%  
+  Denoto $f$ como la funci\'on $x\mapsto x^3$, es decir $(\RR,f)$ es la carta de $\Theta$.
+  Ahora, $f^{-1}$ no es una funci\'on suave en $x=0$ porque su derivada:
+  \[
+    (f^{-1})'(x)=\frac{1}{3}x^{-\frac{2}{3}}
+  \]
+  no est\'a bien definida en $x=0$ porque se hace arbitrariamente grande alrededor del 0, es decir
+  $(f^{-1})'(x)\ra\infty$ cuando $x\ra 0$. Por lo tanto el cambio de coordenadas
+  $\Id_{\RR}\circ f^{-1}=f^{-1}$, que est\'a definido sobre $f^{-1}[\RR\cap\RR]=\RR$, no es suave
+  sobre todo su dominio.
+
+  Esto quiere decir que la carta $(\RR,f)$ no est\'a en el atlas maximal generado por el atlas
+  can\'onico $\iota$ y as\'i las estructuras diferenciables de las variedades $(\RR,\iota)$ y
+  $(\RR,\Theta)$ no son la misma.  
+\end{proof}%
+
+El atlas $\Hh$ de la esfera me permite definirle una estructura diferenciable sobre el espacio
+pryectivo real:
+
+\begin{defin}
+  El \emph{espacio proyectivo real} de dimensi\'on $n$, denotado por $\RR P^n$ es el espacio
+  cociente:
+  \[
+    \RR P^n:=\RR^{n+1}-\{0\}/_{\sim}
+  \]
+  donde $x\sim y$ si existe un escalar $\la>0$ tal que $x=\la y$. Observa que $\RR^{n+1}-\{0\}$
+  tiene la topolog\'ia de subespacio de $\RR^n$.
+\end{defin}
+
+El proceso de tomar cocientes la podemos separar en dos: la idea es que estamos contrayendo
+todas las rectas que pasan por el origen a puntos. Como cada recta de estas tienen dos
+vectores directores unitarios, podemos primero contraer cada recta a dos puntos sobre la esfera
+$\Sn^n\subset\RR^{n+1}-\{0\}$ y despues identificar ambos vectores directores. Si $x$ es un vector
+unitario director de una recta, entonces $-x$ es el otro vector director unitario.
+
+Estas ideas sugieren que el espacio proyectivo real de dimensi\'on $n$ es la esfera $\Sn^n$ m\'odulo
+ant\'ipodas, es decir $x\sim -x$. De hecho, esto es verdadero:
+
+\import{\directory}{ejercicios/20} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 20
+
+Esta nueva descripci\'on del espacio proyectivo nos permite darle una estructura diferenciable a
+$\RR P^n$ con el atlas $\Hh$ de $\Sn^n$.
+

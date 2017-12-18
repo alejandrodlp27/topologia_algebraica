@@ -1,0 +1,22 @@
+\begin{ejercicio}\label{ej:38}
+  Todo elemento de $\eta_n(X)$ es su propio inverso, es decir $-[M,f]=[M,f]$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Observa que $[M,f]+[M,f]=[M\sqcup M,f\sqcup f]$. Ahora considera la variedad
+  $N=(M\times I)\sqcup\DD^{n+1}$ de dimensi\'on $n+1$. Ahora defino $F:N\ra X$ como
+  \[
+    F(x)=
+    \begin{cases}
+      f(y) &\text{si}\;\; x=(y,t)\in M\times I \\
+      \cte &\text{si}\;\; x\in\DD^{n+1}
+    \end{cases}.
+  \]
+  Claramente es continua porque $F=(f\circ p)\sqcup\cte$ donde $f\circ p$ es la
+  composici\'on $M\times I \morf{p} M \morf{f} X$. Adem\'as $\partial N= (M\sqcup M) \sqcup \Sn^n$
+  y por \'ultimo $F|_{M\sqcup M}=f\sqcup f$ y $F|_{\Sn^n}=\cte$ porque $M\sqcup M\subset (M\times I)$
+  y $\Sn^n\subset\DD^{n+1}$ donde $F$ vale, por definici\'on, $f\sqcup f$ y $\cte$ respectivamente.
+
+  Por lo tanto $[M\sqcup M,f\sqcup f]\sim[\Sn^n,\cte]=0$ y as\'i $-[M,f]=[M,f]$.
+\end{proof}%
+
