@@ -1,0 +1,64 @@
+\ProvidesPackage{template}
+
+\usepackage{amsmath,amsfonts,amssymb,lineno,cite}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage{verbatim}
+%\usepackage[spanish]{babel}
+
+%%% Theorem Styles 
+\theoremstyle{plain}\newtheorem{thm}{Teorema}
+\theoremstyle{plain}\newtheorem{lema}[thm]{Lema}
+\theoremstyle{plain}\newtheorem*{conjectura*}{Conjetura}
+\theoremstyle{plain}\newtheorem{cor}[thm]{Corolario}
+\theoremstyle{definition}\newtheorem{defin}{Definici\'on}
+\theoremstyle{remark}\newtheorem{prop}{Proposici\'on}
+\theoremstyle{remark}\newtheorem*{nota}{Nota}
+\theoremstyle{definition}\newtheorem{ejercicio}{Ejercicio}
+\theoremstyle{definition}\newtheorem{ejemplo}{Ejemplo}
+
+\newenvironment{exer}[1] %%% Exercise with arbitrary numbering: #1
+  {\renewcommand\theexercise{#1}\exercise}
+  {\endexercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Commands
+
+%%% HORIZONTAL LINE
+\newcommand{\HRule}{\noindent\rule{\textwidth}{0.2mm}}
+
+
+
+
+%%% OPERATIONS
+\newcommand{\paren}[1]{\left( #1 \right)} %%% Parenthesis
+\newcommand{\abs}[1]{\left| #1 \right|} %%% Absolute Value
+\newcommand{\gen}[1]{\langle #1 \rangle} %%% Angled braces to denote a generated substructure
+\newcommand{\dist}[1]{\text{dist}\left( #1 \right)} %%% Distance
+\newcommand{\der}[1]{\frac{d}{d #1}} %%% Derivative with respect to #1
+\newcommand{\what}[1]{\widehat{ #1 }} %%% Abbreviation of wide hat
+
+
+%%% ARROWS
+\newcommand{\then}{\Longrightarrow} %%% =>
+\newcommand{\onlyif}{\Longleftarrow} %%% <=
+\newcommand{\ra}{\rightarrow} %%% ->
+\newcommand{\lra}{\longrightarrow} %%% --->
+\newcommand{\rai}{\rightarrow\infty} %%% ->\infty
+\newcommand{\morf}[1]{\overset{#1}{\longrightarrow}}
+\newcommand{\epi}{\twoheadrightarrow}
+
+%%% SYMBOLS
+
+\newcommand{\cte}{\text{cte}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Margins
+
+\addtolength{\hoffset}{-2cm}
+\addtolength{\textwidth}{4cm}
+\addtolength{\voffset}{-2cm}
+\addtolength{\textheight}{4cm}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
