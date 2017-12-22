@@ -47,7 +47,7 @@ $a_0$.
   \begin{subfigure}{0.3\textwidth}
     \includegraphics[scale=0.35]{3simplejo_geometrico}    
   \end{subfigure}
-\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{nota}
@@ -259,10 +259,10 @@ especialmente cuando $V_K$ es finito. Por ejemplo:
   \]
   que es la orilla de $\Delta^2\subset\RR^3$. %
   %
-  \begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURA COMPLEJO_CIRCULO
+  \begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURA COMPLEJO_CIRCULO
     \centering
     \includegraphics[trim=40 100 40 50, clip,scale=0.4]{complejo_circulo}
-  \end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %
   Tambi\'en observa que la m\'etrica $d$ de $\abs{K}$ coincide con la m\'etrica usual de $\RR^3$
   ya que los sumandos $\sigma(v)-\tau(v)$ dentro del radical son simplemente las diferencias
@@ -344,6 +344,40 @@ La importancia de esta condici\'on se muestra en el siguiente teorema:
   \end{enumerate}
 \end{thm}
 
+\begin{defin}
+	Sean $K$ y $L$ complejos simpliciales. Un morfismo de complejos simpliciales $f:K\ra L$
+	es una funci\'on $f:V_K\ra V_L$ entre los v\'ertices tal que
+	\[
+		\{v_0,\ldots,v_n\}\in K \quad\then\quad \{f(v_0),\ldots,f(v_n)\}\in L.
+	\]
+	Adem\'as, para cada morfismo $f:K\ra L$ existe una funci\'on $\abs{f}:\abs{K}\ra\abs{L}$
+	definida por:
+	\[
+		\abs{f}(\sigma):V_K\lra I \quad\text{con}\quad
+		\abs{f}(\sigma)(u)=\sum_{v\in f^{-1}[\{u\}]}\sigma(v)
+	\]
+\end{defin}
+
+\import{\directory}{ejercicios/54} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 54
+
+\import{\directory}{ejercicios/55} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 55
+
+\begin{nota}
+	Los dos ejercicios anteriores nos muestra que la asignaci\'on $K \mapsto \abs{K}$ y $f\mapsto \abs{f}$
+	es un funtor entre la categor\'ia de complejos simpliciales y $\cat{Top}$.
+\end{nota}
+
+Una construcci\'on importante que se puede hacer para cualquier complejos simplicial es la
+subdivisi\'on baric\'entrica:
+
+\begin{defin}
+	Sea $K$ un complejo simplicial. La \emph{subdivisi\'on baric\'entrica} de $K$ es un complejo
+	simplicial denotado por sd$(K)$ cuyos v\'ertices es todo $K$, i.e $V_{\text{sd}(K)}=K$, y los
+	$n$-simplejos de sd$(K)$ son conjuntos finitos totalmente ordenados
+	$\{\sigma_0,\sigma_1\ldots,\sigma_n\}\subseteq K$ tales que
+	$\sigma_0\subsetneq\sigma_1\subsetneq\cdots\subsetneq\sigma_n$.
+\end{defin}
+
 \subsection{Triangulaciones y nervios}
 
 \begin{defin}
@@ -351,13 +385,32 @@ La importancia de esta condici\'on se muestra en el siguiente teorema:
   $\abs{K}\approx X$.
 \end{defin}
 
-\import{\directory}{ejercicios/50} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 50
+\import{\directory}{ejercicios/50} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 50
 
 Este ejercicio se generaliza a variedades:
 
 \begin{thm}
   Toda variedad suave es triangulable.
 \end{thm}
+
+\begin{nota}
+	Una consecuancia de este teorema es:
+	\begin{equation}\label{eq:pi_n_de_Sm_es_cero}
+		n < m \quad\then\quad \pi_n(\Sn^m)=0
+	\end{equation}
+	Para ver esto sea $[\alpha]\in\pi_n(\Sn^m)$, es decir $\alpha:\Sn^n\ra\Sn^m$ es continua. Como
+	las esferas son triangulables, existen complejos simpliciales $K$ y $L$ tales que $\abs{K}\approx\Sn^n$
+	y $\abs{L}\approx\Sn^m$ donde las dimensiones de $K$ y $L$ son $n$ y $m$ respectivamente.
+
+	Ahora, si $f:K\ra L$ es un morfismo simplicial entonces un simplejo de dimensi\'on m\'axima
+	$\{v_0,\ldots,v_n\}\in K$ se manda, bajo $f$, al simplejo $\{f(v_0),\ldots,f(v_n)\}\in L$ que tiene
+	a lo m\'as $n$ elementos. Por lo tanto $f[K]\subset L$ es un subcomplejo simplicial de dimensi\'on
+	a lo m\'as $n<m$, es decir $f[K]\neq L$ y as\'i $\abs{f}[\Sn^n]\neq[\Sn^m]$.
+
+	Por lo tanto si cada funci\'on continua $\alpha:\Sn^n\ra\Sn^m$ es homot\'opica a una funci\'on
+	de la forma $\abs{f}$ para alg\'un morfismo simplicial $f$, entonces tendr\'iamos que $[\alpha]=1$
+	y as\'i $\pi_n(\Sn^m)=0$ cuando $n<m$.
+\end{nota}
 
 Ahora doy un ejemplo de un complejo simplicial abstracto:
 
@@ -370,15 +423,49 @@ Ahora doy un ejemplo de un complejo simplicial abstracto:
 
 Por ejemplo, un sub-complejo simplicial de un nervio se puede ver como:
 
-\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
   \centering
   \includegraphics[scale=0.11]{complejo_nervio}
-\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\begin{defin}
+  Una funci\'on continua $f:X\ra Y$ es una \emph{equivalencia homot\'opica d\'ebil} si para toda $x\in X$
+  y para toda $n>0$, $f_{\#}:\pi_n(X,x)\ra\pi_n(Y,f(x))$ es un isomorfismo y si adem\'as para $n=0$, $f_{\#}$
+  es una funci\'on biyectiva.
+\end{defin}
 
+Claramente tenemos que si $X\simeq Y$ entonces existe una equivalencia homot\'opica d\'ebil entre $X$ y
+$Y$ (cf. el corolario \ref{cor:invariancia_homotopica_grupo_fundamental}), pero en ciertos casos, la equivalencia
+homot\'opica d\'ebil implica equivalencia homot\'opica:
 
+\begin{thm}(S.H.C. Whitehead)
+  Si $X$ y $Y$ son espacios triangulados entonces si $f:X\ra Y$ es una equivalencia homot\'opica d\'ebil,
+  se cumple que $X\simeq Y$.
+\end{thm}
 
+La noci\'on de equivalencia homot\'opica d\'ebil y la de nervios nos permite estudiar, bajo ciertas condiciones, las
+propiedades de un espacio. Los siguientes teoremas (sin pruebas) ilustran estas relaciones.
 
+\begin{thm}
+  Sea $\fU=\{U_{\la}\}_{\la\in\Lambda}$ una cubierta abiertade $X$ puntualmente finita (ie. para toda $x\in X$
+  solamente existe una cantidad finita de $U_{\la}\in\fU$ tales que $x\in U_{\la}$). Si toda intersecci\'on finita
+  $U_{\la_1}\cap\cdots\cap U_{\la_n}\neq \emptyset$ cumple que $\pi_n(U_{\la_1}\cap\cdots\cap U_{\la_n},x)=0$
+  entonces existe una equivalenca homot\'opica d\'ebil $f:\abs{\Nn\fU}\ra X$.
+\end{thm}
+
+\begin{thm}
+  Si $X$ es un espacio para compacto equipado de una cubierta abierta $\fU$ localmente
+  finita tal que toda intersecci\'on finita no vac\'ia de la cubierta es contraible, entonces $\Nn\fU\simeq X$.
+\end{thm}
+
+\begin{thm}
+  Sea $M^n$ una variedad suave y $\fU=\{U_{\la}\}_{\la\in\Lambda}$ una cubierta localmente finita%
+  \footnote{Como $M$ es una variedad suave, admite una m\'etrica Riemanniana y en este caso los elementos de
+  la cubierta se pueden tomar \emph{fuertemente conexos}, ie. para todas $x,y\in U_{\la}$ existe una \'unica geod\'esica
+  que une $x$ con $y$.}
+  tal que cada intersecci\'on finita de $n$ elementos de la cubierta cumplen
+  $U_{\la_1}\cap\cdots\cap U_{\la_n}\approx\RR^n$, entonces $\Nn\fU\simeq M$
+\end{thm}
 
 \subsection{Homolog\'ia Simplicial}
 
@@ -402,6 +489,8 @@ $[\bar{f}]\mapsto-1$. Entonces, $\Sigma(\sigma)/_{\sim}\cong\{1,-1\}$.
 \begin{defin}
   Sea $K$ un complejo simplicial y $\sigma\in K$ un $n$-simplejo. Una \emph{orientaci\'on} de
   $\sigma$ es la pareja $(\sigma,\fo_{\sigma})$ donde $\fo_{\sigma}\in\Sigma(\sigma)/_{\sim}=\{1,-1\}$.
+  En general, si vamos a denotar $\pm[\sigma]:=(\sigma,\pm)$ y si ya tenemos una orientaci\'on para
+  $\sigma$, ie. un ordenamiento $\sigma=\{v_0,\ldots,v_n\}$ entonces denotamos $[\sigma]=[v_0,\ldots,v_n]$.
 \end{defin}
 
 En variedades triangulables, las orientaciones de los complejos simpliciales que realizan a la variedad
@@ -423,14 +512,182 @@ M\'as precisamente, cada $(n-1)$-simplejo $\sigma\in K$ es cara de exactamente d
 $\tau,\tau'\in K$. Entonces la orientaciones $\fo_{\tau}$ y $\fo_{\tau'}$ deben ser distintas, ie.
 $\fo_{\tau}=-\fo_{\tau'}$.
 
-\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
   \centering
 %  \includegraphics[scale=0.11]{orientacion_triangulacion}
-\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{ejemplo}
-  Toma $\SS^1$ que es triangulable mediante el complejo simplicial $K$ (cf. ejercicio \ref{ej:50}).
-  Entonces los 1-simplejos son $\{e_0,e_1\},\{e_1,e_2\},{e_2,e_0}$ (el orden dado los dota de una
-  orientaci\'on a cada una).
+  Toma $K=\{\{e_0\},\{e_1\},\{e_2\},\{e_0,e_1\},\{e_1,e_2\},\{e_0,e_2\},\{e_0,e_1,e_2\}\}$, el complejo
+  simplicial inducido por $\Delta^2$. Si orientamos $\Delta^2$ como $[\Delta^2]=[e_0,e_1,e_2]$. Esto
+  induce una orientaci\'on en cada 1-cara:
+
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{orientacion_inducida}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  Observa que las 1-caras (orientadas) las podemos reescribir como:
+  \[
+    [e_0,e_1]=[e_0,e_1,\hat{e_2}] \quad,\quad
+    [e_1,e_2]=[\hat{e_0},e_1,e_2] \quad\text{y}\quad
+    [e_2,e_0]=-[e_0,\hat{e_1},e_2]
+  \]
+  donde la notaci\'on $\hat{e_i}$ significa omitir ese elemento de la lista. Esto nos sugiere que el ``borde''
+  o la frontera de $\Delta^2$ la podemos escribir como la siguiente suma formal:
+  \[
+    [\hat{e_0},e_1,e_2]-[e_0,\hat{e_1},e_2]+[e_0,e_1,\hat{e_2}]
+  \]
+  o en general como
+  \begin{equation}\label{eq:frontera_complejo}
+    \sum_{i=0}^n (-1)^i[e_0,\ldots,\hat{e_i},\ldots,e_n]
+  \end{equation}
+
+  Un ejemplo que ilustra esta idea mejor es el siguiente:
 \end{ejemplo}
+
+\begin{ejemplo}
+  Considera el conjunto de v\'ertices $V_K=\{v_0,v_1,v_2,v_3\}$ (por ejemplo los v\'ertices de $\Delta^3$).
+  Construye $K$ de la siguiente manera: no hay 3-simplejos; los 2-simplejos son $[v_0,v_1,v_2]$, $[v_1,v_3,v_2]$,
+  $[v_0,v_2,v_3]$ y $[v_0,v_3,v_1]$; y toma todos los subconjuntos de estos 2-simplejos como los
+  1-simplejos y 0-simplejos que faltan (los que necesita la definici\'on de complejo simplicial abstracto).
+
+  La realizaci\'on geom\'etrica es un tetrahedro (como $\Delta^3$) sin relleno y orientado de la siguiente
+  manera:
+
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{orientacion_inducida}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  Ahora calculamos la frontera de la misma manera que en (\ref{eq:frontera_complejo}):
+  \[
+    \begin{cases}
+      [v_1,v_2]-[v_0,v_2]+[v_0,v_1] & \\
+      [v_3,v_2]-[v_1,v_2]+[v_1,v_3] & \\
+      [v_3,v_1]-[v_0,v_1]+[v_0,v_3] & \\
+    \end{cases}=[v_3,v_2]+[v_1,v_3]+[v_2,v_3]+[v_3,v_1]=0.
+  \]
+
+  El hecho que el resultado dio 0 es porque $K$ es la frontera de otro simplejo, en particular $[v_0,v_1,v_2,v_3]$.
+\end{ejemplo}
+
+He estado sumando y restando complejos simpliciales sin ninguna formalidad pero esto no es grave
+porque siempre existe la herramienta de grupos libres o en este caso particular, $R$-m\'odulos
+libres:
+
+\begin{defin}
+  Sea $R$ un anillo conmutativo con 1 y $X$ un conjunto. El $R$-m\'odulo libre generado por $X$ se
+  define como
+  \[
+    R\gen{X}:=\{f:X\ra R\mid f(x)\neq 0\;\text{para una cantidad finita de $x\in X$}\}.
+  \]
+  Las operaciones son las naturales:
+  \[
+    (f+g)(x)=f(x)+g(x) \quad\text{y}\quad (rf)(x)=rf(x).
+  \]
+\end{defin}
+
+\begin{nota}
+  A cada elemento $x\in X$, le podemos asociar de manera can\'onica un elemento de $R\gen{X}$:
+  la funci\'on:
+  \[
+    x(y)=
+      \begin{cases}
+        1 & \text{si}\;\; x=y \\
+        0 & \text{si}\;\; x\neq y
+      \end{cases}.
+  \]
+  A veces a esta funci\'on si le llama la funci\'on caracter\'istica de $x$ y se denota $\chi_x$. En el caso
+  particular de los espacios vectoriales se usa la delta de Kronecker $\delta_{ij}$.
+
+  Por otro lado, para toda $f\in R\gen{X}$, $\text{Sop(f)}=\{x_1,\ldots,x_n\}$ es finito, entonces
+  claramente
+  \[
+    f=\sum_{i=1}^n f(x_i)x_i=\sum_{x\in X} f(x)\chi_{x}.
+  \]
+  Esta es una representaci\'on can\'onica porque s\'olo depende de $f$.
+\end{nota}
+
+Los $R$-m\'odulos libres cumplen una propiedad muy importante:
+
+\import{\directory}{ejercicios/52} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 52
+
+Vamos a construir el $R$-m\'odulo libre generado por simplejos de la siguiente manera:
+
+Recuerda que cada $n$-simplejo $\sigma\in K$ tiene una de dos orientaciones que denotamos como
+$(\sigma,+1)$ y $(\sigma,-1)$. Con esto definimos el conjunto de $n$-simplejos con orientaci\'on como
+\[
+	S_n^{\fO}(K):=\{(\sigma,\pm 1)\mid \sigma\;\text{es un}\,n\text{-simplejo}\}.
+\]
+La ``O'' g\'otica en el super\'indice significa orientaci\'on.
+En general voy a omitir la $K$ de la notaci\'on y escribir\'e $S_n^{\fO}$. Vamos a trabajar con
+$R\gen{S_n^{\fO}}$, el $R$-m\'odulo libre generado por los $n$-simplejos orientados.
+
+La f\'ormula (\ref{eq:frontera_complejo}) se extiende a todo $R\gen{S_n^{\fO}}$ por el ejercicio
+\ref{ej:52}:
+
+\begin{defin}
+	El morfismo frontera $\partial_n:R\gen{S_n^{\fO}}\lra R\gen{S_{n-1}^{\fO}}$ se define sobre elementos
+	de $S_n^{\fO}$ como:
+	\[
+		\partial_n[v_0,\ldots,v_n]:=\sum_{i=0}^n(-1)^i[v_0,\ldots,\hat{v_i},\ldots,v_n].
+	\]
+	Los elementos de $\ker(\partial_n)$ se llaman $n$-\emph{ciclos}.
+\end{defin}
+
+\import{\directory}{ejercicios/53}  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 53
+
+Queremos poder operar los $n$-simplejos orientados de tal manera que si sumamos un $n$-simplejo
+y \'el mismo con la orientaci\'on puesta, queremos que el resultado de 0. Para garantizar esto hay
+que hacer un cociente:
+
+\begin{defin}
+	Sea $K$ un complejo simplicial y $N=\gen{(\sigma,+1)+(\sigma,-1)}_{\sigma\in S_n^{\fO}}$ el
+	subm\'odulo de $R\gen{S_n^{\fO}(K)}$ generado por las sumas de $n$-simplejos con ambas
+	orientaciones. Entonces definimos:
+	\[
+		C_n(K):=\frac{R\gen{S_n^{\fO}}}{N}.
+	\]
+	Los elementos de $C_n(K)$ se llaman $n$-\emph{cadenas orientadas}.
+\end{defin}
+
+Observa que el morfismo frontera pasa a este cociente porque si $[\sigma]=[v_0,v_1,\ldots,v_n]$ entonces:
+\[
+	\partial_n\big( [\sigma]-[\sigma]\big)=
+	\partial_n\big([v_0,v_1,\ldots,v_n]+[v_1,v_0,\ldots,v_n]\big)=
+	\partial_n\big([v_0,v_1,\ldots,v_n]\big)+\partial_n\big([v_1,v_0,\ldots,v_n]\big)
+\]
+es una suma de la forma $\sum [\tau]-[\tau]=0$. Por lo tanto, $\partial_n$ se factoriza a trav\'es de
+$C_n(K)$; esta nueva funci\'on la lamamos y denotamos igual:
+\[
+	\begin{tikzcd}
+		R\gen{S_{n}^\fO} \arrow[r,"\partial_n"] \arrow[d,two heads] & R\gen{S_{n-1}^\fO} \arrow[d,two heads] \\
+		C_n(K) \arrow[r,dashed,"\partial_n"'] & C_{n-1}(K)
+	\end{tikzcd}
+\]
+
+Gracias al ejercicio \ref{ej:53} tenemos que Im$(\partial_{n+1})\subseteq\ker(\partial_{n})$ entonces tiene
+sentido definir:
+
+\begin{defin}
+	La $n$-\emph{homolog\'ia de K} con coeficientes en un anillo $R$, conmutativo con 1, se define como
+	el cociente:
+	\[
+		H_n(K;R):=\frac{\ker(\partial_n)}{\text{Im}(\partial_{n+1})}
+	\]
+\end{defin}
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}

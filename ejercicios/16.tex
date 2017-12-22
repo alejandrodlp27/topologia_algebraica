@@ -1,0 +1,29 @@
+\begin{ejercicio}\label{ej:16}
+  Sean $f,\tilde{f}:(X,x_0)\ra (Y,y_0)$ y $g,\tilde{g}:(Y,y_0)\ra (Z,z_0)$ funciones basadas
+  tales que $f\simeq \tilde{f}$ y $g\simeq\tilde{g}$ donde las homotop\'ias son basadas.
+  Entonces $g\circ f\simeq \tilde{g}\circ\tilde{f}$ donde las homotop\'ibas son de funciones
+  basadas.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Supongamos que $F:X\times I\ra Y$ y $G:Y\times I\ra Z$ son las homotop\'ias $f\simeq\tilde{f}$
+  y $g\simeq\tilde{g}$ respectivamente. Definimos una funci\'on $H:X\times I\ra Z$ mediante la
+  siguiente composici\'on:
+  \[
+    X\times I \morf{(F,\Id)} Y\times I \morf{G} Z \quad\text{con}\quad
+    (x,t)\mapsto (F(x,t),t)\mapsto G(F(x,t),t). 
+  \]
+  $H$ es continua porque es composici\'on de funciones continuas. Ahora, para $t\in I$
+  fija tenemos que $H_t=G_t(F_t(x))$ que es continua porque $F_t$ y $G_t$ lo son. Por \'ultimo
+  tenemos que $H_0=G_0\circ F_0=g\circ f$ y $H_1=G_1\circ F_1=\tilde{g}\circ\tilde{f}$ por
+  hip\'otesis.
+
+  Solamente nos falta verificar que $H$ es una homotop\'ia basada. Nada m\'as hay que calcular
+  \[
+    H_t(x_0)=G_t(F_t(x_0))=G_t(y_0)=z_0 \quad\forall t\in I
+  \]
+  ya que $F$ y $G$ son homotop\'ias basadas por hip\'otesis. Por lo tanto
+  $g\circ f\simeq \tilde{g}\circ\tilde{f}$ donde la homotop\'ia $H$ es basada.
+
+\end{proof}%
+

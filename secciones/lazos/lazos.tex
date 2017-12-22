@@ -124,8 +124,12 @@ que el lazo constante va a ser el neutro del grupo fundamental, entonces de ahor
 la notaci\'on de teor\'ia de grupos y denotaremos por $e$ al lazo constante $e(s)=x_0$ del espacio
 basado $(X,x_0)$.
 
-Se llama ``grupo'' fundamental porque le podemos definir una estructura de grupo de manera natural.
-Dos lazos los podemos operar de la siguiente manera: sean $\alpha,\beta\in\Omega(X,x_0)$, definimos
+Se llama ``grupo'' fundamental porque le podemos definir una estructura de grupo de manera natural:
+simplemente recorre un lazo y despu\'es recorre el otro. Esta operaci\'on se llama
+\emph{concatenaci\'on}.
+
+\begin{defin}
+Sean $\alpha,\beta\in\Omega(X,x_0)$, definimos la concatenaci\'on de lazos como el lazo
 \[
   (\alpha*\beta)(s):=
   \begin{cases}
@@ -133,7 +137,9 @@ Dos lazos los podemos operar de la siguiente manera: sean $\alpha,\beta\in\Omega
     \beta(2s-1) & \text{si }\; \frac{1}{2}\leq s\leq 1
   \end{cases}
 \]
-En esencia, esta operaci\'on concatena dos lazos. Como $\alpha*\beta$ est\'a definido por dos funciones
+\end{defin}
+
+Como $\alpha*\beta$ est\'a definido por dos funciones
 continuas sobre dos cerrados cuya uni\'on es el dominio de $\alpha*\beta$ y valen lo mismo sobre su
 intersecci\'on ($\alpha(2\frac{1}{2})=\alpha(1)=x_0=\beta(0)=\beta(2\frac{1}{2}-1)$), podemos concluir
 que $\alpha*\beta$ es continua. Adem\'as, como:

@@ -1,0 +1,44 @@
+\begin{ejercicio}\label{ej:52}
+  Sea $M$ un $R$-m\'odulo y $f:X\ra R$ una funci\'on. Entonces existe un \'unico morfismo de $R$-m\'odulos $\hat{f}:R\gen{X}\ra M$
+  tal que hace conmutar el siguiente diagrama:
+  \begin{equation}\label{eq:diagrama_extension}
+    \begin{tikzcd}
+       & R\gen{X} \arrow[d,dashed,"\hat{f}"]\\
+      X \arrow[ru,"x\mapsto\chi_x"] \arrow[r,"f"'] & M
+    \end{tikzcd}.
+  \end{equation}
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Sea
+    \[
+      g=\sum_{x\in X} g(x)\chi_x \in R\gen{X}=\{f:X\ra R\mid\text{Sop}(f)\;\text{es finito}\}
+    \]
+  un elemento arbitrario donde $\chi_x\in R\gen{X}$ es la funci\'on definida por $\chi_x(x)=1$ y $\chi_x(x')=0$ para toda
+  $x'\neq x$ . Define:
+    \[
+      \hat{f}:R\gen{X} \lra M \quad\text{con}\quad  g=\sum_{x\in X}g(x)\chi_x \mapsto\sum_{x\in X} g(x) f(x).
+    \]
+
+  Como $g(x)\in R$ y $f(x)\in M$, $\hat{f}$ est\'a bien definida. Ahora observa que $\hat{f}$ es un morfismo de $R$-m\'odulos:
+  \begin{eqnarray*}
+    \hat{f}(g+g')&=&\sum_{x\in X} (g+g')(x)f(x) = \sum_{x\in X}(g(x)+g'(x))f(x)= \sum_{x\in X}g(x)f(x)+\sum_{x\in X}g'(x)f(x)\\
+                 &=&\hat{f}(g)+\hat{f}(g'), \\
+    \hat{f}(rg)&=&\sum_{x\in X}(rg)(x)f(x)=\sum_{x\in X}rg(x)f(x)=r\sum_{x\in X} g(x)f(x)\\
+               &=&r \hat{f}(g).
+  \end{eqnarray*}
+  Tambi\'en tenemos que:
+  \[
+    \hat{f}(\chi_x)=\sum_{x'\in X}\chi_x(x') f(x')=\chi_x(x)f(x)=1f(x)=f(x)
+  \]
+  Por lo tanto $\hat{f}$ es la composici\'on $x\mapsto\chi_x\mapsto \hat{f}(\chi_x)$, es decir, el diagrama (\ref{eq:diagrama_extension})
+  conmuta. Ya prob\'e la existencia.
+
+  Para la unicidad, supongo que existe un morfismo $R$-m\'odulos $F:R\gen{X}\ra M$ que haga conmutar el diagrama, es
+  decir que $F(\chi_x)=f(x)$. Entonces, como $F$ es morfismo:
+  \[
+    F(g)=F\paren{\sum g(x)\chi_x}=\sum_{x\in X} g(x) F(x)=\sum_{x\in X}g(x)f(x)=\hat{f}(g).
+  \]
+  Por lo tanto $F=\hat{f}$ y la extensi\'on es \'unica.
+\end{proof}%
+

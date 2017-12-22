@@ -1,0 +1,92 @@
+\documentclass[../../topologia_algebraica]{subfiles}
+\begin{document}
+\section{Equivalencia Homot\'opica}
+
+El prop\'osito de esta secci\'on es introducir una propiedad m\'as d\'ebil que homeomorfismo
+pero que el grupo fundamental siga siendo un invariante.
+
+\begin{defin}
+	Una funci\'on continua $f:X\ra Y$ es una \emph{equivalencia homot\'opica} si existe una
+	funci\'on continua $g:Y\ra X$ tal que $g\circ f\simeq\Id_X$ y $f\circ g\simeq\Id_Y$. En
+	este caso se denota como $X\simeq Y$.
+\end{defin}
+
+Claramente es una condici\'on m\'as d\'ebil que homeomorfismo, es decir
+\[
+	X\approx Y \quad\then\quad X\simeq Y
+\]
+porque un homeomorfismo $f:X\ra Y$ cumple $f^{-1}\circ f=\Id_X$ y $f\circ f^{-1}=\Id_Y$
+donde igualdad de funciones claramente implica que son homot\'opicos.
+
+Una clase importante de espacios son los que son homot\'opicos a un punto:
+
+\begin{defin}
+	Un espacio $X$ es \emph{contraible} si $X\simeq\{x_0\}$.
+\end{defin}
+
+Una definici\'on alternativa es:
+
+\import{\directory}{ejercicios/15} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 15
+
+Una propiedad importante de las equivalencias homot\'opicas es que si $X\simeq Y$ entonces los
+grupoos fundamentales son isomorfos. Para esto necesitamos una propiedad de funciones homot\'opicas:
+
+\begin{prop}
+	Sean $f,g:(X,x_0)\ra(Y,y_0)$ funciones basadas. Entonces $f\simeq g \then f_{\#}=g_{\#}$.
+\end{prop}
+\begin{proof}
+	Para cualquier elemento $[\alpha]\in\pi_n(X,x_0)$ tenemos que $f_{\#}[\alpha]=[f\circ\alpha]$
+	y $g_{\#}[\alpha]=[g\circ\alpha]$. Por la proposici\'on \ref{prop:homotopia_composicion} tenemos
+	que $f\simeq g$ implica que $f\circ\alpha\simeq g\circ\alpha$, es decir
+	\[
+		f_{\#}[\alpha]=[f\circ\alpha]=[g\circ\alpha]=g_{\#}[\alpha]
+		\quad \forall[\alpha]\in\pi_n(X,x_0).
+	\]
+	Por lo tanto $f_{\#}=g_{\#}$.
+\end{proof}
+
+Hay un detalle de esta prueba que no probamos. La proposici\'on \ref{prop:homotopia_composicion} es
+para espacios no basados, pero esto se puede resolver f\'acilmente:
+
+\import{\directory}{ejercicios/16} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 16
+
+De la proposici\'on anterior podemos demostrar f\'acilmente la invariancia homot\'opica del grupo
+fundamental:
+
+\begin{cor}\ref{cor:invariancia_homotopica_grupo_fundamental}
+	$(X,x_0)\simeq(Y,y_0) \then \pi_n(X,x_0)\cong\pi_n(Y,y_0)$.
+\end{cor}
+\begin{proof}
+	Si $(X,x_0)\simeq(Y,y_0)$ entonces existen funciones continuas $f:(X,x_0)\ra(Y,y_0)$ y
+	$g:(Y,y_0)\ra(X,x_0)$ tales que $g\circ f\simeq\Id_X$ y $f\circ g\simeq\Id_Y$. Por la
+	proposici\'on anterior tenemos que:
+	\[
+		(\Id_X)_{\#}=(f\circ g)_{\#}=f_{\#}\circ g_{\#} \quad\text{y}\quad
+		(\Id_Y)_{\#}=(g\circ f)_{\#}=g_{\#}\circ f_{\#}.
+	\]
+	Por lo tanto $f_{\#}:\pi_n(X,x_0)\ra\pi_n(Y,y_0)$ (y $g_{\#}$) es un isomorfismo.
+\end{proof}
+
+En particular, como $\pi_n(\{p\},p)=0$ porque la \'unica funci\'on de $\Sn^n$ a $\{p\}$ es la
+funci\'on constante, tenemos:
+
+\begin{cor}
+	Si $X$ es contraible entonces $\pi_n(X,x_0)=0$ para toda $x_0\in X$.
+\end{cor}
+
+Otro caso en que se anula el grupo fundamental se obtiene del corolario \ref{cor:homotopias_convexos}
+del teorema \ref{thm:homotopia_convexo}:
+
+\begin{cor}
+	Si $X\subseteq\RR^m$ es convexo, entonces $X$ es contraible y $\pi_n(X,x_0)=0$ para toda
+	$x_0\in X$.
+\end{cor}
+\begin{proof}
+	Por el corolario \ref{cor:homotopias_convexos} las dos funciones $\Id_X:X\ra X$
+	y la funci\'on constante $e_{x_0}:X\ra X$ son homot\'opicas. Por el ejercicio
+	\ref{ej:15} se tiene que $X$ es contraible. Por el corolario anterior concluimos
+	que $\pi_n(X,x_0)=0$.
+\end{proof}
+
+
+\end{document}

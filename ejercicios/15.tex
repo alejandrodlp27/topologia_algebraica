@@ -1,0 +1,28 @@
+\begin{ejercicio}\label{ej:15}
+	Un espacio $X$ es contraible si y s\'olo si $\Id_X\simeq e_x$ donde $e_x:X\ra X$ es la
+	funci\'on constante, para alguna $x\in X$. 
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+	$\then)$ Supongamos que $X$ es contraible, es decir que $X\simeq\{p\}$. Podemos suponer
+	sin p\'erdida de generalidad que $p\in X$ porque para todo elemento $x_0\in X$ tenemos
+	que $\{x_0\}\approx\{p\}$ y as\'i $X\simeq\{p\}\simeq\{x_0\}$.
+
+	Por definici\'on esto quiere decir que existen un funciones continuas $f:X\ra\{x_0\}$ y
+	$g:\{x_0\}\ra X$ tales que $g\circ f\simeq_H \Id_X$ y $f\circ g\simeq_G \Id_{\{x_0\}}$.
+	En particular,
+	\[
+		H(x,0)=(g\circ f)(x)=g(x_0) \quad\text{y}\quad H(x,1)=\Id_X(x).
+	\]
+	Como $H$ es continua por hip\'otesis, esto quiere decir que $H$ es una homotop\'ia
+	entre $\Id_X$ y la funci\'on constante $x\mapsto g(x_0)$.
+
+	$\onlyif)$ Supongamos que existe una homotop\'ia $H:X\times I\ra X$ tal que
+	$H(x,0)=\Id_X(x)=x$ y $H(x,1)=e_{x_0}=x_0$. Si denotamos $f=\Id_X|_{\{x_0\}}:\{x_0\}\ra X$
+	entonces $e_{x_0}\circ f=\Id_{\{x_0\}}$ porque $(e_{x_0}\circ f)(x_0)=e_{x_0}(x_0)=x_0$,
+	en particular $e_{x_0}\circ f\simeq \Id_{\{x_0\}}$. Por otro lado lado
+	$f\circ e_{x_0}=e_{x_0}$ porque $(f\circ e_{x_0})(x)=f(x_0)=x_0$ y por hip\'otesis
+	$e_{x_0}\simeq\Id_X$. Por lo tanto $f\circ e_{x_0}\simeq\Id_X$. Ambas homotop\'ias
+	implican que $X\simeq\{x_0\}$ y as\'i $X$ es contraible.
+\end{proof}%
+

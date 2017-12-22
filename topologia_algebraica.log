@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.26)  26 NOV 2017 00:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.26)  20 DEC 2017 02:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -896,9 +896,15 @@ sa-dos, en-tonces las proyec-ciones $\OML/cmm/m/it/10 p[] \OT1/cmr/m/n/10 : ^^E
  []
 
 [13] [14]) (./secciones/pi_n/pi_n.tex [15] [16])
-(./secciones/producto_cuna/producto_cuna.tex [17]
+(./secciones/equivalencia_homotopica/equivalencia_homotopica.tex
+(./ejercicios/15.tex) [17] (./ejercicios/16.tex)
+
+LaTeX Warning: Reference `cor:invariancia_homotopica_grupo_fundamental' on page
+ 18 undefined on input line 56.
+
+) (./secciones/producto_cuna/producto_cuna.tex [18] [19]
 </home/pi/math/maestria/topologia_algebraica/figuras/cuna_encajado_en_producto.
-jpeg, id=80, 555.07375pt x 554.07pt>
+jpeg, id=87, 555.07375pt x 554.07pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/cuna_encajado_en_prod
 ucto.jpeg Graphic file (type jpg)
 
@@ -909,7 +915,7 @@ na_encajado_en_producto.jpeg used on input line 101.
 (pdftex.def)             Requested size: 138.76808pt x 138.51715pt.
 
 </home/pi/math/maestria/topologia_algebraica/figuras/cuna_de_circulos_en_toro.j
-pg, id=81, 2032.59375pt x 1442.38875pt>
+pg, id=88, 2032.59375pt x 1442.38875pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/cuna_de_circulos_en_t
 oro.jpg Graphic file (type jpg)
 
@@ -923,13 +929,13 @@ Overfull \hbox (2.2222pt too wide) in paragraph at lines 100--110
 []$[]$ $[]$ 
  []
 
-[18 </home/pi/math/maestria/topologia_algebraica/figuras/cuna_encajado_en_produ
-cto.jpeg> </home/pi/math/maestria/topologia_algebraica/figuras/cuna_de_circulos
-_en_toro.jpg>] (./ejercicios/6.tex))
-(./secciones/suspension_reducida/suspension_reducida.tex (./ejercicios/7.tex
-[19]) [20]
+(./ejercicios/6.tex [20 </home/pi/math/maestria/topologia_algebraica/figuras/cu
+na_encajado_en_producto.jpeg> </home/pi/math/maestria/topologia_algebraica/figu
+ras/cuna_de_circulos_en_toro.jpg>]))
+(./secciones/suspension_reducida/suspension_reducida.tex (./ejercicios/7.tex)
+[21]
 </home/pi/math/maestria/topologia_algebraica/figuras/suspension_circulo.jpg, id
-=92, 2080.77374pt x 1156.32pt>
+=95, 2080.77374pt x 1156.32pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/suspension_circulo.jp
 g Graphic file (type jpg)
 
@@ -938,10 +944,10 @@ g Graphic file (type jpg)
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/su
 spension_circulo.jpg used on input line 82.
 (pdftex.def)             Requested size: 374.52312pt x 208.12862pt.
- (./ejercicios/8.tex [21 </home/pi/math/maestria/topologia_algebraica/figuras/s
-uspension_circulo.jpg>]) (./ejercicios/11.tex [22]))
-(./secciones/producto_smash/producto_smash.tex [23]
-</home/pi/math/maestria/topologia_algebraica/figuras/smash_circulos.jpg, id=102
+ (./ejercicios/8.tex [22]) [23 </home/pi/math/maestria/topologia_algebraica/fig
+uras/suspension_circulo.jpg>] (./ejercicios/11.tex [24]))
+(./secciones/producto_smash/producto_smash.tex
+</home/pi/math/maestria/topologia_algebraica/figuras/smash_circulos.jpg, id=105
 , 1659.19875pt x 1447.4075pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/smash_circulos.jpg Gr
 aphic file (type jpg)
@@ -951,8 +957,8 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/sm
 ash_circulos.jpg used on input line 40.
 (pdftex.def)             Requested size: 248.86908pt x 217.10176pt.
 
-(./ejercicios/9.tex [24 </home/pi/math/maestria/topologia_algebraica/figuras/sm
-ash_circulos.jpg>])
+(./ejercicios/9.tex [25]) [26 </home/pi/math/maestria/topologia_algebraica/figu
+ras/smash_circulos.jpg>]
 Overfull \hbox (0.38892pt too wide) in paragraph at lines 95--98
 \OT1/cmr/m/n/10 Para pro-bar que $\OML/cmm/m/it/10 h$ \OT1/cmr/m/n/10 es con-ti
 nua basta ver que am-bas partes co-in-ci-den en $\OML/cmm/m/it/10 t \OT1/cmr/m/
@@ -960,7 +966,7 @@ n/10 = []$. Como $\OML/cmm/m/it/10 x \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 x[]; [
 ] ; x[]; \OT1/cmr/m/n/10 0) \OMS/cmsy/m/n/10 2
  []
 
-[25] (./ejercicios/10.tex)) (./secciones/h_grupos/h_grupos.tex [26]
+(./ejercicios/10.tex [27])) (./secciones/h_grupos/h_grupos.tex [28]
 Overfull \hbox (7.438pt too wide) detected at line 79
 []
  []
@@ -970,8 +976,8 @@ Overfull \hbox (8.5942pt too wide) detected at line 88
 []
  []
 
-[27] (./ejercicios/12.tex
-</home/pi/math/maestria/topologia_algebraica/figuras/omega_hgrupo.jpg, id=124, 
+(./ejercicios/12.tex [29]
+</home/pi/math/maestria/topologia_algebraica/figuras/omega_hgrupo.jpg, id=130, 
 1809.76125pt x 1233.60875pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/omega_hgrupo.jpg Grap
 hic file (type jpg)
@@ -980,9 +986,8 @@ hic file (type jpg)
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/om
 ega_hgrupo.jpg used on input line 69.
 (pdftex.def)             Requested size: 307.65535pt x 209.71071pt.
-
-[28]) [29 </home/pi/math/maestria/topologia_algebraica/figuras/omega_hgrupo.jpg
->]
+)
+[30 </home/pi/math/maestria/topologia_algebraica/figuras/omega_hgrupo.jpg>]
 Overfull \hbox (2.11653pt too wide) detected at line 205
 []
  []
@@ -997,8 +1002,8 @@ Overfull \hbox (3.78482pt too wide) in paragraph at lines 188--217
 $[]$ $[]$ $[]$ 
  []
 
-[30] [31]
-</home/pi/math/maestria/topologia_algebraica/figuras/omega2.jpeg, id=141, 574.1
+[31] [32] [33]
+</home/pi/math/maestria/topologia_algebraica/figuras/omega2.jpeg, id=147, 574.1
 45pt x 623.32875pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/omega2.jpeg Graphic f
 ile (type jpg)
@@ -1008,9 +1013,10 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/om
 ega2.jpeg used on input line 465.
 (pdftex.def)             Requested size: 85.82027pt x 98.11618pt.
 
-(./ejercicios/13.tex [32])) (./secciones/variedades/variedades.tex
+(./ejercicios/13.tex [34 </home/pi/math/maestria/topologia_algebraica/figuras/o
+mega2.jpeg>])) (./secciones/variedades/variedades.tex
 </home/pi/math/maestria/topologia_algebraica/figuras/pegado_difeomorfismo.jpg, 
-id=146, 1948.27875pt x 614.295pt>
+id=153, 1948.27875pt x 614.295pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/pegado_difeomorfismo.
 jpg Graphic file (type jpg)
 
@@ -1019,9 +1025,9 @@ pg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/pe
 gado_difeomorfismo.jpg used on input line 13.
 (pdftex.def)             Requested size: 253.28513pt x 79.86115pt.
- [33 </home/pi/math/maestria/topologia_algebraica/figuras/omega2.jpeg>]
+
 </home/pi/math/maestria/topologia_algebraica/figuras/variedad_topologica.jpg, i
-d=151, 2003.485pt x 1078.0275pt>
+d=154, 2003.485pt x 1078.0275pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/variedad_topologica.j
 pg Graphic file (type jpg)
 
@@ -1036,11 +1042,11 @@ Package caption Warning: \label without proper \caption on input line 54.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:atlas_suave' on page 34 undefined on input line 5
+LaTeX Warning: Reference `fig:atlas_suave' on page 35 undefined on input line 5
 1.
 
 
-</home/pi/math/maestria/topologia_algebraica/figuras/atlas_suave.jpg, id=152, 1
+</home/pi/math/maestria/topologia_algebraica/figuras/atlas_suave.jpg, id=155, 1
 656.1875pt x 1268.74pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/atlas_suave.jpg Graph
 ic file (type jpg)
@@ -1050,12 +1056,12 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/at
 las_suave.jpg used on input line 57.
 (pdftex.def)             Requested size: 198.73392pt x 152.24223pt.
 
-[34 </home/pi/math/maestria/topologia_algebraica/figuras/pegado_difeomorfismo.j
-pg> </home/pi/math/maestria/topologia_algebraica/figuras/variedad_topologica.jp
-g> </home/pi/math/maestria/topologia_algebraica/figuras/atlas_suave.jpg>]
-(/home/pi/math/maestria/topologia_algebraica//ejercicios/17.tex [35]) [36]
+[35 </home/pi/math/maestria/topologia_algebraica/figuras/pegado_difeomorfismo.j
+pg>] [36 </home/pi/math/maestria/topologia_algebraica/figuras/variedad_topologi
+ca.jpg> </home/pi/math/maestria/topologia_algebraica/figuras/atlas_suave.jpg>]
+(/home/pi/math/maestria/topologia_algebraica//ejercicios/17.tex [37])
 </home/pi/math/maestria/topologia_algebraica/figuras/proyeccion_estereografica.
-jpeg, id=162, 678.535pt x 735.74875pt>
+jpeg, id=166, 678.535pt x 735.74875pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/proyeccion_estereogra
 fica.jpeg Graphic file (type jpg)
 
@@ -1064,10 +1070,10 @@ ica.jpeg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/pr
 oyeccion_estereografica.jpeg used on input line 124.
 (pdftex.def)             Requested size: 237.4908pt x 116.98846pt.
- (./ejercicios/18.tex [37 </home/pi/math/maestria/topologia_algebraica/figuras/
-proyeccion_estereografica.jpeg>]) (./ejercicios/19.tex [38])
-(./ejercicios/20.tex) [39] (./ejercicios/22.tex)
-</home/pi/math/maestria/topologia_algebraica/figuras/funcion_suave.jpg, id=175,
+ [38 </home/pi/math/maestria/topologia_algebraica/figuras/proyeccion_estereogra
+fica.jpeg>] (./ejercicios/18.tex [39]) (./ejercicios/19.tex) [40]
+(./ejercicios/20.tex) (./ejercicios/22.tex [41])
+</home/pi/math/maestria/topologia_algebraica/figuras/funcion_suave.jpg, id=181,
  2027.575pt x 1242.6425pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/funcion_suave.jpg Gra
 phic file (type jpg)
@@ -1077,16 +1083,16 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/fu
 ncion_suave.jpg used on input line 281.
 (pdftex.def)             Requested size: 283.85857pt x 173.96877pt.
 
-(./ejercicios/21.tex [40]) [41 </home/pi/math/maestria/topologia_algebraica/fig
-uras/funcion_suave.jpg>]
+(./ejercicios/21.tex [42 </home/pi/math/maestria/topologia_algebraica/figuras/f
+uncion_suave.jpg>])
 Overfull \hbox (2.3572pt too wide) in paragraph at lines 357--361
 []\OT1/cmr/m/n/10 Si con-sidero la cat-e-gor^^S^^Pa de var-iedades suaves basad
 as, de-no-tado por $[][]$, parece que $(\OML/cmm/m/it/10 M; x\OT1/cmr/m/n/10 ) 
 \OMS/cmsy/m/n/10 7!
  []
 
-(./ejercicios/23.tex)
-</home/pi/math/maestria/topologia_algebraica/figuras/subvariedad.jpg, id=182, 2
+(./ejercicios/23.tex [43])
+</home/pi/math/maestria/topologia_algebraica/figuras/subvariedad.jpg, id=189, 2
 003.485pt x 1098.1025pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/subvariedad.jpg Graph
 ic file (type jpg)
@@ -1096,17 +1102,17 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/su
 bvariedad.jpg used on input line 403.
 (pdftex.def)             Requested size: 240.40782pt x 131.7666pt.
 
-[42]
+[44 </home/pi/math/maestria/topologia_algebraica/figuras/subvariedad.jpg>]
 
 Package caption Warning: \label without proper \caption on input line 462.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:valor_regular' on page 43 undefined on input line
+LaTeX Warning: Reference `fig:valor_regular' on page 45 undefined on input line
  458.
 
 
-</home/pi/math/maestria/topologia_algebraica/figuras/valor_regular.jpg, id=186,
+</home/pi/math/maestria/topologia_algebraica/figuras/valor_regular.jpg, id=193,
  1959.32pt x 1494.58376pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/valor_regular.jpg Gra
 phic file (type jpg)
@@ -1116,11 +1122,10 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/va
 lor_regular.jpg used on input line 464.
 (pdftex.def)             Requested size: 195.94348pt x 149.46713pt.
 
-[43 </home/pi/math/maestria/topologia_algebraica/figuras/subvariedad.jpg>]
-(./ejercicios/24.tex) (./ejercicios/25.tex [44 </home/pi/math/maestria/topologi
-a_algebraica/figuras/valor_regular.jpg>]) [45]
+[45 </home/pi/math/maestria/topologia_algebraica/figuras/valor_regular.jpg>]
+(./ejercicios/24.tex) (./ejercicios/25.tex) [46] [47]
 </home/pi/math/maestria/topologia_algebraica/figuras/variedad_con_frontera.jpg,
- id=197, 1882.03125pt x 653.44125pt>
+ id=203, 1882.03125pt x 653.44125pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/variedad_con_frontera
 .jpg Graphic file (type jpg)
 
@@ -1131,7 +1136,7 @@ riedad_con_frontera.jpg used on input line 633.
 (pdftex.def)             Requested size: 225.834pt x 78.40956pt.
 
 </home/pi/math/maestria/topologia_algebraica/figuras/orientacion_frontera.jpg, 
-id=198, 1381.16pt x 1252.68pt>
+id=204, 1381.16pt x 1252.68pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/orientacion_frontera.
 jpg Graphic file (type jpg)
 
@@ -1140,10 +1145,11 @@ pg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/or
 ientacion_frontera.jpg used on input line 663.
 (pdftex.def)             Requested size: 207.16505pt x 187.89389pt.
-) [46 </home/pi/math/maestria/topologia_algebraica/figuras/variedad_con_fronter
-a.jpg>] (./secciones/cubrientes/cubrientes.tex
+) (./secciones/cubrientes/cubrientes.tex [48 </home/pi/math/maestria/topologia_
+algebraica/figuras/variedad_con_frontera.jpg> </home/pi/math/maestria/topologia
+_algebraica/figuras/orientacion_frontera.jpg>]
 </home/pi/math/maestria/topologia_algebraica/figuras/exponencial_cubriente.jpg,
- id=202, 2008.50375pt x 1189.44376pt>
+ id=208, 2008.50375pt x 1189.44376pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/exponencial_cubriente
 .jpg Graphic file (type jpg)
 
@@ -1152,10 +1158,9 @@ jpg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/ex
 ponencial_cubriente.jpg used on input line 24.
 (pdftex.def)             Requested size: 241.01006pt x 142.72708pt.
- (./ejercicios/26.tex [47 </home/pi/math/maestria/topologia_algebraica/figuras/
-orientacion_frontera.jpg> </home/pi/math/maestria/topologia_algebraica/figuras/
+ (./ejercicios/26.tex [49 </home/pi/math/maestria/topologia_algebraica/figuras/
 exponencial_cubriente.jpg>])
-</home/pi/math/maestria/topologia_algebraica/figuras/cubriente.jpg, id=206, 159
+</home/pi/math/maestria/topologia_algebraica/figuras/cubriente.jpg, id=213, 159
 2.95125pt x 1094.0875pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/cubriente.jpg Graphic
  file (type jpg)
@@ -1165,8 +1170,7 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/cu
 briente.jpg used on input line 53.
 (pdftex.def)             Requested size: 207.09093pt x 142.23636pt.
 
-[48 </home/pi/math/maestria/topologia_algebraica/figuras/cubriente.jpg>]
-</home/pi/math/maestria/topologia_algebraica/figuras/levantamiento.jpg, id=210,
+</home/pi/math/maestria/topologia_algebraica/figuras/levantamiento.jpg, id=214,
  1790.69pt x 1364.09625pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/levantamiento.jpg Gra
 phic file (type jpg)
@@ -1176,10 +1180,11 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/le
 vantamiento.jpg used on input line 93.
 (pdftex.def)             Requested size: 179.07948pt x 136.41762pt.
 
-[49 </home/pi/math/maestria/topologia_algebraica/figuras/levantamiento.jpg>]
+[50 </home/pi/math/maestria/topologia_algebraica/figuras/cubriente.jpg>]
+[51 </home/pi/math/maestria/topologia_algebraica/figuras/levantamiento.jpg>]
 (./ejercicios/27.tex)
 </home/pi/math/maestria/topologia_algebraica/figuras/factoriza_atrd_cubriente.j
-pg, id=215, 1703.36375pt x 1161.33875pt>
+pg, id=222, 1703.36375pt x 1161.33875pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/factoriza_atrd_cubrie
 nte.jpg Graphic file (type jpg)
 
@@ -1195,25 +1200,25 @@ Overfull \hbox (36.66502pt too wide) in paragraph at lines 207--210
 ...................................................... 
  []
 
-[50] (./ejercicios/28.tex [51 </home/pi/math/maestria/topologia_algebraica/figu
-ras/factoriza_atrd_cubriente.jpg>]) (./ejercicios/29.tex) (./ejercicios/30.tex)
-[52] (./ejercicios/31.tex) (./ejercicios/32.tex) [53] (./ejercicios/33.tex)
+[52 </home/pi/math/maestria/topologia_algebraica/figuras/factoriza_atrd_cubrien
+te.jpg>] (./ejercicios/28.tex) (./ejercicios/29.tex [53]) (./ejercicios/30.tex)
+(./ejercicios/31.tex [54]) (./ejercicios/32.tex) (./ejercicios/33.tex [55])
 (./ejercicios/34.tex
 Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-) [54] (./ejercicios/35.tex)) (./secciones/cobordismo/cobordismo.tex [55]
+) (./ejercicios/35.tex [56])) (./secciones/cobordismo/cobordismo.tex
 
 Package caption Warning: \label without proper \caption on input line 72.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:cono_circulo' on page 56 undefined on input line 
+LaTeX Warning: Reference `fig:cono_circulo' on page 57 undefined on input line 
 19.
 
-(./ejercicios/36.tex) (./ejercicios/37.tex [56])
-</home/pi/math/maestria/topologia_algebraica/figuras/cono_circulo.jpg, id=240, 
+(./ejercicios/36.tex) [57] (./ejercicios/37.tex)
+</home/pi/math/maestria/topologia_algebraica/figuras/cono_circulo.jpg, id=243, 
 1893.0725pt x 1002.74625pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/cono_circulo.jpg Grap
 hic file (type jpg)
@@ -1223,9 +1228,12 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/co
 no_circulo.jpg used on input line 73.
 (pdftex.def)             Requested size: 227.15889pt x 120.32436pt.
 
-[57 </home/pi/math/maestria/topologia_algebraica/figuras/cono_circulo.jpg>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[58]
 </home/pi/math/maestria/topologia_algebraica/figuras/bordismo_transitividad.jpg
-, id=244, 1559.8275pt x 1902.10625pt>
+, id=247, 1559.8275pt x 1902.10625pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/bordismo_transitivida
 d.jpg Graphic file (type jpg)
 
@@ -1235,7 +1243,7 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/bo
 rdismo_transitividad.jpg used on input line 124.
 (pdftex.def)             Requested size: 187.17122pt x 228.2429pt.
 
-</home/pi/math/maestria/topologia_algebraica/figuras/collar.jpg, id=245, 1601.9
+</home/pi/math/maestria/topologia_algebraica/figuras/collar.jpg, id=248, 1601.9
 85pt x 1001.7425pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/collar.jpg Graphic fi
 le (type jpg)
@@ -1244,15 +1252,16 @@ le (type jpg)
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/co
 llar.jpg used on input line 159.
 (pdftex.def)             Requested size: 224.27637pt x 140.24298pt.
- [58 </home/pi/math/maestria/topologia_algebraica/figuras/bordismo_transitivida
-d.jpg>]
-(./ejercicios/38.tex)
+ [59 </home/pi/math/maestria/topologia_algebraica/figuras/cono_circulo.jpg>]
+(./ejercicios/38.tex [60 </home/pi/math/maestria/topologia_algebraica/figuras/b
+ordismo_transitividad.jpg> </home/pi/math/maestria/topologia_algebraica/figuras
+/collar.jpg>])
 Underfull \hbox (badness 10000) in paragraph at lines 203--204
 
  []
 
 
-</home/pi/math/maestria/topologia_algebraica/figuras/suma_conexa.jpg, id=249, 1
+</home/pi/math/maestria/topologia_algebraica/figuras/suma_conexa.jpg, id=255, 1
 423.3175pt x 629.35126pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/suma_conexa.jpg Graph
 ic file (type jpg)
@@ -1262,12 +1271,11 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/su
 ma_conexa.jpg used on input line 213.
 (pdftex.def)             Requested size: 199.26309pt x 88.10857pt.
 
-[59 </home/pi/math/maestria/topologia_algebraica/figuras/collar.jpg>]
-(./ejercicios/39.tex) (./ejercicios/40.tex) [60 </home/pi/math/maestria/topolog
-ia_algebraica/figuras/suma_conexa.jpg>] (./ejercicios/41.tex) [61]
-(./ejercicios/42.tex)
+(./ejercicios/39.tex) [61 </home/pi/math/maestria/topologia_algebraica/figuras/
+suma_conexa.jpg>] (./ejercicios/40.tex) (./ejercicios/41.tex [62])
+(./ejercicios/42.tex) [63]
 </home/pi/math/maestria/topologia_algebraica/figuras/frontera_1variedad_orienta
-da.jpg, id=260, 1592.95125pt x 876.27374pt>
+da.jpg, id=266, 1592.95125pt x 876.27374pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/frontera_1variedad_or
 ientada.jpg Graphic file (type jpg)
 
@@ -1276,7 +1284,8 @@ entada.jpg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/fr
 ontera_1variedad_orientada.jpg used on input line 386.
 (pdftex.def)             Requested size: 191.1459pt x 105.1483pt.
- [62] (./ejercicios/43.tex
+ [64 </home/pi/math/maestria/topologia_algebraica/figuras/frontera_1variedad_or
+ientada.jpg>] (./ejercicios/43.tex
 Overfull \hbox (21.26576pt too wide) in paragraph at lines 12--17
 \OT1/cmr/m/n/10 una 1-variedad ori-en-tada $(\OML/cmm/m/it/10 W; \U/euf/m/n/10 
 O[]\OT1/cmr/m/n/10 )$. Como en la dis-cusi^^Son an-te-rior, es-cribo $\OML/cmm/
@@ -1284,11 +1293,14 @@ m/it/10 M \OMS/cmsy/m/n/10 t \OML/cmm/m/it/10 N \OT1/cmr/m/n/10 = \OMS/cmsy/m/n
 /10 f\OML/cmm/m/it/10 x[]; [] ; x[]; x[]; [] ; x[]\OMS/cmsy/m/n/10 g$
  []
 
-[63 </home/pi/math/maestria/topologia_algebraica/figuras/frontera_1variedad_ori
-entada.jpg>])) (./secciones/complejos_simpliciales/complejos_simpliciales.tex
-(./ejercicios/44.tex) [64]
+)) [65]
+Chapter 2.
+(./secciones/complejos_simpliciales/complejos_simpliciales.tex
+(./ejercicios/44.tex) [66
+
+]
 </home/pi/math/maestria/topologia_algebraica/figuras/1simplejo_geometrico.jpeg,
- id=270, 361.35pt x 187.70125pt>
+ id=276, 361.35pt x 187.70125pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/1simplejo_geometrico.
 jpeg Graphic file (type jpg)
 
@@ -1299,7 +1311,7 @@ implejo_geometrico.jpeg used on input line 42.
 (pdftex.def)             Requested size: 126.4744pt x 65.69641pt.
 
 </home/pi/math/maestria/topologia_algebraica/figuras/2simplejo_geometrico.jpeg,
- id=271, 361.35pt x 360.34625pt>
+ id=277, 361.35pt x 360.34625pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/2simplejo_geometrico.
 jpeg Graphic file (type jpg)
 
@@ -1310,7 +1322,7 @@ implejo_geometrico.jpeg used on input line 45.
 (pdftex.def)             Requested size: 126.4744pt x 126.12308pt.
 
 </home/pi/math/maestria/topologia_algebraica/figuras/3simplejo_geometrico.jpeg,
- id=272, 443.6575pt x 479.7925pt>
+ id=278, 443.6575pt x 479.7925pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/3simplejo_geometrico.
 jpeg Graphic file (type jpg)
 
@@ -1324,9 +1336,12 @@ Overfull \hbox (17.63774pt too wide) in paragraph at lines 48--49
 [][] 
  []
 
-
+[67 </home/pi/math/maestria/topologia_algebraica/figuras/1simplejo_geometrico.j
+peg> </home/pi/math/maestria/topologia_algebraica/figuras/2simplejo_geometrico.
+jpeg> </home/pi/math/maestria/topologia_algebraica/figuras/3simplejo_geometrico
+.jpeg>]
 </home/pi/math/maestria/topologia_algebraica/figuras/0simplejo_estandar.jpeg, i
-d=273, 551.05875pt x 112.42pt>
+d=283, 551.05875pt x 112.42pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/0simplejo_estandar.jp
 eg Graphic file (type jpg)
 
@@ -1342,7 +1357,7 @@ Overfull \hbox (16.6507pt too wide) in paragraph at lines 109--110
 
 
 </home/pi/math/maestria/topologia_algebraica/figuras/1simplejo_estandar.jpeg, i
-d=274, 361.35pt x 360.34625pt>
+d=284, 361.35pt x 360.34625pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/1simplejo_estandar.jp
 eg Graphic file (type jpg)
 
@@ -1353,7 +1368,7 @@ implejo_estandar.jpeg used on input line 112.
 (pdftex.def)             Requested size: 108.40584pt x 108.1047pt.
 
 </home/pi/math/maestria/topologia_algebraica/figuras/2simplejo_estandar.jpeg, i
-d=275, 522.95375pt x 568.1225pt>
+d=285, 522.95375pt x 568.1225pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/2simplejo_estandar.jp
 eg Graphic file (type jpg)
 
@@ -1367,15 +1382,12 @@ Overfull \hbox (19.24263pt too wide) in paragraph at lines 115--116
 [][] 
  []
 
-[65 </home/pi/math/maestria/topologia_algebraica/figuras/1simplejo_geometrico.j
-peg> </home/pi/math/maestria/topologia_algebraica/figuras/2simplejo_geometrico.
-jpeg> </home/pi/math/maestria/topologia_algebraica/figuras/3simplejo_geometrico
-.jpeg>] (./ejercicios/46.tex [66 </home/pi/math/maestria/topologia_algebraica/f
-iguras/0simplejo_estandar.jpeg> </home/pi/math/maestria/topologia_algebraica/fi
-guras/1simplejo_estandar.jpeg> </home/pi/math/maestria/topologia_algebraica/fig
-uras/2simplejo_estandar.jpeg>]) (./ejercicios/45.tex)
+(./ejercicios/46.tex [68 </home/pi/math/maestria/topologia_algebraica/figuras/0
+simplejo_estandar.jpeg> </home/pi/math/maestria/topologia_algebraica/figuras/1s
+implejo_estandar.jpeg> </home/pi/math/maestria/topologia_algebraica/figuras/2si
+mplejo_estandar.jpeg>]) (./ejercicios/45.tex)
 </home/pi/math/maestria/topologia_algebraica/figuras/complejo_simplicial_geomet
-rico_si.jpeg, id=282, 537.00626pt x 353.32pt>
+rico_si.jpeg, id=289, 537.00626pt x 353.32pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/complejo_simplicial_g
 eometrico_si.jpeg Graphic file (type jpg)
 
@@ -1386,7 +1398,7 @@ mplejo_simplicial_geometrico_si.jpeg used on input line 183.
 (pdftex.def)             Requested size: 214.79869pt x 141.32549pt.
 
 </home/pi/math/maestria/topologia_algebraica/figuras/complejo_simplicial_geomet
-rico_no.jpeg, id=283, 563.10374pt x 437.635pt>
+rico_no.jpeg, id=290, 563.10374pt x 437.635pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/complejo_simplicial_g
 eometrico_no.jpeg Graphic file (type jpg)
 
@@ -1395,12 +1407,12 @@ ometrico_no.jpeg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/co
 mplejo_simplicial_geometrico_no.jpeg used on input line 186.
 (pdftex.def)             Requested size: 197.08926pt x 153.17455pt.
- [67] (./ejercicios/47.tex) [68 </home/pi/math/maestria/topologia_algebraica/fi
+ [69] (./ejercicios/47.tex) [70 </home/pi/math/maestria/topologia_algebraica/fi
 guras/complejo_simplicial_geometrico_si.jpeg> </home/pi/math/maestria/topologia
 _algebraica/figuras/complejo_simplicial_geometrico_no.jpeg>]
-(./ejercicios/48.tex) [69]
+(./ejercicios/48.tex) [71]
 </home/pi/math/maestria/topologia_algebraica/figuras/complejo_circulo.jpeg, id=
-294, 559.08875pt x 606.265pt>
+300, 559.08875pt x 606.265pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/complejo_circulo.jpeg
  Graphic file (type jpg)
 
@@ -1408,30 +1420,42 @@ File: /home/pi/math/maestria/topologia_algebraica/figuras/complejo_circulo.jpeg
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/co
 mplejo_circulo.jpeg used on input line 264.
 (pdftex.def)             Requested size: 191.51202pt x 182.27762pt.
-(./ejercicios/49.tex [70 </home/pi/math/maestria/topologia_algebraica/figuras/c
-omplejo_circulo.jpeg>]) [71] (./ejercicios/50.tex)
-</home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg, id=30
-3, 1438.37375pt x 997.7275pt>
+(./ejercicios/49.tex [72 </home/pi/math/maestria/topologia_algebraica/figuras/c
+omplejo_circulo.jpeg>]) [73] (./ejercicios/50.tex)
+</home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg, id=31
+0, 1438.37375pt x 997.7275pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg G
 raphic file (type jpg)
 
 <use /home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/co
-mplejo_nervio.jpg used on input line 374.
+mplejo_nervio.jpg used on input line 375.
 (pdftex.def)             Requested size: 158.2216pt x 109.75035pt.
 
-(./ejercicios/51.tex [72 </home/pi/math/maestria/topologia_algebraica/figuras/c
-omplejo_nervio.jpg>])) [73] (./topologia_algebraica.aux)
+
+LaTeX Warning: Reference `cor:invariancia_homotopica_grupo_fundamental' on page
+ 74 undefined on input line 385.
+
+[74 </home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg>]
+(./ejercicios/51.tex) [75] [76] (./ejercicios/52.tex
+
+LaTeX Warning: Reference `eq:diagrama_extension' on page 77 undefined on input 
+line 34.
+
+[77])) [78] (./topologia_algebraica.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 17902 strings out of 495020
- 380710 string characters out of 6181324
- 381651 words of memory out of 5000000
- 20537 multiletter control sequences out of 15000+600000
- 17906 words of font info for 68 fonts, out of 8000000 for 9000
+ 17955 strings out of 495020
+ 381950 string characters out of 6181324
+ 378433 words of memory out of 5000000
+ 20577 multiletter control sequences out of 15000+600000
+ 18258 words of font info for 69 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  61i,21n,84p,505b,1218s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1457,16 +1481,17 @@ fonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on topologia_algebraica.pdf (73 pages, 7985120 bytes).
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on topologia_algebraica.pdf (78 pages, 8019074 bytes).
 PDF statistics:
- 411 PDF objects out of 1000 (max. 8388607)
- 263 compressed objects within 3 object streams
+ 430 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  211 words of extra memory for PDF output out of 10000 (max. 10000000)
 
