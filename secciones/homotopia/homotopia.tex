@@ -45,9 +45,11 @@ Al igual que en el caso de lazos, tenemos:
 \import{\directory}{ejercicios/2} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 2
 
 Con el resultado anterior podemos definir: para dos espacios topol\'ogicos $X$ y $Y$ tenemos:
-\[
-  [X,Y]:=\text{Map}(X,Y)/_{\simeq}
-\]
+\begin{defin}\label{def:map_modulo_homotopia}
+  \[
+    [X,Y]:=\text{Map}(X,Y)/_{\simeq}
+  \]
+\end{defin}
 y \'este viene con un mapeo natural: $f\mapsto[f]$. La ventaja de trabajar con $[X,Y]$ y no con
 $\text{Map}(X,Y)$ es que en general una funci'on continua $f:X\ra Y$ puede ser complicada de
 manejar, pero en general se va a poder deformar a una funci\'on $\tilde{f}:X\ra Y$ que sea m\'as

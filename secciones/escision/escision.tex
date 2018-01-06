@@ -1,0 +1,508 @@
+\documentclass[../../topologia_algebraica]{subfiles}
+\begin{document}
+\section{El teorema de escisi\'on}
+
+La idea general del teorema de escis\'on es que la homolog\'ia de $X$ relativo a
+$A$ es lo mismo que si le quitamos a $X$ un subconjunto $U\subset A$ y calculamos la
+homolog\'ia de $X-U$ relativa a $A-U$. En palabras, la homolog\'ia relativa a un
+subespacio no nota la diferencia si el quitas (ciertos) conjuntos contenidos en el
+subespacio.
+
+\begin{thm}\label{thm:escision}
+  Sea $X$ un espacio y $U\subset A\subseteq X$ tal que $\bar{U}\subset\mathring{A}$.
+  Entonces la inclusi\'on $j:(X-U,A-U)\hookrightarrow (X,A)$ induce un isomorfismo
+  en homolog\'ias, es decir:
+  \[
+    H_n(j):H_n(X-U,A-U) \stackrel{\cong}{\lra} H_n(X,A)
+  \]
+  es un isomorfismo.
+\end{thm}
+
+En este caso decimos que $U$ se puede \emph{escindir} de la pareja $(X,A)$.
+
+La idea intuitiva es que si tenemos una cadena en $X$ le podemos cortar los
+pedazos que est\'an en $U$ de tal manera que la homolog\'ia relativa a $A$
+no se de cuenta.
+
+Por ejemplo, supongamos que tenemos una cadena $\tau=\sigma_1+\sigma_2+\sigma_3$
+como en el siguiente dibujo
+
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{dibujo_escision}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Observa que la cadena $\tau'=\sigma''_1+\sigma_2+\sigma_3\in S_n(X-U,A-U)$, obtenida
+``cortando'' la cadena $\tau\in S_n(X,A)$ en el punto $u\in\im{\sigma_1}$, es una
+preimagen de $[\tau]\in H_n(X,A)$ bajo $H_n(j)$. En efecto si identifico
+$[\tau']=[j_{\#}(\tau')]=H_n(j)[\tau']$ entonces
+\[
+  \tau-\tau'=\sigma_1-\sigma'_1-\sigma''_1=\partial(\hat{\sigma})-\sigma'_1\in B_n(X,A)
+  \quad\then\quad [\tau]=[\tau']\in H_n(X,A)
+\]
+La idea del teorema de escisi\'on es que esta elecci\'on de preimagen es \'unica
+m\'odulo clases de homolog\'ia.
+
+En lugar de probar el teorema de escisi\'on commo viene enunciado en el teorema
+\ref{thm:escision}, vamos a probar un teorema m\'as general; a ambas las llamaremos
+igual.
+
+Primero definimos un subcomplejo del complejo singular $S_{\bullet}(X)$. Sea
+$\fU=\{U_j\}_{j\in J}$ una familia de subespacios tales que $X=\cup_j \mathring{U}_j$
+(por ejemplo $\fU$ puedes ser una cubierta abierta). Definimos el complejo de
+cadenas $S_{\bullet}^{\fU}(X)$ de la siguiente manera:
+\[
+  S_n^{\fU}(X)=\Big\{\tau=\sum_{\sigma\in\sS_n(X)}r_{\sigma}\sigma\in S_n(X)\mid
+  \forall\sigma,\;\exists U_j\in\fU\;\text{tal que}\;\im{\sigma}\subseteq U_j\Big\}.
+\]
+
+Por ejemplo:
+
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{cadenas_en_cubierta}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Claramente es un $R$-subm\'odulo de $S_n(X)$, entonces la inclus\'ion
+$\imath_{\bullet}:S_{\bullet}^{\fU}\hookrightarrow S_{\bullet}(X)$ es un morfismo de complejos
+de cadena. Estamos listos para enunciar el teorema de escisi\'on general:
+
+\begin{thm}\label{thm:escision_general}
+  La inclusi\'on $\imath_{\bullet}^{\fU}:S_{\bullet}^{\fU}(X)\hookrightarrow S_{\bullet}(X)$
+  induce un ismorfismo en homolog\'ias, es decir:
+  \[
+    H_n(S_{\bullet}^{\fU}(X))\cong H_n(S_n(X)) \stackrel{\text{def}}{=} H_n(X).
+  \]
+\end{thm}
+
+Para probar este teorema, nos vamos a basar en una propiedad importante de los complejos
+de cadena:
+
+\import{\directory}{ejercicios/71} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 71
+
+Gracias a este ejercicio, simplemente hay que probar que la inclus\'on
+$\imath:=\imath_{\bullet}^{\fU}$ es una equivalencia homot\'opica de cadenas, es decir
+necesitamos encontrar un inverso homot\'opico de $\imath$. M\'as precisamente, necesitamos
+definir un morfismo $S_{\bullet}\ra S_{\bullet}^{\fU}$ (ie. una transformaci\'on natural
+entre los funtores $S_{\bullet}(\_)$ y $S_{\bullet}^{\fU}(\_)$) que compuesto con $\imath$
+sea homot\'opico a la identidad.
+
+Antes que eso vamos a contruir el morfismo de complejos de cadena que simplemente es
+hacer subdivisi\'on baric\'entrica; una aplicaci\'on repetida de este morfismo nos
+llevar\'a a definir el morfismo $S_{\bullet}\ra S_{\bullet}^{\fU}$ que buscamos.
+
+Para definir la subdivisi\'on baric\'entrica como un morfismo de complejos de cadena,
+vamos a seguir un m\'etodo muy similar a la prueba de la invariancia homot\'opica de
+la homolog\'ia singular (en particular en la construcci\'on de la homotop\'ia
+$\la^1_{\#}\simeq\la^0_{\#}$).
+
+Definimos $\text{sd}_{\bullet}^X:S_{\bullet}(X)\ra S_{\bullet}(X)$ de la siguiente manera:
+queremos que sea un morfismo de cadenas entonces en particular queremos que
+\begin{equation}\label{eq:diagramas_subdivision_baricentrica}
+  \begin{tikzcd}[column sep=large]
+    S_n(\Delta^n) \arrow[r,"\text{sd}_n^{\Delta^n}"] \arrow[d,"\sigma_{\#}"'] &
+    S_n(\Delta^n) \arrow[d,"(F^i_n)_{\#}"] \\
+    S_n(X) \arrow[r,"\text{sd}_n^X"] & S_n(X)
+  \end{tikzcd}\qquad
+  \begin{tikzcd}[column sep=large]
+    S_n(\Delta^{n-1}) \arrow[r,"\text{sd}_{n-1}^{\Delta^{n-1}}"] \arrow[d,"(F^i_n)_{\#}"'] &
+    S_n(\Delta^{n-1}) \arrow[d,"\sigma_{\#}"] \\
+    S_n(\Delta^n) \arrow[r,"\text{sd}_n^{\Delta^n}"] & S_n(\Delta^n)
+  \end{tikzcd}
+\end{equation}
+sean un diagraman conmutativon, entonces para definir sd${}_n^X(\sigma)$ basta definir
+$\sQ_n:\text{sd}_n^{\Delta^n}(\Id_{\delta^n})$ porque:
+\[
+  \text{sd}_n^X(\sigma)=\text{sd}_n^{\Delta^n}(\sigma_{\#}(\Id_{\Delta^n}))=
+  \sigma_{\#}\big(\text{sd}_n^{\Delta^n}(\Id_{\Delta^n}) \big)=\sigma_{\#}(\sQ_n)
+\]
+
+Como $\sQ_n$ es hacer la subdivisi\'on baric\'entrica normal de $\Delta^n$, entonces
+es simplemente agregar el baricentro $\fb_n:=\fb(\Delta^n)$ como v\'ertice a la frontera
+de $\Delta^n$, o m\'as precisamente, a la frontera de la imagen de $\Id_{\Delta^n}$. Es
+decir, queremos definir $\sQ_n=\fb_n\cdot\text{sd}_{n-1}^{\Delta^n}(\partial_n(\Id_{\Delta^n}))$.
+
+Podemos definir $\sQ_n$ directamente por inducci\'on para forzar las propiedades que queremos
+que tenga sd${}_n^X$. Para $n=0$, tenemos que $\sQ_0\in S_0(X)$ entonces necesariamente
+$\sQ_0=\Id_{\Delta^0}$ porque est\'a es la \'unica funci\'on $\Delta^0\ra\Delta^0$ que existe.
+En general tenemos:
+\begin{align*}
+  \text{sd}_{n-1}^{\Delta^n}(\partial_n(\Id_{\Delta^n})) & =
+  \text{sd}_{n-1}^{\Delta^n}\paren{\sum_{i=0}^n(-1)^i F_n^i}=
+  \sum_{i=0}^n(-1)^i(F^i_n)_{\#}
+  \Big(\underset{\sQ_{n-1}}{\underbrace{\text{sd}_{n-1}^{\Delta^{n-1}}(\Id_{\Delta^{n-1}})}}\Big) \\ & =
+  \sum_{i=0}^n(-1)^i(F^i_n)_{\#}(\sQ_{n-1})
+\end{align*}
+Por lo tanto podemos definir
+\[
+  \sQ_n:=\fb_n\cdot\underset{\fz_{n-1}}%
+    {\underbrace{\paren{\sum_{i=0}^n(-1)^i(F^i_n)_{\#}(\sQ_{n-1})}}}
+\]
+Esta definici\'on cumple una propiedad importante (casi id\'entico al lema
+\ref{lema:calculo_frontera_sP}):
+
+\begin{lema}\label{lema:calculo_frontera_sQ}
+  $\partial_n(\sQ_n)=\fz_{n-1}$ para $n>0$.
+\end{lema}
+\begin{proof}
+  Claramente $\partial_0(\sQ_0)=0$ y tambi\'en
+  \[
+    \partial_1(\sQ_1)=\partial_1\paren{\fb_1\cdot (F^0_1)_{\#}(\sQ_0)-\fb_1\cdot(F^0_1)_{\#}(\sQ_0)}=
+    \partial_1(\fb_1\cdot e_1 -\fb_1\cdot e_0)=e_1-e_0=\sum_{i=0}^1(-1)^i(F^i_1)_{\#}(\sQ_0)=\fz_1.
+  \]
+  Ahora por inducci\'on, supongamos que $\partial_n(\sQ_n)=\fz_{n-1}$. Observa que
+  $\partial_{n-1}(\fz_{n-1})=\partial_{n-1}(\partial_n(\sQ_n))=0$, entonces:
+  \begin{align*}
+  \partial_n(\fz_n) & =\partial_n\paren{\sum_{i=0}^{n+1}(-1)^i(F^i_{n+1})_{\#}(\sQ_{n})}=
+  \sum_{i=0}^{n+1}(-1)^i(F^i_{n+1})_{\#}(\partial_n(\sQ_{n}))\\ & =
+  \sum_{i=0}^{n+1}(-1)^i(F^i_{n+1})_{\#}(\fz_{n-1})=
+  \sum_{i=0}^{n+1}(-1)^i(F^i_{n+1})_{\#}\paren{\sum_{j=0}^n(-1)^j(F^j_n)_{\#}(\sQ_{n-1})} \\ & =
+  \sum_i \sum_j (-1)^{i+j}(F^i_{n+1}\circ F^j_n)_{\#}(\sQ_{n-1})=0
+  \end{align*}
+  donde la \'ultima igualdad se cumple por el ejercicio \ref{ej:61} (cf. el lema
+  \ref{lema:calculo_frontera_sP}). Ahora, con el lema \ref{lema:dos_invariancia}, podemos
+  concluir que:
+  \[
+    \partial_{n+1}(\sQ_{n+1})=
+    \partial_{n+1}(\fb_{n+1}\cdot\fz_n)=
+    \fz_n-\fb_{n+1}\cdot\cancelto{0}{\partial_n(\fz_n)}\;\;=
+    \fz_n.
+  \]
+  
+\end{proof}
+
+Con esto ya podemos definir la subdivisi\'on baric\'entrica a nivel de complejos de
+cadena:
+
+\begin{defin}
+  La subdivisi\'on baric\'entrica $\text{sd}_{\bullet}^X:S_{\bullet}(X)\ra S_{\bullet}^X$ de
+  complejos de cadena se define como
+  \[
+    \text{sd}^X_n:S_n(X)\lra S_n(X) \quad\text{con}\quad \sigma\mapsto \sigma_{\#}(\sQ_n).
+  \]
+\end{defin}
+
+\import{\directory}{ejercicios/72} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 72
+
+\begin{lema}\label{lema:sd_homotopico_identidad}
+  sd${}^X_{\bullet}:S_{\bullet}(X)\ra S_{\bullet}(X)$ es un morfismo de complejos de cadenas y
+  sd${}^X_{\bullet}\simeq\Id_{S_{\bullet}(X)}$
+\end{lema}
+\begin{proof}
+  Primero probamos que es un morfismo de complejos de cadenas, es decir que para toda $n$
+  el diagrama
+  \[
+    \sD_n:=\quad
+    \begin{tikzcd}[column sep=large]
+      S_n(X) \arrow[r,"\partial_n"] \arrow[d,"\text{sd}^X_n"] & S_{n-1}(X) \arrow[d,"\text{sd}^X_{n-1}"]\\
+      S_n(X) \arrow[r,"\partial_n"] & S_{n-1}(X)
+    \end{tikzcd}
+  \]
+  es conmutativo; esto lo hacemos por inducci\'on. El caso $n=0$ es trivial porque
+  $\partial_0=0$. Para el caso general, sea $\sigma\in S_n(X)$, entonces
+  \[
+    \partial_n(\text{sd}^X_n(\sigma))=
+    \partial_n(\sigma_{\#}(\sQ_n))=
+    \partial_n\big(\sigma_{\#}(\fb_n\cdot\text{sd}^{\Delta^n}_{n-1}(\partial_n(\Id_{\Delta^n})))\big)=
+    \sigma_{\#}\Big( \partial_n(\fb_n\cdot\text{sd}^{\Delta^n}_{n-1}(\partial_n(\Id_{\Delta^n}))) \Big)
+  \]
+  que por el lema \ref{lema:dos_invariancia} se hace:
+  \begin{align*}
+    \partial_n(\text{sd}^X_n(\sigma))&=
+    \sigma_{\#}\big( \text{sd}^{\Delta^n}_{n-1}(\partial_n(\Id_{\Delta^n})) \big)-
+    \fb_n\cdot\partial_{n-1}\text{sd}^{\Delta^n}_{n-1}(\partial_n(\Id_{\Delta^n})) \\ & =
+    \sigma_{\#}\big( \text{sd}^{\Delta^n}_{n-1}(\partial_n(\Id_{\Delta^n})) \big)-
+    \fb_n\cdot\text{sd}^{\Delta^n}_{n-1}(\cancelto{0}{\partial_{n-1}\partial_n(\Id_{\Delta^n})})\\ & =
+     \sigma_{\#}\big( \text{sd}^{\Delta^n}_{n-1}(\partial_n(\Id_{\Delta^n})) \big).
+  \end{align*}
+  donde el intercambio de orden de $\partial_{n-1}$ y $\text{sd}^{\Delta^n}_{n-1}$ se
+  vale por la hip\'otesis de inducci\'on.
+  
+  Como $\text{sd}^{X}_{\bullet}$ es una transformaci\'on natural (ejercicio \ref{ej:72}),
+  entonces podemos intercambiar $\sigma_{\#}$ con $\text{sd}^{\Delta^n}_{n-1}$ para concluir:
+  \[
+    \partial_n(\text{sd}^{X}_{n}(\sigma))=
+    \text{sd}^{X}_{n-1}(\sigma_{\#}(\partial_n(\Id_{\Delta^n})))=
+    \text{sd}^X_{n-1}(\partial_n(\sigma_{\#}(\Id_{\delta^n})))=
+    \text{sd}^X_{n-1}(\partial_n(\sigma))
+  \]
+  y el diagrama $\sD_n$ es conmutativo.
+
+  En lo que sigue omitir\'e muchos detalles porque son exactamente los mismos
+  detalles, y pasos, que usamos en la prueba de la invariancia homot\'opica:
+  simplemente hay que cambiar $\la^1_{\#}$ por $\text{sd}^X_{\bullet}$ y $\la^0_{\#}$
+  por $\Ii:=\Id_{S_{\bullet}(X)}$. Incluso usar\'e la misma notaci\'on.
+  
+  Ahora necesitamos una familia de morfismos $\fT=\{T^X_n:S_n(X)\ra S_{n+1}(X)\}$ que
+  que sea la homotop\'ia entre sd$^X_{\bullet}$ y $\Ii$, es decir
+  que $\partial_{n+1}T^X_n+T^X_{n+1}\partial_n=\text{sd}^X_n-\Ii$. Como queremos que
+  $T^X_n$ sea una transformaci\'on natural entre los funtores $S_n(\_)$ y $S_{n+1}(\_)$,
+  entonces basta definir:
+  \[
+    T^X_n(\sigma):=
+    \sigma_{\#}\big(\underset{\sT_n}{\underbrace{T^{\Delta^n}_n(\Id_{\Delta^n})}} \big)=
+    \sigma_{\#}(\sT_n)
+  \]
+  donde las $\sT_n$ cumplen
+  \begin{equation}\label{eq:subdivision_homotopico_identidad}
+    \partial_{n+1}(\sT_n)+\sum_{i=0}^n(-1)^i(F^i_n)_{\#}(\sT_{n-1})=\sQ_n-\Id_{\Delta^n}
+  \end{equation}
+  porque est\'an definidas recursivamente como
+  \[
+    \sT_0=\Id_{\Delta^0}
+  \]
+  \[
+    \sT_n=\fb_n\cdot\Big(\underset{\fz_n}{\sQ_n-\Id_{\Delta^n}-
+      \underbrace{\sum_{i=0}^n(-1)^i(F^i_n)_{\#}(\sQ_{n-1})}} \Big).
+  \]
+  que cumplen que $\partial_{n+1}(\sT_n)=\fz_n$.
+
+  Gracias a esta propiedad la ecuaci\'on (\ref{eq:subdivision_homotopico_identidad})
+  se cumple y as\'i $\fT$ es una homotop\'ia $\text{sd}^X_{\bullet}\sim\Ii$.
+\end{proof}
+
+Este lema es valioso, b\'asicamente nos dice que podemos iterar la subdivisi\'on
+baric\'entrica sobre un complejo de cadenas sin alterar las homomolog\'ia, en efecto:
+si sd$^X_{\bullet}\simeq\Id$ entonces $H_n(\text{sd}^X_{\bullet})=H_n(\Id)=\Id$. Esto
+sugiere una manera de contruir una funci\'on $S_{\bullet}(X)\ra S_{\bullet}^{\fU}$
+que sea el inverso homot\'opico de la inclusi\'on $\imath: S_{\bullet}^{\fU}(X)\ra S_{\bullet}(X)$:
+simplemente sigue subdividiendo una $n$-cadena hasta que todas sus caras sean
+suficientemente peque\~nas para que lo que quede sea un elemento de $S_n^{\fU}(X)$.
+
+Para formalizar esta noci\'on de hacerse m\'as peque\~no, definimos:
+
+\begin{defin}
+  Sea $A$ un subespacio de un espacio m\'etrico $(X,d)$. El \emph{di\'ametro} de $A$ se
+  define como
+  \[
+    \text{diam}(A):=\sup\{d(x,y)\mid x,y\in X\}.
+  \]
+  Adem\'as, si $X$ es compacto y $\fU:=\{U_{\la}\}_{\la\in\Lambda}$ es una cubierta abierta
+  de $X$, existe una $\eps>0$ tal que si diam$(A)<\eps$, entonces $A\subseteq U_{\la}$
+  para alguna $\la\in\Lambda$; a esta $\eps$ se le llama el \emph{n\'umero de Lebesgue}
+  de $\fU$.
+\end{defin}
+
+Si $\sigma:\Delta^n\ra\RR^N$ es un simplejo af\'in, entonces su subdivisi\'on baric\'entrica
+contiene subsimplejos de di\'ametro menor o igual a $(\tfrac{n}{n+1})$diam$(\sigma[\Delta^n])$.
+Por lo tanto si subdividimos $r$ veces el di\'ametro de sus subsimplejos es menor o igual
+a $(\tfrac{n}{n+1})^r$diam$(\sigma[\Delta^n])$.
+
+Esto nos permite demostrar rigurosamente nuestra intuici\'on de que existen una cantidad
+finita de pasos de subdivisi\'on baric\'entrica que meten a un simplejo a $S_{n}^{\fU}(X)$.
+
+\begin{lema}
+  Sea $\fU=\{U_{\la}\}_{\la\in\Lambda}$ una familia de subespacios de $X$ tales que
+  $X=\cup \mathring{U}_{\la}$, entonces
+  \[
+    \forall \sigma\in S_n(X) \quad\exists r\geq0\;\;\text{tal que}\;\;
+    \big(\text{sd}^X_n\big)^r(\Delta^n)\in S_n^{\fU}(X).
+  \]
+\end{lema}
+\begin{proof}
+  Observa que la cubierta abierta $\{\mathring{U}_{\la}\}_{\la}$ induce la cubierta abierta
+  $\sigma^{-1}(\fU)=\{\sigma^{-1}[\mathring{U}_{\la}]\}$ de $\Delta^n$. Como \'este es
+  compacto, la cubierta $\sigma^{-1}[\fU]$ tiene un n\'umero de Lebesgue $\eps>0$, como
+  $(\tfrac{n}{n+1})^r\ra0$ cuando $r\rai$, y diam$(\Delta^n)$ es constante, entonces
+  existe una $r$ suficientemente grande tal que
+  \[
+    \text{diam}\big( \big(\text{sd}^{\RR^N}_n\big)^r(\Delta^n)\big)=
+    \paren{\tfrac{n}{n+1}}^r\text{diam}(\sigma[\Delta^n])<\eps.
+  \]
+  Esto quiere decir que los subcomplejos de $\big(\text{sd}^{\RR^N}_n\big)^r(\Delta^n)$
+  tienen di\'ametro menor que $\eps$.
+
+  Por lo tanto si $\tau$ es un subsimplejo de
+  $(\text{sd}^X_n)^r(\sigma)=\sigma_{\#}\big(\text{sd}^{\RR^N}_n\big)^r(\Delta^n)$, entonces
+  $\tau=\sigma\circ\tau'$ donde $\tau'$ es un subsimplejo de
+  $\big(\text{sd}^{\RR^N}_n\big)^r(\Delta^n)$, es decir que diam$(\im{\tau'})<\eps$ que
+  implica que para tod sub simplejo  $\tau$ hay un $U_{\la}$ tal que
+  \[
+    \tau'[\Delta^n]\subseteq\sigma^{-1}[\mathring{U}_{\la}] \quad\then\quad
+    (\sigma\circ\tau')[\Delta^n]=\tau[\Delta^n]\subseteq \mathring{U}_{\la}\subset U_{\la} \quad\then\quad
+    (\text{sd}^X_n)^r(\sigma)\in S_n^{\fU}(X).
+  \]
+\end{proof}
+
+Este lema sugiere definir el m\'inimo n\'umero de subdivisiones necesarias para que un
+simplejo sea elemento de $S_n^{\fU}(X)$:
+\[
+  \fr:S_n(X)\ra\NN \quad\text{con}\quad
+  \sigma\mapsto\min\Big\{r\in\NN\mid (\text{sd}^X_n)^r(\sigma)\in S_n^{\fU}(X)\Big\}
+\]
+
+Lo ideal ser\'ia definir $\sigma\mapsto (\text{sd}^X_n)^{\fr(\sigma)}(\sigma)$ como
+el morfismo de cadenas $S_{\bullet}(X)\ra S_{\bullet}^{\fU}(X)$ que buscamos, pero no
+se puede hacer tan directamente:
+
+\import{\directory}{ejercicios/73} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 73
+
+Esto se puede arreglar. Consideramos la homotop\'ia $\fT=\{T^X_n:S_n(X)\ra S_{n+1}(X)\}$
+de la prueba del lema \ref{lema:sd_homotopico_identidad} y definimos:
+\[
+  R_n:S_n(X)\ra S_n(X) \quad\text{con}\quad
+  R_n(\sigma):=\sum_{i=0}^{\fr(\sigma)-1}T_n^X\big((\text{sd}^X_n)^i(\sigma)\big).
+\]
+Observa que
+\[
+  R_{n-1}(\partial_n(\sigma))=
+  R_{n-1}\paren{\sum_{i=0}^n(-1)^i\sigma^{(i)}}=
+  \sum_{i=0}^n(-1)^iR_{n-1}(\sigma^{(i)})=
+  \sum_{i=0}^n(-1)^i\sum_{j=0}^{\fr(\sigma^{(i)})-1}T_{n-1}^X\big((\text{sd}^X_{n-1})^j(\sigma^{(i)})\big).
+\]
+Por otro lado:
+\[
+  \partial_{n+1}(R_n(\sigma))=
+  \sum_{i=0}^{\fr(\sigma)-1}(\partial_{n+1}T_n^X)\big((\text{sd}^X_n)^i(\sigma)\big).
+\]
+Recuerda que los morfismos $T^X_n$ cumplen $\partial_{n+1}T^X_n+T^X_{n-1}\partial_n=\text{sd}^X_n-\Id$,
+o equivalentemente $\partial_{n+1}T^X_n=\text{sd}^X_n-\Id-T^X_{n-1}\partial_n$. Si sustituimos
+esto en la f\'ormula anterior, obtenemos:
+\begin{align*}
+  \partial_{n+1}(R_n(\sigma)) & =
+  \sum_{i=0}^{\fr(\sigma)-1}%
+  (\text{sd}^X_n-\Id-T^X_{n-1}\partial_n)\big((\text{sd}^X_n)^i(\sigma)\big)\\ & =
+  \sum_{i=1}^{\fr(\sigma)}(\text{sd}^X_n)^i(\sigma)-\sum_{i=0}^{\fr(\sigma)-1}(\text{sd}^X_n)^i(\sigma)-
+  \sum_{i=0}^{\fr(\sigma)-1}T^X_{n-1}(\partial_n(\text{sd}^X_n)^i)(\sigma)\\ & =
+  (\text{sd}^X_n)^{\fr(\sigma)}(\sigma)-\sigma-
+  \sum_{i=0}^{\fr(\sigma)-1}T^X_{n-1}(\partial_n(\text{sd}^X_n)^i)(\sigma)
+\end{align*}
+donde la \'ultima suma es:
+\[
+  \sum_{i=0}^{\fr(\sigma)-1}T^X_{n-1}(\partial_n(\text{sd}^X_n)^i)(\sigma)=
+  \sum_{i=0}^{\fr(\sigma)-1}T^X_{n-1}((\text{sd}^X_{n-1})^i\partial_n)(\sigma)=
+  \sum_{i=0}^{\fr(\sigma)-1}\sum_{j=0}^n(-1)^j T^X_{n-1}\big((\text{sd}^X_{n-1})^i(\sigma^{(i)})\big)
+\]
+porque $\text{sd}^X_n$ conmuta con $\partial_n$.
+
+Por lo tanto:
+\begin{equation}\label{eq:homotopia_final}
+  (\partial_{n+1}R_n+R_{n-1}\partial_n)(\sigma)=
+  \sigma-\underset{t_n(\sigma)}{\underbrace{\left[(\text{sd}^X_n)^{\fr(\sigma)}(\sigma)+
+    \sum_{j=0}^n(-1)^j\sum_{i=\fr(\sigma^{(i)})}^{\fr(\sigma)}%
+    T^X_{n-1}\big((\text{sd}^X_{n-1})^i(\sigma^{(i)})\big)\right]}}.
+\end{equation}
+Entonces si redefinimos $t_{\bullet}$ como lo que est\'a en corchetes, tendremos que
+$\Id\simeq t_{\bullet}$ mediante la familia $\{R_n\}_{n\in\ZZ}$ de morfismos. Entonces
+si definimos:
+\[
+  t_n:S_n(X)\ra S_n(X)\quad\text{con}\quad
+  t_n(\sigma)=\sigma-(\partial_{n+1}R_n+R_{n-1}\partial_n)(\sigma)
+\]
+estamos en posici\'on para probar el teorema de escisi\'on general:
+
+\begin{proof}(teorema \ref{thm:escision_general})
+Observa que $t_{\bullet}=(t_n)$ es un morfismo de complejos de cadena porque
+\[
+  (\partial_nt_n)(\sigma)=\partial_n(\sigma-(\partial_{n+1}R_n+R_{n-1}\partial_n)(\sigma))=
+  \partial_n(\sigma)+\partial_nR_{n-1}\partial_n(\sigma),
+\]
+y porque
+\[
+  t_{n-1}\partial_n(\sigma)=\partial_n(\sigma)+\partial_{n}R_{n-1}\partial_n(\sigma)+
+  \cancelto{0}{R_{n-2}\partial_{n-1}\partial_n(\sigma)}.
+\]
+
+Ahora, si $\im{t_{\bullet}}\subset S_n^{\fU}$, entonces $t_{\bullet}$ se factoriza
+a trav\'es de la inclusi\'on $S_{\bullet}^{\fU}(X)\hookrightarrow S_{\bullet}(X)$.
+Por lo tanto $\Id\simeq t_{\bullet}=\imath\circ t_{\bullet}$. Para ver la expresi\'on
+inversa, sabemos que
+\[
+  \sigma\in S_{n-1}^{\fU}(X) \quad\then\quad \fr(\sigma)=0 \quad\then\quad R_n(\sigma)=0
+\]
+porque la suma que define $R_n(\sigma)$ es vac\'ia. Una consecuencia directa de esto
+es que
+\[
+  \sigma\in S_n^{\fU}(X)\quad\then\quad
+  \partial_{n}(\sigma)\in S_{n-1}^{\fU}(X)\quad\then\quad
+  R_{n-1}(\partial_n(\sigma))=0
+\]
+Por lo tanto
+\[
+  t_{n}(\sigma)=\sigma+\partial_{n+1}R_n(\sigma)+R_{n-1}\partial_n(\sigma)=\sigma \quad\then\quad
+  \Id=t_{\bullet}\circ\imath=t_{\bullet}|_{S_{\bullet}^{\fU}} \quad\then\quad
+  \Id\sim\imath\circ t_{\bullet}.
+\]
+y podemos conlcuir que $\Id\simeq \imath \circ t_{\bullet}$. Esto quiere decir que
+$\imath$ es una equivalencia homot\'opica y por el ejercicio \ref{ej:71} $H_n(\imath)$
+es un isomorfismo.
+
+En este \'ultimo p\'arrafo probamos que si $\im{t_{\bullet}}\subseteq S_n^{\fU}(X)$ entonces
+$H_n(\imath)$ es un isomorfismo como queremos. El primer t\'ermino de la definici\'on de
+$t_n(\sigma)$ claramente cumple $(\text{sd}^X_n)^{\fr(\sigma)}(\sigma)\in S_n^{\fU}(X)$. El
+segundo t\'ermino es una suma de elementos de la forma $(\text{sd}_{n-1}^X)^j(\sigma^{(i)})$
+donde $\fr(\sigma^{(i)})\leq j$, ie. $(\text{sd}_{n-1}^X)^j(\sigma^{(i)})$. Ahora sea
+$\sigma\in S_n^{\fU}(X)$ arbitrario, entonces por definici\'on $T^X_n(\sigma)=\sigma_{\#}(\sT_n)$
+pero como $\im{\sigma}\subseteq U_{\la}$ entonces $\im{\sigma_{\#}(\sT_n)}\subseteq U_{\la}$
+y as\'i $T^X_n(\sigma)\in S_n^{\fU}(X)$. Si juntamos los dos enunciados cuncluimos que
+$t_n(\sigma)$ es una suma de elmentos de $S_n^{\fU}(X)$. Deducimos que $t_n(\sigma)\in S_n^{\fU}(X)$
+para toda $\sigma\in S_n(X)$ y acabamos.
+\end{proof}
+
+Por \'ultimo vamos a probar ell caso particular del teorema de escisi\'on:
+
+\begin{proof}(teorema \ref{thm:escision})
+  Definimos $\fU:=\{X-U,A\}$ como la cubierta. Esta elecci\'on es v\'alida porque
+  $\bar{U}\subset\mathring{A}$ implica que
+  $X=\mathring{(X-U)}\cup \mathring{A}=(X-\bar{U})\cup\mathring{A}$.
+
+  La inclusi\'on $j:(X-U,A-U)\hookrightarrow(X,A)$ induce un morfismo
+  $j_{\#}:S_{\bullet}(X-U)\ra S_{\bullet}(X)$ que cumple que
+  \[
+    j_{\#}[S_{\bullet}(A-U)]\subseteq S_{\bullet}(A).
+  \]
+  Por lo tanto $j_{\#}$ pasa al cociente:
+  \[
+    \overline{j_{\#}}:\frac{S_{\bullet}(X-U)}{S_{\bullet}(A-U)}\lra\frac{S_{\bullet}(X)}{S_{\bullet}(A)}.
+  \]
+  Hay que probar que $\overline{j_{\#}}$ es un isomorfismo.
+  
+  Observa que
+  \[
+    S_n^{\fU}(X)=S_n(X-U)+S_n(A)\subset S_n(X) \quad\text{y}\quad
+    S_n(X-U)\cap S_n(A)=S_n((X-U)\cap A)=S_n(A-U).
+  \]
+  El segundo teorema de isomorfismo dice que la inclusi\'on
+  $i:S_{\bullet}(X-U)\hookrightarrow S_{\bullet}(X-U)+S_{\bullet}(A)=S_n^{\fU}(X)$
+  induce un isomorfismo:
+  \[
+    \bar{i}:\frac{S_{\bullet}(X-U)}{S_{\bullet}(A-U)}\stackrel{\cong}{\lra}
+    \frac{S_{\bullet}^{\fU}(X)}{S_{\bullet}(A)}.
+  \]
+  Por otro lado, la inclusi\'on $\imath:S_{\bullet}^{\fU}(X)\ra S_{\bullet}(X)$
+  induce un morfismo:
+  \[
+    \bar{\imath}:\frac{S_{\bullet}^{\fU}(X)}{S_{\bullet}(A)} \lra \frac{S_n(X)}{S_n(A)}
+  \]
+  porque $\imath[S_{\bullet}(A)]\subseteq S_{\bullet}(A)$. Observa que
+  \[
+    \begin{tikzcd}
+      \tfrac{S_{\bullet}(X-U)}{S_{\bullet}(A-U)} \arrow[rr,"\overline{j_{\#}}"]
+      \arrow[dr,"\bar{i}"'] && \tfrac{S_{\bullet}(X)}{S_{\bullet}(A)} \\
+      & \tfrac{S_{\bullet}^{\fU}(X)}{S_{\bullet}(A)} \arrow[ur,"\bar{\imath}"'] &
+    \end{tikzcd}\quad \overline{j_{\#}}=\bar{\imath}\circ\bar{i}
+  \]
+  es un diagrama conmutativo porque $j_{\#}=\imath\circ i$. Tomando homolog\'ias, obtenemos:
+  \[
+    \begin{tikzcd}[row sep=large]
+      H_n(X-U,A-U) \arrow[rr,"H_n(\overline{j_{\#}})"] \arrow[dr,"H_n(\bar{i})"'] && H_n(X,A) \\
+      & H_n\paren{\tfrac{S_{\bullet}^{\fU}(X)}{S_{\bullet}(A)}} \arrow[ur,"H_n(\bar{\imath})"'] &
+    \end{tikzcd}
+  \]
+  Como $\bar{\imath}$ es un isomorfismo de complejos de cadena, entonces $H_n(\bar{i})$
+  es un isomorfismo. Por lo tanto si probamos que $H_n(\bar{\imath})$ es un isomorfismo
+  pdor\'iamos conlcuir que $H_n(\overline{j_{\#}})$ es un isomorfismo y acabar\'iamos.
+  
+  Resulta que $\bar{\imath}$ es una equivalencia homot\'opica de complejos de cadena con
+  inverso $\bar{t_{\bullet}}$, el inducido por $t_{\bullet}:S_{\bullet}(X)\ra S_{\bullet}^{\fU}(X)$.
+  Si este es el caso, entonces $H_n(\bar{\imath})$ es un isomorfismo y acabamos. Por lo tanto
+  redujimos el problema a:
+  
+\import{\directory}{ejercicios/74} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 74
+\end{proof}
+
+Decimos que la inclusi\'on $\imath$ (o $\bar{\imath}$) es un \emph{retracto por deformaci\'on},
+es decir: existe un morfismo $r$ (que en este caso es $r=t_{\bullet}$) tal que $\imath\circ r=\Id$
+y $r\circ\imath\simeq\Id$.
+
+\end{document}

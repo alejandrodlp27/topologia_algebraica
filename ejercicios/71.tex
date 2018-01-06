@@ -1,0 +1,49 @@
+\begin{ejercicio}\label{ej:71}
+  Sea $\varphi:\Cc_{\bullet}\ra\Cc'_{\bullet}$ un morfismo de complejos de cadena.
+  Si $\varphi$ es una \emph{equivalencia homot\'opica de cadenas} (es decir que
+  existe un morfismo de complejos $\psi:\Cc'_{\bullet}\ra\Cc_{\bullet}$ tal que
+  $\psi\circ\varphi\simeq\Id_{\Cc_{\bullet}}$ y $\varphi\circ\psi\simeq\Id_{\Cc'_{\bullet}}$),
+  entonces $H_{n}(\varphi):H_n(\Cc_{\bullet})\ra H_n(\Cc'_{\bullet})$ es un isomorfismo
+  de $R$-m\'odulos.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Por el ejercicio \ref{ej:57}, cada morfismo de complejos de cadena induce un morfismo
+  en homolog\'ias, es decir $\Cc_{\bullet}\mapsto H_n(\Cc_{\bullet})$ es un funtor.
+  Supongamos que el teorema de la invariancia de la homolog\'ia singular (cf. teorema
+  \ref{thm:invariancia_homologia_dos}) se vale en general (ie. si $f \simeq g$ como
+  morfismos de complejos de cadena entonces $H_n(f)=H_n(g)$). Entonces, como
+  $H_n(\_)$ es funtor, tendr\'iamos que  la hip\'otesis de que
+  $\varphi\circ\psi\simeq\Id_{\Cc'_{\bullet}}$ y que $\psi\circ\varphi\simeq\Id_{\Cc_{\bullet}}$,
+  implica lo que queremos:
+  \[
+    \left.
+    \begin{cases}
+      \quad\Id_{H_n(\Cc_{\bullet})} =H_n(\Id_{\Cc_{\bullet}})=
+      H_n(\psi\circ\varphi)=H_n(\psi)\circ H_n(\varphi)\\
+      \quad\Id_{H_n(\Cc'_{\bullet})}=H_n(\Id_{\Cc'_{\bullet}})=
+      H_n(\varphi\circ\psi)=H_n(\varphi)\circ H_n(\psi)
+    \end{cases}\right\}
+    \quad\then\quad H_n(\varphi)\;\;\text{es un isomorfismo}.
+  \]
+  Por lo tanto el ejercicio se reduce a probar lo siguiente:
+  
+  Si $\varphi:\Cc_{\bullet}\ra\Cc'_{\bullet}$ y $\psi:\Cc'_{\bullet}\ra\Cc_{\bullet}$ son morfismos
+  de complejos de cadenas, entonces:
+  \begin{equation}
+    \label{eq:ej_71}
+    \varphi\simeq\psi \quad\then\quad H_n(\varphi)=H_n(\psi)
+  \end{equation}
+  Empezamos:
+
+  Si $\varphi\simeq\psi$, existe una familia $\fT=\{T_n:C_n\ra C_{n+1}'\}_{n\in\ZZ}$
+  de morfismos tales que cumple $\varphi_n-\psi_n=\partial'_{n+1}T_n+T_{n-1}\partial_n$,
+  donde $\varphi=(\varphi_n)$. Por lo tanto si $[z]\in H_n(\Cc_{\bullet})$ es arbitrario,
+  donde $z\in Z_n(\Cc_{\bullet})=\ker(\partial_n)$, entonces:
+  \begin{align*}
+    H_n(\varphi)[z]-H_n(\psi)[z]&=[\varphi_n(z)]-[\psi_n(z)]=[\varphi_n(z)-\psi_n(z)]=
+    [\partial'_{n+1}(T_n(z))+T_{n-1}(\partial_n(z))]\\ & =
+    \cancelto{0}{[\partial'_{n+1}(T_n(z))]}+[T_{n-1}(\partial_n(z))]=0
+  \end{align*}
+  porque $\partial_n(z)=0$ y $T_{n-1}$ es un morfismo de $R$-m\'odulos.
+\end{proof}%

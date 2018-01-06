@@ -1,0 +1,36 @@
+\begin{ejercicio}\label{ej:72}
+  sd${}^{\_}_n$ es una transformaci\'on natural del funtor $S_n(\_):\cat{Top}\ra{}_R\cat{Mod}$
+  en si mismo.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%
+  Hay que probar que el diagrama
+  \[
+    \begin{tikzcd}
+      S_n(X) \arrow[r,"\text{sd}_n^X"] \arrow[d,"f_{\#}"] & S_n(X) \arrow[d,"f_{\#}"'] \\
+      S_n(Y) \arrow[r,"\text{sd}^Y_n"] & S_n(Y)
+    \end{tikzcd}
+  \]
+  conmutata para cualesquiera dos espacios $X$ y $Y$, y cualquier funci\'on continua
+  $f:X\ra Y$ entre ellos.
+
+  Sea $\tau=\sum_{\sigma}r_{\sigma}\sigma\in S_n(X)$, entonces:
+  \begin{align*}
+    f_{\#}(\text{sd}^X_n(\tau))&=
+    f_{\#}\paren{\text{sd}^X_n\paren{\sum r_{\sigma}\sigma}}=
+    f_{\#}\paren{\sum r_{\sigma}\text{sd}^X_n(\sigma)}=
+    \sum r_{\sigma}f_{\#}\big(\sigma_{\#}(\text{sd}^{\Delta^n}_n(\Id_{\Delta^n}))\big)\\ & =
+    \sum r_{\sigma}(f\circ\sigma)_{\#}(\text{sd}^{\Delta^n}_n(\Id_{\Delta^n})).
+  \end{align*}
+  Por otro lado:
+  \begin{align*}
+    \text{sd}^Y_n(f_{\#}(\tau))&=
+    \text{sd}^Y_n\paren{f_{\#}\paren{\sum r_{\sigma}\sigma}}=
+    \text{sd}^Y_n\paren{\sum r_{\sigma}f_{\#}(\sigma)}=
+    \sum r_{\sigma}\text{sd}^Y_n(f\circ\sigma)\\ & =
+    \sum r_{\sigma}(f\circ\sigma)_{\#}(\text{sd}^{\Delta^n}_n(\Id_{\Delta^n})).
+  \end{align*}
+  y as\'i $f_{\#}(\text{sd}^X_n(\tau))=\text{sd}^Y_n(f_{\#}(\tau))$ para toda $\tau.$ Por lo
+  tanto, $\text{sd}_n^{\_}:S_n(\_)\ra S_n(\_)$ es una transformaci\'on natural.
+\end{proof}%
+

@@ -1,0 +1,724 @@
+\documentclass[../../topologia_algebraica]{subfiles}
+\begin{document}
+\section{Homolog\'ia Singular}
+
+En esta secci\'on introduzco otro tipo de homolog\'ia que resultar\'a ser la m\'as manejable
+que la homolog\'ia simplicial y que nos dar\'a m\'as resultados topol\'ogicos.
+  
+\subsection{Complejos de cadena y sus homolog\'ias}
+
+Primera considera un complejo simplicial $K$ y $C_n^<(K)$, las $n$-cadenas ordenadas.
+Si $v\in V_K$ es un v\'ertice, entonces por definici\'on $\{v\}\in K$. A este v\'ertice le
+corresponde de manera can\'onica un $\tilde{v}\in\abs{K}$ definido por:
+\[
+  \tilde{v}:V_k\lra I \quad\text{con}\quad \tilde{v}(u)=
+  \begin{cases}
+    1 & \text{si}\;\; u=v\\
+    0 & \text{si}\;\; u\neq v
+  \end{cases}.
+\]
+Esto es muy similar a las funciones caracter\'isticas de los m\'odulos libres. Esta observaci\'on
+nos lleva a definir una funci\'on $\Delta^n\ra\abs{K}$ de la siguiente manera:
+
+\begin{defin}
+  Sea $\Delta^n\subset\RR^{n+1}$ el $n$-simplejo geom\'etrico est\'andar y $s=\{v_0,\ldots,v_n\}\in K$
+  un $n$-simplejo de $K$, entonces define
+  \[
+    \sigma_s:\Delta^n\lra \abs{K} \quad\text{con}\quad \sigma_s(t_0,\ldots,t_n):=\sum_{i=0}^n t_i\tilde{v}_i
+  \]
+\end{defin}
+
+La funci\'on $\sigma_s$ est\'a bien definido, ie. $\sigma_s(t_0,\ldots,t_n)\in\abs{s}\subseteq\abs{K}$,
+gracias al siguiente lema:
+
+\begin{lema}
+  Sean $K$ un complejo simplicial y $s=\{v_0,\ldots,v_n\}\in K$ un $n$-simplejo. Entonces cualquier
+  combinaci\'on lineal convexa de elementos de $\abs{s}$ es un elemento de $\abs{s}$, es decir:
+  si $\alpha_1,\ldots,\alpha_m\in\abs{s}$ y $\la_0,\ldots,\la_m\in\RR_{\geq 0}$ son tales que
+  $\sum \la_i =1$ entonces $\sum \la_i\alpha_i \in\abs{s}$.
+\end{lema}
+\begin{proof}
+  Observa que la suma $\gamma:=\sum\la_i\alpha_i$ tiene sentido porque $\abs{k}\subset\RR^{V_K}$ que es
+  un $\RR$-espacio vectorial. Como cada $\alpha_i$ es una funci\'on con valores no-negativos y cada
+  escalar $\la_i$ es no-negativo, entonces $\gamma(v)=0$ si y s\'olo si $\alpha_i(v)=0$ para toda $i$, es
+  decir Sop$(\gamma)=\cap$Sop$(\alpha_i)\subseteq s$ porque por hip\'otesis Sop$(\alpha_i)\subseteq s$.
+  
+  Adem\'as tenemos que:
+  \[
+    \sum_{v\in V_K}\gamma(v)=
+    \sum_{i=0}^n\gamma(v_i)=
+    \sum_{i=0}^n\sum_{j=0}^n \la_j\alpha_j(v_i)=
+    \sum_{j=0}^n\paren{\la_j \sum_{i=0}^n \alpha_j( v_i)}=
+    \sum_{j=0}^n \la_j =1
+  \]
+  porque $\sum_i \alpha_j(v_i)=1$ porque $\alpha_i\in\abs{s}$. Por lo tanto $\gamma\in\abs{s}$.
+\end{proof}
+
+\begin{nota}
+  Si $(v_0,\ldots,v_n)\in C_n^<(K)$ entonces $\sigma_{(v_0,\ldots,v_n)}:\Delta^n\ra\abs{K}$ es un encaje,
+  pero si $[v_0,\ldots,v_n]\in C_n(K)$ entonces $\sigma_{[v_0,\ldots,v_n]}$ no necesariamente es un encaje.
+\end{nota}
+
+Como vamos a estar trabajando con funciones continuas $\Delta^n\ra\abs{K}$, introduzco una notaci\'on
+m\'as concisa:
+
+\begin{defin}
+  Sea $X$ un espacio topol\'ogico, denotamos
+  \[
+    \sS_n(X):=\text{Map}(\Delta^n,X)=\{f:\Delta^n\ra X\mid f\;\text{es continua}\}.
+  \]
+\end{defin}
+
+Con esta notaci\'on, tenemos que $(v_0,\ldots,v_n)\mapsto \sigma_{(v_0,\ldots,v_n)}$ es una funci\'on
+y por la propiedad universal de los m\'odulos libres se extiende a $C_n^<(K)$, entonces tenemos:
+\[
+  \begin{tikzcd}
+    C_n^<(K) \arrow[d] \arrow[r,"\partial_n"] & C_{n-1}^<(K) \arrow[d] \\
+    \sS_n\abs{K} \arrow[r,dashed,"?"] & \sS_{n-1}\abs{K}.
+  \end{tikzcd}
+\] 
+
+El siguiente paso es definir es definir un an\'alogo de las funciones frontera para $\sS_n\abs{K}$. Para
+esto requerimos las funciones \emph{cara}:
+\[
+  F^i_n:\Delta^{n-1}\ra\Delta^n \quad\text{definido por}\quad
+  F^i_n(t_0,\ldots,t_{n-1})=(t_0,\ldots,t_{i-1},0,t_i,\ldots,t_{n-1}).
+\]
+En palabras, $F^i_n$ manda $\Delta^{n-1}$ a la $(n-1)$-cara opuesto al v\'ertice $e_i$ de $\Delta^n$.
+En general, las funciones $F^i_n$ se pueden definir afinmente:
+\[
+  F^i_n(e_j)=
+  \begin{cases}
+    e_j & \text{si}\;\; j<i \\
+    e_{j+1} & \text{si}\;\; j\geq i
+  \end{cases}.
+\]
+El siguiente dibujo ilustra el caso de $n=2$:
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{ejemplo_funcion_cara}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Observa que para un $(n-1)$-simplejo $(v_0,\ldots,\what{v_i},\ldots,v_n)$ de $K$, entonces%
+%
+\begin{equation}\label{eq:identidad_funciones_cara}
+  \sigma_{(v_0,\ldots,\what{v_i},\ldots,v_n)}=\sigma_{(v_0,\ldots,v_n)}\circ F^i_n.
+\end{equation}
+%
+En efecto:%
+%
+\begin{align*}
+  \sigma_{(v_0,\ldots,\what{v_i},\ldots,v_n)}(t_0,\ldots,t_{n-1})&=
+  t_0\tilde{v}_0+\cdots+t_{i-1}\tilde{v}_{i-1}+t_{i}\tilde{v}_{i+1}+\cdots+t_{n-1}\tilde{v}_{n}\\ &=
+  t_0\tilde{v}_0+\cdots+t_{i-1}\tilde{v}_{i-1}+0\tilde{v}_i + t_{i}\tilde{v}_{i+1}+\cdots+
+  t_{n-1}\tilde{v}_{n}\\ &=
+  \sigma_{(v_0,\ldots,v_n)}((t_0,\ldots,t_{i-1},0,t_i,\ldots,t_{n-1}))\\ &=
+  \sigma_{(v_0,\ldots,v_n)}(F^i_n(t_0,\ldots,t_{n-1})).
+\end{align*}
+
+La f\'ormula (\ref{eq:identidad_funciones_cara}) sugiere de manera inmediata c\'omo definir una
+funci\'on frontera para $\sS_n\abs{K}$:
+\[
+  \partial_n(\sigma)=\sum_{i=0}^n(-1)^i (\sigma\circ F^i_n).
+\]
+De hecho es muy f\'acil generalizarlo a cualquier espacio topol\'ogico.
+
+\begin{defin}
+  Sea $X$ un espacio topol\'ogico y $n\geq 0$. Los elementos de $\sS_n(X)$ se llaman
+  $n$-\emph{simplejos singulares}.
+  Definimos $S_n(X;R):=R\gen{\sS_n(X)}$ y
+  \[
+    \partial_n:S_n(X;R)\lra S_{n-1}(X;R) \quad\text{con}\quad
+    \partial_n(f)=\sum_{i=0}^n(-1)^i (f\circ F^i_n).
+  \]
+  Si $n<0$ escribimos $S_n(X;R)=0$.
+\end{defin}
+
+Para probar que:
+\[
+  \begin{tikzcd}
+    \cdots \arrow[r] & S_{n+1}(X;R) \arrow[r,"\partial_{n+1}"] & S_n(X;R) \arrow[r,"\partial_n"]
+    & S_{n-1}(X;R) \arrow[r] & \cdots
+  \end{tikzcd}
+\]
+es un complejos de cadenas necesitamos
+
+\import{\directory}{ejercicios/61} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 61
+
+De este ejercicio se sigue que
+
+\import{\directory}{ejercicios/62} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 62
+
+Por lo tanto $S_{\bullet}(X;R)$ es un complejo de cadenas. Gracias a esto podemos definir:
+
+\begin{defin}
+  Sea $X$ un espacio topol\'ogico y $S_{\bullet}(X;R)$ su \emph{complejo singular}. Definimos
+  $Z_n(X;R):= \ker(\partial_n)$, cuyos elementos se llaman $n$-\emph{ciclos}, definimos
+  $B_n(X;R):=\text{Im}(\partial_{n+1})$, cuyos elementos se laman
+  $n$-\emph{fronteras} y definimos la \emph{homolog\'ia singular} de $X$ como:
+  \[
+    H_n(X;R):=\frac{Z_n(X;R)}{B_n(X;R)}
+  \]
+\end{defin}
+
+La asignaci\'on $X\mapsto S_{\bullet}(X;R)$ es un funtor entre espacios topol\'ogicos y
+complejos de cadenas de $R$-m\'odulos:
+
+\begin{defin}
+  Sea $f:X\ra Y$ una funci\'on continua. Entonces $f$ induce un morfismo de complejos de cadenas
+  $f_{\#}:S_{\bullet}(X;R)\ra S_{\bullet}(Y;R)$ definido de la siguiente manera: para cada $n$ define
+  $(f_{\#})_n:S_n(X;R)\ra S_n(Y;R)$ como $(f_{\#})_n(\sigma)=f\circ\sigma$ donde $\sigma:\Delta^n\ra X$
+  y extiende por linealidad.
+\end{defin}
+
+\begin{nota}
+  En general voy a suprimir el sub\'indice $n$, es decir voy a escribir $f_{\#}=(f_{\#})_n$. Esto es porque
+  la regla de correspondencia no depende de $n$, simplemente es una composici\'on.
+\end{nota}
+
+Para probar que $f_{\#}$ es efectivamente un morfismo de complejos de cadena, hay que probar que el
+siguiente diagrama conmuta:
+\[
+  \begin{tikzcd}
+    S_n(X;R) \arrow[r,"\partial_n"] \arrow[d,"f_{\#}"'] & S_{n-1}(X;R) \arrow[d,"f_{\#}"] \\
+    S_n(Y;R) \arrow[r,"\partial_n"'] & S_{n-1}(Y;R) 
+  \end{tikzcd}
+\]
+Pero esto se verifica inmediatamente:
+\[
+  f_{\#}(\partial_n(\sigma))=
+  f_{\#}\paren{\sum_{i=0}^n (-1)^i (\sigma\circ F^i_n)}=
+  \sum_{i=0}^n (-1)^i f\circ(\sigma\circ F^i_n)=
+  \sum_{i=0}^n (-1)^i (f_{\#}(\sigma)\circ F^i_n)=
+  \partial_n (f_{\#}(\sigma)).
+\]
+
+Ahora, el ejercicio \ref{ej:57} nos dice que $f_{\#}$ induce un morfismo de $R$-m\'odulos
+$H_n(f_{\#}):H_n(X;R)\ra H_n(Y;R)$. Por lo tanto:
+\[
+  X\mapsto H_n(X;R) \quad\text{con}\quad \big(X\morf{f} Y\big) \mapsto H_n(f_{\#})
+\]
+es un funtor. Esto significa que la homolog\'ia es un invariante topol\'ogico:
+
+\begin{prop}
+  \[
+    X\approx Y \quad\then\quad H_n(X;R) \cong H_n(Y;R) \quad\forall n\geq 0.
+  \]
+\end{prop}
+
+La homolog\'ia singular generaliza la homolog\'ia simplicial:
+
+\begin{thm}
+  Sea $K$ un complejo simplicial. Entonces $H_n(K;R)\cong H_n(\abs{K};R)$, donde la primera
+  homolog\'ia es la simplicial y la segunda es la singular aplicado al espacio $\abs{K}$.
+  Este isomorfismo est\'a inducido por
+  \[
+    C_n^<(K) \lra S_n(\abs{K};R) \quad\text{definido por}\quad
+    (v_0,\ldots,v_n)\mapsto \sigma){(v_0,\ldots,v_n)}.
+  \]
+\end{thm}
+
+Para porbar este teorema tendr\'iamos que probar que los complejos $C_{\bullet}^<(K)$ y
+$S_{\bullet}(\abs{K})$ son homot\'opicos (cf. definici\'on \ref{def:}).
+
+Ahora calculamos las homolog\'ias en ciertos casos particulares para ilustrar lo manejable que es est\'a
+definici\'on a diferencia de la homolog\'ia simplicial.
+
+\begin{prop}\label{prop:homologia_punto}
+  \[
+    H_n\big(\{p\};R\big)\cong%
+    \begin{cases}
+      R & \text{si}\;\; n=0 \\
+      0 & \text{si}\;\; n>0
+    \end{cases}
+  \]
+\end{prop}
+\begin{proof}
+  Consideramos $S_{\bullet}(\{p\};R)$, el complejo singular del espacio $\{p\}$:
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r] & S_n(\{p\};R) \arrow[r,"\partial_n"] & S_{n-1}(\{p\};R) \arrow[r] &
+      \cdots \arrow[r] & S_0(\{p\};R) \arrow[r] & 0
+    \end{tikzcd}
+  \]
+  Como $\sS_n(\{p\})=\{\cte\}$ para toda $n$, entonces
+  \[
+    S_n(\{p\};R)=R\gen{\cte}\cong R \quad\forall n\geq 0
+  \]
+  bajo el isomorfismo $r\cte\mapsto r$.
+  
+  Por otro lado, para $n>0$ claramente tenemos que $\cte=\cte\circ F^i_n$, entonces:
+  \[
+    \partial_n(\cte)=\sum_{i=0}^n (-1)^i (\cte\circ F_n^i)=\sum_{i=0}^n (-1)^i \cte=%
+    \begin{cases}
+      \cte & \text{si}\;\; n\;\text{es par}\\
+      0 & \text{si}\;\; n\;\text{es impar}
+    \end{cases}
+  \]
+  porque la suma anterior es una suma alternada con $n+1$ t\'erminos. Por lo tanto
+  $\partial_n:R\gen{\cte}\ra R\gen{\cte}$ es un isomorfismo si $n$ es par (ya que hace
+  $\cte\mapsto\cte$) y $\partial_n=0$ para $n$ impar. De aqu\'i podemos concluir que para $n>0$:
+  \[
+    Z_n\big(\{p\};R\big)=
+    \begin{cases}
+      0 & \text{si}\;\; n\;\text{es par}\\
+      S_n(\{p\};R) & \text{si}\;\; n\;\text{es impar}
+    \end{cases} \quad\text{y}\quad
+    B_n\big(\{p\};R\big)=
+    \begin{cases}
+      S_n(\{p\};R) & \text{si}\;\; n\;\text{es par}\\
+      0 & \text{si}\;\; n\;\text{es impar}
+    \end{cases},
+  \]
+  la \'ultima igualdad se da porque $n+1$ es par cuando $n$ es impar y $n+1$ es impar cuando
+  $n$ es par. Tomando cocientes concluimos que
+  \[
+    H_n\big(\{p\};R\big)=\left.
+      \begin{cases}
+        0/0 & \text{si}\;\; n\;\text{es par}\\
+        S_n(\{p\};R)/S_n(\{p\};R) & \text{si}\;\; n\;\text{es impar}
+      \end{cases}\right\} = 0 \quad (\forall n>0)
+  \]
+  
+  Para $n=0$, simplemente sustituimos $S_1(\{p\};R)\cong S_0(\{p\};R)\cong R$ en el complejo
+  singular $S_{\bullet}(\{p\};R)$:
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r] & R \arrow[r,"\partial_1"] & R \arrow[r,"0"] & 0
+    \end{tikzcd}
+  \]
+  y as\'i $Z_0(\{p\};R)=\ker 0=R$. Ya ten\'iamos que $B_0(\{p\};R)=\text{Im}(\partial_1)=0$
+  entonces $H_0(\{p\};R)=R/0\cong R$.
+\end{proof}
+	
+\begin{prop}\label{prop:0_homologia_cpa}
+  Si $X$ es un espacio conectable por trayectorias, entonces $H_0(X;R)\cong R$.
+\end{prop}
+
+\begin{proof}
+  Observa que $\sS_0(X)=\text{Map}[\Delta^0,X]=X$ porque $\Delta^0=\{e_0\}$ y toda funci\'on
+  $\{e_0\}\ra X$ est\'a completamente determinado por su imagen. Por lo tanto
+  \[
+    S_0(X;R)=R\gen{X}=\left\{\sum_{x\in X} r_x x \mid
+      r_x\in R, r_x\neq 0\;\text{para solamente una cantidad finita de}\;x\in X\right\}
+  \]
+
+  Ahora considera el siguiente morfismo de $R$-m\'odulos:
+  \[
+    \eps:S_0(X;R) \lra R \quad\text{definido por}\quad \sum_{x\in X}r_x x \mapsto \sum_{x\in X} r_x,
+  \]
+  que es claramente sobreyectiva.
+  Observa que si $\sum_{\sigma}r_{\sigma}\sigma\in S_1(X;R)$, donde $\sigma:\Delta^1\ra X$, entonces:
+  \begin{align*}
+    \partial_1\paren{\sum_{\sigma\in\sS_1(X)}r_{\sigma}\sigma} & =
+    \sum_{\sigma}r_{\sigma}\partial_1(\sigma) \\ & =
+    \sum_{\sigma}r_{\sigma}(\sigma(e_1)-\sigma(e_0)) \\ & =
+    \sum_{\sigma}r_{\sigma}\sigma(e_1)-\sum_{\sigma}r_{\sigma}\sigma(e_0) \\
+    \therefore (\eps\circ\partial_1)\paren{\sum_{\sigma}r_{\sigma}\sigma} &=%
+    \eps\paren{\sum_{\sigma}r_{\sigma}\sigma(e_1)}-\eps\paren{\sum_{\sigma}r_{\sigma}\sigma(e_0)} \\ & =
+    \sum_{\sigma}r_{\sigma}-\sum_{\sigma}r_{\sigma}=0.
+  \end{align*}
+  Por lo tanto Im$(\partial_1)\subseteq\ker(\eps)$ y as\'i podemos ``aumentar'' el complejo
+  $S_{\bullet}(X;R)$ al complejo:
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r] & S_1(X;R) \arrow[r,"\partial_1"] & S_0(X;R) \arrow[r,"\eps"] & R \arrow[r] & 0
+    \end{tikzcd}
+  \]
+
+  Observa que si Im$(\partial_1)=\ker(\eps)$ entonces tendremos que:
+  \[
+    R=\text{Im}(\eps)\cong \frac{S_0(X;R)}{\ker(\eps)}\cong
+    \frac{S_0(X;R)}{\text{Im}(\partial_1)} \stackrel{\text{def}}{=} H_0(X;R)
+  \]
+  ya que $\partial_0=0$ y as\'i $\ker(\partial_0)=S_0(X;R)$. Por lo tanto solamente hace falta probar que
+  $\ker(\eps)\subseteq$Im$(\partial_1)$ para terminar la demostraci\'on.
+  
+  Sea $\sum r_x x\in\ker(\eps)\subseteq S_0(X;R)$, es decir $\sum r_x =0$, y sea $x_0\in X$.
+  Observa que una trayectoria $\alpha:I\ra X$ que empieza en $x_0$ y termina en un $x\in X$
+  arbitrario lo podemos ver como un elemento de $S_1(X;R)$.
+  M\'as precisamente: para toda $x\in X$ define $\alpha_x:\Delta^1\ra X$ la composici\'on
+  $I\approx\Delta^1\morf{\alpha} X$. Por lo tanto para cada $x\in X$ y para cada trayectoria
+  $\alpha$ que empieza en $x_0$ y termina en $x$, tenemos que
+  $\alpha_x\in S_1(X;R)$.
+
+  Ahora define $\sigma=\sum_{x\in X} r_x \alpha_x$ (que est\'a bien definida porque $r_x\neq 0$
+  para solamente una cantidad finita de $x\in X$). Calculo:
+  \begin{align*}
+    \partial_1(\sigma)& =\sum_{x\in X} r_x \partial_1(\alpha_x)=
+    \sum_{x\in X} r_x(\alpha_x(e_1)-\alpha_x(e_0))=\sum_{x\in X} r_x(x-x_0)=
+    \sum_{x\in X} r_x x -x_0\cancelto{0}{\sum_{x\in X} r_x}\\ &=\sum_{x\in X} r_x x.
+  \end{align*}
+  Por lo tanto $\sum r_x x\in$Im$(\partial_1)$, concluimos que Im$(\partial_1)=\ker(\eps)$ y terminamos.
+\end{proof}
+
+Una propiedad importante de la homolog\'ia es que abre sumas directas. M\'as precisamente, si
+$\{C_{\bullet}^{\la}\}_{\la\in\Lambda}$ es una familia de complejos de cadenas, entonces
+$C_{\bullet}:=\oplus_{\la\in\Lambda}C_{\bullet}^{\la}$ es un complejo de cadena con diferenciales
+$\oplus_{\la\in\Lambda}\partial_n^{\la}$. Este diferencial es can\'onico porque para toda $\la\in \Lambda$
+tenemos morfismos $d_{n}^{\la}$ definidos por la composici\'on
+\[
+  \begin{tikzcd}
+    C_n^{\la} \arrow[d,"\partial_n"'] \arrow[dr,"d_n^{\la}"']  \arrow[r,hookrightarrow] &%
+    \bigoplus_{\la\in\Lambda}C_n^{\la} \arrow[d,dashed,"\oplus \partial_n^{\la}"]\\
+    C_{n-1}^{\la} \arrow[r,hookrightarrow] & \bigoplus_{\la\in\Lambda}C_{n-1}^{\la}
+  \end{tikzcd}
+\]
+que por la propiedad universal de la suma directa se factorizan a trav\'es de
+$\oplus_{\la\in\Lambda}\partial_n^{\la}$. Por lo tanto hay una manaera can\'onica de definir
+la suma directa de una familia $\{C_{\bullet}^{\la}\}_{\la\in\Lambda}$ complejos de cadena con
+diferenciales $\partial_n^{\la}:C_n^{\la}\ra C_{n-1}^{\la}$:
+\[
+  \begin{tikzcd}[column sep=large]
+    \cdots \arrow[r] & \bigoplus_{\la\in\Lambda}C_{n+1}^{\la} \arrow[r,"\oplus_{\la} \partial_{n+1}^{\la}"] & %
+    \bigoplus_{\la\in\Lambda}C_{n}^{\la} \arrow[r,"\oplus_{\la} \partial_{n}^{\la}"] & %
+    \bigoplus_{\la\in\Lambda}C_{n-1}^{\la}  \arrow[r] & \cdots
+  \end{tikzcd}
+\]
+
+\import{\directory}{ejercicios/63} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 63
+
+Una consecuencia de esta propiedad de la homolog\'ia es que siempre podemos reducir el c\'alculo de la
+homolog\'ia de un espacio a calcular las homolog\'ias de sus componentes conectables por trayectorias:
+
+\begin{prop}\label{prop:homologia_abre_sumas}
+  Sea $X$ un espacio y $\{X_{\la}\}_{\la\in\Lambda}$ la familia de sus componentes
+  conectables por trayectorias. Entonces la familia de inclusiones $\imath^{\la}:X_{\la}\ra X$
+  inducen un isomorfismo:
+  \[
+    H_n(X;R) \cong \bigoplus_{\la\in\Lambda}H_n(X_{\la};R).
+  \]
+\end{prop}
+\begin{proof}
+  Sabemos que para toda $\la\in\Lambda$ la inclusi\'on $\imath^{\la}:X_{\la}\ra X$ induce un
+  morfismo de complejos de cadena $\imath_{\#}^{\la}:S_{\bullet}(X_{\la};R)\ra S_{\bullet}(X;R)$.
+  Por lo la propiedad universal de la suma directa, existe un (\'unico) morfismo
+  $\Phi:=\oplus\imath_{\#}^{\la}$ tal que
+  \[
+    \begin{tikzcd}
+      S_{\bullet}(X_{\la};R) \arrow[r,hookrightarrow] \arrow[dr,"\imath_{\#}^{\la}"'] &
+      \oplus_{\la} S_{\bullet}(X_{\la};R) \arrow[d,dashed,"\Phi"]\\
+      & S_{\bullet}(X;R)
+    \end{tikzcd}
+  \]
+  es un diagrama conmutativo. Como $\oplus_{\la} S_n(X_{\la};R)$ es una suma directa de
+  $R$-m\'odulos libres, cada uno con base $\sS_n(X_{\la})$, entonces \'el mismo es un $R$-m\'odulo
+  libre con base $\sqcup_{\la}\sS_n(X_{\la})$. Por lo tanto
+  \begin{equation}\label{eq:componentes_homologia}
+    S_n(X;R)\cong \bigoplus_{\la\in\Lambda} S_n(X_{\la};R) \quad\forall n\in\ZZ
+  \end{equation}
+  si hay una biyecci\'on $\sqcup_{\la}\sS_n(X_{\la})\leftrightarrow \sS_n(X)$. Resulta que
+  esta biyecci\'on est\'a inducida por $\Phi$.
+
+  Sabemos que $\imath_{\#}^{\la}$ se puede restringir a $\imath_{\#}^{\la}:\sS_n(X_{\la})\ra\sS_n(X)$,
+  entonces podemos considerar la uni\'on disjunta de estas funciones:
+  \[
+    f:\bigsqcup_{\la\in\Lambda}\sS_n(X_{\la}) \lra \sS_n(X) \quad\text{definido por}\quad
+    \sigma \mapsto \imath_{\#}^{\la}(\sigma)=\imath^{\la}\circ \sigma\quad\text{si}\;\;
+    \sigma\in\sS_n(X_{\la}).
+  \]
+  \begin{enumerate}
+  \item($f$ es inyectiva) Sean $\sigma,\tau\in\sqcup_{\la}\sS_n(X_{\la})$. Si ambos est\'an
+    en la misma componente, ie. $\sigma,\tau\in\sS_n(X_{\la})$ entonces
+    \[
+      f(\sigma)=f(\tau) \quad\then\quad
+      \imath^{\la}\circ \sigma=\imath^{\la}\circ \tau \quad\then\quad
+      \sigma=\tau
+    \]
+    porque $\imath^{\la}$ es cancelable por la izquierda.
+    
+    Ahora, supongamos que$\sigma$ y $\tau$ est\'an en componentes distintas y
+    $(\imath^{\la}\circ\sigma)=(\imath^{\mu}\circ\tau)$. Como
+    Im$(\imath^{\la}\circ\sigma)\subseteq X_{\la}$ y Im$(\imath^{\mu}\circ\tau)\subseteq X_{\mu}$
+    tenemos que
+    \[
+      \text{Im}(\imath^{\la}\circ\sigma)\subseteq X_{\la}\cap X_{\mu}=\emptyset !
+    \]
+    lo cual es una contradicci\'on. Por lo tanto s\'olo puede suceder el primer caso donde ya
+    probamos que se cumple la inyectividad.
+		
+  \item($f$ es sobreyectiva) Sea $\sigma\in\sS_n(X)$. Como $\sigma$ es continua y $\Delta^n$
+    es conectable por trayectorias, entonces $\sigma[\Delta^n]=$Im$(\sigma)$ es conectable por
+    trayectorias. Por lo tanto existe una $\la\in\Lambda$ tal que Im$(\sigma)\subseteq X_{\la}$ y
+    $\sigma$ se factoriza a trav\'es de la inclusi\'on $\imath^{\la}$, ie.
+    $\sigma=\imath^{\la}\circ\sigma'$donde $\sigma'$ es la corestricci\'on de $\sigma$ al
+    contradominio $X_{\la}$. As\'i $f(\sigma')=\imath^{\la}\circ\sigma'=\sigma$ y $f$ es sobre.
+  \end{enumerate}
+  De esto concluimos que $f$ es biyectiva y verificamos la f\'ormula (\ref{eq:componentes_homologia}).
+
+  Tomando homolog\'ia y aplicando el ejercicio \ref{ej:63} concluimos que:
+  \[
+    H_n((X;R)\cong
+    H_n\paren{\oplus_{\la} S_n(X_{\la};R)}\cong
+    \bigoplus_{\la\in\Lambda}H_n(S_{\bullet}(X_{\la};R))\stackrel{\text{def}}{=}
+    \bigoplus_{\la\in\Lambda}H_n(X_{\la};R).
+  \]
+\end{proof}
+
+Con este resultado y la proposici\'on \ref{prop:0_homologia_cpa} podemos calcular la
+0-homolog\'ia de cualquier espacio:
+
+\begin{prop}
+  Sea $X$ un espacio y $\{X_{\la}\}_{\la\in\Lambda}$ la familia de sus componentes conectables
+  por trayectorias.
+  Entonces:
+  \[
+    H_0(X;R) \cong \bigoplus_{\la\in\Lambda}H_0(X_{\la};R)\cong \bigoplus_{\la\in\Lambda} R.
+  \]
+\end{prop}
+
+En palabras esto quiere decir que $H_0$ cuenta las componentes de $X$.
+
+\subsection{Homolog\'ia singular relativa}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SUBSECTION
+
+Como con los grupos fundamentales, se puede definir una homolog\'ia relativa. Hay dos maneras de hacerlo.
+
+Si $A\subseteq X$ es un subespacio, entonces la inclusi\'on $\imath:A\ra X$ induce un morfismo
+$\imath_{\#}:S_{\bullet}(A;R)\ra S_{\bullet}(X;R)$ y as\'i podemos pensar que $S_{\bullet}(A;R)$
+es un subcomplejo de $S_{\bullet}(X;R)$. M\'as precisamente, para cada $n$, $S_n(A;R)$ es un
+subm\'odulo de $S_n(X;R)$, entonces podemos tomar cocientes para obtener:
+\[
+  \begin{tikzcd}[column sep=large]
+    S_n(A;R) \arrow[r,"\partial_n"] \arrow[d,"\imath_{\#}"'] & S_{n-1}(A;R) \arrow[d,"\imath_{\#}"] \\
+    S_n(X;R) \arrow[r,"\partial_n"] \arrow[d,two heads] & S_{n-1}(X;R) \arrow[d,two heads] \\
+    S_n(X;R)/S_n(A;R) \arrow[r,"\bar{\partial}_n"] & S_{n-1}(X;R)/S_{n-1}(A;R)
+  \end{tikzcd}
+\]
+donde $\bar{\partial}_n$ es el morfismo inducido por $\partial_n$. Esto nos lleva a definir:
+
+\begin{defin}\label{def:homologia_relativa_1}
+  Para cada subespacio $A\subseteq X$, define el complejo $S_{\bullet}(X,A;R)$ con:
+  \[
+    S_n(X,A;R):=\frac{S_n(X;R)}{S_n(A;R)} \quad\text{y}\quad \bar{\partial}_n:S_n(X,A;R)\lra S_{n-1}(X,A;R).
+  \]
+  La \emph{homolog\'ia de X relativa a A} se define de la misma manera:
+  \[
+    H_n(X,A;R):=H_n(S_{\bullet}(X,A;R))\stackrel{\text{def}}{=}
+    \frac{\ker(\bar{\partial}_n)}{\text{Im}(\bar{\partial}_{n+1})}.
+  \]
+\end{defin}
+
+Otra manera de definir la homolog\'ia relativa es de manera an\'aloga al grupo fundamental relativo:
+
+\begin{defin}\label{def:homologia_relativa_2}
+  Sea $A\subseteq X$ y escribe:
+  \begin{align*}
+    Z_n(X,A;R)&=\{\sigma\in S_n(X;R) \mid \partial_n(\sigma)\in S_{n-1}(A;R)\} \\
+    B_n(X,A;R)&=\{\sigma\in S_n(X;R) \mid \sigma=
+    \partial_{n+1}(\tau)+\imath_{\#}(\delta),\;\text{donde}\; \tau\in S_{n+1}(X;R),\;\delta\in S_n(A;R)\} \\
+  \end{align*}
+  Entonces la \emph{homolog\'ia de X relativa a A} se define como el cociente
+  \[
+    H_n(X,A;R):=\frac{Z_n(X,A;R)}{B_n(X,A;R)}
+  \]
+\end{defin}
+
+Observa que si $\sigma=\partial_{n+1}(\tau)+\imath_{\#}(\delta)\in B_n(X,A;R)$ entonces
+\[
+  \partial_n(\sigma)=
+  \cancelto{0}{\partial_n(\partial_{n+1}(\tau))}+\partial_n(\imath_{\#}(\delta))\in S_{n-1}(A;R)
+\]
+y por lo tanto $\sigma\in Z_n(X,A;R)$. Esto significa que el cociente $Z_n(X,A;R)/B_n(X,A;R)$
+est\'a bien definido.
+
+\import{\directory}{ejercicios/64} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 64
+
+Como en el caso de $\cat{Top}$, los morfismos $f:(X,A)\ra(Y,B)$ inducen morfismos en
+homolog\'ia: como $f[A]\subseteq B$, entonces $f_{\#}[S_{\bullet}(A;R)]\subseteq S_{\bullet}(B;R)$
+y as\'i $f$ pasa al cociente, ie. tenemos
+\[
+  \bar{f}_{\#}:\frac{S_{\bullet}(X;R)}{S_{\bullet}(A;R)} \lra \frac{S_{\bullet}(Y;R)}{S_{\bullet}(B;R)}.
+\]
+Esto claramente es un morfismo de complejos de cadena, entonces $\bar{f}_{\#}$ induce un
+morfismo $H_n(\bar{f}_{\#})$ en homolog\'ias. Podemos concluir lo mismo ahora usando la
+definici\'on \ref{def:homologia_relativa_2}:
+
+Sea $\sigma\in Z_n(X,A;R)$, ie. $\partial_n(\sigma)\in S_{n-1}(A'R)$. Entonces
+$f_{\#}(\sigma)\in S_n(Y;R)$ y
+\[
+  \partial_n(f_{\#}(\sigma))=f_{\#}(\partial_n(\sigma))\in S_{n-1}(B;R) \quad\then\quad
+  f_{\#}(\sigma)\in Z_n(Y,B;R).
+\]
+En particular si $\sigma\in B_n(X,A;R)$ entonces $\sigma=\partial_N(\tau)+\delta$ para alguna
+$\delta\in S_n(A)$ y alguna $\tau\in S_{n+1}(X)$. De esta manera:
+\[
+  f_{\#}(\sigma)=f_{\#}(\partial_{n+1}(\tau))+f_{\#}(\delta)=
+  \partial_{n+1}(f_{\#}(\tau))+f_{\#}(\delta)\in B_n(Y,B;R).
+\]
+Por lo tanto $f_{\#}[B_n(X,A;R)]\subseteq B_n(Y,B;R)$ y pasa al cociente:
+\[
+	\bar{f}_{\#}:\frac{Z_n(X,A;R)}{B_n(X,A;R)} \lra \frac{Z_n(Y,B;R)}{B_n(Y,B;R)}.
+\]
+
+La homolog\'ia relativa tambi\'en abre sumas directas:
+
+\begin{prop}
+  Sean $A\subseteq X$ y $\{X_{\la}\}_{\la\in\Lambda}$ la familia de componentes (conectables
+  por trayectorias) de $X$; escribo $A_{\la}:=X_{\la}\cap A$. La familia de inclusiones
+  $\{\imath_{\la}:(X_{\la,}A_{\la})\ra(X,A)\}_{\la\in\Lambda}$ inducen un isomorfismo
+  \[
+    H_n(X,A;R)\cong \bigoplus_{\la\in\Lambda} H_n(X_{\la},A_{\la};R).
+  \]
+\end{prop}
+\begin{proof}
+  Las inclusiones $\imath^{\la}$ inducen morfismos $\imath^{\la}_{\#}$ que hacen conmutar el
+  siguiente diagrama:
+\[
+  \begin{tikzcd}
+    X_{\la} \arrow[r,"\imath_{\la}"] & X  \\
+    A_{\la} \arrow[r,hookrightarrow] \arrow[u,hookrightarrow] & A \arrow[u,hookrightarrow] 
+  \end{tikzcd} \rightsquigarrow
+  \begin{tikzcd}
+    S_n(X_{\la};R) \arrow[r,"\imath^{\la}_{\#}"] & S_n(X;R) \\
+    S_n(A_{\la};R) \arrow[r,hookrightarrow] \arrow[u,hookrightarrow] & S_n(A;R) \arrow[u,hookrightarrow]
+  \end{tikzcd}
+\]
+Como el segundo  diagrama es conmutativo, $\imath^{\la}_{\#}$ pasa al cociente, ie.
+\[
+  j^{\la}:=\overline{\imath^{\la}_{\#}}:\frac{S_n(X_{\la};R)}{S_n(A_{\la};R)} \lra\frac{S_n(X;R)}{S_n(A;R)}.
+\]
+Por lo tanto tenemos una familia de morfismos
+\[
+  \left\{ j^{\la}:S_n(X_{\la},A_{\la};R) \lra S_n(X,A;R) \right\}_{\la\in\Lambda}.
+\]
+
+Por lo propiedad universal de la suma directa, existe un (\'unico) morfismo
+\[
+  \Phi:=\oplus_{\la} j^{\la}:\bigoplus_{\la\in\Lambda} S_n(X_{\la},A_{\la};R)\lra S_n(X,A;R). 
+\]
+Para ver que $\Phi$ es un isomorfismo basta verificar que induce una biyecci\'on entre las bases de
+$\oplus S_n(X_{\la},A_{\la};R)$ y $S_n(X,A;R)$. Esto se sigue inmediatamente del siguiente ejercicio:
+
+\import{\directory}{ejercicios/65} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 65
+\end{proof}
+
+Como en el caso de la homolog\'ia usual, podemos calcular la 0-homolog\'ia relativa:
+
+\begin{prop}
+  Sea $X$ un espacio conectable por trayectorias y $A\subseteq X$ un subespacio
+  \underline{no vac\'io}, entonces: $H_0(X,A;R)=0$.
+\end{prop}
+\begin{proof}
+  Como $\partial_0=0$ y $S_{-1}(A;R)=0$, entonces
+  \[
+    Z_0(X,A;R)=\{\sigma\in S_0(X;R) \mid \partial_0(\sigma)=0\}=S_0(X;R).
+  \]
+  
+  Por otro lado sea $\tau=\sum_{x\in X}r_x x\in S_0(X;R)$ y $a_0\in A$ un punto arbitrario
+  (aqu\'i estamos usando que $A\neq\emptyset$). Como $X$ es conectable por trayectorias,
+  para toda $x\in X$ existe una trayectoria $\sigma_x:\Delta^1\ra X$ que empieza en $a_0$
+  y termina en $x$, ie. $\sigma_x(e_0)=a_0$ y $\sigma_x(e_1)=x$. Ahora calculo la frontera
+  de la 1-cadena $\sigma:=\sum_{x\in X}r_x \sigma_x$.
+  \begin{align*}
+    \partial_1\paren{\sum r_x\sigma_x}&=
+    \sum r_x \partial_1(\sigma_x)=\sum r_x (x-a_0)=\sum r_x x- \sum r_x a_0=\tau-r a_0\\
+    \therefore \tau = \partial_1\paren{\sum r_x\sigma_x}+r a_0 \in B_0(X,A;R)
+  \end{align*}
+  porque $r\in R$ y $a_0\in A$ implican que $r a_0\in S_0(A;R)$.
+  
+  Por lo tanto $S_0(X;R)\subseteq B_0(X,A;R)$. Esto junto con $B_0(X,A;R)\subseteq Z_0(X,A;R)=S_0(X;R)$
+  podemos concluir que $B_0(X,A;R)=Z_0(X,A;R)$ y as\'i:
+  \[
+    H_0(X,A;R)=\frac{Z_0(X,A;R)}{B_0(X,A;R)}=0.
+  \]
+\end{proof}
+
+\begin{nota}
+  Observa que una funci\'on continua $f:X\ra Y$ es equivalente al morfismo basado
+  $f:(X,\emptyset)\ra(Y,\emptyset)$, entonces cuando $A=\emptyset$ tenemos:
+  \[
+    H_n(X,\emptyset;R)=H_n(X;R),
+  \]
+  en particular, la homolog\'ia relativa generaliza la homolog\'ia usual. En lenguaje m\'as
+  t\'ecnico, el funtor $X\mapsto (X,\emptyset)$ es una inclusi\'on.
+\end{nota}
+
+Si juntamos las proposiciones podemos calcular $H_0(X,A;R)$. Solamente dependen de las componentes de
+$X$ que intersectan a $A$:
+
+\begin{cor}
+  Sea $A\subseteq X$ y $\{X_{\la}\}_{\la\in\Lambda}$ las componentes conectables por trayectorias de $X$.
+  Si $\Lambda'$ es el conjunto de \'indices donde $A$ intersecta a $X_{\la}$, ie.
+  $\Lambda':=\{\la\in\Lambda\mid A_{\la}\neq \emptyset\}$ entonces
+  \[
+    H_0(X,A;R) \cong \bigoplus_{\la\in\Lambda'} \cong \bigoplus_{\la\in\Lambda'}
+  \]
+\end{cor}
+
+Ahora veremos uno de los teoremas m\'as \'utiles para calcular homolog\'ias. Para el siguiente
+teorema vamos
+a fijar un anillo $R$. M\'as formalmente, fijamos la categor\'ia  Mod$_R$ y trabajamos con complejos sobre
+esa categor\'ia. Por esto voy a omitir la $R$ de la notaci\'on; por ejemplo $H_n(X,A)=H_n(X,A;R)$.
+
+\begin{thm}\label{thm:sucesion_exacta_larga}
+  Sean $A\subseteq X$,  $\imath:A\hookrightarrow X$ la inclusi\'on y
+  $j:(X,\emptyset)\hookrightarrow(X,A)$ Existen una sucesi\'on exacta larga:
+  \begin{equation}\label{eq:sucesion_exacta_larga}
+    \begin{tikzcd}
+      \cdots \arrow[r] & H_n(A) \arrow[r,"H_n(\imath)"] & H_n(X) \arrow[r,"H_n(j)"] &
+      H_n(X,A) \arrow[r,"d_n"] & H_{n-1}(A) \arrow[r,"H_{n-1}(\imath)"] & H_{n-1}(X) \arrow[r] & \cdots  
+    \end{tikzcd}
+  \end{equation}
+  donde $d_n$ se define como $d_n[\sigma]=[\partial_n(\sigma)]$. A veces se llaman
+  \emph{morfismos de conexi\'on}.
+\end{thm}
+\begin{proof}
+  Primero observa que el morfismo de conexi\'on est\'a bien definida: tomamos
+  \[
+    [\sigma]=[\sigma'] \in\frac{Z_n(X,A)}{B_n(X,A)} \quad\then\quad
+    \sigma\in Z_n(X,A) \;\;\text{y}\;\; \partial_n(\sigma)\in S_{n-1}(A).
+  \]
+  Como $\sigma-\sigma'\in B_n(X,A)$, entonce existen $\tau\in S_{n+1}(X)$ y $\delta\in S_n(A)$ tales que
+  \begin{align*}
+    \sigma-\sigma'=\partial_{n+1}(\tau)+\delta &\quad\then\quad \partial_n(\sigma-\sigma')=
+    \cancelto{0}{\partial_n(\partial_{n+1}(\tau))}+\partial_n(\delta)\in \im{\partial_n}\\
+    \therefore \partial_n(\sigma)-\partial_n(\sigma')\in B_n(X,A) &\quad\then\quad d_n[\sigma]=
+    [\partial_n(\sigma)]=[\partial_n(\sigma')]=d_n[\sigma']
+  \end{align*}
+  y as\'i $d_n$ est\'a bien definida.
+
+  Hay que probar exactitud en tres lugares:
+\begin{enumerate}
+\item(Exactitud en $H_n(X,A)$) Sea $[\sigma]\in H_n(X)$. Como $j_{\#}:S_{\bullet}(X)\ra S_{\bullet}(X,A)$
+  es un morfismo de complejos de cadena, entonces
+  \[
+    d_n\big(H_n(j)[\sigma]\big) =d_n\big[j_{\#}(\sigma)\big] =
+    [ (\partial_n\circ j_{\#})(\sigma)]=[(j_{\#}\circ\partial_n(\sigma))]=0
+  \]
+  porque $\sigma\in Z_n(X)=\ker\partial_n$. Por lo tanto $\im{H_n(j_{\#})}\subseteq \ker(d_n)$.
+	
+  Para la otra contenci\'on sea $[\sigma]\in\ker(d_n)\subseteq H_n(X,A)$, es decir $d_n[\sigma]=0$.
+  Por definici\'on, esto significa que $\partial_n(\sigma)\in\im{\partial_n}\subseteq S_{n-1}(A)$.
+  Por lo tanto existe un $\tau\in S_n(A)$ tal que
+  \[
+    \partial_n(\sigma)=\partial_n(\tau) \quad\then\quad
+    \partial_n(\sigma-\tau)=0 \quad\then\quad
+    \sigma-\tau\in Z_n(X) \quad\then\quad
+    [\sigma-\tau]\in H_n(X)
+  \]
+  Como $\tau\in S_n(A)\subseteq B_n(X,A)$, entonces
+  $[\sigma]=[\sigma-\tau]=[j_{\#}(\sigma-\tau)]=H_n(j)(\sigma-\tau)$ y as\'i $[\sigma]\in\im{H_n(j)}$.
+
+\item(Exactitud en $H_n(X)$) Sea $[\sigma]\in H_n(A)$, entonces
+  \[
+    (H_n(j)\circ H_n(\imath))[\sigma]=[(j_{\#}\circ \imath_{\#})(\sigma)]=0
+  \]
+  ya que $\sigma\in S_n(A)\subseteq B_n(X,A)$. Por lo tanto $\im{(H_n(i))}\subseteq \ker(H_n(j))$.
+  Para la otra contenci\'on, sea $[\sigma]\in H_n(X)$ tal que $H_n(j)[\sigma]=[j_{\#}(\sigma)]=0$,
+  es decir $j_{\#}(\sigma)\in B_n(X,A)$. Por lo tanto existe un $\delta\in S_n(A)$ y un
+  $\tau\in S_{n+1}(X)$ tal que $j_{\#}(\sigma)=\partial_{n+1}(\tau)+\imath_{\#}(\delta)$.
+  Despejamos:
+  \[
+    \sigma-\imath_{\#}(\delta)=\partial_{n+1}(\tau) \quad\then\quad
+    \sigma-\imath_{\#}(\delta) \in \im{\partial_{n+1}}=B_n(X) \quad\then\quad
+    [\sigma]=[\imath_{\#}(\delta)]=H_n(\imath)(\delta).
+  \]
+  Por lo tanto $[\sigma]\in\im{H_n(\imath)}$ y concluimos la otra contenci\'on.
+
+\item(Exactitud en $H_{n-1}(A)$)
+
+\import{\directory}{ejercicios/66} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 66
+\end{enumerate}
+\end{proof}
+
+\end{document}

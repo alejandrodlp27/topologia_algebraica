@@ -1,0 +1,53 @@
+\begin{ejercicio}\label{ej:65}
+  La funci\'on
+  \[
+    \Phi:\bigsqcup_{\la\in\lambda}\{\sigma\in\sS_n(X_{\la})\mid \text{Im}(\sigma)\not\subseteq A_{\la}\} \lra
+    \{\sigma\in\sS_n(X)\mid \text{Im}(\sigma)\not\subseteq A\} \quad\text{definido por}\quad
+    \sigma \mapsto \imath^{\la}\circ \tau
+  \]
+  es una biyecci\'on.
+\end{ejercicio}
+%%% RESPUESTA
+%\begin{proof}%
+	Primero escribo:
+	\[
+		M_{\la}:=\{\sigma\in\sS_n(X_{\la})\mid \text{Im}(\sigma)\not\subseteq A_{\la}\} \quad\text{y}\quad
+		N:=\{\sigma\in\sS_n(X)\mid \text{Im}(\sigma)\not\subseteq A\},
+	\]
+	entonces $\Phi:\sqcup M_{\la}\ra N$. Primero veo que est\'a bien definida. Sea $\sigma\in\sqcup M_{\la}$, es
+	decir $\sigma\in M_{\la}$ para alguna $\la\in\Lambda$. Entonces Im$(\sigma)\not\subseteq A_{\la}$, es decir
+	existe un elemento $x\in$Im$(\sigma)$ tal que $x\not\in A_{\la}=X_{\la}\cap A$, ie. $x\in(X_{\la})^c \cup A^c$.
+	Hay dos casos:
+
+	Si $x\not\in A$ entonces Im$(\sigma)\not\subseteq A$ y bajo la inclusi\'on $\imath^{\la}:X_{\la}\ra X$ tenemos
+	que Im$(\Phi(\sigma))=$Im$(\imath^{\la}\circ\sigma)=$Im$(\sigma)\not\subseteq A$ lo cual implica que $\Phi(\sigma)\in N$.
+
+	El segundo caso: $x\not X_{\la}$ no puede suceder, porque $x\in$Im$(\sigma)$ y $\sigma:\Delta^n\ra X_{\la}$ tiene
+	como contradominio a $X_{\la}$, ie. Im$(\sigma)\subseteq X_{\la}$. Por lo tanto nada m\'as puede suceder el primer
+	caso donde ya probamos que $\Phi$ est\'a bien definida.
+
+	La prueba de que $\Phi$ es una biyecci\'on es exactamente an\'alogo a la prueba de la proposici\'on \ref{prop:homologia_abre_sumas}:
+\begin{enumerate}
+	\item ($\Phi$ es inyectiva) Sean $\sigma,\tau\in\sqcup_{\la} M_{\la}$. Si ambos est\'an en el mismo uniendo,
+			ie. $\sigma,\tau\in M_{\la}$ para alguna $\la\in\Lambda$, entonces
+			\[
+				\Phi(\sigma)=\Phi(\tau) \quad\then\quad \imath^{\la}\circ \sigma=\imath^{\la}\circ \tau \quad\then\quad \sigma=\tau
+			\]
+			porque $\imath^{\la}$ es cancelable por la izquierda (por ser inyectivo).
+
+			Ahora, supongamos que$\sigma$ y $\tau$ est\'an en uniendos distintos y $(\imath^{\la}\circ\sigma)=(\imath^{\mu}\circ\tau)$.
+			Como Im$(\imath^{\la}\circ\sigma)\subseteq X_{\la}$ y Im$(\imath^{\mu}\circ\tau)\subseteq X_{\mu}$ tenemos que
+			\[
+					\text{Im}(\imath^{\la}\circ\sigma)\subseteq X_{\la}\cap X_{\mu}=\emptyset !
+			\]
+			lo cual es una contradicci\'on. Por lo tanto s\'olo puede suceder el primer caso donde ya probamos que se cumple
+			la inyectividad.
+
+	\item ($\Phi$ es sobreyectiva) Sea $\sigma\in N$. Como $\sigma$ es continua y $\Delta^n$ es conectable por trayectorias,
+			entonces $\sigma[\Delta^n]=$Im$(\sigma)$ es conectable por trayectorias. Por lo tanto existe una $\la\in\Lambda$ tal que
+			Im$(\sigma)\subseteq X_{\la}$ y $\sigma$ se factoriza a trav\'es de la inclusi\'on $\imath^{\la}$, ie. $\sigma=\imath^{\la}\circ\sigma'$
+			donde $\sigma'$ es la corestricci\'on de $\sigma$ al contradominio $X_{\la}$. As\'i $\Phi(\sigma')=\imath^{\la}\circ\sigma'=\sigma$
+			y $f$ es sobre.
+\end{enumerate}
+%\end{proof}%
+

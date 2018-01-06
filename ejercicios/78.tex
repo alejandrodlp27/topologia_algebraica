@@ -1,0 +1,20 @@
+\begin{ejercicio}\label{ej:78}
+  La inclusi\'on $\imath:\Sn^n\hookrightarrow\RR^n-\{0\}$ es un retracto por deformaci\'on.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  La funci\'on $r:\RR^n-\{0\}\ra\Sn^{n-1}$, definida por $x\mapsto x/\|x\|$ es claramente
+  continua y cumple que $r(\imath(x))=x$ porque $\|\imath(x)\|=1$. Por lo tanto $r\circ\imath=\Id$.
+
+  Por otro lado, $H:(\RR^n-\{0\})\times I\ra \RR^n-\{0\}$ definido por
+  \[
+    H(x,t)=\frac{x}{1-t+t\|x\|} \quad\text{con}\quad
+    H(x,0)=x \;\; , \;\; H(x,1)=\frac{x}{\|x\|}=\imath \paren{\frac{x}{\|x\|}}=\imath r(x)
+  \]
+  Observa que
+  \[
+    1-t+t\|x\|=0 \quad\iff\quad t=\frac{1}{1-\|x\|}>1,
+  \]
+  entonces $H$ est\'a bien definida y es continua. Por lo tanto $\imath\circ r \simeq_H \Id$.  
+\end{proof}%
+

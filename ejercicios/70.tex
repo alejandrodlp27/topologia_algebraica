@@ -1,0 +1,52 @@
+\begin{ejercicio}\label{ej:70}
+  La transformaci\'on natural $\fT:\Ii\ra\Ff$, definido por $\fT=\{T_V:V\ra(V^*)^*\}_{V}$
+  donde $T_V(v)(\alpha)=\alpha(v)$ es una equivalencia natural.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Primero probamos que cada $T_V$ es una transformaci\'on lineal. Sean $v,v'\in V$ y $\la\in k$,
+  entonces:
+  \[
+    T_V(\la v+v')(\alpha)=\alpha(\la v+v')=\la\alpha(v)+\alpha(v')=\la T_V(v)+T_V(v')
+  \]
+  porque $\alpha\in\Hom{V^*,k}$ es una transformaci\'on lineal. As\'i, $T_V$ es una
+  transformaci\'on lineal.
+
+  Ahora probamos que $\fT:\Ii\ra\Ff$ es una transformaci\'on natural, es decir que para todas
+  $V$ y $W$ $k$-espacios vectoriales de dimensi\'on finita y para toda transformaci\'on
+  lineal $f:V\ra W$ el siguiente diagrama conmuta:
+  \begin{equation}\label{diag:doble_dual}
+    \begin{tikzcd}
+      V \arrow[r,"T_V"] \arrow[d,"f"'] & (V^*)^* \arrow[d,"\Ff(f)"] \\
+      W \arrow[r,"T_W"] & (W^*)^*
+    \end{tikzcd}
+  \end{equation}
+  Sea $v\in V$ y evaluamos el elemento $T_W(f(v))\in(W^*)^*=\Hom{W^*,k}$ en un
+  elemento $\beta:W\ra k$ de $W^*=\Hom{W,k}$:
+  \[
+    T_W(f(v))(\beta)  \stackrel{\text{def}}{=}  \beta(f(v)) = (\beta\circ f)(v),
+  \]
+  mientras que
+  \[
+    \Ff(f)\big( T_V(v) \big)(\beta) \stackrel{\text{def}}{=} T_V(v)(\beta\circ f)
+    \stackrel{\text{def}}{=} (\beta\circ f)(v).
+  \]
+  Por lo tanto $T_W(f(v))=\Ff(f)(T_V(v))$ y el diagrama \ref{diag:doble_dual} conmuta.
+
+  Para probar que $\fT$ es una equivalencia natural, hay que probar que cada
+  $T_V$ es un isomorfismo. Primero pruebo que $T_V$ es un monomorfismo:
+  \[
+    T_V(v)=0 \quad\iff\quad T_V(v)(\alpha)=\alpha(v)=0 \forall \alpha\in V^*.
+  \]
+  En particular si $\{v_1,\ldots,v_n\}$ es una base de $V$ y $e_j:V\ra k$ son
+  las funcionales lineales asociadas a la base, ie. $e_i(\la_1v_1+\cdots+\la_nv_n)=\la_i$,
+  tenemos que $e_i(v)=0$ para toda $i$ y as\'i $v=0v_1+\cdots+0v_n=0$.
+  Como claramente $v=0\then\alpha(v)=0$ para toda $\alpha\in V^*$, tenemos que
+  $T_V(v)=0$ si y s\'olo si $v=0$, es decir, $T_V$ es inyectivo para toda $v$.
+
+  Como $\{e_1,\ldots,e_n\}$ es una base de $V^*$, la transformaci\'on lineal
+  $v_1\mapsto v_n$ es un isomorfismo, es decir $V\cong V^*$. Por lo tanto
+  $\dim(V)=\dim(V^*)=\dim(V^{**})$ y como $V$ es de dimensi\'on finita, el
+  monomorfismo $T_V$ necesariamente es un isomorfismo y acabamos.  
+\end{proof}%
+

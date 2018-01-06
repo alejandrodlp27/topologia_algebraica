@@ -1,0 +1,33 @@
+\begin{ejercicio}\label{ej:66}
+  La sucesi\'on larga de homolog\'ias (\ref{eq:sucesion_exacta_larga}) es exacta en $H_{n-1}(A)$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Para la primera contenci\'on, sea $[\sigma]\in H_n(X,A)$, en particular $\partial_n(\sigma)\in S_{n-1}(A)$.
+  Entonces
+  \[
+    H_{n-1}(\imath)\big( d_n[\sigma] \big)=
+    H_{n-1}(\imath)[\partial_n(\sigma)]=
+    [\imath_{\#}(\partial_n(\sigma))]=
+    [(\imath\circ\partial_n)(\sigma))]=
+    [\partial_n(\sigma)]=0.
+  \]
+  Por lo tanto $\im{d_n}\subseteq\ker(H_{n-1}(\imath))$.
+
+  Para la otra contenci\'on, considera $[\sigma]\in\ker(H_{n-1}(\imath))$, ie.
+  $H_{n-1}(\imath)[\sigma]=[\imath_{\#}(\sigma)]=[\imath\circ\sigma]=[0]$. Esto implica que $\imath\circ\sigma\in B_{n-1}(X)$,
+  es decir que existe un $\tau\in S_n(X)$ tal que $\partial_n(\tau)=\imath_{\#}(\sigma)$. 
+  Como $j_{\#}$ es un morfismo de complejos de cadena, entonces:
+  \[
+    \partial_n (j_{\#}(\tau))=j_{\#}(\partial_n(\tau))=j_{\#}(i_{\#}(\sigma))=\bar{0}\in\frac{S_n(X)}{S_n(A)}
+  \]
+  gracias a la exactitud de la sucesi\'on exacta corta
+  \[
+    0 \lra S_{n-1}(A) \morf{\imath_{\#}} S_{n-1}(X) \morf{j_{\#}} \frac{S_{n-1}(X)}{S_{n-1}(A)}=S_{n-1}(X,A) \lra 0
+  \]
+  y a que $\sigma\in Z_{n-1}(A)\subseteq S_{n-1}(A)$. Por lo tanto $j_{\#}(\tau)\in Z_n(X,A)$ y as\'i:
+  \[
+    d_n[j_{\#}\tau]=[\partial_n(j^{\#}(\tau))]=[j^{\#}()]
+  \]
+\end{proof}%
+

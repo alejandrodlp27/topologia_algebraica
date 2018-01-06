@@ -331,7 +331,7 @@ mencionar m\'etricas:
  
 La importancia de esta condici\'on se muestra en el siguiente teorema:
 
-\begin{thm}
+\begin{thm}\label{thm:complejos_localmente_finitos}
   Sea $K$ un complejo simplicial. Las siguientes proposiciones son equivalentes:
   \begin{enumerate}
   \item $K$ es localmente finito.
@@ -353,7 +353,7 @@ La importancia de esta condici\'on se muestra en el siguiente teorema:
 	Adem\'as, para cada morfismo $f:K\ra L$ existe una funci\'on $\abs{f}:\abs{K}\ra\abs{L}$
 	definida por:
 	\[
-		\abs{f}(\sigma):V_K\lra I \quad\text{con}\quad
+		\abs{f}(\sigma):V_L \lra I \quad\text{con}\quad
 		\abs{f}(\sigma)(u)=\sum_{v\in f^{-1}[\{u\}]}\sigma(v)
 	\]
 \end{defin}
@@ -377,6 +377,42 @@ subdivisi\'on baric\'entrica:
 	$\{\sigma_0,\sigma_1\ldots,\sigma_n\}\subseteq K$ tales que
 	$\sigma_0\subsetneq\sigma_1\subsetneq\cdots\subsetneq\sigma_n$.
 \end{defin}
+
+Se llama subdivisi\'on baric\'entrica porque intuitivamente el conjunto de v\'ertices $V_{\text{sd}(K)}$
+se puede pensar como asignar a cada $\sigma\in K$ su baricentro $\fb(\sigma)$. El siguiente dibujo
+aclara esta intuici\'on:
+
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{subdivision_baricentrica}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Una de las propiedades m\'as importantes de la subdivisi\'on baric\'entrica es:
+
+\import{\directory}{ejercicios/56} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 56
+
+Este resultado significa que podemos iterar el proceso de subdivisi\'on baric\'entrica sin cambiar
+de espacio topol\'ogico asociado. Si definimos inductivamente
+\[
+	\text{sd}^n(K):=\text{sd}\big(\text{sd}^{n-1}(K)\big)
+\]
+entonces tendremos que $\abs{\text{sd}^n(K)}\approx\abs{K}$ para toda $n$. Esto significa que
+topol\'ogicamente no importa que trabajes con un complejo simplicial o con una (y por lo tanto todas)
+subdivisi\'on de \'el.
+
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{iteracion_subdivision_baricentrica}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+La subdivisi\'on baric\'entrica nos da una definici\'on de orden en los complejos simpliciales:
+
+\begin{defin}\label{def:complejo_simplicial_ordenado}
+	Un complejo simplicial $K$ est\'a ordenado si el conjunto de v\'ertices $V_K$ tiene un orden
+	parcial tal que cada simplejo $\sigma\in K$ est\'a totalmente ordenado.
+\end{defin}
+
+Por ejemplo sd$(K)$ siempre es un complejo simplicial ordenado.
 
 \subsection{Triangulaciones y nervios}
 
@@ -647,10 +683,12 @@ que hacer un cociente:
 	subm\'odulo de $R\gen{S_n^{\fO}(K)}$ generado por las sumas de $n$-simplejos con ambas
 	orientaciones. Entonces definimos:
 	\[
-		C_n(K):=\frac{R\gen{S_n^{\fO}}}{N}.
+		C_n(K;R):=\frac{R\gen{S_n^{\fO}}}{N}.
 	\]
-	Los elementos de $C_n(K)$ se llaman $n$-\emph{cadenas orientadas}.
+	Los elementos de $C_n(K;R)$ se llaman $n$-\emph{cadenas orientadas}.
 \end{defin}
+
+En general, y al igual que $S_n^{\fO}$, suprimo la $R$ en la notaci\'on.
 
 Observa que el morfismo frontera pasa a este cociente porque si $[\sigma]=[v_0,v_1,\ldots,v_n]$ entonces:
 \[
@@ -678,16 +716,196 @@ sentido definir:
 	\]
 \end{defin}
 
+Por ejemplo:
 
+\import{\directory}{ejercicios/58} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 58
 
+Otra manera de definir $n$-cadenas es usando la idea de complejos simpliciales ordenados
+(cf. definici\'on \ref{def:complejo_simplicial_ordenado}):
 
+\begin{defin}
+	Sea $K$ un complejo simplicial ordenado, entonces definimos:
+	\[
+		C_n^<(K;R):=R\gen{(v_0,\ldots,v_n)\mid v_0<\cdots<v_n,\;\{v_0,\ldots,v_n\}\in K}
+	\]
+	Los morfismos $\partial_n$ se definen exactamente igual que antes.
+\end{defin}
 
+\begin{prop}\label{prop:complejos_ordenados_inducen_mismo_complejo}
+	Para cada $n$, el morfismo $\beta_n:C^<_n(K)\ra C_n(K)$ que hace $(v_0,\ldots,v_n)\mapsto\overline{[v_0,\ldots,v_n]}$,
+	donde $\overline{\cdot}$ se refiere a la clase en el cociente de $R\gen{S_n^{\fO}}$ y $[\cdot]$ se refiere a la clase de
+	orientaci\'on en $S_n^{\fO}$, es un ismorfismo y hace conmutar el siguiente diagrama:
+	\[
+		\begin{tikzcd}
+			C_n^<(K) \arrow[r,"\partial_n"] \arrow[d,"\beta_n"] & C_{n-1}^<(K) \arrow[d,"\beta_{n-1}"] \\
+			C_n(K) \arrow[r,"\partial_n"] & C_{n-1}(K)
+		\end{tikzcd}
+	\]
+\end{prop}
 
+\subsection{Complejos de cadena}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SUBSECTION
 
+En esta parte vamos a introducir una herramienta algebraica muy importante. Fijemos un anillo
+$R$ conmutativo con 1 y trabajaremos en la categor\'ia de $R$-m\'odulos (aunque se pueda generalizar
+a cualquier categor\'ia abeliana).
 
+\begin{defin}
+	Un \emph{complejo de cadenas}, denotado por $\Cc_{\bullet}$ es una familia de $R$-m\'odulos $\{C_n\}_{n\in\ZZ}$
+	junto con una familia de morfismos $\{\partial_n:C_n\ra C_{n-1}\}$, llamados \emph{diferenciales}, que cumplen
+	$\partial_n\circ\partial_{n+1}=0$ para toda $n\in\ZZ$. Diagram\'aticamente, esto se escribe como:
+	\[
+		\begin{tikzcd}
+			\cdots \arrow[r] & C_{n+1} \arrow[r,"\partial_{n+1}"] & C_n \arrow[r,"\partial_n"] & C_{n-1} \arrow[r] & \cdots
+		\end{tikzcd}.
+	\]
+	Un \emph{morfismo de complejos de cadenas} $\varphi:\Cc_{\bullet}\ra\Cc'_{\bullet}$ es una familia de morfismos
+	$\{\varphi_n:C_n\ra C'_n\}$ tales que hacen conmutar el siguiente diagrama:
+	\[
+		\begin{tikzcd}
+			\cdots \arrow[r] & C_{n+1} \arrow[r,"\partial_{n+1}"] \arrow[d,"\varphi_{n+1}"]& %%%
+			C_n \arrow[r,"\partial_n"]  \arrow[d,"\varphi_{n}"]& C_{n-1}  \arrow[d,"\varphi_{n-1}"] \arrow[r] & \cdots \\
+			\cdots \arrow[r] & C'_{n+1} \arrow[r,"\partial'_{n+1}"'] & C'_n \arrow[r,"\partial'_n"'] & C'_{n-1} \arrow[r] & \cdots
+		\end{tikzcd}
+	\]
+	La $n$-\emph{homolog\'ia} de un complejo de cadenas $\Cc_{\bullet}$ se define como el cociente
+	\[
+		H_n(\Cc_{\bullet}):=\frac{\ker(\partial_n)}{\text{Im}(\partial_{n+1})}.
+	\]
+\end{defin}
 
+\begin{nota}
+	La homolog\'ia de las cadenas de complejos est\'a bien definida porque $\partial_{n+1}\circ\partial_n=0$ implica
+	que Im$(\partial_{n+1})\subseteq\ker(\partial_n)$.
+\end{nota}
 
+\begin{ejemplo}
+	Gracias al ejercicio \ref{ej:53}, tenemos que las $n$-cadenas orientadas de un complejos simplicial $K$ forman
+	un complejo de cadenas $C_{\bullet}(K;R)$ que diagram\'aticamente se ve como:
+	\[
+		\begin{tikzcd}
+			\cdots \arrow[r] & C_{n+1}(K) \arrow[r,"\partial_{n+1}"] & C_n(K) \arrow[r,"\partial_n"] & C_{n-1}(K) \arrow[r] & \cdots
+		\end{tikzcd}.
+	\]
+	Observa que $C_n(K)=0$ para $n<0$.
 
+	Por la misma raz\'on, $C^<_{\bullet}(K)$ es un complejo de cadenas.
+\end{ejemplo}
 
+\import{\directory}{ejercicios/57} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 57
+
+\begin{nota}
+	Observa que la proposici\'on \ref{prop:complejos_ordenados_inducen_mismo_complejo} nos dice que
+	$\beta=\{\beta_n\}_{n\in\ZZ}$ (definiendo $\beta_n=0$ cuando $n<0$) es un morfismo de cadenas. Como cada
+	$\beta_n$ es un isomorfismo, $\beta$ induce un isomorfismo a nivel de homolog\'ias, i.e.
+	$H_n(\beta):H_n(C_{\bullet}^<(K))\ra H_n(C_{\bullet}(K))$ es un isomorfismo. De hecho,
+	$C_{\bullet}^<(K)\cong C_{\bullet}(K)$ como cadenas.
+\end{nota}
+
+\begin{defin}
+	Sea $f:K\ra L$ un morfismo de complejos simpliciales. $f$ induce un morfismo de complejos $\{f_n:C_n(K)\ra C_n(L)\}$
+	definido por
+	\[
+		f_n\big( \overline{[v_0,\ldots,v_n]} \big):=
+			\begin{cases}
+				\overline{[f(v_0),\ldots,f(v_n)]} & \text{si}\;\; f|_{\{v_0,\ldots,v_n\}}\;\;\text{es inyectiva}\\
+				0 & \text{si}\;\; f|_{\{v_0,\ldots,v_n\}}\;\;\text{no es inyectiva}
+			\end{cases}
+	\]
+\end{defin}
+
+\begin{defin}
+	Sea $K$ un complejo simplicial. Define $\mathscr{C}_n(K)=R\gen{(v_0,\ldots,v_n)\mid\{v_0,\ldots,v_n\}\in K}$ y
+	considera el complejo de cadenas $\mathscr{C}_{\bullet}$ definido por
+	\[
+		\begin{tikzcd}
+			\cdots \arrow[r] & \mathscr{C}_{n+1}(K) \arrow[r,"\partial_{n+1}"] & \mathscr{C}_n(K) \arrow[r,"\partial_n"] & \mathscr{C}_{n-1}(K) \arrow[r] & \cdots
+		\end{tikzcd},
+	\]
+	donde las diferenciales est\'an definidos de la manera usual:
+	\[
+		\partial_n(v_0,\ldots,v_n)=\sum_{i=0}^n (-1)^i (v_0,\ldots,\what{v_i},\ldots,v_n).
+	\]
+	Adem\'as, si $f:K\ra L$ es un morfismo de complejos simpliciales entonces \'este induce un morfismo de
+	complejos de cadenas $f_{\#}:\mathscr{C}_{\bullet}(K)\ra\mathscr{C}_{\bullet}(L)$ definido por
+	\[
+		f_{\#}(v_0,\ldots,v_n)=(f(v_0),\ldots,f(v_n)).
+	\]
+\end{defin}
+
+\import{\directory}{ejercicios/59} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 59
+
+\begin{nota}
+	Este \'ultimo ejercicio, junto con el ejercicio \ref{ej:57}, implican que $f_{\#}$ induce un morfismo
+	$H_n(f_{\#}):H_n(\mathscr{C}_{\bullet}(K))\ra H_n(\mathscr{C}_{\bullet}(L))$.
+\end{nota}
+
+La diferencia entre los complejos de cadenas $C_{\bullet}(K)$ y $\mathscr{C}_{\bullet}(K)$ desaparece a nivel de
+homolog\'ia:
+
+\begin{prop}\label{prop:homologias_coinciden_cadenas}
+	$H_n(C_{\bullet}(K))\cong H_n(\mathscr{C}_{\bullet}(K))$
+\end{prop}
+
+Toda la idea de definir homolog\'ia simplicial es para poder definir homolog\'ia de espacio topol\'ogicos (triangulables).
+Para un espacio triangulable $X$, ie. $X\approx\abs{K}$, lo ideal ser\'ia definir $H_n(X;R):=H_n(K;R)$, pero para que
+esto est\'e bien definido necesitamos la propiedad de la \emph{invariancia topol\'ogica de la homolog\'ia simplicial}:
+\[
+	\abs{K}\approx X \approx\abs{L}\;\;\text{son dos triangulaciones} \quad\then\quad H_n(K;R)\cong H_n(L;R).
+\]
+
+Poincar\'e propuso un plan para probarlo:
+
+\begin{enumerate}
+	\item Si $K\cong L$, como complejos simpliciales, entonces $H_n(K;R)\cong H_n(L;R)$.
+	\item Si $K'$ es una subdivisi\'on de $K$,  entonces $H_n(K;R)\cong H_n(K';R)$.
+	\item(Haupvermutung) Si $K$ y $L$ son complejos simpliciales tales que $\abs{K}\approx\abs{L}$ entonces existen
+		$K'$ y $L'$ subdivisiones de $K$ y $L$ respectivamente tales que $K'\cong L'$.
+\end{enumerate}
+
+Result\'o que el paso 3, llamado Hauptvermutung, no es cierto; Milnor prob\'o que es falso en 1961. Pero la propiedad
+de invariancia topol\'ogica de la homolog\'ia simplicial (ITHS) s\'i es cierta; Alexander lo prob\'o con un m\'etodo distinto al de
+Poincar\'e en 1915.
+
+El primer paso no es dif\'icil probar:
+
+\import{\directory}{ejercicios/60} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 60
+
+Una vez establecido ITHS, podemos definir:
+
+\begin{defin}
+	La homolog\'ia de un espacio traingulable $X$ se define como $H_n(X;R):=H_n(K;R)$ donde $X\approx\abs{K}$.
+\end{defin}
+
+Vietoris dio una definici\'on diferente para espacios m\'etricos en los 1920's y $\check{\text{C}}$ech di\'o la siguiente definici\'on
+en 1932:
+
+\begin{defin}
+	Sea $X$ un espacio topol\'ogico y toma un conjunto $\mathscr{U}$ ``suficientemente grande'' de cubiertas abiertas de $X$,
+	ordenados mediante refinamiento. Entonces la homolog\'ia de $X$ se define como:
+	\[
+		H_n(X;R):=\varprojlim_{\fU\in\mathscr{U}} H_n(\Nn\fU;R)
+	\]
+\end{defin}
+
+En el caso de variedades, la homolog\'ia es m\'as sencilla. Sea $M^n$ una variedad orientada y compacta con una
+triangulaci\'on $T$, ie. $\abs{T}\approx M$. Como $M$ est\'a orientado, cada $n$-simplejo $\sigma\in T$ tiene una
+orientaci\'on fija: $[\sigma]$. La $n$-cadena:
+\[
+	\fC=\sum_{\sigma\in S_n^{\fO}(T)}[\sigma]
+\]
+est\'a bien bien definida porque $M$ es compacto (cf. teorema \ref{thm:complejos_localmente_finitos}), es decir la
+suma siempre es finita. Adem\'as, por definici\'on de orientaci\'on de una triangulaci\'on de $M$, tenemos que
+\[
+	\partial_n(\fC)=\partial_n\paren{\sum_{\sigma\in S_n^{\fO}(T)}[\sigma]}=\sum_{\sigma\in S_n^{\fO}(T)}\partial_n[\sigma]=0
+\]
+porque cada $(n-1)$-simplejo aparece dos veces con la orientaci\'on opuesta. Por lo tanto $\fC\in\ker\partial_n$ y
+as\'i tenemos que
+\[
+	[\fC]\in H_n(M;\ZZ).
+\]
+A este elemento de la homolog\'ia se le llama la \emph{clase fundamental} de $M$.
+
+Si $M$ no est\'a orientada, entonces s\'olo podemos garantizar que $\partial_n(\fC)\equiv 0\mod 2$. Entonces
+solamente tenemos que $[\fC]\in H_n(M;\ZZ_2)$.
 
 \end{document}

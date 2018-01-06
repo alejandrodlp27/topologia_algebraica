@@ -1,0 +1,27 @@
+\begin{ejercicio}\label{ej:80}
+  Sea $n=2m+1$ impar y define $v:\Sn^n\ra\RR^{n+1}$ como
+  \[
+    v(x_0,x_1,\ldots,x_{2m+1})=(-x_1,x_0,-x_3,x_2,-x_5,x_4,\ldots,-x_{2m+1},x_{2m}).
+  \]
+  Prueba que el campo $V$ no se anula y es tangente a la esfera.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Observa que
+  \[
+    \|v(x)\|^2=\sum_{i\;\text{par}}x_i^2+\sum_{i\;\text{impar}}(-x_i)^2=\sum_{i=0}^{2m+1}x_i^2=\|x\|^2.
+  \]
+  Por lo tanto
+  \[
+    v(x)=0 \quad\iff\quad 0=\|v(x)\|=\|x\| \quad\iff\quad x=0,
+  \]
+  pero esto no sucede para $x\in\Sn^{2m+1}$. Por lo tanto $v:\Sn^{n}\ra\RR^{n+1}$ no se
+  anula.
+
+  Por \'ultimo hay que verificar que $v(x)\in T_x\Sn^n=\{y\in\RR^{n+1}\mid\gen{x,y}=0\}$.
+  Si divides los sumandos de $\gen{x,v(x)}$ en grupos de dos es f\'acil calcular la suma:
+  \[
+    \gen{x,v(x)}=\sum_{i=0}^{m}\big(x_{2i}(-x_{2i+1})+x_{2i+1}x_{2i}\big)=0.
+  \] 
+\end{proof}%
+

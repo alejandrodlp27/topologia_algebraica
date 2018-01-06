@@ -1,0 +1,330 @@
+\documentclass[../../topologia_algebraica]{subfiles}
+\begin{document}
+\section{Homolog\'ia de las esferas}
+
+En esta secci\'on nos vamos a dedicar a calcular homolog\'ia de las esferas y
+ver unas consecuencias importantes de estos calculos. Fijamos un anillo
+conmutativo $R$ para poder omitirlo de la notaci\'on. La primera proposici\'on
+nos dice cuando podemos aplicar el teorema de escisi\'on:
+
+\begin{prop}
+  Sean $V\subset U\subset A\subset X$ tal que $V$ se puede escindir de la pareja
+  $(X,A)$. Si la inclusi\'on $j:(X-U,A-U)\hookrightarrow (X-V,A-V)$ es un retracto
+  por deformaci\'on, entonces $U$ se puede escindir de $(X,A)$.
+\end{prop}
+\begin{proof}
+  Si escribimos $i:(X-V,A-V)\hookrightarrow(X,A)$ como la inclusi\'on, entonces por
+  hip\'otesis $H_n(i)$ es un isomorfismo. Adem\'as, como $j$ es un retracto por
+  deformaci\'on, existe un morfismo $r:(X-V,A-V)\ra(X-U,A-U)$ tal que $r\circ j=\Id_{X-U}$
+  y $j\circ r\simeq\Id_{X-V}$, en particular $j_{\#}:S_{\bullet}(X-U,A-U)\ra S_{\bullet}(X-V,A-V)$
+  es una equivalencia homot\'opica de complejos de cadena. Por lo tanto $H_n(j)$ es un
+  isomorfismo. Por \'ultimo, como la inclusi\'on $l:(X-U,A-U)\hookrightarrow(X,A)$ es
+  la composici\'on $l=i\circ j$, entonces $H_n(l)=H_n(i)\circ H_n(j)$ es la composici\'on
+  de dos isomorfismos. Por lo tanto $U$ se puede escindir de $(X,A)$.
+\end{proof}
+
+\begin{ejemplo}
+  Sean $\Sn^n_+$ y $\Sn^n_-$ los hemisferios cerrados de $\Sn^n$. Tomamos $X=\Sn^n$,
+  $A=\Sn^n_+$ y $U=\mathring{\Sn^n_+}$. Observa que
+  $V=\{x=(x_1,\ldots,x_{n+1})\in\Sn^n\mid x_n>\tfrac{1}{2}\}$ se escinde de $(X,A)$
+  porque $V\subset\mathring{A}$. Adem\'as la inclusi\'on
+  \[
+    j:(X-U,A-U)=(\Sn^n_-,\Sn^{n-1})\hookrightarrow (\Sn^n-V,\Sn^n_+-V)
+  \]
+  es un retracto por deformaci\'on: simplemente define
+  $r:(\Sn^n-V,\Sn^n_+-V)\ra(\Sn^n_-,\Sn^{n-1})$ como flujo geod\'esico hacia el polo sur
+  que mueve el c\'irculo $\{x\in\Sn^n\mid x_{n+1}=\tfrac{1}{2}\}$ al ecuador:
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{escision_esfera}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Por lo tanto podemos escindir $U$ de $(X,A)$, es decir los hemisferios abiertos de
+$\Sn^n$ se pueden escindir de la esfera relativo al ese mismo hemisferio.
+\end{ejemplo}
+
+Ahora modificamos un poco la definici\'on de homolog\'ia para poder calcularla
+mejor:
+
+\begin{defin}
+  La \emph{homolog\'ia reducida} de $X$ se define como una de las tres definiciones
+  equivalentes:
+  \begin{enumerate}
+  \item $\tilde{H}_n(X):=H_n(X,\{x\})$ para alguna $x\in X$.
+  \item $\tilde{H}_n(X):=\ker H_n(\cte)$ donde $\cte:X\ra\{x\}$ es la funci\'on constante y
+    $H_n(\cte):H_n(X)\ra H_n(\{x\})$ el morfismo inducido en homolog\'ia
+  \item $\tilde{H}_n(X)$ es la homolog\'ia del complejo aumentado:
+    \[
+      \begin{tikzcd}
+        \cdots \arrow[r] & S_n(X) \arrow[r,"\partial_n"] & S_{n-1}(X) \arrow[r] & \cdots \arrow[r] &
+        S_1(X) \arrow[r,"\partial_1"] & S_0(X) \arrow[r,"\eps"] & R \arrow[r] & 0
+      \end{tikzcd}
+    \]
+    donde $\eps:S_0(X)\ra R$ est\'a definido por $\sum r_{\sigma}\sigma\mapsto \sum r_{\sigma}$.
+  \end{enumerate}
+\end{defin}
+
+\begin{nota}
+  Observa que la tercera definici\'on nos dice que la homolog\'ia reducida coincide
+  con la usual para $n>0$:
+  \[
+    \tilde{H}_n(X)=H_n(X)\quad\forall n>0 \quad\text{y}\quad
+    \tilde{H}_0(X)=\frac{\ker\eps}{\im{\partial_1}}.
+  \]
+\end{nota}
+
+\import{\directory}{ejercicios/75}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 75
+
+La sucesi\'on exacta larga de la homolog\'ia usual tiene un an\'alogo en la homolog\'ia
+reducida:
+
+\import{\directory}{ejercicios/76}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 76
+
+Con estos resultados podemos calcular la homolog\'ia de las esferas:
+
+\begin{prop}
+  \[
+    \tilde{H}_n(\Sn^m;R)\cong
+    \begin{cases}
+      R &\text{si}\;\; n=m \\
+      0 &\text{si}\;\; n\neq m
+    \end{cases}
+  \]
+\end{prop}
+\begin{proof}
+  Consideramos la sucesi\'on exacta larga del ejercicio pasado a la pareja $(\DD^m,\Sn^{m-1})$.
+  Como $\DD^m$ es contraible, entonces $H_n(\DD^m)=0$ y as\'i obtenemos:
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r] & \tilde{H}_n(\Sn^{m-1}) \arrow[r] & 0 \arrow[r] &
+      H_n(\DD^m,\Sn^{m-1})\arrow[r] & \tilde{H}_{n-1}(\Sn^{m-1}) \arrow[r] & 0 \arrow[r] & \cdots.
+    \end{tikzcd}
+  \]
+  En particular
+  \begin{equation}
+    \label{eq:iso_uno}
+    H_n(\DD^m,\Sn^{m-1})\cong \tilde{H}_{n-1}(\Sn^{m-1})
+  \end{equation}
+  y el isomorfismo es natural (ie. conmuta con los morfismos inducidas por funciones continuas).
+  
+  Por otro lado, la carta $h^+_{m+1}:(\Sn^m_+,\Sn^{m-1})\ra (\DD^m,\Sn^{m-1})$ donde
+  $h^+_{m+1}(x_1,\ldots,x_{m+1})=(x_1,\ldots,x_m)$ es un homeomorfismo, entonces tenemos
+  que sus homolog\'ias son isomorfas:
+  \begin{equation}
+    \label{eq:iso_dos}
+    H_n(\Sn^m_+,\Sn^{m-1})\cong H_n(\DD^m,\Sn^{m-1})
+  \end{equation}
+  Este isomorfismo tambi\'en es natural porque depende solamente de la clase de homeomorfismo.
+
+  Ahora si escribimos la sucesi\'on exacta larga para la pareja $(\Sn^m,\Sn^m_+)$
+  y observamos que $\Sn^m_+$ es constraible (porque es homeomorfo al disco) entonces
+  tenemos que
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r]& 0 \arrow[r] &  \tilde{H}_n(\Sn^m) \arrow[r] &
+      H_n(\Sn^m,\Sn^m_+)\arrow[r] & 0 \arrow[r] & \cdots
+    \end{tikzcd}
+  \]
+  y en particular:
+  \begin{equation}
+    \label{eq:iso_tres}
+    \tilde{H}_n(\Sn^m)\cong H_n(\Sn^m,\Sn^m_+),
+  \end{equation}
+  que tambi\'en es can\'onico porque depende solamente de la pareja $(\Sn^m,\Sn^m_+)$.
+
+  Por el ejemplo anterior, la inclusi\'on $\imath:(\Sn^m_+,\Sn^{m-1})\hookrightarrow (\Sn^m,\Sn^m_+)$
+  es un escisi\'on entonces $H_n(\imath)$ es un isomorfismo, es decir:
+  \begin{equation}
+    \label{eq:iso_cuatro}
+    H_n(\Sn^m_+,\Sn^{m-1})\cong H_n(\Sn^m,\Sn^m_+).
+  \end{equation}
+
+  Si juntamos los cuatro ismorfismos (\ref{eq:iso_uno}), (\ref{eq:iso_dos}), (\ref{eq:iso_tres})
+  y (\ref{eq:iso_cuatro}), entonces obtenemos:
+  \[
+    \tilde{H}_n(\Sn^m)\cong
+    H_n(\Sn^m,\Sn^m_+) \cong
+    H_n(\Sn^m_+,\Sn^{m-1}) \cong
+    H_n(\DD^m,\Sn^{m-1}) \cong
+    \tilde{H}_{n-1}(\Sn^{m-1}).
+  \]
+  Esta f\'ormula nos permite calcular $\tilde{H}_n(\Sn^m)$ con inducci\'on:
+  \begin{enumerate}
+  \item[$(m=0)$] En este caso, el teorema de escisi\'on nos dice que la inclusi\'on
+    $(\Sn^0-\{1\},\{1\}-\{1\})=(\{-1\},\emptyset)\hookrightarrow(\Sn^0,\{1\})$ es
+    una escisi\'on, entonces:
+    \[
+      \tilde{H}_n(\Sn^0)\stackrel{\text{def}}{=}
+      H_n(\Sn^0,\{1\}) \cong
+      H_n(\{-1\},\emptyset) \cong H_n(\{-1\}) \cong
+      \begin{cases}
+        0 &\text{si}\;\; n>0 \\
+        R &\text{si}\;\; n=0
+      \end{cases}
+    \]
+  \item[$(m-1\then m)$] Usamos los cuatro isomorfismos y la hip\'otesis de inducci\'on:
+    \[
+      \tilde{H}_n(\Sn^m)\cong\tilde{H}_{n-1}(\Sn^{m-1})=
+      \begin{cases}
+        0 &\text{si}\;\; n-1\neq m-1 \\
+        R &\text{si}\;\; n-1=m-1
+      \end{cases}
+    \]    
+  \end{enumerate}
+\end{proof}
+\begin{nota}
+  El isomorfismo $\tilde{H}_n(\Sn^m)\cong\tilde{H}_{n-1}(\Sn^{m-1})$, reescrito con la
+  identidad $\Ss\Sn^{m-1}\approx\Sn^m$ (cf. el corolario \ref{cor:suspension_esfera}),
+  se llama el \emph{isomorfismo de suspensi\'on} y se escribe:
+  \[
+    \tilde{H}_{n+1}(\Ss\Sn^m)\cong\tilde{H}_n(\Sn^m).
+  \]
+\end{nota}
+
+\begin{cor}
+  \[
+    H_n(\Sn^m;R)\cong
+    \begin{cases}
+      R &\text{si}\;\; n=m,0 \\
+      0 &\text{si}\;\; n\neq m,\;n\neq 0
+    \end{cases}
+  \]
+\end{cor}
+
+Una vez calculadas las homolog\'ias de las esferas, podemos probar varios teoremas
+importantes. Empecemos con el teorema del punto fijo de Brower. Para esto necesitamos
+un lema sencillo:
+
+\begin{lema}
+  No existe un retracto $r:\DD^{n+1}\ra\Sn^n$.
+\end{lema}
+\begin{proof}
+  Si existiese un retracto $r$ tenr\'iamos que $r\circ\imath=\Id_{\Sn^n}$ donde
+  $\imath:\Sn^n\hookrightarrow\DD^{n+1}$ es la inclusi\'on. A nivel de homolog\'ias
+  tendr\'iamos que
+  \[
+    \begin{tikzcd}
+      H_n(\Sn^n) \arrow[rr,"\Id"] \arrow[dr,"H_n(\imath)"'] && H_n(\Sn^n)\\
+      & H_n(\DD^{n+1}) \arrow[ur,"H_n(r)"']&
+    \end{tikzcd}\quad=\quad
+    \begin{tikzcd}
+      R \arrow[rr,"\Id"] \arrow[dr,"H_n(\imath)"'] && R\\
+      & 0 \arrow[ur,"H_n(r)"']&
+    \end{tikzcd}
+  \]
+  lo cual es una contradicci\'on porque el segundo diagrama dice que $\Id=0\circ 0$!
+\end{proof}
+
+\begin{thm}(Teorema del punto fijo de Brower)
+  Toda funci\'on continua $f:\DD^n\ra\DD^n$ tiene un punto fijo.
+\end{thm}
+\begin{proof}
+  Supongamos que $f$ no tiene puntos fijos, entonces el vector $x-f(x)\neq0$ define
+  un rayo $\sL_x:=\{x+t(f(x)-x)\mid t\geq 0\}$ que empieza en $x$ y cruza por $f(x)$.
+  Este rayo intersecta a $\partial\DD^n=\Sn^{n-1}$ en un punto $r(x):=\Sn^{n-1}\cap\sL_x$.
+  Claramente $r|_{\Sn^{n-1}}=\Id_{\Sn^{n-1}}$ porque siempre se tiene que $x\in\sL_x$ y si
+  $s\in\Sn^{n-1}$, entonces $r(x)=\Sn^{n-1}\cap\sL_x=x$.
+  Por lo tanto si $r:\DD^n\ra\Sn^{n-1}$ es continua, ser\'ia un retracto y por el lema anterior
+  esto es una contradicci\'on.
+
+\import{\directory}{ejercicios/77}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 77
+\end{proof}
+
+
+El teorema del punto fijo de Brower se puede generalizar:
+
+\begin{thm}(Teorema del punto fijo de Lefschitz)
+  Sea $X$ un espacio triangulable y compacto, $f:X\ra X$ continua con morfismo inducido
+  $H_n(f):H_n(X;\QQ)\ra H_n(X,\QQ)$ (que es una $Q$-tranformaci\'on lineal), Si
+  \[
+    \la(f):=\sum_{n=0}^{\infty}(-1)^n\text{Tr}(H_n(f))\neq 0
+  \]
+  entonces $f$ tiene un punto fijo.
+\end{thm}
+
+Las esferas de dimensiones distintas no son homt\'opicas:
+
+\begin{prop}
+  Si $n\neq m$ entonces $\Sn^n\not\simeq\Sn^m$.
+\end{prop}
+\begin{proof}
+  Si $\Sn^n\simeq\Sn^m$ entonces $R\cong H_n(\Sn^n)\cong H_n(\Sn^m)=0$!
+\end{proof}
+
+\begin{cor}
+  Si $n\neq m$ entonces $\RR^n\not\approx\RR^m$.
+\end{cor}
+\begin{proof}
+  Supongamos que $f:\RR^n\ra\RR^m$ es un homeomorfismo y sin p\'erdida de generalidad
+  supongamos que $f(0)=0$. En este caso $\hat{f}:=f|_{\RR^n-\{0\}}:\RR^n-\{0\}\ra\RR^m-\{0\}$
+  es un homeomorfismo. Pero la inclusi\'in $\imath:\Sn^n\hookrightarrow\RR^n-\{0\}$ es
+  un retracto por deformaci\'on, entonces induce un isomorfismo en homolog\'ias y
+  as\'i obtenemos la contradicci\'on:
+  \[
+    H_n(\Sn^n)\stackrel{\imath}{\cong}
+    H_n(\RR^n-\{0\})\stackrel{\hat{f}}{\cong}
+    H_n(\RR^m-\{0\})\stackrel{r}{\cong}
+    H_n(\Sn^m)!
+  \]
+\end{proof}
+\import{\directory}{ejercicios/78}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 78
+
+Tambi\'en podemos clasificar ciertos morfismos en homolog\'ias.
+
+\begin{defin}
+  Sea $f:\Sn^n\ra\Sn^n$ y $H_n(f):H_n(\Sn^n;\ZZ)\ra(\Sn^n;\ZZ)$ el morfismo inducido. Como
+  morfismo de grupos, sabemos que $\im{H_n(f)}=m\ZZ$ para alg\'un entero $m>0$.
+\end{defin}
+\begin{nota}
+  Por el
+  teorema de la invariancia homot\'opica de la homolog\'ia, esta elecci\'on de $m$ no
+  depende de la clase de homolog\'ia de $f$.
+\end{nota}
+
+Ahora calculamos los grados de algunas funciones
+
+\begin{ejemplo}(Reflexi\'on en una coordenada) Definimos
+  \[
+    \rho_i:\Sn^n\lra\Sn^n \quad\text{con}\quad
+    \rho_i(x_1,\ldots,x_{n+1})=(x_1,\ldots,-x_i,\ldots,x_{n+1}).
+  \]
+  Asumimos sin p\'erdida de generalidad que $\rho_i=\rho=1$. Primero calculamos el caso $n=0$.
+  Con el complejo singular aumentado:
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r] & S_1(\Sn^0) \arrow[r,"\partial_1"] &
+      S_0(\Sn^0) \arrow[r,"\eps"] & R \arrow[r] & 0
+    \end{tikzcd}
+  \]
+  calculamos:
+  \[
+    \tilde{H}_0(\Sn^0)=\frac{\ker\eps}{\im{\partial_1}}=\frac{\ker\eps}{0}=\ker\eps
+  \]
+  Observa que $\eps(\alpha(+1)+\beta(-1))=\alpha+\beta$. Por lo tanto $\ker\eps$ es
+  el conjunto definido por $\{\alpha+\beta=0\}$ que es isomorfo a $R$ mediante
+  $\alpha(+1)+\beta(-1)\mapsto \alpha$. Por lo tanto
+  \[
+    \tilde{H}_0(\Sn^0;R)\cong R.
+  \]
+
+  Ahora, como $\rho(\pm 1)=\mp 1$, entonces
+  \[
+    H_0(\rho)[\alpha(+1)+\beta(-1)]=[\alpha(-1)+\beta(+1)]=-[\alpha(+1)+\beta(-1)].
+  \]
+  Es decir que $H_0(\rho)$ es la funci\'on multiplicar por $-1$ en $R$. Con el isomorfismo
+  de suspensi\'on calculamos $H_n(\rho)$ por inducci\'on. El diagrama
+  \[
+    \begin{tikzcd}[column sep=large]
+      \tilde{H}_{n}(\Sn^{n}) \arrow[r,"H_n(\rho)"] \arrow[d,"\cong"'] &
+      \tilde{H}_n(\Sn^n) \arrow[d,"\cong"] \\
+      \tilde{H}_{n-1}(\Sn^n) \arrow[r,"H_{n-1}(\rho)"] & H_{n-1}(\Sn^n)
+    \end{tikzcd}
+  \]
+  conmuta porque los isomorfismos de suspensi\'on son can\'onicos. Por lo tanto $H_n(\rho)$
+  es multiplicar por -1 para toda $n$.
+\end{ejemplo}
+
+Podemos calcular la clase de homotop\'ia dede $H_n(A)$ donde $A$ es la transformaci\'on lineal
+inducida por una matriz ortogonal, ie. $\det A=1$ y $A^{-1}=A^t$.
+
+\end{document}

@@ -1,0 +1,96 @@
+\begin{ejercicio}\label{ej:63}
+  Sea $C_{\bullet}=\oplus_{\la\in\Lambda}C_{\bullet}^{\la}$ la suma directa de los complejos de cadena
+  $C_{\bullet}$. Entonces la homolog\'ia abre sumas:
+  \[
+    H_n(C_{\bullet};R)=H_n\paren{\oplus C_n^{\la};R}=\bigoplus_{\la\in\Lambda}H_n(C_{\bullet}^{\la};R)
+  \]
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Probar\'e que $H_n(C_{\bullet};R)$ cumple la propiedad universal de la suma directa. Primero observa
+  que para toda $n\in\ZZ$, la inclusi\'on can\'onica $\imath_n^{\mu}:C_n^{\mu}\ra\oplus_{\la}C_n^{\la}$ forma
+  parte de un morfismo de cadenas $\imath^{\mu}:C_{\bullet}^{\mu}\ra C_{\bullet}$. En efecto,
+  el diagrama
+  \[
+    \begin{tikzcd}
+      C_n^{\mu} \arrow[r,"\partial_n^{\mu}"] \arrow[d,hookrightarrow,"\imath_n^{\mu}"'] & C_{n-1}^{\mu}%
+      \arrow[d,hookrightarrow,"\imath_{n-1}^{\mu}"]\\
+      \oplus_{\la} C_n^{\la} \arrow[r,"\oplus_{\la}\partial_n^{\la}"'] & \oplus_{\la}C_{n-1}^{\la}
+    \end{tikzcd}
+  \]
+  conmuta porque el morfismo $\oplus_{\la}\partial_n^{\la}$ es el dado por la propiedad universal de la
+  suma directa; est\'a inducido por la familia $\{\imath_{n-1}^{\la}\circ\partial_n^{\la}\}_{\la\in\Lambda}$ (esto ya lo
+  argument\'e antes de empezar el ejercicio).
+
+  Por el ejercicio \ref{ej:57} el morfismo $\imath^{\mu}:C_{\bullet}^{\mu}\ra C_{\bullet}$
+  induce un morfismo
+  \[
+    H_n(\imath^{\mu}):H_n(C_{\bullet}^{\mu};R)\lra H_n(C_{\bullet};R) \quad\text{definido por}\quad
+    H_n(\imath^{\mu})[x]=[\imath_n^{\mu}(x)].
+  \]
+  Por lo tanto $H_n(C_{\bullet};R)$ viene equipado con la familia de morfismos
+  $\{H_n(\imath^{\la}):H_n(C_{\bullet}^{\la};R)\ra H_n(C_{\bullet};R)\}_{\la\in\Lambda}$. Ahora falta
+  probar que esta familia cumple la propiedad universal de la suma directa:
+
+  Sea $M$ un $R$-m\'odulo equipado con una familia de morfismos $\{f_{\la}:H_n(C_{\bullet}^{\la};R)\ra M\}_{\la\in\Lambda}$
+  Para cada $\la\in\Lambda$ defino el morfismo:
+  \begin{equation}\label{diag:prop_universal_suma}
+    \begin{tikzcd}
+      H_n(C_{\bullet}^{\la}) \arrow[rr,"f_{\la}"] \arrow[dr,"H_n(\imath^{\la})"'] && M \\
+      & H_n(C_{\bullet};R) \arrow[ru,dashed,"\Phi"'] &
+    \end{tikzcd}
+  \end{equation}
+  de la siguiente manera: si $[x]\in H_n(C_{\bullet};R)$ entonces
+  \[
+    x=\sum_{\la\in\Lambda}x_{\la}\in ker (\oplus_{\la}\partial_n^{\la})=
+    \oplus\ker(\partial_n^{\la})\subseteq \oplus_{\la}C_n^{\la}
+  \]
+  donde las $x_{\la}\in\ker(\partial_n^{\la})\subseteq C_n^{\la}$ y $x_{\la}\neq0$ para solamente una cantidad
+  finita de \'indices $\la\in\Lambda$. Por lo tanto $\sum_{\la\in\Lambda} f_{\la}[x_{\la}] \in M$
+  porque la suma es finita y porque $[x_{\la}]\in H_n(C_{\bullet}^{\la};R)$. De esta manera podemos definir:
+  \[
+    \Phi[x]=\Phi\left[ \sum_{\la\in\Lambda} x_{\la} \right]:=\sum_{\la\in\Lambda}f_{\la}[x_{\la}].
+  \]
+
+  Claramente hace conmutar el diagrama (\ref{diag:prop_universal_suma}) porque si $[x]\in H_n(C_{\bullet}^{\la};R)$
+  entonces $x\in \ker(\partial_n^{\la}\subseteq C_n^{\la})$ y as\'i $\imath^{\la}_n(x)\in\oplus C_n^{\la}$ es
+  la suma $\sum_{\mu\in\Lambda} x_{\mu}$ donde $x_{\mu}=0$ para toda $\mu\neq\la$ y donde $x_{\la}=x$. Esto quiere
+  decir que $\sum_{\mu\in\Lambda}f_{\mu}[x_{\mu}]=f_{\la}[x_{\la}]=f_{\la}[x]$ y as\'i
+  \[
+    \Phi\big[H_n(\imath^{\la})[x]\big]=\Phi\left[ \sum_{\mu\in\Lambda}x_{\mu} \right]=f_{\la}[x]
+  \]
+  Tambi\'en es claro que es un morfismo de $R$-m\'odulos porque est\'a definido como la suma de morfismos de
+  $R$-m\'odulos:
+  \begin{align*}
+    \Phi[x]+\Phi[y]&=\Phi\left[\sum_{\la\in\Lambda}x_{\la}\right]+\Phi\left[\sum_{\la\in\Lambda} y_{\la}\right]=
+    \sum_{\la\in\Lambda}f_{\la}[x_{\la}]+\sum_{\la\in\Lambda}f_{\la}[y_{\la}]=
+    \sum_{\la\in\Lambda}f_{\la}[x_{\la}+y_{\la}]=
+    \Phi\left[ \sum_{\la\in\Lambda} x_{\la}+y{\la} \right]\\ &=
+    \Phi\big([x]+[y]\big),
+  \end{align*}
+  porque $x_{\la},y_{\la},x_{\la}+y_{\la}\in \ker(\partial_n^{\la})$ y $f_{\la}$ es un morfismo de $R$-m\'odulos.
+  Tambi\'en:
+  \[
+    \Phi(r[x])=\Phi[rx]=\Phi\left[\sum_{\la\in\Lambda}r x_{\la}\right]=\sum_{\la\in\Lambda} f_{\la}[rx_{\la}]=
+    \sum_{\la\in\Lambda} r f_{\la}[x_{\la}]=
+    r\sum_{\la\in\Lambda} f_{\la}[x_{\la}]=r \Phi[x].
+  \]
+  Lo \'unico que hace falta probar es que $\Phi$ est\'a bien definida. Sean $[x]=[x']\in H_n(C_{\bullet};R)$,
+  es decir $x,x'\in\ker(\oplus_{\la}\partial_n^{\la})=\oplus\ker(\partial_n^{\la})$ y
+  $x-x'\in$Im$(\oplus_{\la}\partial_{n+1}^{\la}=\oplus_{\la}$Im$\partial_{n+1}^{\la}$. Por lo tanto
+  \[
+    x-x'=
+    \sum_{\la\in\Lambda}x_{\la}-\sum_{\la\in\Lambda}x'_{\la}=
+    \sum_{\la\in\Lambda}(x_{\la}-x'_{\la})=
+    \sum_{\la\in\Lambda}\partial_{n+1}^{\la}(y_{\la})
+  \]
+  para algunas $y_{\la}\in C_{n+1}^{\la}$. Por lo tanto, para toda $\la\in\Lambda$, $x_{\la}-x'_{\la}=\partial_{n+1}^{\la}(y_{\la})$
+  porque las representaciones en las sumas directas son \'unicas. En homolog\'ia esto significa que
+  $[x_{\la}]=[x'_{\la}]$ en $H_n(C_{\bullet}^{\la};R)$ y as\'i $f_{\la}[x_{\la}]=f_{\la}[x'_{\la}]$ para toda $\la$. Por
+  lo tanto:
+  \[
+    \Phi[x]=\sum_{\la\in\Lambda}f_{\la}[x_{\la}]=\sum_{\la\in\Lambda}f_{\la}[x'_{\la}]=\Phi[x']
+  \]
+  y $\Phi$ est\'a biend definida.
+\end{proof}%
+

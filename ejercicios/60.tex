@@ -1,0 +1,24 @@
+\begin{ejercicio}\label{ej:60}
+  $K\cong L \;\;\then\;\; H_n(K;R)\cong H_n(L;R)$
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Supongamos que $K \cong L$ mediante el isomorfismo de complejos simpliciales $f:K\ra L$. Por el ejercicio \ref{ej:59}
+  $f_{\#}:\mathscr{C}_{\bullet}(K)\ra\mathscr{C}_{\bullet}(L)$ es un morfismo de complejos complejos de cadena. De hecho
+  $f_{\#}$ es un ismorfismo de complejos de cadenas porque $(f^{-1})_{\#}$ es su inverso, en efecto:
+  \[
+    (f_{\#})_n((f^{-1}_{\#})_n(v_0,\ldots,v_n))=
+    (f_{\#})_n(f^{-1}(v_0),\ldots,f^{-1}(v_n))=
+    (f(f^{-1}(v_0)),\ldots,f(f^{-1}(v_n)))=
+    (v_0,\ldots,v_n)
+  \]
+  para toda $(v_0,\ldots,v_n)$ en la base de $\mathscr{C}_n(K)$. Sucede exactamente lo mismo para
+  $(f^{-1}_{\#})_n\circ(f_{\#})_n=\Id$. Por lo tanto $\mathscr{C}_{\bullet}(K)\cong\mathscr{C}_{\bullet}(L)$ como complejos
+  de cadenas. Como la homolog\'ia de un complejo de cadenas depende solamente de la clase de ismorfismo del complejo
+  (cf. ejercicio \ref{ej:57}) entonces podemos concluir que $H_n(\mathscr{C}_{\bullet}(K);R)\cong H_n(\mathscr{C}_{\bullet}(L);R)$.
+  Por \'ultimo, la proposici\'on \ref{prop:homologias_coinciden_cadenas} tenemos que:
+  \[
+    H_n(C_{\bullet}(K))\cong H_n(\mathscr{C}_{\bullet}(K)) \cong H_n(\mathscr{C}_{\bullet}(L)) \cong H_n(C_{\bullet}(L)).
+  \]
+\end{proof}%
+

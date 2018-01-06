@@ -1,0 +1,396 @@
+\documentclass[../../topologia_algebraica]{subfiles}
+\begin{document}
+\section{Invariancia homot\'opica de la homolog\'ia singular}\label{sec:invariancia}
+
+
+Primero fijo un anillo $R$ para no tener que escribirlo repetidamente.
+El prop\'osito de esta secci\'on es probar que si dos espacios son homot\'opicos, entonces sus
+homolog\'ias coinciden.
+
+\begin{thm}\label{thm:invariancia_homologia}
+  $X\simeq Y \quad\then\quad H_n(X)\cong H_n(Y)$
+\end{thm}
+
+Claramente esto se sigue de que el funtor $X\ra H_n(X)$ se factoriza a trav\'es de clases de
+homotop\'ia, es decir:
+
+\begin{thm}\label{thm:invariancia_homologia_dos}
+  Si $f:X\ra Y$ y $g:X\ra Y$ son funciones continuas homot\'opicas, entonces inducen el mismo
+  morfismo en homolog\'ia, es decir:
+  \[
+    f\simeq g \quad\then\quad H_n(f)=H_n(g)\quad\forall n\in\ZZ.
+  \]
+\end{thm}
+
+Sea $F:X\times I\ra Y$ la homotop\'ia entre $f$ y $g$. Entonces $F_0=f$ y $F_1=g$, o
+equivalentemente:
+\[
+  f=F\circ\la^0 \;\; , \;\; f=F\circ\la^1 \quad\text{donde}\quad
+  \la^i:X\hookrightarrow X\times\{i\}\subset X\times I.
+\]
+Observa que $H_n(f)=H_n(F\circ \la^0)=H_n(F)\circ H_n(\la^0)$, entonces:
+\[
+  H_n(\la^0)=H_n(\la^1) \quad\then\quad
+  H_n(F)\circ H_n(\la^0)=H_n(F)\circ H_n(\la^1) \quad\then\quad
+  H_n(f)=H_n(g).
+\]
+Por lo tanto probar el teorema se reduce a probar que $H_n(\la^0)=H_n(\la^1)$.
+Sabemos que $H_n(\la^1)=H_n(\la^0)$ si para toda $[\sigma]\in H_n(X)$ se tiene
+que $H_n(\la^0)[\sigma]-H_n(\la^1)[\sigma]=0\in H_n(X\times I)$ o equivalentemente
+\[
+  0=[\la_{\#}^0(\sigma)]-[\la_{\#}^1(\sigma)]=[\la_{\#}^0(\sigma)-\la_{\#}^1(\sigma)]
+  \quad\iff\quad (\la_{\#}^0-\la_{\#}^1)(\sigma)\in B_n(X\times I)\quad\forall\sigma\in S_n(X).
+\]
+La forma de probar esto es encontrar una familia de morfismos
+$\{T_n^X:S_n(X)\ra S_{n+1}(X\times I)\}_{n\in\ZZ}$ que cumplen
+\begin{equation}
+  \label{eq:homotopia_complejos_lambda}
+  \la_{\#}^1-\la_{\#}^0=\partial'_{n+1}\circ T_n+T_{n-1}\circ\partial_n \quad\forall n\in\ZZ
+\end{equation}
+donde
+\[
+  \begin{tikzcd}
+    \cdots \arrow[r] & S_{n+1}(X) \arrow[r,"\partial_{n+1}"] \arrow[d,"\la^i_{n+1}"'] &
+    S_n(X) \arrow[r,"\partial_n"] \arrow[d,"\la^i_n"'] \arrow[ld,dashed,"T^X_n"'] &
+    S_{n-1}(X) \arrow[r] \arrow[ld,dashed,"T^X_{n-1}"'] \arrow[d,"\la_{n-1}^i"] & \cdots \\
+    \cdots \arrow[r] & S_{n+1}(X\times I) \arrow[r,"\partial'_{n+1}"'] &
+    S_n(X\times I) \arrow[r,"\partial'_n"'] & S_{n-1}(X\times I) \arrow[r] & \cdots
+  \end{tikzcd}
+\]
+
+En general esto se llama una homotop\'ia entre complejos:
+
+\begin{defin}
+  Sean $\Cc_{\bullet}=(C_n,\partial_n)$ y $\Dd_{\bullet}=(D_n,\partial_n)$ dos complejos
+  de $R$-m\'odulos y sean $f,g:\Cc\ra\Dd$ morfismos de complejos. Una \emph{homotop\'ia
+    de complejos de cadena} es una familia de morfismo de $R$-m\'odulos
+  $\fT=\{T_n:C_n\ra D_{n+1}\}_{n\in\ZZ}$ que cumplen
+  \[
+    f_n-g_n=\partial'_{n+1}\circ T_n + T_{n-1}\circ\partial_n\quad\forall n\in\ZZ.
+  \]
+  Si dos morfismos son homot\'opicos, lo denotamos por $f\simeq g$, y si existe una
+  homotop\'ia entre dos complejos de cadena, decimos que son homot\'opicos y lo denotamos
+  $\Cc_{\bullet}\simeq\Dd_{\bullet}$.
+\end{defin}
+
+\begin{nota}
+  Si $f\simeq g$ entonces $H_n(f)=H_n(g)$ porque si $[z]\in H_n(\Cc_{\bullet})$ entonces
+  \[
+    (H_n(f)-H_n(g))[z]=[(f_n-g_n)(z)]=
+    \big[(\partial'_{n+1}\circ T_n)(z) + (T_{n-1}\circ\partial_n)(z)\big]=0.
+  \]
+  Por lo tanto dos morfismos de complejos de cadena que son homot\'opicos inducen el
+  mismo morfismo en homolog\'ias.
+
+  Para probar (\ref{thm:invariancia_homologia_dos}), hay que probar que
+  $\la_{\#}^0\simeq\la_{\#}^1$, es decir hay que encontrar una familia
+  $\mathfrak{T}=\{T^X_n:S_n(X)\ra S_{n+1}(X\times I)\}$ que cumpla (\ref{eq:homotopia_complejos_lambda}).
+\end{nota}
+
+Para definir las $T^X_n$, en general si $f:X\ra Y$ es continua, entonces queremos que
+\[
+  \begin{tikzcd}[column sep=large]
+    S_n(X) \arrow[r,"T^X_n"] \arrow[d,"f_{\#}"'] & S_{n+1}(X\times I) \arrow[d,"(f\times\Id)_{\#}"]\\
+    S_n(X) \arrow[r,"T^Y_n"] & S_{n+1}(Y\times I)
+  \end{tikzcd}
+\]
+sea conmutativo. En particular para $\sigma:\Delta^n\ra X$, ie. $\sigma\in S_n(X)$, queremos
+que:
+\[
+ (\sigma\times\Id_I)_{\#}\circ T_n^{\Delta^n}=T^X_n\circ\sigma_{\#},
+\]
+en particular, como $\sigma_{\#}(\Id_{\Delta})=\sigma\circ\Id=\sigma$, tenemos que
+\begin{equation}\label{eq:def_de_T}
+  T^X_n(\sigma)=T^X_n(\sigma_{\#}(\Id_{\Delta^n}))=
+  (\sigma\times\Id_I)_{\#} \big( T^{\Delta^n}_n(\Id_{\Delta^n})\big).
+\end{equation}
+Por lo tanto definir $T^X_n$ se reduce a definir
+$T_n^{\Delta^n}(\Id_{\Delta^n})\in S_{n+1}(\Delta^n\times I)$.
+
+Para esto hay que hacer lo mismo que en (\ref{eq:homotopia_complejos_lambda}):
+escribimos $\delta^i:\Delta^n\ra\Delta^n\times I$ como la inclusi\'on
+$\delta^i(x)=(x,i)$ y queremos una familia
+$\fT^{\Delta}:\{T_m^{\Delta^n}:S_m(\Delta^n)\ra S_{m+1}(\Delta^n\times I)\}$ de
+morfismo de $R$-m\'odulos que sea una homotop\'ia $\delta_{\#}^0\simeq\delta_{\#}^1$,
+en particular:
+\begin{equation}
+  \label{eq:homotopia_delta}
+  \delta_{\#}^1(\Id_{\Delta^n})-\delta_{\#}^0(\Id_{\Delta^n})=
+  (\partial'_{n+1}\circ T_n^{\Delta^n})(\Id_{\Delta^n})+
+  (T_{n-1}^{\Delta^n}\circ\partial_n)(\Id_{\Delta^n})
+\end{equation}
+donde $m=n$ (ya que solamente necesitamos este caso). Primero evaluamos el segundo sumando.
+
+Observa que los morfismos cara $F_n^i:\Delta^{n-1}\ra\Delta^n$ satisfacen el diagrama
+conmutativo
+\[
+  \begin{tikzcd}[column sep=large]
+    S_{n-1}(\Delta^{n-1}) \arrow[r,"T^{\Delta^{n-1}}_{n-1}"] \arrow[d,"f_{\#}"'] &
+    S_{n}(\Delta^{n-1}\times I) \arrow[d,"(F_n^i\times\Id_I)_{\#}"]\\
+    S_{n-1}(\Delta^n) \arrow[r,"T^{\Delta^n}_{n-1}"] & S_{n}(\Delta^n\times I)
+  \end{tikzcd}
+\]
+Este diagrama nos permite calcular:
+\begin{align*}
+  (T_{n-1}^{\Delta^n}\circ\partial_n)(\Id_{\Delta^n}) &=
+  T_{n-1}^{\Delta^n}\paren{\sum_{i=0}^n(-1)^i (\Id_{\Delta^n}\circ F_n^i)} =
+  T_{n-1}^{\Delta^n}\paren{\sum_{i=0}^n(-1)^i F_n^i} =
+  \sum_{i=0}^n(-1)^i(T_{n-1}^{\Delta^n}\circ F_n^i) \\ & =
+  \sum_{i=0}^n(-1)^i (F_n^i\times\Id)_{\#}\big( T_{n-1}^{\Delta^{n-1}} (\Id_{\Delta^{n-1}})\big)  
+\end{align*}
+Sustituimos en (\ref{eq:homotopia_delta}) para obtener:
+\begin{equation}
+  \label{eq:homotopia_delta_2}
+  \delta_{\#}^1(\Id_{\Delta^n})-\delta_{\#}^0(\Id_{\Delta^n})=
+  \partial'_{n+1}\big(T_n^{\Delta^n}(\Id_{\Delta^n}) \big)+
+  \sum_{i=0}^n(-1)^i (F_n^i\times\Id)_{\#}\big( T_{n-1}^{\Delta^{n-1}} (\Id_{\Delta^{n-1}})\big).
+\end{equation}
+Observa que el lado derecho depende de solamente $T_n^{\Delta^n}(\Id_{\Delta^n})$.
+La idea es definirlo para forzar la igualdad anterior. Para esto, necesitamos una
+construcci\'on nueva: agregar un v\'ertice a un simplejo singular.
+
+\begin{defin}
+  Sea $\sigma:\Delta^n\ra\RR^N$ un $n$-simplejo singular con $\sigma=\gen{v_0,\ldots,v_n}$.
+  Para $v\in\RR^N$ definimos:
+  \[
+    v\cdot\sigma:=\gen{v,v_0,\ldots,v_n} \quad\text{donde}\quad
+    (v\cdot\sigma)(e_i)=
+    \begin{cases}
+      v &\text{si}\;\; i=0 \\
+      v_{i-1} &\text{si}\;\; i=1,\ldots,n
+    \end{cases}
+  \]
+  En general si $\tau=\sum_{\sigma}r_{\sigma}\sigma$ es una $n$-cadena afin, entonces
+  definimos
+  \[
+    v\cdot\tau:=\sum_{\sigma}r_{\sigma}(v\cdot\sigma).
+  \]  
+\end{defin}
+
+\begin{ejemplo}
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{agregar_vertice}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{ejemplo}
+
+Esta construcci\'on cumple algunas propiedades importantes
+
+\begin{lema}\label{lema:uno_invariancia}
+  Las caras de $v\cdot\sigma$ son
+  \[
+    (v\cdot\sigma)^{(i)}=
+    \begin{cases}
+      \sigma &\text{si}\;\; i=0 \\
+      v\cdot\sigma^{(i)} &\text{si}\;\; i=1,\ldots,n
+    \end{cases}
+  \]
+\end{lema}
+\begin{proof}
+  Para $i=0$, tenemos:
+  \[
+    (v\cdot\sigma)^{(0)}(e_j)=(v\cdot\sigma)(F^0_{n+1}(e_j))=(v\cdot\sigma)(e_{j+1})=
+    v_j=\sigma(e_j),
+  \]
+  por lo tanto $(v\cdot\sigma)^{(0)}=\sigma$.
+
+  Para $i>0$ tenemos
+  \begin{align*}
+    (v\cdot\sigma)^{(i)}(e_j)&=(v\cdot\sigma)(F^i_{n+1}(e_j))=
+    \left. \begin{cases}
+      (v\cdot\sigma)(e_j) &\text{si}\;\; j<i\\
+      (v\cdot\sigma)(e_{j+1}) &\text{si}\;\; j\geq i
+    \end{cases}\right\}=
+  \left. \begin{cases}
+      v &\text{si}\;\; j=0 \\
+      v_{j-1} &\text{si}\;\; 0<j<i\\
+      v_j &\text{si}\;\; j\geq i
+    \end{cases}\right\}\\ & =
+  (v\cdot\sigma^{(i)})(e_j),
+  \end{align*}
+por lo tanto $(v\cdot\sigma)^{(i)}=v\cdot\sigma^{(i)}$
+\end{proof}
+
+\begin{lema}\label{lema:dos_invariancia}
+  Sea $\tau=\sum_{\sigma}r_{\sigma}\sigma$ una $n$-cadena afin, entonces:
+  \[
+    \partial_{n+1}(v\cdot\tau)=\tau-v\cdot\partial_n(\tau),
+  \]
+  en particular, si $\tau$ es un ciclo entonces $\partial_{n+1}(v\cdot\tau)=\tau$.
+\end{lema}
+\begin{proof}
+  Simplemente hay que calcular:
+  \[
+    \partial_{n+1}(v\cdot\tau)=\partial_{n+1}\paren{\sum_{\sigma}r_{\sigma}(v\cdot\sigma)}=
+    \sum_{\sigma}r_{\sigma}\partial_{n+1}(v\cdot\tau)=
+    \sum_{\sigma}r_{\sigma}\paren{\sum_{i=0}^{n+1}(-1)^i(v\cdot\sigma)^{(i)}}.
+  \]
+  Por el lema \ref{lema:uno_invariancia}, la suma adentro del par\'entesis es
+  \[
+    \sum_{i=0}^{n+1}(-1)^i(v\cdot\sigma)^{(i)}=
+    \sigma-\sum_{i=0}^{n}(-1)^iv\cdot\sigma^{(i)}=
+    \sigma-v\cdot\paren{\sum_{i=0}^n(-1)^i\sigma^{(i)}}=\sigma-v\cdot\partial_n(\sigma).
+  \]
+  Si sustituimos en la igualdad anterior, obtenemos:
+  \begin{align*}
+    \partial_{n+1}(v\cdot\tau) & =\sum_{\sigma}r_{sigma}(\sigma-v\cdot\partial_n(\sigma))=
+    \sum_{\sigma}r_{\sigma}\sigma-\sum_{\sigma}r_{\sigma}v\cdot\partial_n(\sigma)=
+    \tau-v\cdot\paren{\sum r_{\sigma}\partial_n(\sigma)}\\ & =\tau-v\cdot\partial_n(\tau).
+  \end{align*}  
+\end{proof}
+
+Con esto definimos bien la familia
+\[
+  \sP_0:=T_0^{\Delta^0}(Id_{\Delta^0}),\;\; \sP_1:=T_1^{\Delta^1}(Id_{\Delta^1}),\; \ldots\;,
+  \sP_n:=T_n^{\Delta^n}(Id_{\Delta^n}),\; \ldots
+\]
+de simplejos para poder definir $T^X_n$ como en (\ref{eq:def_de_T}).
+
+\begin{defin}
+  Sea $\fb_n:=(\fb(\Delta^n),\tfrac{1}{2})\in \Delta^n\times I$, donde $\fb(\Delta^n)$
+  es el baricentro de $\Delta^n$. Entonces definimos inductivamente:
+  \begin{equation*}
+    \sP_0:=\fb_0\cdot\paren{\delta^1_{\#}(\Id_{\Delta^0})-\delta^0_{\#}(\Id_{\Delta^0})}
+  \end{equation*}
+  \begin{equation*}
+    \sP_n:=\fb_n\cdot\underset{\fz_n}{\underbrace{\paren{\delta^1_{\#}(\Id_{\Delta^n})-
+          \delta^0_{\#}(\Id_{\Delta^n})-
+    \sum_{i=0}^n(-1)^i(F^i_n\times\Id_I)_{\#}(\sP_{n-1})}}}.
+  \end{equation*}
+\end{defin}
+
+Ilustro los primeros simplejos:
+%\begin{enumerate}
+%\item[($n=0$)] Primero definimos $\sP_0:=T_0^{\Delta^0}(\Id_{\Delta^0})$. Como $\partial_0=0$,
+%  la f\'ormula (\ref{eq:homotopia_delta}) se reduce a:
+%  \[
+%    \delta_{\#}^1(\Id_{\Delta^0})-\delta_{\#}^0(\Id_{\Delta^0})=\partial'_0(\sP_0)
+%  \]
+%  Entonces tenemos
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{p0}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\item[($n=1$)] Para este caso tambi\'en definimos $\sP_1:=T_1^{\Delta^1}(\Id_{\Delta^1})$,
+%  la f\'ormula (\ref{eq:homotopia_delta_2}) queda:
+%  \begin{align*}
+%    \delta_{\#}^1(\Id_{\Delta^1})-\delta_{\#}^0(\Id_{\Delta^1})&=
+%    \partial'_{2}(\sP_1)+(F_1^0\times\Id_I)_{\#}(\sP_0)-(F_1^1\times\Id_I)_{\#}(\sP_0) \\
+%    \therefore \partial'_{2}(\sP_1) &= \delta_{\#}^1(\Id_{\Delta^1})-\delta_{\#}^0(\Id_{\Delta^1})+
+%    (F_1^1\times\Id_I)_{\#}(\sP_0)-(F_1^0\times\Id_I)_{\#}(\sP_0)
+%  \end{align*}
+%  El lado derecho es la frontera de
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{p1}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{figure}[h!]%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% FIGURE
+  \centering
+%  \includegraphics[scale=0.11]{p2}
+\end{figure}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \end{enumerate}
+
+Observa que $\sP_n$ se obtiene de agregarle un v\'ertice $\fb_n$, que est\'a adentro
+de $\fz_n$. Intuitivamente esto produce un $(n+1)$-simplejo cuya frontera es $\fz_n$
+porque todas las aristas nuevas que se producen pasan por $\fz_n$ de tal manera que
+las orientaciones se cancelan. Esto es una propiedad importante que cumple la
+familia $\{\sP_0,\sP_1,\ldots\}$.
+
+\begin{lema}\label{lema:calculo_frontera_sP}
+  $\partial_1(\sP_0)=\delta^1_{\#}(\Id_{\Delta^0})-\delta^0_{\#}(\Id_{\Delta^0})$ y
+  en general $\partial_{n+1}(\sP_n)=\fz_n$ para $n>0$.
+\end{lema}
+\begin{proof}
+  La prueba va a ser por inducci\'on y voy a abreviar $\delta^i=\delta^i_{\#}(\Id_{\Delta^n})$.
+  Para el caso $n=0$, usamos el lema \ref{lema:dos_invariancia} para calcular:
+  \[
+    \partial_1(\sP_0)=\partial_n\big(\fb_0\cdot(\delta^1-\delta^0)\big)=
+    \delta^1-\delta^0-\cancelto{0}{\fb_0\partial_0(\delta^1-\delta^0)}=\delta^1-\delta^0.
+  \]
+
+  En general, si $\fz_n$ es un ciclo para toda $n$, entonces el lema \ref{lema:dos_invariancia}
+  nos dice que:
+  \[
+    \partial_{n+1}(\sP_n)=\partial_{n+1}(\fb_n\cdot\fz_n)=
+    \fz_n-\cancelto{0}{\fb_0\partial_n(\fz_n)}=\fz_n.
+  \]
+  Por lo tanto el lema se reduce a probar que $\fz_n$ es un ciclo, ie. $\partial_n(\fz_n)=0$.
+
+  Ahora supongamos que el lema se cumple para $n-1$, es decir $\partial_n(\sP_{n-1})=\fz_{n-1}$.
+  Entonces $\partial_{n-1}(\fz_{n-1})=\partial_{n-1}(\partial_n(\sP_{n-1}))=0$. Por recursi\'on
+  podemos concluir que $\fz_m$ es un ciclo para toda $m<n$. Con esto podemos calcular:
+  \begin{align*}
+    \partial_n(\fz_n)& =\partial_n\paren{\delta^1_{\#}(\Id_{\Delta^n})-\delta^0_{\#}(\Id_{\Delta^n})-
+    \sum_{i=0}^n(-1)^i(F^i_n\times\Id_I)_{\#}(\sP_{n-1})} \\ & =
+    \partial_n(\delta^1-\delta^0)-\sum_{i=0}^n(-1)^i(F^i_n\times\Id_I)_{\#}(\partial_n(\sP_{n-1}))
+  \end{align*}
+  donde la suma del lado derecho vale:
+  \begin{align*}
+  \sum_{i=0}^n(-1)^i(F^i_n\times\Id_I)_{\#}(\fz_{n-1}) & =
+  \sum_{i=0}^n(-1)^i(F^i_n\times\Id_I)_{\#}\paren{%
+    \delta^1-\delta^0-\sum_{j=0}^{n-1}(-1)^j(F^j_{n-1}\times\Id_I)_{\#}(\sP_{n-2})} \\ & =
+  \left[ \sum_{i=0}^n(-1)^i(F^i_n\times\Id_I)_{\#}(\delta^1-\delta^0) \right]\\ & +
+  \left[\sum_{i=0}^n\sum_{j=0}^{n-1}(-1)^{i+j}\big((F^i_n\circ F_{n-1}^j)\times\Id_I\big)_{\#}%
+    (\partial_n(\sP_{n-1}))\right]
+  \end{align*}
+  Como $(F^i_n\times\Id_I)_{\#}\circ\delta^{*}=\delta^{*}\circ f_n^i$, entonces el primer
+  sumando es simplemente $\partial_n(\delta^1-\delta^0)$. El segundo sumando se anula
+  por el ejercicio \ref{ej:61} y por la prueba del ejercicio \ref{ej:62}. Sustituimos
+  estos resultados en \ref{eq:fzn_es_ciclo} para obtener:
+  \[
+    \partial_n(\fz_n)=\partial_n(\delta^1-\delta^0)-\partial_n(\delta^1-\delta^0)+0=0
+  \]
+  y as\'i $\fz_n$ es un ciclo.
+\end{proof}
+
+Ya estamos en posici\'on para probar el teorema de la invariancia de la homologia singular;
+simplemente definimos $T_n^{\Delta^n}(\Id_{\Delta^n}):=\sP_n$ como en (\ref{eq:def_de_T}).
+
+\begin{proof}(Teorema \ref{thm:invariancia_homologia_dos})
+  Recuerda que nada m\'as debemos probar que $\la^0_{\#}\simeq\la^1_{\#}$ como morfismos
+  de complejos de cadenas. La homotop\'ia est\'a dada por la familia
+  \[
+    T_n^X:S_n(X)\lra S_{n+1}(X) \quad\text{definida por}\quad
+    \sigma  \mapsto  (\sigma\times\Id_I)_{\#}(\sP_n),
+  \]
+  de morfismos de $R$-m\'odulos. Calculamos:
+  \begin{align}\label{eq:lambdas_homotopicas}
+    (\partial'_{n+1}T^X_n+T^X_{n-1}\partial_n)(\sigma)&=
+    \partial'_{n+1}\big( (\sigma\times\Id_I)_{\#}(\sP_n) \big)+
+    T^X_n\paren{\sum_{i=0}^n(-1)^i\sigma^{(i)}}\nonumber\\ & =
+    (\sigma\times\Id_I)_{\#}\big( \partial'_{n+1}(\sP_n) \big)+
+    \sum_{i=0}^n(-1)^iT^X_{n-1}(\sigma^{(i)})
+  \end{align}
+  Como $\partial_{n+1}'(\sP_n)=\fz_n$ por el lema \ref{lema:calculo_frontera_sP} y
+  como
+  \[
+    T^X_{n-1}(\sigma^{(i)})=(\sigma^{(i)}\times\Id_I)_{\#}(\sP_{n-1})=
+    \big((\sigma\circ F^i_n)\times\Id_I)_{\#}(\sP_{n-1})=
+    \big( (\sigma\times\Id_I)\circ(F^i_n\times\Id_I) \big)(\sP_{n-1}),
+  \]
+  entonces (\ref{eq:lambdas_homotopicas}) se reduce a:
+  \begin{align*}
+    (\partial'_{n+1}T^X_n+T^X_{n-1}\partial_n)(\sigma)&=
+    (\sigma\times\Id_I)_{\#}\big( \partial'_{n+1}(\sP_n) \big)+
+    \sum_{i=0}^n(-1)^i\big( (\sigma\times\Id_I)\circ(F^i_n\times\Id_I) \big)(\sP_{n-1}) \\ & =
+    (\sigma\times\Id_I)_{\#}\paren{\fz_n+\sum_{i=0}^n(-1)^i(F^i_n\times\Id_I)_{\#}(\sP_{n-1})} \\ & =
+    (\sigma\times\Id_I)_{\#}(\delta^1-\delta^0)
+  \end{align*}
+  por definici\'on de $\fz_n$. Por \'ultimo 
+  \[
+    \big((\sigma\times\Id_I)\circ\delta^{*}\big)(v)=
+    (\sigma\times\Id_I)(v,*)=(\sigma(v),*)=(\la^{*}\circ\sigma)(v)=\la^{*}_{\#}(\sigma)
+  \]
+  Entonces concluimos que:
+  \[
+    \partial'_{n+1}T^X_n+T^X_{n-1}\partial_n=\la^1_{\#}-\la^0_{\#}
+  \]
+  y as\'i $\la^1_{\#}\simeq\la^0_{\#}$. Por el argumento que sigue del enunciado del
+  teorema \ref{thm:invariancia_homologia_dos} ya terminamos la prueba. 
+\end{proof} 
+
+\import{\directory}{ejercicios/67} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 67
+
+\end{document}

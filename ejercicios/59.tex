@@ -1,0 +1,32 @@
+\begin{ejercicio}\label{ej:59}
+  $f_{\#}$ es un morfismo de complejos de cadenas.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Para cada $n\geq0$ denoto por $(f_{\#})_n:\mathscr{C}_n(K)\ra\mathscr{C}_n(L)$ al morfismo de $R$-m\'odulos
+  que es la extensi\'on de
+  $(f_{\#})_n:\{(v_0,\ldots,v_n)\mid\{v_0,\ldots,v_n\}\in K\}\ra\{(u_0,\ldots,u_m)\mid\{u_0,\ldots,u_m\}\in L\}$
+  al $R$-m\'odulo $\mathscr{C}_n(K)$. Para probar que $f_{\#}$ es un morfismo de cadenas, nada m\'as hay que
+  probar que el siguiente diagrama conmuta
+  \[
+    \begin{tikzcd}
+      \mathscr{C}_n(K) \arrow[r,"\partial_n"] \arrow[d,"(f_{\#})_n"] & \mathscr{C}_{n-1}(K) \arrow[d,"(f_{\#})_{n-1}"] \\
+      \mathscr{C}_n(L) \arrow[r,"\partial_n"'] & \mathscr{C}_{n-1}(L)
+    \end{tikzcd}
+  \]
+  o equivalentemente $(f_{\#})_{n-1}\circ\partial_n = \partial_n \circ (f_{\#})_n$.
+  Como en la prueba del ejercicio \ref{ej:53}, basta probar la conmutatividad del diagrama en los elementos
+  de la base:
+
+  Sea $(v_0,\ldots,v_n)\in\mathscr{C}_n(K)$, entonces:
+  \begin{align*}
+    (f_{\#})_{n-1}(\partial_n(v_0,\ldots,v_n))& =
+    (f_{\#})_{n-1}\paren{\sum_{i=0}^n(-1)^i(v_0,\ldots,\what{v_i},\ldots,v_n)}\\ &=
+    \sum_{i=0}^n (-1)^i (f_{\#})_{n-1}(v_0,\ldots,\what{v_i},\ldots,v_n)\\ &=
+    \sum_{i=0}^n (-1)^i (f(v_0),\ldots,\what{f(v_i)},\ldots,f(v_n))\\ &=
+    \partial_n(f(v_0),\ldots,f(v_n))\\ &=
+    \partial_n((f_{\#})_n(v_0,\ldots,v_n)).
+  \end{align*}
+  Por lo tanto tenemos que $(f_{\#})_{n-1}\circ\partial_n = \partial_n \circ (f_{\#})_n$ y acabamos.
+\end{proof}%
+

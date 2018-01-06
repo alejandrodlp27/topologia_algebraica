@@ -1,0 +1,38 @@
+\begin{ejercicio}\label{ej:74}
+  El morfismo $t_{\bullet}:S_{\bullet}(X)\ra S_{\bullet}^{\fU}(X)$ pasa al cociente:
+  \[
+    \overline{t_{\bullet}}:
+    \frac{S_{\bullet}(X)}{S_{\bullet}(A)}\lra\frac{S_{\bullet}^{\fU}(X)}{S_{\bullet}(A)}
+  \]
+  y es una equivalencia homot\'opica de complejos de cadena, m\'as precisamente
+  $\bar{\imath}\circ\overline{t_{\bullet}}\simeq\Id\simeq \overline{t_{\bullet}}\circ\bar{\imath}$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Como $t_{\bullet}|_{S_{\bullet}^{\fU}(X)}=\Id$ y
+  $S_{\bullet}(A)\subseteq S_{\bullet}(X-U)+S_{\bullet}=S_{\bullet}^{\fU}(X)$, entonces
+  \[
+    t_{\bullet}[S_{\bullet}(A)]=S_{\bullet}(A)
+  \]
+  y as\'i $t_{\bullet}$ pasa al cociente, es decir existe un \'unico $\overline{t_{\bullet}}$
+  tal que:
+  \[
+    \begin{tikzcd}
+      S_{\bullet}(X) \arrow[r,"t_{\bullet}"] \arrow[d,two heads] &
+      S_{\bullet}^{\fU}(X) \arrow[r,two heads] & \tfrac{S_{\bullet}^{\fU}(X)}{S_{\bullet}(A)} \\
+      \tfrac{S_{\bullet}(X)}{S_{\bullet}(A)} \arrow[urr,dashed ,"\overline{t_{\bullet}}"'] &&
+    \end{tikzcd}
+  \]
+
+  Como
+  \[
+    t_{\bullet}|_{S_{\bullet}^{\fU}(X)}=\Id \quad\then\quad
+    \imath\circ t_{\bullet}=\Id \quad\then\quad
+    \bar{\imath}\circ\overline{t_{\bullet}}=\Id
+  \]
+  y as\'i tenemos trivialmente que $\Id\simeq\bar{\imath}\circ \overline{t_{\bullet}}$. Para
+  probar el inverso, hay que dar una homotop\'ia de complejos de cadena entre $\overline{t_{\bullet}}$ y
+  $\bar{\imath}$; esta homotop\'ia va a ser la inducida por $\bar{\fR}=\{\overline{R_n}\}_{n\in\ZZ}$
+  donde $\fR=\{R_n\}$ es la hommotop\'ia $t_{\bullet}\simeq\Id$.
+\end{proof}%
+

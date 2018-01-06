@@ -3,6 +3,47 @@
 \end{ejercicio}
 %%% RESPUESTA
 \begin{proof}%  
+	Sea $[v_0,\ldots,v_n]\in S_n^{\fO}$. Entonces:
+	\begin{equation}\label{eq:primera_formula}
+		\partial_{n-1}(\partial_n[v_0,\ldots,v_n])=
+		\partial_{n-1}\paren{\sum_{i=0}^n(-1)^i [v_0,\ldots,\what{v_i},\ldots,v_n]}=
+		\sum_{i=0}^n(-1)^i \partial_{n-1}[v_0,\ldots,\what{v_i},\ldots,v_n]
+	\end{equation}
+	Ahora analizo el t\'ermino $\partial_{n-1}[v_0,\ldots,\what{v_i},\ldots,v_n]$. Observa que
+	\begin{align*}
+		\partial_{n-1}[v_0,\ldots,\what{v_i},\ldots,v_n] &=
+		[\what{v_0},\ldots,\what{v_i},\ldots,v_n]+\cdots+(-1)^{i-1}[v_0,\ldots,\what{v_{i-1}},\what{v_i},\ldots,v_n] \\ &+
+		(-1)^i[v_0,\ldots,\what{v_{i}},\what{v_{i+1}},\ldots,v_n]+\cdots+(-1)^{n-1}[v_0,\ldots,\what{v_i},\ldots,\what{v_n}]
+	\end{align*}
+	Juntando esto en notaci\'on de suma, tenemos:
+	\[
+		\partial_{n-1}[v_0,\ldots,\what{v_i},\ldots,v_n] =
+		\sum_{j=0}^{i-1}(-1)^j[v_0,\ldots,\what{v_j},\ldots,\what{v_i},\ldots,v_n]+\sum_{k=i+1}^{n}(-1)^{k-1}[v_0,\ldots,\what{v_i},\ldots,\what{v_k},\ldots,v_n]
+	\]
+	donde el exponente de $(-1)$ en la segunda suma es $k-1$ en lugar de $k$ porque el $k$-\'esimo sumando de la
+	segunda suma es el $(k-1)$-\'esimo sumando de todo $\partial_{n-1}[v_0,\ldots,\what{v_i},\ldots,v_n]$ (ya que $k>i$
+	y se elimin\'o el t\'ermino $i$-\'esimo). Sustituyo en la f\'ormula (\ref{eq:primera_formula}):
+	\begin{align*}
+		\partial_{n-1}(\partial_n[v_0,\ldots,v_n]) &=
+		\sum_{i=0}^n(-1)^i \left( \sum_{j=0}^{i-1}(-1)^i[v_0,\ldots,\what{v_j},\ldots,\what{v_i},\ldots,v_n] \right. \\ &
+		\left. +\sum_{k=i+1}^{n}(-1)^{k-1}[v_0,\ldots,\what{v_i},\ldots,\what{v_k},\ldots,v_n]\right) \\ & =
+		\sum_{i=0}^n\sum_{j=0}^{i-1}(-1)^{i+j}[v_0,\ldots,\what{v_j},\ldots,\what{v_i},\ldots,v_n] \\ & +
+		\sum_{i=0}^n\sum_{j=i+1}^{n}(-1)^{i+j-1}[v_0,\ldots,\what{v_i},\ldots,\what{v_j},\ldots,v_n] 
+	\end{align*}
+	De esta expressi\'on se vuelve claro que un sumando arbitrario $[v_0,\ldots,\what{v_k},\ldots,\what{v_l},\ldots,v_n]$
+	aparece dos veces con signo contrario: en el primer sumando cuando $k=j$ y $l=i$ con signo $(-1)^{i+j}$ y en el
+	segundo sumando cuando $k=i$ y $l=j$ con signo $(-1)^{i+j-1}$.
 
+	Por lo tanto cada sumando de la primera suma, de la ecuaci\'on anterior, se cancela con un sumando de la segunda
+	suma. As\'i podemos concluir que toda la suma vale 0, ie. $\partial_{n-1}(\partial_n[v_0,\ldots,v_n])=0$ para todo
+	elemento de $S_n^{\fO}$.
+
+	Ahora $\partial_{n-1}\circ\partial$ se extiende a $R\gen{S_n^{\fO}}$ como:
+	\[
+		(\partial_{n-1}\circ\partial_n)\paren{\sum_{\sigma\in S_n^{\fO}} r_{\sigma}\sigma}=
+		\sum r_{\sigma} (\partial_{n-1}\circ\partial_n)(\sigma)=
+		\sum r_{\sigma} 0=0
+	\]
+	y as\'i podemos concluir que $\partial_{n-1}\circ\partial_n=0$ como morfismo de $R$-m\'odulos.
 \end{proof}%
 

@@ -1,0 +1,15 @@
+\begin{ejercicio}\label{ej:79}
+  La acci\'on $\text{SO}(n)\times\Sn^{n-1}\ra\Sn^{n-1}$ definido por $(A,x)\mapsto Ax$ es
+  transitiva.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Sea $x\in\Sn^{n-1}$. Por el proceso de ortogonalizaci\'on de Graham-Schmidt existe
+  una base ortonormal $\{x,x_2,\ldots,x_n\}$ de $\RR^n$. Define $A_x$ como la matriz
+  con los vectores $x,x_2,\ldots,x_n$ como columnas. Como la base es ortonormal
+  $A_x\in\text{SO}(n)$ para toda $x$. Entonces $A_xe_1=x$ donde $e_1=(1,0,\ldots,0)$ y
+  as\'i $e_1=A_x^{-1}x$ donde $A_x^{-1}\in\text{SO}(n)$. Por lo tanto $e_1\in\Oo(x)$ para
+  toda $x$, ie. $e_1\in\cap_x\Oo(x)$. Como \'orbitas distintas son disjuntas,
+  esto quiere decir que solamente hay una \'orbita. Por lo tanto la acci\'on es transitiva.
+\end{proof}%
+

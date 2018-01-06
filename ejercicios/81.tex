@@ -1,0 +1,93 @@
+\begin{ejercicio}\label{ej:81}
+  Sean $A\subseteq X$ un cerrado, $f:A\ra Y$ una funci\'on contnua y
+  $p:X\sqcup U\epi X\cup_f Y$ la identificaci\'on can\'onica. Entonces $p|_{X-A}$ es
+  un encaje abierto y $p|_Y$ es un encaje cerrado.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}$\;$\\%
+  \begin{enumerate}
+   \item[($p|_{X-A}$ es abierta)]
+  Primero observa que si $x\in X-A\subseteq X\sqcup Y$, entonces $[x]\in X\cup_f Y$
+  tiene solamente un representante porque $x\not\in A$ ni $x\not\in Y$. Por lo tanto
+  para el conjunto $\im{p|_{X-A}}=\{[x]\mid x\in X-A\}$, se cumple que $x=x'\iff[x]=[x']$,
+  es decir que $p$ es biyectiva. Por lo tanto si $U\subseteq X-A$ es un abierto, entonces
+  $p[U]$ es abierto si y s\'olo si $p^{-1}[p[U]]=U$ es abierto. Con esto conluyo que $p|_{X-A}$
+  es una funci\'on abierta.
+  
+  \item[($p|_{X-A}$ es encaje)]
+  Si definimos $q:\im{p|_{X-A}}\ra X-A$ como $[x]\mapsto x$, entonces claramente
+  es un inverso de $p|_{X-A}$ y es continua porque si $U\subseteq X-A$ es un abierto,
+  entonces $q^{-1}[U]=\{[x]\in\im{p|_{X-A}}\mid x\in u\}$ es abierto porque $p$ es
+  una identificaci\'on. Por lo tanto $p|_{X-A}$ es un homeomorfismo sobre su imagen, ie.
+  un encaje.
+
+  \item[($p|_Y$ es cerrada)]
+  Sea $C\subseteq Y$ un cerrado y consideremos $[t]\in X\cup_f Y$ un punto de
+  acumulaci\'on de $p[C]$. En particular hay una sucesi\'on $\{[c_n]\}_{n}$,
+  donde $c_n\in C$, que converge a $[t]$. Primero observa que $t\not\in X-A$
+  porque de lo contrario habr\'ia una vecindad abierta $V\subsetneq X-A$ de $t$
+  que bajo $p$ es un abierto (pues $p|_{X-A}$ es un encaje abierto), es decir
+  $p[V]$ es una vecindad abierta de $[t]$ pero $p[C]\cap p[V]\subseteq p[C\cap V]=\emptyset$.
+  Esto implica que $\{[c_n]\}$ no puede converger a $t$! Por lo tanto hemos
+  reducido el problema a considerar dos casos:
+  \begin{enumerate}
+  \item Supongamos que $t\in Y$ y sea $U\subseteq Y$ una vecindad de $t$. Definimos
+    $V:=$
+
+
+
+    Entonces
+    $X\sqcup U\subseteq X\sqcup Y$ es un abierto, pero como
+    \[
+      p^{-1}[p[X\sqcup U]]=
+      \{z\in X\sqcup Y \mid [z]=[z']\;\text{para alguna}\; z'\in X\sqcup U\} = X\sqcup U.
+    \]
+    podemos concluir que $p[X\sqcup U]$ es una vecindad abierta de $X\cup_f Y$. Como
+    contiene a $[t]$ existe un elemento de la sucesi\'on $[c_n]\in p[X\sqcup U]$, pero
+    esto significa que existe un $z\in X\sqcup U$ tal que $[c_n]=[z]$. Si $z\in U$ entonces
+    $z=c_n\in U$ a as\'i $\{c_n\}\ra t$. Si $z\in X$ entonces $[c_n]=[z]=[f(t)]$
+    ie. $c_n\in U$. Como $C$ es cerrado concluimos que $t\in C$ y as\'i $[t]\in p[C]$.
+  \item Si $t\in A$ tenemos que $[t]=[f(t)]$ y el caso anterior nos dice que $[f(t)]\in p[C]$.
+    
+  \end{enumerate}
+
+\item[($p|_Y$ es encaje)] Sabemos que
+  \[
+    \im{p|_Y}=\{[z]\in X\cup_f Y\mid [z]=[y]\;\text{para alguna}\; y\in Y\}
+  \]
+  es decir es el conjunto de clases de elementos relacionados a un elemento de $Y$.
+  Estos pueden estar en $Y$ o en $A$
+  Define $q:\im{p|_Y}\ra X\sqcup Y$ definido por
+  \[
+    q[z]=
+    \begin{cases}
+      z &\text{si}\;\; z\in Y\\
+      f(z) &\text{si}\;\; z\in A
+    \end{cases}
+  \]
+  Primero observa que es el inverso de $p|_Y$ porque
+  \[
+    p|_Y(q[z])=
+    \begin{cases}
+      p|_Y(z)=[z] &\text{si}\;\; z\in Y\\
+      p|_Y(f(z))=[f(z)]=[z] &\text{si}\;\; z\in A
+    \end{cases}
+  \]
+  y porque $q(p|_Y(y))=q[y]=y$. Est\'a bien definida porque si $[z]=[z']\in\im{p|_Y}$
+  existen $y,y'\in Y$ tales que $[y]=[z]=[z']=[y']$, pero dos elementos $y$ y $y'$
+  en un mismo sumando de $X\sqcup Y$ no pueden estar relacionados si son distintos.
+  Por lo tanto $y=y'$. Hay dos casos: si $z\in Y$ entonces $y=z$, si $z\in A$ entonces
+  $f(z)\in Y$ y $[f(z)]=[z]=[y]$ implica que $f(z)=y$. Por lo tanto $q$, que es esencialmente
+  el mapeo $[z]\mapsto y$, est\'a bien definida.
+
+  $q$ es continua porque si $U\subseteq Y$ es un abierto, entonces
+  \[
+    q^{-1}[U]=\{[z]\in X\cup_f Y\mid q[z]\in U\}=p[U]\cup p[f^{-1}[U]]
+  \]
+  
+
+  
+  
+  \end{enumerate}  
+\end{proof}%
+

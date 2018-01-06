@@ -1,0 +1,24 @@
+\begin{ejercicio}\label{ej:64}
+  Ambas definiciones de la homolog\'ia relativa son equivalentes.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Observa que $Z_n(X,A;R)$ es un subm\'odulo de $S_n(X,R)$ porque si $\sigma,\tau\in Z_n(X,A;R)$ entonces
+  \begin{align*}
+    \partial_n(\sigma-\tau)&=\partial_n(\sigma)-\partial_n(\tau)\in S_{n-1}(A;R)
+    \quad\then\quad \sigma-\tau\in Z_n(X,A;R)\\
+    \partial_n(r\sigma)&= r\partial_n(\sigma)\in S_{n-1}(A;R)\quad\forall r\in R \quad\then\quad r\sigma\in Z_n(X,A;R).
+  \end{align*}
+  Ahora defino $\Phi:Z_n(X,A;R)\ra S_n(X;R)/S_n(A;R)$ como la restricci\'on de la proyecci\'on $S_n(X;R)\epi S_n(X;R)/S_n(A;R)$.
+  Claramente es un morfismo de $R$-m\'odulos.
+  
+  Primero pruebo que $\Phi$ es sobre. Sea $[\sigma]\in S_n(X;R)/S_n(A;R)$ y tomo la clase lateral
+  $\Sigma:=\sigma+S_n(A;R)\subseteq S_n(X;R)$. Todo elemtento de $\sigma'\in\Sigma$ es de la forma $\sigma'=\sigma+\tau$ donde
+  $\tau\in S_n(A;R)$. Entonces
+  \[
+    \partial_n(\sigma')=\partial_n(\sigma+\tau)=\partial_n(\sigma)+\partial_n(\tau) \quad\then\quad
+    \partial_n(\sigma'-\sigma)\in S_n(A;R).
+  \]
+  Ahora observa que $[\sigma]=[\sigma'-\sigma]$ porque
+\end{proof}%
+

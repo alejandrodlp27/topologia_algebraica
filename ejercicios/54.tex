@@ -4,6 +4,43 @@
 \end{ejercicio}
 %%% RESPUESTA
 \begin{proof}%  
+	Sea $\sigma\in\abs{K}$, en particular
+	\[
+		\sum_{v\in V_K}\sigma(v)=1 \quad\text{y}\quad \sigma^{-1}(0,1]=\text{Sop}(\sigma)=\{v_0,\ldots,v_n\}\in K
+	\]
+	Como $V_K=\cup_{u\in V_L}f^{-1}[u]$ entonces:
+	\begin{equation}\label{eq:primera_propiedad}
+		\sum_{u\in V_L}\abs{f}(\sigma)(u)=\sum_{\tau\in L} \sum_{v\in f^{-1}[u]}\sigma(v)=\sum_{v\in V_K}\sigma(v)=1
+	\end{equation}
+	porque $\sigma\in\abs{K}$.
 
+	Ahora s\'olo falta verificar que Sop$(\abs{f}(\sigma))\in L$. Como $f$ es un mapeo simplicial entonces:
+	\[
+		\text{Sop}(\sigma)=\{v_0,\ldots,v_n\}\in K \quad\then\quad \{f(v_0),\ldots,f(v_n)\}\in L.
+	\]
+	Si pruebo que Sop$(\abs{f}(\sigma))=\{f(v_0),\ldots,f(v_n)\}$ entonces por lo anterior y la f\'ormula
+	(\ref{eq:primera_propiedad}) tendr\'e que $\abs{f}(\sigma)\in\abs{L}$ para toda $\sigma\in\abs{K}$.
+
+	Pruebo la igualdad que me falta:
+
+	$\subseteq)$ Sea $u\in\text{Sop}(\abs{f}(\sigma))\subseteq V_L$, entonces:
+	\[
+		0<\abs{f}(\sigma)(u)=\sum_{v\in f^{-1}[u]}\sigma(v) \quad\then\quad \exists
+		v'\in f^{-1}[u] \;\;\text{tal que}\;\; \sigma(v')>0
+	\]
+	porque todos los sumandos son no negativos. Esto implica que $v'=v_i\in\text{Sop}(\sigma)=\{v_0,\ldots,v_n\}$
+	para alguna $i$. Por lo tanto $f(v')=f(v_i)=u\in\{f(v_0),\ldots,f(v_n)\}$.
+
+	$\supseteq)$ Considera $u\in\{f(v_0),\ldots,f(v_n)\}$. Entonces
+	\[
+		\abs{f}(\sigma)(u)=\abs{f}(\sigma)(f(v_i))=\sum_{v\in f^{-1}[f(v_i)]}\sigma(v)=\sigma(v_i)+\sum \sigma(v)>0
+	\]
+	porque $v_i\in f^{-1}[f(v_i)]$ y adem\'as $v_i\in\text{Sop}(\sigma)$ lo cual implica que $\sigma(v_i)>0$.
+	Por lo tanto
+	\[
+		\abs{f}(\sigma)(u)>0 \quad\then\quad u\in\text{Sop}(\abs{f}(\sigma)). 
+	\]
+	
+	Con esto conluyo que Sop$(\abs{f}(\sigma))=\{f(v_0),\ldots,f(v_n)\}$ y acabo.
 \end{proof}%
 

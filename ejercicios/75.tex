@@ -1,0 +1,30 @@
+\begin{ejercicio}\label{ej:75}
+  Las tres definiciones de homolog\'ia reducida son equivalentes.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%
+  El teorema \ref{thm:sucesion_exacta_larga} dice que existe una sucesi\'on exacta larga:
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r] & H_n(\{x\}) \arrow[r] & H_n(X) \arrow[r] & H_n(X,\{x\})\arrow[r,"d_n"] &
+      H_{n-1}(\{x\}) \arrow[r] & H_{n-1}(X) \arrow[r] & \cdots.
+    \end{tikzcd}
+  \]
+  Pero ya hemos calculado la homolog\'ia de un punto (cf. proposici\'on \ref{prop:homologia_punto}),
+  entonces la sucesi\'on exacta larga se reduce a:
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r] & 0 \arrow[r] & H_n(X) \arrow[r] & H_n(X,\{x\})\arrow[r,"d_n"] &
+      0 \arrow[r] & \cdots
+    \end{tikzcd}
+  \]
+  y para $n=0,1$ la sucesi\'on exacta larga termina en
+  \[
+    \begin{tikzcd}
+      \cdots \arrow[r] & 0 \arrow[r] & H_1(X) \arrow[r]&
+      H_1(X,\{x\}) \arrow[r,"d_1"] & R \arrow[r] & H_0(X) \arrow[r] & H_0(X,\{x\}) \arrow[r] & 0.
+    \end{tikzcd}
+  \]
+  Para $n>1$ podemos concluir que $H_n(X)\cong H_n(X,\{x\})$
+\end{proof}%
+

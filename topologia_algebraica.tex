@@ -1,5 +1,6 @@
 \documentclass[10pt]{report}
-\usepackage{template_spanish,algebra,import,subfiles,verbatim,math_letters}
+\usepackage{template_spanish,algebra,import,subfiles,verbatim,math_letters,cancel}
+\usepackage[mathscr]{euscript}
 \usepackage{tikz-cd}
 \usetikzlibrary{decorations.pathmorphing}
 
@@ -46,17 +47,24 @@
 
 \subfile{secciones/complejos_simpliciales/complejos_simpliciales}
 
+\subfile{secciones/homologia_singular/homologia_singular}
+
+\subfile{secciones/invariancia_homologia/invariancia_homologia}
+
+\subfile{secciones/escision/escision}
+
+\subfile{secciones/calculo_homologia/calculo_homologia}
+
 % \subfile{secciones/}
 % \subfile{secciones/}
 % \subfile{secciones/}
 % \subfile{secciones/}
 % \subfile{secciones/}
 % \subfile{secciones/}
-% \subfile{secciones/}
-% \subfile{secciones/}
-% \subfile{secciones/}
-% \subfile{secciones/}
-% \subfile{secciones/}
+
+\appendix
+
+\subfile{secciones/categorias/categorias}
 
 
 \end{document}

@@ -1,0 +1,29 @@
+\begin{ejercicio}\label{ej:57}
+  Un morfismo $\varphi:\Cc_{\bullet}\ra\Cc_{\bullet}$ induce un homomorfismo
+  $H_n(\varphi):H_n(\Cc_{\bullet})\ra H_n(\Cc'_{\bullet})$.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Sea $n\in\ZZ$ y considera el morfismo de $R$-m\'odulos $\varphi_n:\Cc_n\ra\Cc'_n$ que da la definici\'on de
+  $\varphi:\Cc_{\bullet}\ra\Cc'_{\bullet}$. Tambi\'en sea $x\in\ker\partial_n\subseteq C_n$. Como $\varphi$ es
+  un morfismo de cadenas, entonces:
+  \[
+    0=\varphi_{n-1}(0)=\varphi_{n-1}(\partial_n(x))=\partial'_n(\varphi_n(x)) \quad\then\quad \varphi_n(x)\in\ker\partial'_n.
+  \]
+  Esto implica que $\varphi_n|_{\ker\partial_n}:\ker\partial_n\ra\ker\partial'_n$ est\'a bien definida.
+
+  Ahora considera $[x],[x']\in H_n(\Cc_{\bullet})$ tales que $[x]=[x']$ o equivalentemente $x-x'\in\text{Im}\partial_{n+1}$.
+  Entonces existe una $y\in C_{n+1}$ tal que $\partial_{n+1}(y)=x-x'$. Como $\varphi$ es un morfismo de complejos
+  de cadena, tenemos que
+  \[
+    \varphi_n(x)-\varphi_n(x')=\varphi_n(x-x')=\varphi_n(\partial_{n+1}y)=\partial'_{n+1}(\varphi_{n+1}(y)) \quad\then\quad
+    \varphi_n(x)-\varphi_n(x')\in\text{Im}\partial'_{n+1}.
+  \]
+  Por lo tanto $[\varphi_n(x)]=[\varphi_n(x')]$ en $H_n(\Cc'_{\bullet})$ y as\'i la funci\'on:
+  \[
+    H_n(\varphi):H_n(\Cc_{\bullet})\lra H_n(\Cc'_{\bullet}) \quad\text{definido por}\quad [x] \mapsto [\varphi_n(x)]
+  \]
+  est\'a bien definida. Como $\varphi_n$ es un morfismo de $R$-m\'odulos, entonces $H_n(\varphi)$ es un morfismo de
+  $R$-m\'odulos gracias a la regla de correspondencia de $H_n(\varphi)$.
+\end{proof}%
+

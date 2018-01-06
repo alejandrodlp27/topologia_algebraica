@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.26)  20 DEC 2017 02:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.26)  5 JAN 2018 07:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -374,6 +374,14 @@ Package: subfiles 2012/05/23 Federico Garcia
 (/home/pi/texmf/tex/latex/math_letters.sty
 Package: math_letters 
 )
+(/home/pi/texmf/tex/latex/cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/euscript.sty
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
+)
 (/home/pi/texmf/tex/latex/tikz-cd.sty
 Package: tikz-cd 2014/10/30 v0.9e Commutative diagrams with tikz
 
@@ -747,18 +755,18 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 (./topologia_algebraica.aux)
 \openout1 = `topologia_algebraica.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
  ABD: EveryShipout initializing macros
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -875,7 +883,7 @@ Graphic file (type jpg)
 
 <use /home/pi/math/maestria/topologia_algebraica/figuras/transversalidad.jpeg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/tr
-ansversalidad.jpeg used on input line 60.
+ansversalidad.jpeg used on input line 62.
 (pdftex.def)             Requested size: 197.23839pt x 121.95656pt.
 
 [6 </home/pi/math/maestria/topologia_algebraica/figuras/transversalidad.jpeg>]
@@ -1421,41 +1429,174 @@ Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/co
 mplejo_circulo.jpeg used on input line 264.
 (pdftex.def)             Requested size: 191.51202pt x 182.27762pt.
 (./ejercicios/49.tex [72 </home/pi/math/maestria/topologia_algebraica/figuras/c
-omplejo_circulo.jpeg>]) [73] (./ejercicios/50.tex)
-</home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg, id=31
+omplejo_circulo.jpeg>]) [73] (./ejercicios/54.tex) (./ejercicios/55.tex)
+[74] (./ejercicios/56.tex) (./ejercicios/50.tex [75]
+</home/pi/math/maestria/topologia_algebraica/figuras/homeomorfismo_circulo.jpg,
+ id=316, 1138.2525pt x 284.06125pt>
+File: /home/pi/math/maestria/topologia_algebraica/figuras/homeomorfismo_circulo
+.jpg Graphic file (type jpg)
+
+<use /home/pi/math/maestria/topologia_algebraica/figuras/homeomorfismo_circulo.
+jpg>
+Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/ho
+meomorfismo_circulo.jpg used on input line 94.
+(pdftex.def)             Requested size: 455.29294pt x 113.62247pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [76]
+Overfull \hbox (2.3548pt too wide) in paragraph at lines 441--445
+[]\OT1/cmr/m/n/10 Ahora, si $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it
+/10 K \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 L$ \OT1/cmr/m/n/10 es un mor-fismo si
+m-pli-cial en-tonces un sim-plejo de di-mensi^^Son m^^Saxima $\OMS/cmsy/m/n/10 
+f\OML/cmm/m/it/10 v[]; [] ; v[]\OMS/cmsy/m/n/10 g 2
+ []
+
+
+</home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg, id=32
 0, 1438.37375pt x 997.7275pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg G
 raphic file (type jpg)
 
 <use /home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/co
-mplejo_nervio.jpg used on input line 375.
+mplejo_nervio.jpg used on input line 464.
 (pdftex.def)             Requested size: 158.2216pt x 109.75035pt.
 
 
 LaTeX Warning: Reference `cor:invariancia_homotopica_grupo_fundamental' on page
- 74 undefined on input line 385.
+ 77 undefined on input line 474.
 
-[74 </home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg>]
-(./ejercicios/51.tex) [75] [76] (./ejercicios/52.tex
+[77 </home/pi/math/maestria/topologia_algebraica/figuras/homeomorfismo_circulo.
+jpg> </home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg>]
+(./ejercicios/51.tex) [78] [79] (./ejercicios/52.tex [80]) (./ejercicios/53.tex
+[81]) (./ejercicios/58.tex
+Overfull \hbox (79.14174pt too wide) in paragraph at lines 2--4
+[]\OT1/cmr/bx/n/10 Ejercicio 56. []\OT1/cmr/m/n/10 Sea $\OML/cmm/m/it/10 K$ \OT
+1/cmr/m/n/10 el com-plejo sim-pli-cial con v^^Sertices $\OML/cmm/m/it/10 V[] \O
+T1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 v[]; v[]; v[]\OMS/cmsy/m/n/1
+0 g$ \OT1/cmr/m/n/10 y $\OML/cmm/m/it/10 K \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f
+f\OML/cmm/m/it/10 v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OM
+L/cmm/m/it/10 v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cm
+m/m/it/10 v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cmm/m/
+it/10 v[]; v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cmm/m
+/it/10 v[]; v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cmm/
+m/it/10 v[]; v[]\OMS/cmsy/m/n/10 gg$\OT1/cmr/m/n/10 .
+ []
 
-LaTeX Warning: Reference `eq:diagrama_extension' on page 77 undefined on input 
-line 34.
+) [82] (./ejercicios/57.tex [83])
+LaTeX Font Info:    Try loading font information for U+eus on input line 817.
 
-[77])) [78] (./topologia_algebraica.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueus.fd
+File: ueus.fd 2013/01/14 v3.01 Euler Script
+) (./ejercicios/59.tex [84]) (./ejercicios/60.tex) [85])
+(./secciones/homologia_singular/homologia_singular.tex [86] [87]
+(./ejercicios/61.tex) (./ejercicios/62.tex) [88]
+
+LaTeX Warning: Reference `def:' on page 89 undefined on input line 222.
+
+[89] [90] (./ejercicios/63.tex
+Overfull \hbox (0.41707pt too wide) in paragraph at lines 30--34
+\OT1/cmr/m/n/10 Por lo tanto $\OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/i
+t/10 C[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 R\OT1/cmr/m/n/10 )$ viene equipado c
+on la fa-milia de mor-fis-mos $\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 H[]\OT1/cmr/m
+/n/10 (\OML/cmm/m/it/10 {[]\OT1/cmr/m/n/10 ) : \OML/cmm/m/it/10 H[]\OT1/cmr/m/n
+/10 (\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 R\OT1/cmr/m/n/10 ) 
+\OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 C[]\OT
+1/cmr/m/n/10 ; \OML/cmm/m/it/10 R\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 g[]$\OT1/cmr
+/m/n/10 .
+ []
+
+[91]) [92] [93] (./ejercicios/64.tex) [94]
+Overfull \hbox (1.28912pt too wide) in paragraph at lines 588--591
+\OT1/cmr/m/n/10 Para ver que $^^H$ es un iso-mor-fismo basta ver-i-ficar que in
+-duce una biyecci^^Son en-tre las bases de $\OMS/cmsy/m/n/10 ^^H\OML/cmm/m/it/1
+0 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X[]; A[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/
+10 R\OT1/cmr/m/n/10 )$
+ []
+
+(./ejercicios/65.tex [95])
+Overfull \hbox (0.4781pt too wide) in paragraph at lines 616--616
+[] 
+ []
+
+[96] (./ejercicios/66.tex))
+(./secciones/invariancia_homologia/invariancia_homologia.tex [97] [98]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[99]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[100]
+
+LaTeX Warning: Reference `eq:fzn_es_ciclo' on page 101 undefined on input line 
+341.
+
+[101] (./ejercicios/67.tex)) (./secciones/escision/escision.tex [102]
+(./ejercicios/71.tex) [103] [104] (./ejercicios/72.tex) [105] [106]
+(./ejercicios/73.tex) [107] [108] (./ejercicios/74.tex [109]))
+(./secciones/categorias/categorias.tex [110]
+Overfull \hbox (23.71156pt too wide) detected at line 24
+[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
+ []
+
+[111
+
+]
+Overfull \hbox (6.40227pt too wide) in paragraph at lines 72--74
+[]$[]$\OT1/cmr/m/n/10 : $[] [] = \OMS/cmsy/m/n/10 f[]g$\OT1/cmr/m/n/10 , $[] []
+ = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 G \O
+MS/cmsy/m/n/10 ! \OML/cmm/m/it/10 H \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 f []\OM
+S/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (55.67677pt too wide) in paragraph at lines 76--78
+[]$[][][]$\OT1/cmr/m/n/10 : $[] [] = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 R[]\OMS
+/cmsy/m/n/10 g$\OT1/cmr/m/n/10 , $[] [] = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 f 
+\OT1/cmr/m/n/10 : \OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 N \OMS
+/cmsy/m/n/10 j \OML/cmm/m/it/10 f [] R[]\OMS/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
+ []
+
+
+Overfull \hbox (70.16055pt too wide) in paragraph at lines 78--80
+[]$[]$\OT1/cmr/m/n/10 : $[] [] = \OMS/cmsy/m/n/10 f[]g$\OT1/cmr/m/n/10 , $[] []
+ = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 K \O
+MS/cmsy/m/n/10 ! \OML/cmm/m/it/10 L \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 f []\OM
+S/cmsy/m/n/10 g$\OT1/cmr/m/n/10 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 128--129
+
+ []
+
+(./ejercicios/68.tex [112]) (./ejercicios/69.tex) (./ejercicios/70.tex [113]))
+[114] (./topologia_algebraica.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 17955 strings out of 495020
- 381950 string characters out of 6181324
- 378433 words of memory out of 5000000
- 20577 multiletter control sequences out of 15000+600000
- 18258 words of font info for 69 fonts, out of 8000000 for 9000
+ 19822 strings out of 495020
+ 427635 string characters out of 6181324
+ 414646 words of memory out of 5000000
+ 22349 multiletter control sequences out of 15000+600000
+ 19157 words of font info for 73 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  61i,21n,84p,505b,1218s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -1481,17 +1622,22 @@ fonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on topologia_algebraica.pdf (78 pages, 8019074 bytes).
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/euler/eufm5.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/euler/eusm10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/euler/eusm7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msbm5.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/symbols/msbm7.pfb>
+Output written on topologia_algebraica.pdf (114 pages, 8312045 bytes).
 PDF statistics:
- 430 PDF objects out of 1000 (max. 8388607)
- 276 compressed objects within 3 object streams
+ 567 PDF objects out of 1000 (max. 8388607)
+ 370 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 211 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 216 words of extra memory for PDF output out of 10000 (max. 10000000)
 

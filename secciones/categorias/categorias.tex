@@ -1,0 +1,194 @@
+\documentclass[../../topologia_algebraica]{subfiles}
+\begin{document}
+\chapter*{Categor\'ias}
+
+Para probar el teorema de la invariancia homot\'opica de la homolog\'ia singular fue la
+existencia del diagrama conmutativo
+\[
+  \begin{tikzcd}
+    S_n(X) \arrow[r,"T^X_n"] \arrow[d,"f_{\#}"'] & S_{n+1}(X\times I) \arrow[d,"(f\times\Id_I)_{\#}"]\\
+    S_n(Y) \arrow[r,"T^Y_n"'] & S_{n+1}(Y\times I)
+  \end{tikzcd}
+\]
+Para probar el teorema de esici\'on nos apoyamos en la sucesi\'on exacta larga de la
+homolog\'ia relativa junto con el diagrama conmutativo
+\[
+  \begin{tikzcd}[column sep=large]
+    \cdots \arrow[r] & H_n(A) \arrow[r,"H_n(\imath)"] \arrow[d,"H_n(f|_A)"]&
+    H_n(X) \arrow[r,"H_n(j)"] \arrow[d,"H_n(f)"] & H_n(X,A) \arrow[r,"d_n"] \arrow[d,"H_n(f)"] &
+    H_{n-1}(A) \arrow[r,"H_{n-1}(\imath)"] \arrow[d,"H_{n-1}(f|_A)"] &
+    H_{n-1}(X) \arrow[r] \arrow[d,"H_{n-1}(f)"] & \cdots\\
+     \cdots \arrow[r] & H_n(B) \arrow[r,"H_n(\imath')"'] & H_n(X) \arrow[r,"H_n(j')"'] &
+    H_n(Y,B) \arrow[r,"d'_n"'] & H_{n-1}(B) \arrow[r,"H_{n-1}(\imath')"'] & H_{n-1}(Y) \arrow[r] & \cdots
+   \end{tikzcd}
+ \]
+ Estas consideraciones llevaron a Eilenberg y a Maclane a crear la teor\'ia de categor\'ias.
+
+ \begin{defin}
+   Una \emph{categor\'ia} $\Cc$ consiste de tres cosas:
+   \begin{enumerate}
+   \item Una clase $\obj{\Cc}$ de objetos.
+   \item Para cada dos objetos $A,B\in\obj{\Cc}$, existe un conjunto $\Hom{A,B}$ cuyos
+     elementos se llaman morfismos y se denotan $f:A\ra B$ o $A\morf{f}B$.
+   \item Para cada terna $A,B,C\in\obj{\Cc}$ existe una funci\'on
+     \[
+       \circ:\Hom{A,B}\times\Hom{B,C}\lra \Hom{A,C} \quad\text{definido por}\quad
+       (f,g)\mapsto g\circ f,
+     \]
+     llamado \emph{composici\'on} que cumple las siguientes dos propiedades:
+     \begin{enumerate}
+     \item $\circ$ es asociativa, es decir $(h\circ g)\circ f=h\circ(g\circ f)$.
+     \item Para todo objeto $A\in\obj{\Cc}$ existe un morfismo $\Id_A\in\Hom{A,A}$
+       tal que para todo objeto $B\in\obj{\Cc}$, y cualesquiera $f\in\Hom{A,B}$ y
+       $g\in\Hom{B,A}$, se cumple
+       \[
+         f\circ\Id_A=f\quad\text{y}\quad \Id_A\circ g=g
+       \]
+     \end{enumerate}
+   \end{enumerate}
+ \end{defin}
+
+ \begin{nota}
+   Usualmente omitimos la notaci\'on $\circ$ para simplemente escribir $gf$ en lugar de $g\circ f$.
+   Tambi\'en pedimos que, si $A\neq C$ o $B\neq D$ entonces $\Hom{A,B}\cap\Hom{C,D}=\emptyset$.
+   Es decir los morfismos est\'an determinados, en parte, por su dominio y su contradominio.
+ \end{nota}
+
+ Las matem\'aticas est\'an llenas de categor\'ias:
+
+ \begin{ejemplo}$\;$\\
+   \begin{enumerate}
+   \item $\cat{Top}$: $\obj{\cat{Top}}=\{\text{espacios topol\'ogicos}\}$,
+     $\Hom{X,Y}=\{f:X\ra Y\mid f\;\text{es continua}\}$.
+   \item $\cat{Top}_*$: $\obj{\cat{Top}_*}=\{(X,x)\mid X\in\obj{\cat{Top}},x\in X\}$,
+     $\Hom{(X,x),(Y,y)}=\{f:X\ra Y\mid f\;\text{es continua y}\;f(x)=y\}$.
+   \item $\cat{Top}_2$: $\obj{\cat{Top}_2}=\{(X,A)\mid X,A\in\obj{\cat{Top}},A\subseteq X\}$,
+     $\Hom{(X,A),(Y,B)}=\{f:X\ra Y\mid f\;\text{es continua y}\; f[A]\subseteq B\}$.
+   \item $\cat{Var}$: $\obj{\cat{Var}}=\{\text{variedades suaves}\}$,
+     $\Hom{M,N}=\{f:M\ra N\mid f\;\text{es suave}\}$.
+   \item $h\cat{Top}$: $\obj{h\cat{Top}}=\obj{\cat{Top}}$,
+     $\Hom{X,Y}=[X,Y]$ donde la composici\'on est\'a definida por $[g][f]=[g\circ f]$
+     (cf. definici\'on \ref{def:map_modulo_homotopia}).
+   \item $\cat{Grupos}$: $\obj{\cat{Grupos}}=\{\text{grupos}\}$,
+     $\Hom{G,H}=\{f:G\ra H\mid f\;\text{es un homomorfismo de grupos}\}$. 
+   \item $\cat{Ab}$: $\obj{\cat{Ab}}=\{\text{grupos abelianos}\}$,
+     $\Hom{G,H}=\{f:X\ra Y\mid f\;\text{es homomorfismo de grupos}\}$.
+   \item ${}_R\cat{Mod}$: $\obj{{}_R\cat{Mod}}=\{R\text{-m\'odulos izquierdos}\}$,
+     $\Hom{M,N}=\{f:M\ra N\mid f\;\text{es un morfismo de}\;R\text{-m\'odulos}\}$.
+   \item $\cat{CompSimp}$: $\obj{\cat{CompSimp}}=\{\text{complejos simpliciales}\}$,
+     $\Hom{K,L}=\{f:K\ra L\mid f\;\text{es un mapea simplicial}\}$.
+   \item $\cat{Comp}(\Aa)$: $\obj{\cat{Comp}(\Aa)}=\{\text{complejos de cadena en la categor\'ia}\;\Aa\}$,
+     $\Hom{\Cc_{\bullet},C'_{\bullet}}=\{f_{\bullet}:\Cc_{\bullet}\ra \Cc'_{\bullet}\mid%
+     f_{\bullet}\;\text{es un morfismo de complejos de cadena}\}$.
+   \item $\cat{Cov}(X)$: $\obj{\cat{Cov}(X)}=\{\text{cubrientes sobre}\; X\}$,
+     $\Hom{(E,p,X),(E',p',X)}=\{f:E\ra E'\mid f\;\text{es continua y}\; f\circ p'=p\}$.
+   \item Si $(X,\leq)$ es un conjunto parcialmente ordenado, entonces tiene naturalmente
+     la estructura de una categor\'ia: define $\obj{(X,\leq)}=X$ y
+     \[
+       \Hom{x,x'}=
+       \begin{cases}
+         \imath^x_{x'} &\text{si}\;\; x\leq x' \\
+         \emptyset &\text{si}\;\; x\not\leq x'.
+       \end{cases}
+     \]
+   \item Todo grupo $G$ se puede realizar como una categor\'ia: define $\obj{G}=\{\bullet\}$
+     y $\Hom{\bullet,\bullet}=G$ donde la composici\'on est\'a dada por la multiplicaci\'on
+     del grupo, ie. $g\circ g'=gg'$.
+   \end{enumerate}
+ \end{ejemplo}
+
+ \begin{defin}
+   Una categor\'ia $\Cc$ es \emph{peque\~na} si $\obj{\Cc}$ es un conjunto.
+ \end{defin}
+
+ Una definic\'on que siempre hemos usado es la de isomorfismo:
+
+ \begin{defin}
+   Sea $\Aa$ una categor\'ia y $A,B\in\obj{\Aa}$. Un morfismo $f\in\Hom{A,B}$ es
+   un \emph{isomorfismo} si existe un morfismo $g\in\Hom{B,A}$ tal que $gf=\Id_A$
+   y $fg=\Id_B$.
+ \end{defin}
+
+ Otra definici\'on importante es la de funtor:
+ 
+ \begin{defin}
+   Sean $\Aa$ y $\Bb$ categor\'ias. Un \emph{funtor} (covariante), denotado por $\Ff:\Aa\ra\Bb$,
+   es una asignaci\'on:
+   \[
+     A \mapsto \Ff(A)\in\obj{\Bb} \quad\text{y}\quad
+     \Big(A\morf{f} A' \Big) \mapsto \Big(\Ff(A)\morf{\Ff(f)} \Ff(A') \Big)
+   \]
+   que cumple las siguiente dos propiedades:
+   \begin{enumerate}
+   \item $\Ff(\Id_A)=\Id_{\Ff(A)}$
+   \item $\Ff(gf)=\Ff(g)\Ff(f)$
+   \end{enumerate}
+ \end{defin}
+
+ \begin{ejemplo}$\;$\\
+   \begin{enumerate}
+   \item $\pi_n:\cat{Top}_*\ra\cat{Grupos}$ con $(X,x_0)\mapsto\pi_n(X,x_0)$.
+   \item $H_n(\_;R):\cat{Top}\ra{}_R\cat{Mod}$ con $X\mapsto H_n(X;R)$.
+     \item $\abs{\cdot}:\cat{CompSimp}\ra\cat{Top}$ con $K\mapsto\abs{K}$.
+   \end{enumerate}
+ \end{ejemplo}
+
+ Los funtores preservan isomorfismos:
+
+ \import{\directory}{ejercicios/68} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 68
+
+ \import{\directory}{ejercicios/69} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 69
+
+ Mientras que la definici\'on de funtor es importante, es m\'as interesante la
+ de transformaci\'on natural:
+
+ \begin{defin}
+   Sean $\Aa$ y $\Bb$ categor\'ias, $\Ff,\Gg:\Aa\ra\Bb$ funtores. Una \emph{transformaci\'on
+     natural} entre $\Ff$ y $\Gg$, denotado por $\fT:\Ff\ra\Gg$ es una familia de morfismos
+   $\fT=\{T_A:\Ff(A)\ra\Gg(A)\}_{A\in\obj{\Aa}}$ tales que hacen conmutar el siguiente diagrama:
+   \[
+     \begin{tikzcd}
+       \Ff(A) \arrow[r,"T_A"] \arrow[d,"\Ff(f)"'] & \Gg(A) \arrow[d,"\Gg(f)"] \\
+       \Ff(A') \arrow[r,"T_{A'}"'] & \Gg(A')
+     \end{tikzcd}\quad\forall A,A'\in\obj{\Aa},\;\;\forall f\in\Hom{A,A'}.
+   \]
+   Si adem\'as cada $T_A\in \fT$ es un isomorfismo, decimos que $\fT$ es una \emph{equivalencia
+   natural}.
+\end{defin}
+
+\begin{ejemplo}
+  \begin{enumerate}
+  \item Sea $S_{n}(\_;R):\cat{Top}\ra{}_R\cat{Mod}$ el funtor
+    $X\mapsto S_{n}(X;R)$ y $f\mapsto f_{n}$, la $n$-\'esima componente del morfismo
+    $f_{\#}:S_{\bullet}(X)\ra S_{\bullet}(Y)$ de complejos de cadena. Sea $\fI:\cat{Top}\ra\cat{Top}$
+    el funtor $X\mapsto X\times I$ con $f\mapsto f\times\Id$. Definimos:
+    \[
+      \Ff=(S_{n+1}(\_;R)\circ\fI):\cat{Top}\lra {}_R\cat{Mod} \quad\text{con}\quad
+      X\mapsto S_{n+1}(X\times I)\;\;,\;\; f\mapsto (f\times\Id)_{\#}
+    \]
+    
+    Observa que $\fT=\{T_A:S_n(X)\ra S_{n+1}(X\times I)\}_{X}$ es una transformaci\'on natural
+    (cf. secci\'on \ref{sec:invariancia}).
+  \item Tomamos el funtor $H_n(\_,\_;R)$ el funtor de homolog\'ia relativa. Define
+    $\Ff_n=H_{n-1}(\_;R)\circ\pi$ donde $\pi:\cat{Top}_2\ra\cat{Top}$ es el funtor
+    $(X,A)\mapsto A$ y $f\mapsto f|_{A}$. En s\'imbolos:
+    \[
+      \Ff_n:\cat{Top}_2\lra {}_R\cat{Mod} \quad\text{con}\quad (X,A)\mapsto H_{n-1}(A;R)
+    \]
+    Entonces la familia de morfismos de conexi\'on $\fD=\{d_n^{(X,A)}:H_n(X,A;R)\ra H_{n-1}(A)\}_{(X,A)}$
+    es una transformaci\'on natural entre $H_n(\_,\_;R)$ y $\Ff_n$.
+  \item Sea $\Vv_{<\infty}$ la categor\'ia de $k$-espacios vectoriales de dimensi\'on finita con
+  transformaciones lineales como morfismos. Sea $\Ii:\Vv_{<\infty}\ra\Vv_{<\infty}$ el funtor
+  identidad, es decir $\Ii(V)=V$ y $\Ii(f)=f$. Ahora define $F$ cumple el funtor ``doble dual'',
+  es decir $\Ff:\Vv_{<\infty}\ra\Vv_{<\infty}$ con $V\mapsto V^{**}$ y $\Ff(f)$ definido de la
+  manera can\'onica. M\'as precisamente, si $f:V\ra W$ es una transformaci\'on lineal y
+  $\alpha:V^*\ra k$ es un elemento de $V^{**}=\Hom{V^*,k}$, entonces $\Ff(f)(\alpha)$ se define
+  como la funci\'on $\Ff(f)(\alpha):V^{**}\ra W^{**}$ que hace
+  $\Ff(f)(\alpha)(\beta)=\alpha(\beta\circ f)$, donde $\beta:W\ra k$.
+    
+  \end{enumerate}
+\end{ejemplo}
+ \import{\directory}{ejercicios/70} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% EJERCICIO 70
+
+
+\end{document}

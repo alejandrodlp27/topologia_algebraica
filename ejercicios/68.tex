@@ -1,0 +1,17 @@
+\begin{ejercicio}\label{ej:68}
+  Sea $\Aa$ una categor\'ia y $A,A'\in\obj{\Aa}$. Si $f\in\Hom{A,A'}$ es un isomorfismo,
+  entonces $\Ff(f):\Ff(A)\ra\Ff(A')$ es un isomorfismo.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Por hip\'otesis $f:A\ra A'$ es un isomorfismo, entonces existe un morfismo
+  $g\in\Hom{A',A}$ tal que $gf=\Id_A$ y $fg=\Id_{A'}$. Aplicamos el funtor $\Ff$ a estas igualdades
+  para obtener
+  \[
+    \Ff(g)\Ff(f)=\Ff(gf)=\Ff(\Id_A)=\Id_{\Ff(A)} \quad\text{y}\quad
+    \Ff(f)\Ff(g)=\Ff(fg)=\Ff(\Id_{A'})=\Id_{\Ff(A')}
+  \]
+  Por lo tanto existe un $\Ff(g)\in\Hom(\Ff(A'),\Ff(A))$ tal que $\Ff(g)\Ff(f)=\Id_{\Ff(A)}$
+  y $\Ff(f)\Ff(g)=\Id_{\Ff(A')}$. Por lo tanto $\Ff(f)$ es un isomorfismo.
+\end{proof}%
+

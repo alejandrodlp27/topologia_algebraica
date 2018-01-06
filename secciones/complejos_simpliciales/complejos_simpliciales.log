@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.26)  22 DEC 2017 14:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.26)  24 DEC 2017 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -377,6 +377,11 @@ Package: subfiles 2012/05/23 Federico Garcia
 )
 (/home/pi/texmf/tex/latex/math_letters.sty
 Package: math_letters 
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/euscript.sty
+Package: euscript 2009/06/22 v3.00 Euler Script fonts
+LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
+(Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
 )
 (/home/pi/texmf/tex/latex/tikz-cd.sty
 Package: tikz-cd 2014/10/30 v0.9e Commutative diagrams with tikz
@@ -977,9 +982,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 /math/maestria/topologia_algebraica/figuras/complejo_circulo.jpeg>]) [8]
 (/home/pi/math/maestria/topologia_algebraica/ejercicios/54.tex)
 (/home/pi/math/maestria/topologia_algebraica/ejercicios/55.tex)
-(/home/pi/math/maestria/topologia_algebraica/ejercicios/50.tex [9]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+(/home/pi/math/maestria/topologia_algebraica/ejercicios/56.tex [9])
+(/home/pi/math/maestria/topologia_algebraica/ejercicios/50.tex [10]
 </home/pi/math/maestria/topologia_algebraica/figuras/homeomorfismo_circulo.jpg,
- id=67, 1138.2525pt x 284.06125pt>
+ id=70, 1138.2525pt x 284.06125pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/homeomorfismo_circulo
 .jpg Graphic file (type jpg)
 
@@ -988,9 +997,9 @@ jpg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/ho
 meomorfismo_circulo.jpg used on input line 94.
 (pdftex.def)             Requested size: 455.29294pt x 113.62247pt.
-) [10 </home/pi/math/maestria/topologia_algebraica/figuras/homeomorfismo_circul
+) [11 </home/pi/math/maestria/topologia_algebraica/figuras/homeomorfismo_circul
 o.jpg>]
-Overfull \hbox (2.3548pt too wide) in paragraph at lines 405--409
+Overfull \hbox (2.3548pt too wide) in paragraph at lines 441--445
 []\OT1/cmr/m/n/10 Ahora, si $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 : \OML/cmm/m/it
 /10 K \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 L$ \OT1/cmr/m/n/10 es un mor-fismo si
 m-pli-cial en-tonces un sim-plejo de di-mensi^^Son m^^Saxima $\OMS/cmsy/m/n/10 
@@ -998,47 +1007,66 @@ f\OML/cmm/m/it/10 v[]; [] ; v[]\OMS/cmsy/m/n/10 g 2
  []
 
 
-</home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg, id=71
+</home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg, id=74
 , 1438.37375pt x 997.7275pt>
 File: /home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg G
 raphic file (type jpg)
 
 <use /home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg>
 Package pdftex.def Info: /home/pi/math/maestria/topologia_algebraica/figuras/co
-mplejo_nervio.jpg used on input line 428.
+mplejo_nervio.jpg used on input line 464.
 (pdftex.def)             Requested size: 158.2216pt x 109.75035pt.
 
 
 LaTeX Warning: Reference `cor:invariancia_homotopica_grupo_fundamental' on page
- 11 undefined on input line 438.
+ 12 undefined on input line 474.
 
-[11 </home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg>]
+[12 </home/pi/math/maestria/topologia_algebraica/figuras/complejo_nervio.jpg>]
 (/home/pi/math/maestria/topologia_algebraica/ejercicios/51.tex
 
-LaTeX Warning: Reference `ej:31' on page 12 undefined on input line 29.
+LaTeX Warning: Reference `ej:31' on page 13 undefined on input line 29.
 
 )
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12] [13] (/home/pi/math/maestria/topologia_algebraica/ejercicios/52.tex)
-[14] (/home/pi/math/maestria/topologia_algebraica/ejercicios/53.tex) [15]
+[13] [14] (/home/pi/math/maestria/topologia_algebraica/ejercicios/52.tex)
+[15] (/home/pi/math/maestria/topologia_algebraica/ejercicios/53.tex) [16]
+(/home/pi/math/maestria/topologia_algebraica/ejercicios/58.tex
+Overfull \hbox (79.14174pt too wide) in paragraph at lines 2--4
+[]\OT1/cmr/bx/n/10 Ejercicio 14. []\OT1/cmr/m/n/10 Sea $\OML/cmm/m/it/10 K$ \OT
+1/cmr/m/n/10 el com-plejo sim-pli-cial con v^^Sertices $\OML/cmm/m/it/10 V[] \O
+T1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 v[]; v[]; v[]\OMS/cmsy/m/n/1
+0 g$ \OT1/cmr/m/n/10 y $\OML/cmm/m/it/10 K \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 f
+f\OML/cmm/m/it/10 v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OM
+L/cmm/m/it/10 v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cm
+m/m/it/10 v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cmm/m/
+it/10 v[]; v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cmm/m
+/it/10 v[]; v[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 f\OML/cmm/
+m/it/10 v[]; v[]\OMS/cmsy/m/n/10 gg$\OT1/cmr/m/n/10 .
+ []
+
+) [17] (/home/pi/math/maestria/topologia_algebraica/ejercicios/57.tex) [18]
+LaTeX Font Info:    Try loading font information for U+eus on input line 817.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueus.fd
+File: ueus.fd 2013/01/14 v3.01 Euler Script
+)
+(/home/pi/math/maestria/topologia_algebraica/ejercicios/59.tex) [19]
+(/home/pi/math/maestria/topologia_algebraica/ejercicios/60.tex) [20] [21]
 (./complejos_simpliciales.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 15677 strings out of 495020
- 322915 string characters out of 6181324
- 344666 words of memory out of 5000000
- 18500 multiletter control sequences out of 15000+600000
- 14072 words of font info for 53 fonts, out of 8000000 for 9000
+ 16042 strings out of 495020
+ 331906 string characters out of 6181324
+ 352902 words of memory out of 5000000
+ 18841 multiletter control sequences out of 15000+600000
+ 14672 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 70i,15n,86p,547b,996s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 70i,15n,86p,547b,1010s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -1060,14 +1088,15 @@ blic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /euler/eufm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/eu
 ler/eufm5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/
-eufm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
-am10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
-m10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
-7.pfb>
-Output written on complejos_simpliciales.pdf (15 pages, 761115 bytes).
+eufm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eusm
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on complejos_simpliciales.pdf (21 pages, 793957 bytes).
 PDF statistics:
- 174 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
+ 201 PDF objects out of 1000 (max. 8388607)
+ 136 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  74 words of extra memory for PDF output out of 10000 (max. 10000000)
 

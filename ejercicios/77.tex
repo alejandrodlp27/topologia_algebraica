@@ -1,0 +1,46 @@
+\begin{ejercicio}\label{ej:77}
+  $r$ es continua.
+\end{ejercicio}
+%%% RESPUESTA
+\begin{proof}%  
+  Simplemente parametrizamos a $r$. Veo todo encajado en $\RR^n$, entonces puedo escribir
+  $x=(x_1,\ldots,x_n)$ y $f(x)=(f_1(x),\ldots,f_n(x))$. Parametrizo el rayo
+  $\sL_x=\{x+t(f(x)-x)\mid t\geq 0\}$ como $\sL_x(t)=x+t(f(x)-x)$, entonces la intersecci\'on
+  del rayo con $\partial\DD^n=\Sn^{n-1}$ es el conjunto de puntos
+  del rayo que son unitarios, por lo tanto $\sL_x(t)=x+t(f(x)-x)$ est\'a en la intersecci\'on
+  si y s\'olo si
+  \begin{align*}
+    1&=\|\sL_x(t)\|^2=
+    \gen{x+t(f(x)-x),x+t(f(x)-x)}\\ & =
+    \gen{x,x}+2t\gen{x,f(x)-x}+t^2\gen{f(x)-x,f(x)-x}\\ & =
+    \|x\|^2+2t\big(\gen{x,f(x)}-\|x\|^2 \big)+t^2\|f(x)-x\|^2\\
+    \therefore 0 &= \underset{c}{\underbrace{\big(\|x\|^2-1\big)}}+
+    \underset{b}{\underbrace{\big(2\gen{x,f(x)}-2\|x\|^2\big)}}t+
+    \underset{a}{\underbrace{\|f(x)-x\|^2}}t^2.
+  \end{align*}
+  Es decir $t$ satisface un polinomio de grado 2. Observa que los coeficientes son
+  funciones continuas de $x$ ya que tomar normas es continuo y porque el producto
+  interior $\gen{x,f(x)}=x_1f_1(x)+\cdots+x_nf_n(x)$ es una combinaci\'on lineal de
+  funciones continuas (ie. las componentes $f_i$ de $f$ que es continua). Por lo tanto
+  $a=a(x)$, $b=b(x)$ y $c=c(x)$ son funciones continuas.
+
+  Observa que el discriminante del polinomio $p(t):=c(x)+b(x)t+a(x)t^2$ es positivo porque
+  $a>0$ por hip\'otesis (ie. $f$ no tiene puntos fijos), y porque $x\in\DD^n$ implica que
+  $\|x\|^2-1\leq 0$; estas dos cosas juntas nos garantizan que $b^2-4ac>0$. Por lo tanto
+  el polinomio $p(t)$ tiene dos raices reales. Un de ellas es
+%  \[
+%    t_x:=\frac{-\big(2\gen{x,f(x)}-2\|x\|^2\big)+
+%      \sqrt{\big(2\gen{x,f(x)}-2\|x\|^2\big)^2-4\|f(x)-x\|^2(\|x\|^2-1)}}{2\|f(x)-x\|^2}
+%  \]
+  \[
+    t_x:=\frac{-b(x)+\sqrt{b(x)^2-4a(x)c(x)}}{2a(x)}
+  \]
+  La otra ra\'iz es necesariamente negativa porque el numerador tendr\'ia dos restas.
+  Observa que, como funci\'on de $x$, $t_x$ es continua porque es la composici\'on de
+  funciones continuas y porque $a(x)\neq 0$ y porque $b(x)^2-4a(x)c(x)\geq 0$ para toda $x$.
+  Por lo tanto la funci\'on $s:\DD^n\ra\RR_{\geq 0}$ definido por $x\mapsto t_x$ es continua.
+
+  Por contrucci\'on sabemos que $\sL_x(t_x)\in\Sn^{n-1}$. Por lo tanto $r(x)=\sL_x(t_x)$
+  donde $\sL_x(t)$ es una funci\'on continua (es lineal) y donde $t_x$ es continua por
+  construcci\'on. Con esto concluimos que $r$ es continua.   
+\end{proof}%
